@@ -1,0 +1,18 @@
+XL2
+H 1 areas 5 global symbols
+S __div_signexte Ref0000
+S .__.ABS. Def0000
+S __div16 Ref0000
+A _CODE size 1B flags 0 addr 0
+S __divuschar Def000C
+S __divsuchar Def0000
+T 00 00
+R 00 00 00 00
+T 00 00 21 03 00 39 5E 2B 6E 26 00 C3 00 00
+R 00 00 00 00 02 0C 00 00
+T 0C 00
+R 00 00 00 00
+T 0C 00 21 03 00 54 39 5E 2B 6E 7D 07 9F 67 C3
+R 00 00 00 00
+T 19 00 00 00
+R 00 00 00 00 02 02 02 00

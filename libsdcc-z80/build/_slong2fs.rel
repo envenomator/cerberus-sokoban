@@ -1,0 +1,81 @@
+;!FILE /mnt/c/source/cerberus-sokoban/libsdcc-z80/build/_slong2fs.asm
+XL2
+H 9 areas 2F global symbols
+M _slong2fs
+O -mz80
+S ___ulong2fs Ref0000
+S .__.ABS. Def0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 48 flags 0 addr 0
+S C$_slong2fs.c$39$1_0$21 Def0047
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$102 Def0047
+S ___slong2fs Def0000
+S XG$__slong2fs$0$0 Def0047
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$50 Def0006
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$60 Def000F
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$70 Def0024
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$61 Def0012
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$71 Def0025
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$62 Def0013
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$90 Def0040
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$72 Def0026
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$63 Def0015
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$54 Def0008
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$91 Def0043
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$73 Def0027
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$64 Def0018
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$55 Def000C
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$92 Def0044
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$74 Def002A
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$65 Def0019
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$84 Def0032
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$75 Def002B
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$66 Def001B
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$48 Def0000
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$85 Def0035
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$76 Def002C
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$67 Def001E
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$49 Def0002
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$86 Def0038
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$77 Def002D
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$68 Def001F
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$59 Def000E
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$87 Def0039
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$78 Def002F
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$69 Def0021
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$97 Def0045
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$88 Def003C
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$79 Def0030
+S A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs$89 Def003F
+S C$_slong2fs.c$34$0_0$21 Def0000
+S C$_slong2fs.c$35$1_0$21 Def0008
+S C$_slong2fs.c$36$1_0$21 Def000E
+S C$_slong2fs.c$38$1_0$21 Def0032
+S G$__slong2fs$0$0 Def0000
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 04 00
+T 00 00 DD E5 DD 21 00 00 DD 39 DD CB 07 7E 28 24
+R 00 00 04 00
+T 0E 00 AF DD 96 04 4F 3E 00 DD 9E 05 47 3E 00 DD
+R 00 00 04 00
+T 1C 00 9E 06 5F 3E 00 DD 9E 07 57 D5 C5 CD 00 00
+R 00 00 04 00 02 0E 00 00
+T 2A 00 F1 F1 7A EE 80 57 18 13
+R 00 00 04 00
+T 32 00
+R 00 00 04 00
+T 32 00 DD 6E 06 DD 66 07 E5 DD 6E 04 DD 66 05 E5
+R 00 00 04 00
+T 40 00 CD 00 00 F1 F1
+R 00 00 04 00 02 03 00 00
+T 45 00
+R 00 00 04 00
+T 45 00 DD E1 C9
+R 00 00 04 00

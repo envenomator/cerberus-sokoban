@@ -1,0 +1,150 @@
+;!FILE /mnt/c/source/cerberus-sokoban/libsdcc-z80/build/_modslong.asm
+XL2
+H 9 areas 5E global symbols
+M _modslong
+O -mz80
+S .__.ABS. Def0000
+S __modulong Ref0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size A4 flags 0 addr 0
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$50 Def0008
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$60 Def0014
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$51 Def0009
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$70 Def0027
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$61 Def0015
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$52 Def000A
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$71 Def0028
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$62 Def0017
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$90 Def0053
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$81 Def003C
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$72 Def002A
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$63 Def0018
+S C$_modslong.c$2$0_0$2 Def0000
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$91 Def0055
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$82 Def003F
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$73 Def002D
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$64 Def001B
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$92 Def0058
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$83 Def0042
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$74 Def002E
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$65 Def001C
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$56 Def000B
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$47 Def0000
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$93 Def0059
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$84 Def0045
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$66 Def001E
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$57 Def000E
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$48 Def0002
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$94 Def005B
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$85 Def0048
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$76 Def0030
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$67 Def0021
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$58 Def000F
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$49 Def0006
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$95 Def005E
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$86 Def004C
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$77 Def0033
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$68 Def0022
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$59 Def0011
+S C$_modslong.c$6$1_0$2 Def000B
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$96 Def005F
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$87 Def004E
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$78 Def0036
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$69 Def0024
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$97 Def0061
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$88 Def004F
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$79 Def0039
+S C$_modslong.c$8$1_0$2 Def008A
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$98 Def0064
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$89 Def0052
+S C$_modslong.c$9$1_0$2 Def0090
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$99 Def0065
+S G$_modslong$0$0 Def0000
+S __modslong Def0000
+S XG$_modslong$0$0 Def00A3
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$110 Def007B
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$101 Def0067
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$111 Def007C
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$102 Def006A
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$130 Def0092
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$112 Def007F
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$103 Def006D
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$131 Def0093
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$122 Def008A
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$113 Def0082
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$104 Def0070
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$132 Def0095
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$123 Def008D
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$114 Def0083
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$133 Def0096
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$124 Def008E
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$115 Def0086
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$106 Def0073
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$134 Def0097
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$116 Def0087
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$107 Def0074
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$153 Def00A3
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$135 Def0099
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$117 Def0088
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$108 Def0075
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$136 Def009A
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$118 Def0089
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$109 Def0078
+S C$_modslong.c$11$1_0$2 Def009F
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$137 Def009B
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$128 Def0090
+S C$_modslong.c$12$1_0$2 Def00A3
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$147 Def009F
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$138 Def009D
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$129 Def0091
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$148 Def00A1
+S A$_modslongurce/cerberus-sokoban/libsdcc-z80/build/_modslong$139 Def009E
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 04 00
+T 00 00 DD E5 DD 21 00 00 DD 39 F5 F5 3B DD 7E 07
+R 00 00 04 00
+T 0E 00 07 E6 01 DD 77 FF B7 28 19 AF DD 96 04 4F
+R 00 00 04 00
+T 1C 00 3E 00 DD 9E 05 47 3E 00 DD 9E 06 5F 3E 00
+R 00 00 04 00
+T 2A 00 DD 9E 07 57 18 0C
+R 00 00 04 00
+T 30 00
+R 00 00 04 00
+T 30 00 DD 4E 04 DD 46 05 DD 5E 06 DD 56 07
+R 00 00 04 00
+T 3C 00
+R 00 00 04 00
+T 3C 00 DD 71 FB DD 70 FC DD 73 FD DD 72 FE DD CB
+R 00 00 04 00
+T 4A 00 0B 7E 28 19 AF DD 96 08 4F 3E 00 DD 9E 09
+R 00 00 04 00
+T 58 00 47 3E 00 DD 9E 0A 5F 3E 00 DD 9E 0B 57 18
+R 00 00 04 00
+T 66 00 0C
+R 00 00 04 00
+T 67 00
+R 00 00 04 00
+T 67 00 DD 4E 08 DD 46 09 DD 5E 0A DD 56 0B
+R 00 00 04 00
+T 73 00
+R 00 00 04 00
+T 73 00 D5 C5 DD 6E FD DD 66 FE E5 DD 6E FB DD 66
+R 00 00 04 00
+T 81 00 FC E5 CD 00 00 F1 F1 F1 F1 DD 7E FF B7 28
+R 00 00 04 00 02 05 01 00
+T 8F 00 0F AF 95 6F 3E 00 9C 67 3E 00 9B 5F 3E 00
+R 00 00 04 00
+T 9D 00 9A 57
+R 00 00 04 00
+T 9F 00
+R 00 00 04 00
+T 9F 00 DD F9 DD E1 C9
+R 00 00 04 00

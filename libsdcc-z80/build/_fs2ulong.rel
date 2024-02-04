@@ -1,0 +1,169 @@
+;!FILE /mnt/c/source/cerberus-sokoban/libsdcc-z80/build/_fs2ulong.asm
+XL2
+H 9 areas 6D global symbols
+M _fs2ulong
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size AF flags 0 addr 0
+S C$_fs2ulong.c$74$1_0$21 Def007F
+S G$__fs2ulong$0$0 Def0000
+S C$_fs2ulong.c$66$1_0$21 Def000D
+S C$_fs2ulong.c$76$1_0$21 Def009E
+S C$_fs2ulong.c$77$1_0$21 Def00AE
+S C$_fs2ulong.c$68$1_0$21 Def001B
+S C$_fs2ulong.c$69$1_0$21 Def003B
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$110 Def004C
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$120 Def005D
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$111 Def004D
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$102 Def0042
+S ___fs2ulong Def0000
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$130 Def0069
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$121 Def005E
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$103 Def0045
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$140 Def0079
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$131 Def006A
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$122 Def0060
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$113 Def004F
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$104 Def0046
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$150 Def0089
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$141 Def007C
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$132 Def006B
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$114 Def0051
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$105 Def0047
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$151 Def008A
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$133 Def006C
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$115 Def0053
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$106 Def0048
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$170 Def00AA
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$134 Def006D
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$116 Def0055
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$107 Def0049
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$171 Def00AC
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$162 Def009E
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$153 Def008C
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$135 Def006E
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$126 Def0063
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$117 Def0057
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$108 Def004A
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$163 Def00A1
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$154 Def0090
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$145 Def007F
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$136 Def0070
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$127 Def0066
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$118 Def0058
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$109 Def004B
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$164 Def00A4
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$155 Def0094
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$146 Def0080
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$137 Def0073
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$128 Def0067
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$119 Def005A
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$165 Def00A7
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$156 Def0098
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$147 Def0083
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$138 Def0076
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$129 Def0068
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$148 Def0084
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$139 Def0077
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$176 Def00AE
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$158 Def009C
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$149 Def0086
+S XG$__fs2ulong$0$0 Def00AE
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$50 Def0008
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$60 Def0015
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$51 Def000B
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$70 Def0021
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$61 Def0016
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$52 Def000C
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$80 Def002E
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$71 Def0022
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$62 Def0019
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$81 Def002F
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$72 Def0023
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$82 Def0030
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$73 Def0024
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$83 Def0031
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$74 Def0025
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$56 Def000D
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$47 Def0000
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$84 Def0032
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$75 Def0026
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$66 Def001B
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$57 Def0010
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$48 Def0002
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$94 Def003B
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$85 Def0033
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$76 Def0027
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$67 Def001E
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$58 Def0011
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$49 Def0006
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$95 Def003E
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$86 Def0034
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$77 Def0028
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$68 Def001F
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$59 Def0012
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$96 Def003F
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$87 Def0035
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$78 Def002A
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$69 Def0020
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$97 Def0040
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$88 Def0037
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$79 Def002D
+S A$_fs2ulongurce/cerberus-sokoban/libsdcc-z80/build/_fs2ulong$89 Def0039
+S C$_fs2ulong.c$60$0_0$21 Def0000
+S C$_fs2ulong.c$71$1_0$21 Def0042
+S C$_fs2ulong.c$72$1_0$21 Def0063
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 04 00
+T 00 00 DD E5 DD 21 00 00 DD 39 21 F6 FF 39 F9 21
+R 00 00 04 00
+T 0E 00 06 00 39 EB 21 0E 00 39 01 04 00 ED B0 21
+R 00 00 04 00
+T 1C 00 06 00 39 4E 23 46 23 7E 23 B6 B0 B1 28 11
+R 00 00 04 00
+T 2A 00 21 06 00 39 4E 23 46 23 5E 23 7E CB 07 E6
+R 00 00 04 00
+T 38 00 01 28 07
+R 00 00 04 00
+T 3B 00
+R 00 00 04 00
+T 3B 00 21 00 00 5D 54 18 68
+R 00 00 04 00
+T 42 00
+R 00 00 04 00
+T 42 00 21 06 00 39 4E 23 46 23 5E 23 56 06 07
+R 00 00 04 00
+T 4F 00
+R 00 00 04 00
+T 4F 00 CB 3A CB 1B 10 FA 0E 00 7B C6 6A DD 77 FA
+R 00 00 04 00
+T 5D 00 79 CE FF DD 77 FB 21 06 00 39 4E 23 46 23
+R 00 00 04 00
+T 6B 00 5E 23 56 16 00 DD 71 F6 DD 70 F7 7B F6 80
+R 00 00 04 00
+T 79 00 DD 77 F8 DD 72 F9 AF DD 96 FA 47 3E 00 DD
+R 00 00 04 00
+T 87 00 9E FB 04 18 10
+R 00 00 04 00
+T 8C 00
+R 00 00 04 00
+T 8C 00 DD CB F9 2E DD CB F8 1E DD CB F7 1E DD CB
+R 00 00 04 00
+T 9A 00 F6 1E
+R 00 00 04 00
+T 9C 00
+R 00 00 04 00
+T 9C 00 10 EE DD 6E F6 DD 66 F7 DD 5E F8 DD 56 F9
+R 00 00 04 00
+T AA 00
+R 00 00 04 00
+T AA 00 DD F9 DD E1 C9
+R 00 00 04 00

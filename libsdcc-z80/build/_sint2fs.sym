@@ -1,0 +1,48 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0000 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0003 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0004 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0005 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0006 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0007 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0008 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0009 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   000A GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   000B GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   000C GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   000D GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   000E GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0011 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0012 GR
+  4 A$_sint2fsource/cerberus-sokoban/libsdcc-z80/build/_sint2fs$   0013 GR
+  4 C$_sint2fs.c$35$0_0$21                                      =  0000 GR
+  4 C$_sint2fs.c$36$1_0$21                                      =  0000 GR
+  4 C$_sint2fs.c$37$1_0$21                                      =  0013 GR
+  4 G$__sint2fs$0$0                                             =  0000 GR
+  4 XG$__sint2fs$0$0                                            =  0013 GR
+  4 ___sint2fs                                                     0000 GR
+    ___slong2fs                                                    **** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size    0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size   14   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

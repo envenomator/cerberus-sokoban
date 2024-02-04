@@ -1,0 +1,156 @@
+;!FILE /mnt/c/source/cerberus-sokoban/libsdcc-z80/build/_fsneq.asm
+XL2
+H 9 areas 6A global symbols
+M _fsneq
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size A2 flags 0 addr 0
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$146 Def0090
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$137 Def0082
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$128 Def0075
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$119 Def0067
+S C$_fsneq.c$59$1_0$2 Def001B
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$165 Def009D
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$156 Def0096
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$147 Def0091
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$138 Def0085
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$129 Def0076
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$166 Def009F
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$157 Def0098
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$148 Def0093
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$139 Def0086
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$149 Def0094
+S XG$__fsneq$0$0 Def00A1
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$50 Def0008
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$60 Def0015
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$51 Def000B
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$70 Def0023
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$61 Def0016
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$52 Def000C
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$80 Def0031
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$71 Def0024
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$62 Def0019
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$90 Def0040
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$81 Def0032
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$72 Def0027
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$91 Def0041
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$82 Def0033
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$92 Def0042
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$83 Def0036
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$56 Def000D
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$47 Def0000
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$93 Def0043
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$84 Def0038
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$66 Def001B
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$57 Def0010
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$48 Def0002
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$94 Def0046
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$85 Def003B
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$76 Def0029
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$67 Def001E
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$58 Def0011
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$49 Def0006
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$95 Def0047
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$86 Def003C
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$77 Def002C
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$68 Def001F
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$59 Def0012
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$96 Def0049
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$87 Def003D
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$78 Def002D
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$69 Def0020
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$97 Def004C
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$88 Def003E
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$79 Def002E
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$98 Def004D
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$89 Def003F
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$99 Def004F
+S G$__fsneq$0$0 Def0000
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$100 Def0052
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$101 Def0053
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$120 Def0068
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$102 Def0055
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$130 Def0077
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$121 Def006B
+S C$_fsneq.c$61$1_0$2 Def0029
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$140 Def0087
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$131 Def0078
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$122 Def006D
+S C$_fsneq.c$62$1_0$2 Def0058
+S C$_fsneq.c$54$0_0$2 Def0000
+S ___fsneq Def0000
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$141 Def008A
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$132 Def007B
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$123 Def0070
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$114 Def005E
+S C$_fsneq.c$63$1_0$2 Def005E
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$160 Def009B
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$142 Def008B
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$133 Def007C
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$124 Def0071
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$115 Def0061
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$106 Def0058
+S C$_fsneq.c$64$1_0$2 Def0096
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$143 Def008C
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$134 Def007D
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$125 Def0072
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$116 Def0062
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$107 Def0059
+S C$_fsneq.c$65$1_0$2 Def0096
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$171 Def00A1
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$144 Def008D
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$135 Def0080
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$126 Def0073
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$117 Def0063
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$108 Def005B
+S C$_fsneq.c$66$1_0$2 Def00A1
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$145 Def008E
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$136 Def0081
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$127 Def0074
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$118 Def0066
+S A$_fsneq/source/cerberus-sokoban/libsdcc-z80/build/_fsneq$109 Def005C
+S C$_fsneq.c$58$1_0$2 Def000D
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 04 00
+T 00 00 DD E5 DD 21 00 00 DD 39 21 F4 FF 39 F9 21
+R 00 00 04 00
+T 0E 00 04 00 39 EB 21 10 00 39 01 04 00 ED B0 21
+R 00 00 04 00
+T 1C 00 00 00 39 EB 21 14 00 39 01 04 00 ED B0 21
+R 00 00 04 00
+T 2A 00 04 00 39 EB 21 08 00 39 EB 01 04 00 ED B0
+R 00 00 04 00
+T 38 00 21 00 00 39 4E 23 46 23 5E 23 56 DD 7E FC
+R 00 00 04 00
+T 46 00 91 20 15 DD 7E FD 90 20 0F DD 7E FE 93 20
+R 00 00 04 00
+T 54 00 09 DD 7E FF 92 20 03 6F 18 3F
+R 00 00 04 00
+T 5E 00
+R 00 00 04 00
+T 5E 00 21 04 00 39 EB 21 08 00 39 EB 01 04 00 ED
+R 00 00 04 00
+T 6C 00 B0 21 00 00 39 4E 23 46 23 5E 23 56 DD 7E
+R 00 00 04 00
+T 7A 00 FC B1 4F DD 7E FD B0 47 DD 7E FE B3 6F DD
+R 00 00 04 00
+T 88 00 7E FF B2 67 79 B7 20 0B B0 20 08 BF ED 6A
+R 00 00 04 00
+T 96 00 20 03 2E 00 C2
+R 00 00 04 00
+T 9B 00
+R 00 00 04 00
+T 9B 00 2E 01
+R 00 00 04 00
+T 9D 00
+R 00 00 04 00
+T 9D 00 DD F9 DD E1 C9
+R 00 00 04 00

@@ -1,0 +1,113 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   003B GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   003C GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   003F GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0040 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0043 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0044 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0047 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0048 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   004B GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   004D GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   004E GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0051 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0052 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0053 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0056 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0057 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0058 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   005B GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   005C GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   005D GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0060 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0061 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0064 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0066 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0069 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   006C GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   006F GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0072 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0075 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0078 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   007B GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   007E GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0081 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0082 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0084 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0087 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   008A GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   008D GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0090 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0091 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0093 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0000 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0002 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0006 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0008 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0009 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   000C GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   000F GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0013 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0016 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0018 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   001A GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   001B GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   001D GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0021 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0025 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0029 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   002D GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   002F GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0031 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0033 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0035 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0036 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0037 GR
+  4 A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong   0039 GR
+  4 C$_divulong.c$12$1_0$2                                      =  0013 GR
+  4 C$_divulong.c$15$2_0$3                                      =  0013 GR
+  4 C$_divulong.c$16$2_0$3                                      =  001D GR
+  4 C$_divulong.c$17$2_0$3                                      =  002D GR
+  4 C$_divulong.c$18$2_0$3                                      =  0035 GR
+  4 C$_divulong.c$19$2_0$3                                      =  0039 GR
+  4 C$_divulong.c$21$2_0$3                                      =  003B GR
+  4 C$_divulong.c$23$3_0$4                                      =  004D GR
+  4 C$_divulong.c$25$3_0$4                                      =  0061 GR
+  4 C$_divulong.c$28$1_0$2                                      =  007B GR
+  4 C$_divulong.c$29$1_0$2                                      =  0084 GR
+  4 C$_divulong.c$30$1_0$2                                      =  0093 GR
+  4 C$_divulong.c$6$0_0$2                                       =  0000 GR
+  4 C$_divulong.c$8$2_0$2                                       =  0009 GR
+  4 C$_divulong.c$9$2_0$2                                       =  000F GR
+  4 G$_divulong$0$0                                             =  0000 GR
+  4 XG$_divulong$0$0                                            =  0093 GR
+  4 __divulong                                                     0000 GR
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 3.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size    0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size   94   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

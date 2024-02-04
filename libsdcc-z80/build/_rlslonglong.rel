@@ -1,0 +1,80 @@
+;!FILE /mnt/c/source/cerberus-sokoban/libsdcc-z80/build/_rlslonglong.asm
+XL2
+H 9 areas 2E global symbols
+M _rlslonglong
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 59 flags 0 addr 0
+S C$_rlslonglong.c$1$0_0$2 Def0000
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$60 Def0013
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$70 Def0029
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$61 Def0016
+S C$_rlslonglong.c$3$1_0$2 Def0005
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$80 Def0047
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$71 Def002D
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$62 Def0017
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$53 Def0005
+S C$_rlslonglong.c$4$1_0$2 Def0058
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$90 Def0053
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$81 Def0048
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$72 Def0031
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$63 Def0018
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$54 Def0008
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$91 Def0056
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$82 Def0049
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$73 Def0035
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$64 Def0019
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$55 Def0009
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$92 Def0057
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$83 Def004A
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$74 Def0039
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$56 Def000A
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$47 Def0000
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$84 Def004D
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$75 Def003D
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$66 Def001B
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$57 Def000D
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$48 Def0003
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$85 Def004E
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$67 Def001F
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$58 Def000E
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$49 Def0004
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$86 Def0051
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$77 Def0041
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$68 Def0021
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$59 Def0011
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$78 Def0043
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$69 Def0025
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$97 Def0058
+S A$_rlslonglonge/cerberus-sokoban/libsdcc-z80/build/_rlslonglong$79 Def0046
+S G$_rlslonglong$0$0 Def0000
+S __rlslonglong Def0000
+S XG$_rlslonglong$0$0 Def0058
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 04 00
+T 00 00 21 F8 FF 39 F9 21 00 00 39 EB 21 0C 00 39
+R 00 00 04 00
+T 0E 00 01 08 00 ED B0 21 14 00 39 46 04 18 26
+R 00 00 04 00
+T 1B 00
+R 00 00 04 00
+T 1B 00 FD 21 00 00 FD 39 FD CB 00 26 FD CB 01 16
+R 00 00 04 00
+T 29 00 FD CB 02 16 FD CB 03 16 FD CB 04 16 FD CB
+R 00 00 04 00
+T 37 00 05 16 FD CB 06 16 FD CB 07 16
+R 00 00 04 00
+T 41 00
+R 00 00 04 00
+T 41 00 10 D8 21 0A 00 39 5E 23 56 21 00 00 39 01
+R 00 00 04 00
+T 4F 00 08 00 ED B0 21 08 00 39 F9 C9
+R 00 00 04 00

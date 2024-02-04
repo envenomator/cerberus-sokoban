@@ -1,0 +1,12 @@
+M:_mullong
+F:G$_mullong$0_0$0({2}DF,SL:S),Z,0,0,0,0,0
+S:L_mullong._mullong$a$1_0$1({4}SL:S),B,1,4
+S:L_mullong._mullong$b$1_0$1({4}SL:S),B,1,8
+S:L_mullong._mullong$i12$1_0$0({2}SI:U),R,0,0,[e,d]
+S:L_mullong._mullong$sloc0$0_1$0({2}DD,SI:U),B,1,-4
+S:L_mullong._mullong$sloc1$0_1$0({2}DD,SL:S),B,1,-6
+S:L_mullong._mullong$sloc2$0_1$0({2}SI:U),B,1,-2
+T:F_mullong$bil[({0}S:S$b$0_0$0({4}ST__00000000:S),Z,0,0)({0}S:S$i$0_0$0({4}ST__00000001:S),Z,0,0)({0}S:S$l$0_0$0({4}SL:U),Z,0,0)({0}S:S$bi$0_0$0({4}ST__00000002:S),Z,0,0)]
+T:F_mullong$__00000000[({0}S:S$b0$0_0$0({1}SC:U),Z,0,0)({1}S:S$b1$0_0$0({1}SC:U),Z,0,0)({2}S:S$b2$0_0$0({1}SC:U),Z,0,0)({3}S:S$b3$0_0$0({1}SC:U),Z,0,0)]
+T:F_mullong$__00000001[({0}S:S$lo$0_0$0({2}SI:U),Z,0,0)({2}S:S$hi$0_0$0({2}SI:U),Z,0,0)]
+T:F_mullong$__00000002[({0}S:S$b0$0_0$0({1}SC:U),Z,0,0)({1}S:S$i12$0_0$0({2}SI:U),Z,0,0)({3}S:S$b3$0_0$0({1}SC:U),Z,0,0)]

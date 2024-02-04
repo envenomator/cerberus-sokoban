@@ -1,0 +1,9 @@
+M:_divslonglong
+F:G$_divslonglong$0_0$0({2}DF,SI:S),Z,0,10,0,0,0
+S:L_divslonglong._divslonglong$numerator$1_0$1({8}SI:S),B,1,4
+S:L_divslonglong._divslonglong$denominator$1_0$1({8}SI:S),B,1,12
+S:L_divslonglong._divslonglong$numeratorneg$1_0$0({2}SI:S),R,0,0,[c,b]
+S:L_divslonglong._divslonglong$denominatorneg$1_0$0({2}SI:S),B,1,-2
+S:L_divslonglong._divslonglong$d$1_0$2({8}SI:S),B,1,-26
+S:L_divslonglong._divslonglong$sloc0$0_1$0({8}SI:U),B,1,-10
+S:L_divslonglong._divslonglong$sloc1$0_1$0({8}SI:U),B,1,-18

@@ -1,0 +1,163 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0076 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   007A GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   007E GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0082 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0086 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0088 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0089 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   008A GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   008D GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0090 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0093 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0096 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0099 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   009C GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   009F GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00A2 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00A5 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00A8 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00AB GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00AE GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00B1 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00B4 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00B7 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00BA GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00BD GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00BF GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00C2 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00C5 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00C8 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00CB GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00CE GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00D1 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00D4 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00D7 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00DA GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00DD GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00E0 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00E3 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00E6 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00E9 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00EC GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00EF GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00F2 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00F5 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00F8 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00FB GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   00FE GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0101 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0104 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0107 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   010B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   010F GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0113 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0117 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   011B GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   011F GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0123 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0127 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0128 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0129 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   012A GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   012D GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0130 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0131 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0132 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0133 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0134 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0137 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0138 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   013B GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   013D GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   013F GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0000 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0002 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0006 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0008 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   000B GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   000E GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0010 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0012 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0014 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0018 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   001C GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0020 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0024 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0028 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   002C GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0030 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0034 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0037 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   003A GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   003D GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0040 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0043 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0046 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0049 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   004C GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   004F GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0052 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0055 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0058 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   005B GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   005E GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0061 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0064 GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0066 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 3.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   006A GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   006E GR
+  4 A$_modulonglong/cerberus-sokoban/libsdcc-z80/build/_modulong   0072 GR
+  4 C$_modulonglong.c$10$2_0$3                                  =  0014 GR
+  4 C$_modulonglong.c$11$2_0$3                                  =  0034 GR
+  4 C$_modulonglong.c$13$3_0$4                                  =  0066 GR
+  4 C$_modulonglong.c$14$3_0$4                                  =  0086 GR
+  4 C$_modulonglong.c$16$2_0$3                                  =  0088 GR
+  4 C$_modulonglong.c$18$1_0$2                                  =  008D GR
+  4 C$_modulonglong.c$20$2_0$5                                  =  008D GR
+  4 C$_modulonglong.c$21$2_0$5                                  =  00BF GR
+  4 C$_modulonglong.c$22$2_0$5                                  =  0107 GR
+  4 C$_modulonglong.c$24$1_0$2                                  =  0127 GR
+  4 C$_modulonglong.c$26$1_0$2                                  =  012D GR
+  4 C$_modulonglong.c$27$1_0$2                                  =  013F GR
+  4 C$_modulonglong.c$4$0_0$2                                   =  0000 GR
+  4 C$_modulonglong.c$6$2_0$2                                   =  0008 GR
+  4 C$_modulonglong.c$8$1_0$2                                   =  0008 GR
+  4 G$_modulonglong$0$0                                         =  0000 GR
+  4 XG$_modulonglong$0$0                                        =  013F GR
+  4 __modulonglong                                                 0000 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 4.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size    0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size  140   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

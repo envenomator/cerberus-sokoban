@@ -1,0 +1,142 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$100   0052 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$101   0053 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$102   0055 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$103   0058 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$104   0059 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$108   005B GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$109   005D GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$114   005F GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$115   0062 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$116   0063 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$117   0064 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$118   0065 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$119   0066 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$120   0067 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$121   0068 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$122   0069 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$123   006A GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$124   006B GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$125   006C GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$126   006D GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$127   006E GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$128   0070 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$129   0071 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$130   0073 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$131   0074 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$132   0076 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$133   0078 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$134   007B GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$135   007C GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$136   007D GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$137   007E GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$138   007F GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$139   0080 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$140   0081 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$141   0082 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$142   0083 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$143   0084 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$144   0085 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$145   0086 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$146   0087 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$147   0089 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$148   008A GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$149   008C GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$150   008D GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$157   008F GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$158   0091 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$161   0094 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$166   0096 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$167   0098 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$172   009A GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$47    0000 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$48    0002 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$49    0006 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$50    0008 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$51    000B GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$52    000C GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$56    000D GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$57    0010 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$58    0011 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$59    0012 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$60    0015 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$61    0016 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$62    0019 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$66    001B GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$67    001E GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$68    001F GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$69    0020 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$70    0023 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$71    0024 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$72    0027 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$76    0029 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$77    002C GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$78    002D GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$79    002E GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$80    0031 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$81    0032 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$82    0033 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$83    0036 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$84    0038 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$85    003B GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$86    003C GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$87    003D GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$88    003E GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$89    003F GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$90    0040 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$91    0041 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$92    0042 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$93    0043 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$94    0046 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$95    0047 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$96    0049 GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$97    004C GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$98    004D GR
+  4 A$_fseqc/source/cerberus-sokoban/libsdcc-z80/build/_fseq$99    004F GR
+  4 C$_fseq.c$55$0_0$2                                          =  0000 GR
+  4 C$_fseq.c$59$1_0$2                                          =  000D GR
+  4 C$_fseq.c$60$1_0$2                                          =  001B GR
+  4 C$_fseq.c$62$1_0$2                                          =  0029 GR
+  4 C$_fseq.c$63$1_0$2                                          =  005B GR
+  4 C$_fseq.c$65$1_0$2                                          =  005F GR
+  4 C$_fseq.c$66$1_0$2                                          =  008F GR
+  4 C$_fseq.c$67$1_0$2                                          =  008F GR
+  4 C$_fseq.c$68$1_0$2                                          =  009A GR
+  4 G$__fseq$0$0                                                =  0000 GR
+  4 XG$__fseq$0$0                                               =  009A GR
+  4 ___fseq                                                        0000 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 3.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 4.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size    0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size   9B   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

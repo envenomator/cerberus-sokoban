@@ -1,0 +1,72 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0047 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0000 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0002 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0006 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0008 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   000C GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   000E GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   000F GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0012 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0013 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0015 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0018 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0019 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   001B GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   001E GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   001F GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0021 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0024 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0025 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0026 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0027 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   002A GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   002B GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   002C GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   002D GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   002F GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0030 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0032 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0035 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0038 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0039 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   003C GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   003F GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0040 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0043 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0044 GR
+  4 A$_slong2fsurce/cerberus-sokoban/libsdcc-z80/build/_slong2fs   0045 GR
+  4 C$_slong2fs.c$34$0_0$21                                     =  0000 GR
+  4 C$_slong2fs.c$35$1_0$21                                     =  0008 GR
+  4 C$_slong2fs.c$36$1_0$21                                     =  000E GR
+  4 C$_slong2fs.c$38$1_0$21                                     =  0032 GR
+  4 C$_slong2fs.c$39$1_0$21                                     =  0047 GR
+  4 G$__slong2fs$0$0                                            =  0000 GR
+  4 XG$__slong2fs$0$0                                           =  0047 GR
+  4 ___slong2fs                                                    0000 GR
+    ___ulong2fs                                                    **** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size    0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size   48   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

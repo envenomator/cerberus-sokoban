@@ -1,0 +1,109 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+
+
+                              1 ;--------------------------------------------------------------------------
+                              2 ;  __sdcc_bcall.s
+                              3 ;
+                              4 ;  Copyright (C) 2011, Maarten Brock, 2015 Philipp Klaus Krause
+                              5 ;
+                              6 ;  This library is free software; you can redistribute it and/or modify it
+                              7 ;  under the terms of the GNU General Public License as published by the
+                              8 ;  Free Software Foundation; either version 2, or (at your option) any
+                              9 ;  later version.
+                             10 ;
+                             11 ;  This library is distributed in the hope that it will be useful,
+                             12 ;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                             13 ;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+                             14 ;  GNU General Public License for more details.
+                             15 ;
+                             16 ;  You should have received a copy of the GNU General Public License
+                             17 ;  along with this library; see the file COPYING. If not, write to the
+                             18 ;  Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,
+                             19 ;   MA 02110-1301, USA.
+                             20 ;
+                             21 ;  As a special exception, if you link this library with other files,
+                             22 ;  some of which are compiled with SDCC, to produce an executable,
+                             23 ;  this library does not by itself cause the resulting executable to
+                             24 ;  be covered by the GNU General Public License. This exception does
+                             25 ;  not however invalidate any other reasons why the executable file
+                             26 ;   might be covered by the GNU General Public License.
+                             27 ;--------------------------------------------------------------------------
+                             28 
+                             29 ; This file contains generic trampolines for banked function calls.
+                             30 ; They are not complete. Programmer must provide set_bank and get_bank
+                             31 ; routines. Or rewrite whole code completely.
+                             32 ;
+                             33 	.area   _CODE
+                             34 
+                             35 	.globl ___sdcc_bcall
+                             36 	.globl ___sdcc_bcall_abc
+                             37 	.globl ___sdcc_bcall_ehl
+                             38 ;
+                             39 ; trampoline to call banked functions
+                             40 ; used when legacy banking is enabled only
+                             41 ; Usage:
+                             42 ;   call ___sdcc_bcall
+                             43 ;   .dw  <function>
+                             44 ;   .dw  <function_bank>
+                             45 ;
+   0000                      46 ___sdcc_bcall::
+   0000 E3            [19]   47 	ex	(sp), hl
+   0001 4E            [ 7]   48 	ld	c, (hl)
+   0002 23            [ 6]   49 	inc	hl
+   0003 46            [ 7]   50 	ld	b, (hl)
+   0004 23            [ 6]   51 	inc	hl
+   0005 7E            [ 7]   52 	ld	a, (hl)
+   0006 23            [ 6]   53 	inc	hl
+   0007 23            [ 6]   54 	inc	hl
+   0008 E3            [19]   55 	ex	(sp), hl
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+
+
+                             56 ;
+                             57 ; trampoline to call banked functions with __z88dk_fastcall calling convention
+                             58 ; Usage:
+                             59 ;  ld   a, #<function_bank>
+                             60 ;  ld   bc, #<function>
+                             61 ;  call ___sdcc_bcall_abc
+                             62 ;
+   0009                      63 ___sdcc_bcall_abc::
+   0009 E5            [11]   64 	push	hl
+   000A 6F            [ 4]   65 	ld	l, a
+   000B CD 00 00      [17]   66 	call	get_bank	;must return A as current bank number, other registers expected to be unchanged
+   000E 67            [ 4]   67 	ld	h, a
+   000F 7D            [ 4]   68 	ld	a, l
+   0010 E3            [19]   69 	ex	(sp), hl
+   0011 33            [ 6]   70 	inc	sp
+   0012 CD 1A 00      [17]   71 	call	___sdcc_bjump_abc
+   0015 3B            [ 6]   72 	dec	sp
+   0016 F1            [10]   73 	pop	af
+   0017 C3 00 00      [10]   74 	jp	set_bank
+                             75 ;
+   001A                      76 ___sdcc_bjump_abc:
+   001A CD 00 00      [17]   77 	call	set_bank	;set current bank to A, other registers expected to be unchanged
+   001D C5            [11]   78 	push	bc
+   001E C9            [10]   79 	ret
+                             80 ;
+                             81 ; default trampoline to call banked functions
+                             82 ; Usage:
+                             83 ;  ld   e, #<function_bank>
+                             84 ;  ld   hl, #<function>
+                             85 ;  call ___sdcc_bcall_ehl
+                             86 ;
+   001F                      87 ___sdcc_bcall_ehl::
+   001F CD 00 00      [17]   88 	call	get_bank
+   0022 F5            [11]   89 	push	af
+   0023 33            [ 6]   90 	inc	sp
+   0024 CD 2C 00      [17]   91 	call	___sdcc_bjump_ehl
+   0027 3B            [ 6]   92 	dec	sp
+   0028 F1            [10]   93 	pop	af
+   0029 C3 00 00      [10]   94 	jp	set_bank
+                             95 ;
+   002C                      96 ___sdcc_bjump_ehl:
+   002C 7B            [ 4]   97 	ld	a, e
+   002D CD 00 00      [17]   98 	call	set_bank
+   0030 E9            [ 4]   99 	jp	(hl)

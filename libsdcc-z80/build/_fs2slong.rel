@@ -1,0 +1,124 @@
+;!FILE /mnt/c/source/cerberus-sokoban/libsdcc-z80/build/_fs2slong.asm
+XL2
+H 9 areas 4E global symbols
+M _fs2slong
+O -mz80
+S ___fs2ulong Ref0000
+S ___fslt Ref0000
+S .__.ABS. Def0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 7D flags 0 addr 0
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$100 Def0051
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$110 Def005E
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$101 Def0054
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$120 Def006A
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$111 Def005F
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$102 Def0055
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$121 Def006D
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$112 Def0062
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$103 Def0056
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$122 Def006E
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$113 Def0064
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$104 Def0057
+S ___fs2slong Def0000
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$132 Def007A
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$123 Def0071
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$114 Def0065
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$105 Def0058
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$124 Def0074
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$106 Def0059
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$125 Def0075
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$107 Def005A
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$126 Def0078
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$108 Def005B
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$127 Def0079
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$109 Def005D
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$137 Def007C
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$119 Def0067
+S XG$__fs2slong$0$0 Def007C
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$50 Def0006
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$80 Def0034
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$71 Def001F
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$81 Def0035
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$72 Def0022
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$63 Def0018
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$54 Def0008
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$82 Def0038
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$73 Def0023
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$64 Def001B
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$55 Def000B
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$92 Def0040
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$83 Def0039
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$74 Def0026
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$65 Def001C
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$56 Def000D
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$93 Def0043
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$84 Def003A
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$75 Def0027
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$66 Def001D
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$57 Def0010
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$48 Def0000
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$94 Def0045
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$85 Def003B
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$76 Def002A
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$58 Def0013
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$49 Def0002
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$95 Def0046
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$86 Def003C
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$77 Def002D
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$59 Def0016
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$96 Def0049
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$87 Def003D
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$78 Def002E
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$97 Def004C
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$88 Def003E
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$79 Def0031
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$98 Def004F
+S A$_fs2slongurce/cerberus-sokoban/libsdcc-z80/build/_fs2slong$99 Def0050
+S C$_fs2slong.c$40$1_0$21 Def001F
+S C$_fs2slong.c$34$0_0$21 Def0000
+S C$_fs2slong.c$41$2_0$22 Def0040
+S C$_fs2slong.c$45$1_0$21 Def007C
+S C$_fs2slong.c$43$2_0$23 Def0067
+S C$_fs2slong.c$37$1_0$21 Def0008
+S C$_fs2slong.c$38$1_0$21 Def0018
+S G$__fs2slong$0$0 Def0000
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 04 00
+T 00 00 DD E5 DD 21 00 00 DD 39 DD 7E 07 CB BF DD
+R 00 00 04 00
+T 0E 00 B6 06 DD B6 05 DD B6 04 20 07 21 00 00 5D
+R 00 00 04 00
+T 1C 00 54 18 5B
+R 00 00 04 00
+T 1F 00
+R 00 00 04 00
+T 1F 00 21 00 00 E5 21 00 00 E5 DD 6E 06 DD 66 07
+R 00 00 04 00
+T 2D 00 E5 DD 6E 04 DD 66 05 E5 CD 00 00 F1 F1 F1
+R 00 00 04 00 02 0B 01 00
+T 3B 00 F1 7D B7 28 27 DD 7E 07 EE 80 57 DD 4E 04
+R 00 00 04 00
+T 49 00 DD 46 05 DD 5E 06 D5 C5 CD 00 00 F1 F1 4B
+R 00 00 04 00 02 0B 00 00
+T 57 00 42 AF 95 5F 3E 00 9C 57 21 00 00 ED 42 EB
+R 00 00 04 00
+T 65 00 18 13
+R 00 00 04 00
+T 67 00
+R 00 00 04 00
+T 67 00 DD 6E 06 DD 66 07 E5 DD 6E 04 DD 66 05 E5
+R 00 00 04 00
+T 75 00 CD 00 00 F1 F1
+R 00 00 04 00 02 03 00 00
+T 7A 00
+R 00 00 04 00
+T 7A 00 DD E1 C9
+R 00 00 04 00

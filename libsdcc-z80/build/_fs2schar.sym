@@ -1,0 +1,86 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0043 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0046 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0048 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   004A GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   004B GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   004D GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0000 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0002 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0006 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0008 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   000B GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   000E GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   000F GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0012 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0015 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0016 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0019 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   001A GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   001B GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   001C GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   001D GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   001E GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0020 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0021 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0023 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0024 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0026 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0027 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0028 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0029 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   002A GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   002C GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   002E GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0030 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0032 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0034 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0035 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0037 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0038 GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   003A GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   003B GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   003D GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   003E GR
+  4 A$_fs2scharurce/cerberus-sokoban/libsdcc-z80/build/_fs2schar   0041 GR
+  4 C$_fs2schar.c$34$0_0$21                                     =  0000 GR
+  4 C$_fs2schar.c$36$1_0$21                                     =  0008 GR
+  4 C$_fs2schar.c$37$1_0$21                                     =  001D GR
+  4 C$_fs2schar.c$38$1_0$21                                     =  002E GR
+  4 C$_fs2schar.c$39$1_0$21                                     =  0032 GR
+  4 C$_fs2schar.c$40$1_0$21                                     =  0046 GR
+  4 C$_fs2schar.c$41$1_0$21                                     =  004A GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 C$_fs2schar.c$42$1_0$21                                     =  004D GR
+  4 G$__fs2schar$0$0                                            =  0000 GR
+  4 XG$__fs2schar$0$0                                           =  004D GR
+  4 ___fs2schar                                                    0000 GR
+    ___fs2slong                                                    **** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 3.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size    0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size   4E   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

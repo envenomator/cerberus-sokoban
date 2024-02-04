@@ -1,0 +1,310 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0044 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0045 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0046 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0049 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   004C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   004D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   004E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   004F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0050 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0051 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0052 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0053 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0054 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0055 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0056 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0057 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0058 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   005B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   005C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   005D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0060 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0061 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0062 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0063 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0064 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0065 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0066 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0067 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0068 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0069 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   006C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   006F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0070 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0073 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0074 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0075 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0076 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0077 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0078 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0079 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   007C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   007F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0080 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0081 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0082 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0083 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0084 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0085 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0086 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0089 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   008C GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   008D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   008E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   008F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0090 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0091 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0092 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0093 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0094 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0095 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0096 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0097 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   009A GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   009B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   009C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   009D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   009E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   009F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00A0 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00A3 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00A5 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00A6 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00A8 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00A9 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00AB GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00AC GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00AE GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00AF GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00B0 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00B1 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00B2 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00B5 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00B8 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00B9 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00BA GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00BB GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00BC GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00BD GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00BE GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00BF GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00C0 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00C1 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00C2 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00C3 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00C5 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00C6 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00C8 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00C9 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00CB GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00CC GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00CE GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00CF GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D0 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D1 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D2 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D3 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 3.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D4 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D6 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D7 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D8 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00D9 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00DC GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00DD GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00DE GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00DF GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00E0 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00E1 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00E2 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00E3 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00E6 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00E8 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00E9 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00EB GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00EC GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00EE GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00EF GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00F1 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00F2 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00F3 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00F6 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00F9 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00FA GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00FB GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00FC GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00FD GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   00FE GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0101 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0104 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0105 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0106 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0107 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0108 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   010A GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   010B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   010C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   010D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   010E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   010F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0110 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0111 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0112 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0115 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0118 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0119 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   011B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   011D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   011E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0121 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0124 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0125 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0126 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 4.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0127 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0128 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0129 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   012A GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   012B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   012C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   012D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   012E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0130 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0131 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0133 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0134 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0136 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0137 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0139 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   013A GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   013B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   013C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   013D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   013E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   013F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0140 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0141 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0142 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0143 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0144 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0145 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0148 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   014B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   014C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   014F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0152 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0153 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0156 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0159 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   015A GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   015D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0160 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0161 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0163 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0165 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0000 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0002 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0006 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0008 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   000B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   000C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   000D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0010 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0011 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0012 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0013 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0014 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0015 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0016 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 5.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0017 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   001A GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   001D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   001E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   001F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0020 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0021 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0022 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0023 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0024 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0027 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0028 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0029 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   002A GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   002B GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   002C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   002D GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   002E GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   002F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0030 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0031 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0032 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0035 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0036 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0037 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0038 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0039 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   003C GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   003F GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0040 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0041 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0042 GR
+  4 A$_mullongource/cerberus-sokoban/libsdcc-z80/build/_mullong$   0043 GR
+  4 C$_mullong.c$12$0_0$2                                       =  0000 GR
+  4 C$_mullong.c$16$1_0$2                                       =  000D GR
+  4 C$_mullong.c$17$1_0$2                                       =  0042 GR
+  4 C$_mullong.c$20$1_0$2                                       =  0082 GR
+  4 C$_mullong.c$22$1_0$2                                       =  00BB GR
+  4 C$_mullong.c$23$1_0$2                                       =  00D0 GR
+  4 C$_mullong.c$26$1_0$2                                       =  00F9 GR
+  4 C$_mullong.c$28$1_0$2                                       =  0125 GR
+  4 C$_mullong.c$30$1_0$2                                       =  0141 GR
+  4 C$_mullong.c$32$1_0$2                                       =  0145 GR
+  4 C$_mullong.c$33$1_0$2                                       =  0165 GR
+  4 G$_mullong$0$0                                              =  0000 GR
+  4 XG$_mullong$0$0                                             =  0165 GR
+    __mulint                                                       **** GX
+  4 __mullong                                                      0000 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 6.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size    0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size  166   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

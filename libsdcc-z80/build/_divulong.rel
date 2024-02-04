@@ -1,0 +1,130 @@
+;!FILE /mnt/c/source/cerberus-sokoban/libsdcc-z80/build/_divulong.asm
+XL2
+H 9 areas 54 global symbols
+M _divulong
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 94 flags 0 addr 0
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$150 Def008D
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$141 Def007E
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$132 Def006F
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$123 Def0060
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$114 Def0051
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$105 Def0044
+S C$_divulong.c$30$1_0$2 Def0093
+S C$_divulong.c$12$1_0$2 Def0013
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$160 Def0093
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$142 Def0081
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$133 Def0072
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$115 Def0052
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$106 Def0047
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$143 Def0082
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$134 Def0075
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$116 Def0053
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$107 Def0048
+S C$_divulong.c$21$2_0$3 Def003B
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$135 Def0078
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$117 Def0056
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$108 Def004B
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$154 Def0090
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$127 Def0061
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$118 Def0057
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$155 Def0091
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$128 Def0064
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$119 Def0058
+S C$_divulong.c$15$2_0$3 Def0013
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$147 Def0084
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$129 Def0066
+S C$_divulong.c$23$3_0$4 Def004D
+S C$_divulong.c$16$2_0$3 Def001D
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$148 Def0087
+S C$_divulong.c$28$1_0$2 Def007B
+S C$_divulong.c$17$2_0$3 Def002D
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$149 Def008A
+S C$_divulong.c$29$1_0$2 Def0084
+S C$_divulong.c$25$3_0$4 Def0061
+S C$_divulong.c$18$2_0$3 Def0035
+S C$_divulong.c$19$2_0$3 Def0039
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$50 Def0008
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$70 Def001A
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$71 Def001B
+S C$_divulong.c$6$0_0$2 Def0000
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$90 Def0036
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$54 Def0009
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$91 Def0037
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$82 Def002D
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$55 Def000C
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$83 Def002F
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$47 Def0000
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$84 Def0031
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$75 Def001D
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$48 Def0002
+S C$_divulong.c$8$2_0$2 Def0009
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$85 Def0033
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$76 Def0021
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$67 Def0013
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$49 Def0006
+S C$_divulong.c$9$2_0$2 Def000F
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$95 Def0039
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$77 Def0025
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$68 Def0016
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$59 Def000F
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$78 Def0029
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$69 Def0018
+S G$_divulong$0$0 Def0000
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$89 Def0035
+S __divulong Def0000
+S XG$_divulong$0$0 Def0093
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$100 Def003B
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$101 Def003C
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$120 Def005B
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$102 Def003F
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$130 Def0069
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$121 Def005C
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$112 Def004D
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$103 Def0040
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$140 Def007B
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$131 Def006C
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$122 Def005D
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$113 Def004E
+S A$_divulongurce/cerberus-sokoban/libsdcc-z80/build/_divulong$104 Def0043
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 04 00
+T 00 00 DD E5 DD 21 00 00 DD 39 3B 01 00 00 11
+R 00 00 04 00
+T 0D 00 00 00 DD 36 FF 20
+R 00 00 04 00
+T 13 00
+R 00 00 04 00
+T 13 00 DD 7E 07 CB 07 E6 01 6F 26 00 DD CB 04 26
+R 00 00 04 00
+T 21 00 DD CB 05 16 DD CB 06 16 DD CB 07 16 CB 21
+R 00 00 04 00
+T 2F 00 CB 10 CB 13 CB 12 7C B5 28 02 CB C1
+R 00 00 04 00
+T 3B 00
+R 00 00 04 00
+T 3B 00 79 DD 96 08 78 DD 9E 09 7B DD 9E 0A 7A DD
+R 00 00 04 00
+T 49 00 9E 0B 38 2E 79 DD 96 08 4F 78 DD 9E 09 47
+R 00 00 04 00
+T 57 00 7B DD 9E 0A 5F 7A DD 9E 0B 57 DD 7E 04 F6
+R 00 00 04 00
+T 65 00 01 DD 77 04 DD 7E 05 DD 77 05 DD 7E 06 DD
+R 00 00 04 00
+T 73 00 77 06 DD 7E 07 DD 77 07
+R 00 00 04 00
+T 7B 00
+R 00 00 04 00
+T 7B 00 DD 35 FF DD 7E FF B7 20 8F DD 6E 04 DD 66
+R 00 00 04 00
+T 89 00 05 DD 5E 06 DD 56 07 33 DD E1 C9
+R 00 00 04 00

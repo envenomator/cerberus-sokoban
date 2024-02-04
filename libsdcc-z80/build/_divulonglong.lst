@@ -1,0 +1,235 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.8.0 #10562 (Linux)
+                              4 ;--------------------------------------------------------
+                              5 	.module _divulonglong
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl __divulonglong
+                             12 ;--------------------------------------------------------
+                             13 ; special function registers
+                             14 ;--------------------------------------------------------
+                             15 ;--------------------------------------------------------
+                             16 ; ram data
+                             17 ;--------------------------------------------------------
+                             18 	.area _DATA
+                             19 ;--------------------------------------------------------
+                             20 ; ram data
+                             21 ;--------------------------------------------------------
+                             22 	.area _INITIALIZED
+                             23 ;--------------------------------------------------------
+                             24 ; absolute external ram data
+                             25 ;--------------------------------------------------------
+                             26 	.area _DABS (ABS)
+                             27 ;--------------------------------------------------------
+                             28 ; global & static initialisations
+                             29 ;--------------------------------------------------------
+                             30 	.area _HOME
+                             31 	.area _GSINIT
+                             32 	.area _GSFINAL
+                             33 	.area _GSINIT
+                             34 ;--------------------------------------------------------
+                             35 ; Home
+                             36 ;--------------------------------------------------------
+                             37 	.area _HOME
+                     0000    38 	G$_divulonglong$0$0	= .
+                             39 	.globl	G$_divulonglong$0$0
+                     0000    40 	C$_divulonglong.c$7$0_0$2	= .
+                             41 	.globl	C$_divulonglong.c$7$0_0$2
+                             42 ;_divulonglong.c:7: _divulonglong (unsigned long long x, unsigned long long y)
+                             43 ;	---------------------------------
+                             44 ; Function _divulonglong
+                             45 ; ---------------------------------
+   0000                      46 __divulonglong::
+   0000 DD E5         [15]   47 	push	ix
+   0002 DD 21 00 00   [14]   48 	ld	ix,#0
+   0006 DD 39         [15]   49 	add	ix,sp
+   0008 21 F8 FF      [10]   50 	ld	hl, #-8
+   000B 39            [11]   51 	add	hl, sp
+   000C F9            [ 6]   52 	ld	sp, hl
+                     000D    53 	C$_divulonglong.c$9$2_0$2	= .
+                             54 	.globl	C$_divulonglong.c$9$2_0$2
+                             55 ;_divulonglong.c:9: unsigned long long reste = 0L;
+   000D AF            [ 4]   56 	xor	a, a
+   000E DD 77 F8      [19]   57 	ld	-8 (ix), a
+   0011 DD 77 F9      [19]   58 	ld	-7 (ix), a
+   0014 DD 77 FA      [19]   59 	ld	-6 (ix), a
+   0017 DD 77 FB      [19]   60 	ld	-5 (ix), a
+   001A DD 77 FC      [19]   61 	ld	-4 (ix), a
+   001D DD 77 FD      [19]   62 	ld	-3 (ix), a
+   0020 DD 77 FE      [19]   63 	ld	-2 (ix), a
+   0023 DD 77 FF      [19]   64 	ld	-1 (ix), a
+                     0026    65 	C$_divulonglong.c$10$2_0$2	= .
+                             66 	.globl	C$_divulonglong.c$10$2_0$2
+                             67 ;_divulonglong.c:10: unsigned char count = 64;
+   0026 0E 40         [ 7]   68 	ld	c, #0x40
+                     0028    69 	C$_divulonglong.c$13$1_0$2	= .
+                             70 	.globl	C$_divulonglong.c$13$1_0$2
+                             71 ;_divulonglong.c:13: do
+   0028                      72 00105$:
+                     0028    73 	C$_divulonglong.c$16$2_0$3	= .
+                             74 	.globl	C$_divulonglong.c$16$2_0$3
+                             75 ;_divulonglong.c:16: c = MSB_SET(x);
+   0028 DD 7E 0D      [19]   76 	ld	a, 13 (ix)
+   002B CB 07         [ 8]   77 	rlc	a
+   002D E6 01         [ 7]   78 	and	a, #0x01
+   002F 47            [ 4]   79 	ld	b, a
+   0030 1E 00         [ 7]   80 	ld	e, #0x00
+                     0032    81 	C$_divulonglong.c$17$2_0$3	= .
+                             82 	.globl	C$_divulonglong.c$17$2_0$3
+                             83 ;_divulonglong.c:17: x <<= 1;
+   0032 DD CB 06 26   [23]   84 	sla	6 (ix)
+   0036 DD CB 07 16   [23]   85 	rl	7 (ix)
+   003A DD CB 08 16   [23]   86 	rl	8 (ix)
+   003E DD CB 09 16   [23]   87 	rl	9 (ix)
+   0042 DD CB 0A 16   [23]   88 	rl	10 (ix)
+   0046 DD CB 0B 16   [23]   89 	rl	11 (ix)
+   004A DD CB 0C 16   [23]   90 	rl	12 (ix)
+   004E DD CB 0D 16   [23]   91 	rl	13 (ix)
+                     0052    92 	C$_divulonglong.c$18$2_0$3	= .
+                             93 	.globl	C$_divulonglong.c$18$2_0$3
+                             94 ;_divulonglong.c:18: reste <<= 1;
+   0052 DD CB F8 26   [23]   95 	sla	-8 (ix)
+   0056 DD CB F9 16   [23]   96 	rl	-7 (ix)
+   005A DD CB FA 16   [23]   97 	rl	-6 (ix)
+   005E DD CB FB 16   [23]   98 	rl	-5 (ix)
+   0062 DD CB FC 16   [23]   99 	rl	-4 (ix)
+   0066 DD CB FD 16   [23]  100 	rl	-3 (ix)
+   006A DD CB FE 16   [23]  101 	rl	-2 (ix)
+   006E DD CB FF 16   [23]  102 	rl	-1 (ix)
+                     0072   103 	C$_divulonglong.c$19$2_0$3	= .
+                            104 	.globl	C$_divulonglong.c$19$2_0$3
+                            105 ;_divulonglong.c:19: if (c)
+   0072 7B            [ 4]  106 	ld	a, e
+   0073 B0            [ 4]  107 	or	a, b
+   0074 28 32         [12]  108 	jr	Z,00102$
+                     0076   109 	C$_divulonglong.c$20$2_0$3	= .
+                            110 	.globl	C$_divulonglong.c$20$2_0$3
+                            111 ;_divulonglong.c:20: reste |= 1L;
+   0076 DD 7E F8      [19]  112 	ld	a, -8 (ix)
+   0079 F6 01         [ 7]  113 	or	a, #0x01
+   007B DD 77 F8      [19]  114 	ld	-8 (ix), a
+   007E DD 7E F9      [19]  115 	ld	a, -7 (ix)
+   0081 DD 77 F9      [19]  116 	ld	-7 (ix), a
+   0084 DD 7E FA      [19]  117 	ld	a, -6 (ix)
+   0087 DD 77 FA      [19]  118 	ld	-6 (ix), a
+   008A DD 7E FB      [19]  119 	ld	a, -5 (ix)
+   008D DD 77 FB      [19]  120 	ld	-5 (ix), a
+   0090 DD 7E FC      [19]  121 	ld	a, -4 (ix)
+   0093 DD 77 FC      [19]  122 	ld	-4 (ix), a
+   0096 DD 7E FD      [19]  123 	ld	a, -3 (ix)
+   0099 DD 77 FD      [19]  124 	ld	-3 (ix), a
+   009C DD 7E FE      [19]  125 	ld	a, -2 (ix)
+   009F DD 77 FE      [19]  126 	ld	-2 (ix), a
+   00A2 DD 7E FF      [19]  127 	ld	a, -1 (ix)
+   00A5 DD 77 FF      [19]  128 	ld	-1 (ix), a
+   00A8                     129 00102$:
+                     00A8   130 	C$_divulonglong.c$22$2_0$3	= .
+                            131 	.globl	C$_divulonglong.c$22$2_0$3
+                            132 ;_divulonglong.c:22: if (reste >= y)
+   00A8 DD 7E F8      [19]  133 	ld	a, -8 (ix)
+   00AB DD 96 0E      [19]  134 	sub	a, 14 (ix)
+   00AE DD 7E F9      [19]  135 	ld	a, -7 (ix)
+   00B1 DD 9E 0F      [19]  136 	sbc	a, 15 (ix)
+   00B4 DD 7E FA      [19]  137 	ld	a, -6 (ix)
+   00B7 DD 9E 10      [19]  138 	sbc	a, 16 (ix)
+   00BA DD 7E FB      [19]  139 	ld	a, -5 (ix)
+   00BD DD 9E 11      [19]  140 	sbc	a, 17 (ix)
+   00C0 DD 7E FC      [19]  141 	ld	a, -4 (ix)
+   00C3 DD 9E 12      [19]  142 	sbc	a, 18 (ix)
+   00C6 DD 7E FD      [19]  143 	ld	a, -3 (ix)
+   00C9 DD 9E 13      [19]  144 	sbc	a, 19 (ix)
+   00CC DD 7E FE      [19]  145 	ld	a, -2 (ix)
+   00CF DD 9E 14      [19]  146 	sbc	a, 20 (ix)
+   00D2 DD 7E FF      [19]  147 	ld	a, -1 (ix)
+   00D5 DD 9E 15      [19]  148 	sbc	a, 21 (ix)
+   00D8 38 7A         [12]  149 	jr	C,00106$
+                     00DA   150 	C$_divulonglong.c$24$3_0$4	= .
+                            151 	.globl	C$_divulonglong.c$24$3_0$4
+                            152 ;_divulonglong.c:24: reste -= y;
+   00DA DD 7E F8      [19]  153 	ld	a, -8 (ix)
+   00DD DD 96 0E      [19]  154 	sub	a, 14 (ix)
+   00E0 DD 77 F8      [19]  155 	ld	-8 (ix), a
+   00E3 DD 7E F9      [19]  156 	ld	a, -7 (ix)
+   00E6 DD 9E 0F      [19]  157 	sbc	a, 15 (ix)
+   00E9 DD 77 F9      [19]  158 	ld	-7 (ix), a
+   00EC DD 7E FA      [19]  159 	ld	a, -6 (ix)
+   00EF DD 9E 10      [19]  160 	sbc	a, 16 (ix)
+   00F2 DD 77 FA      [19]  161 	ld	-6 (ix), a
+   00F5 DD 7E FB      [19]  162 	ld	a, -5 (ix)
+   00F8 DD 9E 11      [19]  163 	sbc	a, 17 (ix)
+   00FB DD 77 FB      [19]  164 	ld	-5 (ix), a
+   00FE DD 7E FC      [19]  165 	ld	a, -4 (ix)
+   0101 DD 9E 12      [19]  166 	sbc	a, 18 (ix)
+   0104 DD 77 FC      [19]  167 	ld	-4 (ix), a
+   0107 DD 7E FD      [19]  168 	ld	a, -3 (ix)
+   010A DD 9E 13      [19]  169 	sbc	a, 19 (ix)
+   010D DD 77 FD      [19]  170 	ld	-3 (ix), a
+   0110 DD 7E FE      [19]  171 	ld	a, -2 (ix)
+   0113 DD 9E 14      [19]  172 	sbc	a, 20 (ix)
+   0116 DD 77 FE      [19]  173 	ld	-2 (ix), a
+   0119 DD 7E FF      [19]  174 	ld	a, -1 (ix)
+   011C DD 9E 15      [19]  175 	sbc	a, 21 (ix)
+   011F DD 77 FF      [19]  176 	ld	-1 (ix), a
+                     0122   177 	C$_divulonglong.c$26$3_0$4	= .
+                            178 	.globl	C$_divulonglong.c$26$3_0$4
+                            179 ;_divulonglong.c:26: x |= 1L;
+   0122 DD 7E 06      [19]  180 	ld	a, 6 (ix)
+   0125 F6 01         [ 7]  181 	or	a, #0x01
+   0127 DD 77 06      [19]  182 	ld	6 (ix), a
+   012A DD 7E 07      [19]  183 	ld	a, 7 (ix)
+   012D DD 77 07      [19]  184 	ld	7 (ix), a
+   0130 DD 7E 08      [19]  185 	ld	a, 8 (ix)
+   0133 DD 77 08      [19]  186 	ld	8 (ix), a
+   0136 DD 7E 09      [19]  187 	ld	a, 9 (ix)
+   0139 DD 77 09      [19]  188 	ld	9 (ix), a
+   013C DD 7E 0A      [19]  189 	ld	a, 10 (ix)
+   013F DD 77 0A      [19]  190 	ld	10 (ix), a
+   0142 DD 7E 0B      [19]  191 	ld	a, 11 (ix)
+   0145 DD 77 0B      [19]  192 	ld	11 (ix), a
+   0148 DD 7E 0C      [19]  193 	ld	a, 12 (ix)
+   014B DD 77 0C      [19]  194 	ld	12 (ix), a
+   014E DD 7E 0D      [19]  195 	ld	a, 13 (ix)
+   0151 DD 77 0D      [19]  196 	ld	13 (ix), a
+   0154                     197 00106$:
+                     0154   198 	C$_divulonglong.c$29$1_0$2	= .
+                            199 	.globl	C$_divulonglong.c$29$1_0$2
+                            200 ;_divulonglong.c:29: while (--count);
+   0154 79            [ 4]  201 	ld	a, c
+   0155 3D            [ 4]  202 	dec	a
+   0156 4F            [ 4]  203 	ld	c, a
+   0157 B7            [ 4]  204 	or	a, a
+   0158 C2r28r00      [10]  205 	jp	NZ, 00105$
+                     015B   206 	C$_divulonglong.c$30$1_0$2	= .
+                            207 	.globl	C$_divulonglong.c$30$1_0$2
+                            208 ;_divulonglong.c:30: return x;
+   015B 21 0C 00      [10]  209 	ld	hl,#12
+   015E 39            [11]  210 	add	hl,sp
+   015F 5E            [ 7]  211 	ld	e, (hl)
+   0160 23            [ 6]  212 	inc	hl
+   0161 56            [ 7]  213 	ld	d, (hl)
+   0162 21 0E 00      [10]  214 	ld	hl, #14
+   0165 39            [11]  215 	add	hl, sp
+   0166 01 08 00      [10]  216 	ld	bc, #8
+   0169 ED B0         [21]  217 	ldir
+                     016B   218 	C$_divulonglong.c$31$1_0$2	= .
+                            219 	.globl	C$_divulonglong.c$31$1_0$2
+                            220 ;_divulonglong.c:31: }
+   016B DD F9         [10]  221 	ld	sp, ix
+   016D DD E1         [14]  222 	pop	ix
+                     016F   223 	C$_divulonglong.c$31$1_0$2	= .
+                            224 	.globl	C$_divulonglong.c$31$1_0$2
+                     016F   225 	XG$_divulonglong$0$0	= .
+                            226 	.globl	XG$_divulonglong$0$0
+   016F C9            [10]  227 	ret
+                            228 	.area _HOME
+                            229 ;--------------------------------------------------------
+                            230 ; code
+                            231 ;--------------------------------------------------------
+                            232 	.area _CODE
+                            233 	.area _CODE
+                            234 	.area _INITIALIZER
+                            235 	.area _CABS (ABS)

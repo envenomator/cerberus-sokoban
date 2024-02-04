@@ -1,0 +1,544 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$10   0066 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$10   006A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$10   006C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$10   006F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$10   0071 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$10   0073 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$11   0075 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$11   0076 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$11   0079 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$11   007C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$11   007E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$11   0081 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$11   0084 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$11   0086 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$12   0089 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$12   008C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$12   008E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$12   0091 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$12   0094 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$12   0097 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$13   009A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$13   009D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$13   00A0 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$13   00A2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$13   00A5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$13   00A8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$13   00AB GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$14   00AE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$14   00B1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$14   00B4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00B5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00B8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00BB GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00BC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00BD GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00BE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00BF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00C0 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00C1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$15   00C2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00C5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00C8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00CB GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00CE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00D1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00D4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00D7 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00DA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00DE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$16   00E2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$17   00E4 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$17   00E8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$17   00EC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$17   00ED GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$17   00EF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$17   00F2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$17   00F5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   00F9 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   00FC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   00FF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   0102 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   0106 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   0109 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   010C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   010F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$18   0112 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   0115 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   0117 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   011A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   011D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   0120 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   0122 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   0126 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   012A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$19   012E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$20   0132 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$20   0133 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$20   0135 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$20   0138 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$20   013A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$20   013C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$21   013E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$21   0140 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$21   0142 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$21   0143 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$21   0146 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   0149 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   014B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   014E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   0151 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   0153 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   0156 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   0159 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   015B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$22   015E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$23   0161 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$23   0162 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$23   0163 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$23   0164 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$23   0165 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$24   0167 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$24   016A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$24   016D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$24   0170 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$24   0173 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$25   0176 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 3.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$25   0179 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$25   017C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$25   017F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$25   0182 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$25   0185 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$25   0188 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$26   018A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$26   018D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$26   018F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$26   0192 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$26   0195 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$26   0197 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$27   019A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$27   019D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$27   01A0 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$27   01A3 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$27   01A6 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$27   01A9 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$28   01AC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$28   01AE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$28   01B1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$28   01B2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$28   01B3 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$28   01B4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$28   01B6 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$29   01B8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$29   01BB GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$29   01BE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$29   01C1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$29   01C4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$29   01C7 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$30   01CB GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$30   01CD GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$30   01CE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$30   01D1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$30   01D2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$30   01D4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$30   01D7 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$31   01D8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$31   01DB GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$31   01DC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$31   01DF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$31   01E2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$31   01E3 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$32   01E6 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$32   01E7 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$32   01E9 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$32   01ED GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$32   01F1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$32   01F5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$33   01F9 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$33   01FA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$33   01FC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$33   01FE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$33   0201 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 4.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$33   0202 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$34   0204 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$34   0208 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$34   020C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$34   0210 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$34   0214 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   0216 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   0219 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   021C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   021F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   0222 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   0225 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   0228 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   022B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$35   022E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   0231 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   0234 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   0237 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   023A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   023D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   023E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   023F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   0242 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   0243 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$36   0246 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$37   0248 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$37   024C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$37   0250 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$37   0254 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$38   0256 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$38   0257 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$38   025A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$38   025D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$38   025F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$38   0262 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$38   0265 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$39   0267 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$39   026A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$39   026D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$39   026F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$39   0272 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$39   0275 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$39   0279 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$40   027D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$40   027F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$40   0282 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$40   0285 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$40   0288 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$40   028B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$41   028D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$41   0290 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$41   0291 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$41   0292 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$42   0295 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$42   0298 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 5.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$42   029B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$42   029E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$42   02A1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$42   02A4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$42   02A5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$42   02A6 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$43   02A9 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$43   02AA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$43   02AD GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$43   02AF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$43   02B2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$43   02B4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$43   02B6 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$44   02BA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$44   02BE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$44   02C2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$44   02C6 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$44   02C7 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$44   02C8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$44   02C9 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$45   02CA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$45   02CC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$45   02CF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$45   02D2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$45   02D5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$46   02D8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$46   02DB GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$46   02DD GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$46   02DF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$46   02E3 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   0000 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02E5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02E8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02EA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02ED GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02F0 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02F2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02F5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02F8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$47   02FA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$48   0002 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$48   02FD GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$48   02FF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$48   0302 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$48   0306 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$48   030A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$49   0006 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$49   030E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$49   0312 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$49   0315 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$49   0317 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$49   031A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$49   031C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$50   0008 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$50   031F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 6.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$50   0322 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$50   0325 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$50   0328 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$50   032B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$50   032E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$50   0331 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$51   000B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$51   0334 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$51   0337 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$51   033A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$51   033D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$51   033F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$51   0342 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$51   0345 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$52   000C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$52   0347 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$52   0349 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$52   034B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$52   034E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$52   0351 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$52   0353 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$52   0357 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$53   035B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$53   035F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$53   0363 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$53   0365 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$53   0369 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$53   036D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$53   0371 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$53   0375 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$54   0378 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$54   037B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$54   037E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$54   037F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$54   0382 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$54   0384 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$55   0387 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$55   038B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$55   038D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$55   0390 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$55   0393 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$55   0394 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$55   0395 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$56   000D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$56   0396 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$56   0397 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$56   0398 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$56   0399 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$56   039A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$56   039C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   0010 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   039F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   03A2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   03A5 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   03A7 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 7.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   03AB GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   03AF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   03B3 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   03B7 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$57   03B9 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   0011 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03BA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03BD GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03C0 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03C3 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03C6 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03C9 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03CC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03CF GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$58   03D2 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03D3 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03D4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03D7 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03DA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03DC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03E0 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03E4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03E8 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$59   03EC GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   03EE GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   03F1 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   03F4 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   03F7 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   03FA GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   03FD GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   0400 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   0403 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   0406 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$60   0409 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   040C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   040F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   0412 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   0414 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   0418 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   041C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   0420 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   0424 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$61   0426 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   0012 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   0429 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   042C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   042F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   0432 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   0435 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   0438 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   043B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   043E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   0441 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$62   0444 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$63   0015 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 8.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$63   0447 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$63   044A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$63   044D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$63   0450 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$63   0453 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$63   0454 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$63   0457 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$64   0016 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$64   0459 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$64   045C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$64   045F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$64   0462 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$64   0465 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$65   0017 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$65   0467 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$65   0469 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$66   001A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$67   001C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$68   001F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$69   0020 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$70   0021 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$71   0024 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$72   0025 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$73   0028 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$74   002A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$75   002D GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$76   0030 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$78   0032 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$79   0034 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$80   0036 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$81   0038 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$82   003B GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$86   003F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$87   0042 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$88   0045 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$89   0048 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$90   004A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$91   004C GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$92   004F GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$93   0052 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$94   0055 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$95   0058 GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$97   005A GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$98   005E GR
+  4 A$_fsadd/source/cerberus-sokoban/libsdcc-z80/build/_fsadd$99   0062 GR
+  4 C$_fsadd.c$101$1_0$21                                       =  0216 GR
+  4 C$_fsadd.c$103$1_0$21                                       =  0248 GR
+  4 C$_fsadd.c$105$1_0$21                                       =  0250 GR
+  4 C$_fsadd.c$107$2_0$24                                       =  0256 GR
+  4 C$_fsadd.c$108$2_0$24                                       =  0275 GR
+  4 C$_fsadd.c$110$1_0$21                                       =  027F GR
+  4 C$_fsadd.c$111$1_0$21                                       =  028D GR
+  4 C$_fsadd.c$114$1_0$21                                       =  0295 GR
+  4 C$_fsadd.c$115$2_0$25                                       =  02B6 GR
+  4 C$_fsadd.c$116$2_0$25                                       =  02C6 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 9.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  4 C$_fsadd.c$120$1_0$21                                       =  02CC GR
+  4 C$_fsadd.c$121$2_0$26                                       =  02DF GR
+  4 C$_fsadd.c$122$2_0$26                                       =  02E5 GR
+  4 C$_fsadd.c$123$2_0$26                                       =  0302 GR
+  4 C$_fsadd.c$124$2_0$26                                       =  0312 GR
+  4 C$_fsadd.c$128$1_0$21                                       =  0328 GR
+  4 C$_fsadd.c$131$1_0$21                                       =  0342 GR
+  4 C$_fsadd.c$132$1_0$21                                       =  034B GR
+  4 C$_fsadd.c$133$1_0$21                                       =  0387 GR
+  4 C$_fsadd.c$134$1_0$21                                       =  038D GR
+  4 C$_fsadd.c$136$1_0$21                                       =  039F GR
+  4 C$_fsadd.c$137$1_0$21                                       =  0459 GR
+  4 C$_fsadd.c$138$1_0$21                                       =  0469 GR
+  4 C$_fsadd.c$58$0_0$21                                        =  0000 GR
+  4 C$_fsadd.c$66$1_0$21                                        =  000D GR
+  4 C$_fsadd.c$67$1_0$21                                        =  0012 GR
+  4 C$_fsadd.c$68$1_0$21                                        =  003F GR
+  4 C$_fsadd.c$69$1_0$21                                        =  006C GR
+  4 C$_fsadd.c$70$1_0$21                                        =  0075 GR
+  4 C$_fsadd.c$72$1_0$21                                        =  0094 GR
+  4 C$_fsadd.c$73$1_0$21                                        =  00A2 GR
+  4 C$_fsadd.c$75$1_0$21                                        =  00B1 GR
+  4 C$_fsadd.c$76$1_0$21                                        =  00B5 GR
+  4 C$_fsadd.c$77$1_0$21                                        =  00F9 GR
+  4 C$_fsadd.c$78$1_0$21                                        =  0135 GR
+  4 C$_fsadd.c$79$1_0$21                                        =  013E GR
+  4 C$_fsadd.c$80$1_0$21                                        =  0142 GR
+  4 C$_fsadd.c$82$1_0$21                                        =  0161 GR
+  4 C$_fsadd.c$83$1_0$21                                        =  0167 GR
+  4 C$_fsadd.c$85$1_0$21                                        =  0176 GR
+  4 C$_fsadd.c$86$1_0$21                                        =  0188 GR
+  4 C$_fsadd.c$87$1_0$21                                        =  019A GR
+  4 C$_fsadd.c$88$1_0$21                                        =  01A9 GR
+  4 C$_fsadd.c$89$1_0$21                                        =  01B8 GR
+  4 C$_fsadd.c$91$1_0$21                                        =  01C7 GR
+  4 C$_fsadd.c$93$2_0$22                                        =  01CD GR
+  4 C$_fsadd.c$94$2_0$22                                        =  01D8 GR
+  4 C$_fsadd.c$95$2_0$22                                        =  01E6 GR
+  4 C$_fsadd.c$99$2_0$23                                        =  01FE GR
+  4 G$__fsadd$0$0                                               =  0000 GR
+  4 XG$__fsadd$0$0                                              =  0469 GR
+  4 ___fsadd                                                       0000 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180 / ZX-Next), page 10.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size    0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size  46A   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

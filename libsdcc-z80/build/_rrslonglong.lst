@@ -1,0 +1,334 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.8.0 #10562 (Linux)
+                              4 ;--------------------------------------------------------
+                              5 	.module _rrslonglong
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl __rrslonglong
+                             12 ;--------------------------------------------------------
+                             13 ; special function registers
+                             14 ;--------------------------------------------------------
+                             15 ;--------------------------------------------------------
+                             16 ; ram data
+                             17 ;--------------------------------------------------------
+                             18 	.area _DATA
+                             19 ;--------------------------------------------------------
+                             20 ; ram data
+                             21 ;--------------------------------------------------------
+                             22 	.area _INITIALIZED
+                             23 ;--------------------------------------------------------
+                             24 ; absolute external ram data
+                             25 ;--------------------------------------------------------
+                             26 	.area _DABS (ABS)
+                             27 ;--------------------------------------------------------
+                             28 ; global & static initialisations
+                             29 ;--------------------------------------------------------
+                             30 	.area _HOME
+                             31 	.area _GSINIT
+                             32 	.area _GSFINAL
+                             33 	.area _GSINIT
+                             34 ;--------------------------------------------------------
+                             35 ; Home
+                             36 ;--------------------------------------------------------
+                             37 	.area _HOME
+                     0000    38 	G$_rrslonglong$0$0	= .
+                             39 	.globl	G$_rrslonglong$0$0
+                     0000    40 	C$_rrslonglong.c$3$0_0$2	= .
+                             41 	.globl	C$_rrslonglong.c$3$0_0$2
+                             42 ;_rrslonglong.c:3: long long _rrslonglong(long long l, char s)
+                             43 ;	---------------------------------
+                             44 ; Function _rrslonglong
+                             45 ; ---------------------------------
+   0000                      46 __rrslonglong::
+   0000 DD E5         [15]   47 	push	ix
+   0002 DD 21 00 00   [14]   48 	ld	ix,#0
+   0006 DD 39         [15]   49 	add	ix,sp
+   0008 21 F2 FF      [10]   50 	ld	hl, #-14
+   000B 39            [11]   51 	add	hl, sp
+   000C F9            [ 6]   52 	ld	sp, hl
+                     000D    53 	C$_rrslonglong.c$5$1_0$2	= .
+                             54 	.globl	C$_rrslonglong.c$5$1_0$2
+                             55 ;_rrslonglong.c:5: int32_t *top = (uint32_t *)((char *)(&l) + 4);
+   000D 21 14 00      [10]   56 	ld	hl, #0x0014
+   0010 39            [11]   57 	add	hl, sp
+   0011 EB            [ 4]   58 	ex	de, hl
+   0012 4B            [ 4]   59 	ld	c, e
+   0013 42            [ 4]   60 	ld	b, d
+   0014 03            [ 6]   61 	inc	bc
+   0015 03            [ 6]   62 	inc	bc
+   0016 03            [ 6]   63 	inc	bc
+   0017 03            [ 6]   64 	inc	bc
+                     0018    65 	C$_rrslonglong.c$6$1_0$2	= .
+                             66 	.globl	C$_rrslonglong.c$6$1_0$2
+                             67 ;_rrslonglong.c:6: uint16_t *middle = (uint16_t *)((char *)(&l) + 3);
+   0018 6B            [ 4]   68 	ld	l, e
+   0019 62            [ 4]   69 	ld	h, d
+   001A 23            [ 6]   70 	inc	hl
+   001B 23            [ 6]   71 	inc	hl
+   001C 23            [ 6]   72 	inc	hl
+   001D DD 75 FE      [19]   73 	ld	-2 (ix), l
+   0020 DD 74 FF      [19]   74 	ld	-1 (ix), h
+                     0023    75 	C$_rrslonglong.c$7$1_0$2	= .
+                             76 	.globl	C$_rrslonglong.c$7$1_0$2
+                             77 ;_rrslonglong.c:7: uint32_t *bottom = (uint32_t *)(&l);
+   0023 6B            [ 4]   78 	ld	l, e
+   0024 62            [ 4]   79 	ld	h, d
+   0025 DD 75 FC      [19]   80 	ld	-4 (ix), l
+   0028 DD 74 FD      [19]   81 	ld	-3 (ix), h
+                     002B    82 	C$_rrslonglong.c$8$1_0$2	= .
+                             83 	.globl	C$_rrslonglong.c$8$1_0$2
+                             84 ;_rrslonglong.c:8: uint16_t *b = (uint16_t *)(&l);
+                     002B    85 	C$_rrslonglong.c$18$3_0$4	= .
+                             86 	.globl	C$_rrslonglong.c$18$3_0$4
+                             87 ;_rrslonglong.c:18: (*bottom) >>= s;
+   002B 21 06 00      [10]   88 	ld	hl, #0x0006
+   002E 19            [11]   89 	add	hl, de
+   002F DD 75 F4      [19]   90 	ld	-12 (ix), l
+   0032 DD 74 F5      [19]   91 	ld	-11 (ix), h
+   0035                      92 00103$:
+                     0035    93 	C$_rrslonglong.c$10$2_0$3	= .
+                             94 	.globl	C$_rrslonglong.c$10$2_0$3
+                             95 ;_rrslonglong.c:10: for(;s >= 16; s-= 16)
+   0035 DD 7E 0E      [19]   96 	ld	a, 14 (ix)
+   0038 D6 10         [ 7]   97 	sub	a, #0x10
+   003A DArC5r00      [10]   98 	jp	C, 00101$
+                     003D    99 	C$_rrslonglong.c$12$3_0$4	= .
+                            100 	.globl	C$_rrslonglong.c$12$3_0$4
+                            101 ;_rrslonglong.c:12: b[0] = b[1];
+   003D 21 02 00      [10]  102 	ld	hl, #0x0002
+   0040 19            [11]  103 	add	hl, de
+   0041 DD 75 FA      [19]  104 	ld	-6 (ix), l
+   0044 DD 74 FB      [19]  105 	ld	-5 (ix), h
+   0047 7E            [ 7]  106 	ld	a, (hl)
+   0048 DD 77 F2      [19]  107 	ld	-14 (ix), a
+   004B 23            [ 6]  108 	inc	hl
+   004C 7E            [ 7]  109 	ld	a, (hl)
+   004D DD 77 F3      [19]  110 	ld	-13 (ix), a
+   0050 6B            [ 4]  111 	ld	l, e
+   0051 62            [ 4]  112 	ld	h, d
+   0052 DD 7E F2      [19]  113 	ld	a, -14 (ix)
+   0055 77            [ 7]  114 	ld	(hl), a
+   0056 23            [ 6]  115 	inc	hl
+   0057 DD 7E F3      [19]  116 	ld	a, -13 (ix)
+   005A 77            [ 7]  117 	ld	(hl), a
+                     005B   118 	C$_rrslonglong.c$13$3_0$4	= .
+                            119 	.globl	C$_rrslonglong.c$13$3_0$4
+                            120 ;_rrslonglong.c:13: b[1] = b[2];
+   005B FD 21 04 00   [14]  121 	ld	iy, #0x0004
+   005F FD 19         [15]  122 	add	iy, de
+   0061 FD 7E 00      [19]  123 	ld	a, 0 (iy)
+   0064 DD 77 F2      [19]  124 	ld	-14 (ix), a
+   0067 FD 7E 01      [19]  125 	ld	a, 1 (iy)
+   006A DD 77 F3      [19]  126 	ld	-13 (ix), a
+   006D DD 6E FA      [19]  127 	ld	l, -6 (ix)
+   0070 DD 66 FB      [19]  128 	ld	h, -5 (ix)
+   0073 DD 7E F2      [19]  129 	ld	a, -14 (ix)
+   0076 77            [ 7]  130 	ld	(hl), a
+   0077 23            [ 6]  131 	inc	hl
+   0078 DD 7E F3      [19]  132 	ld	a, -13 (ix)
+   007B 77            [ 7]  133 	ld	(hl), a
+                     007C   134 	C$_rrslonglong.c$14$3_0$4	= .
+                            135 	.globl	C$_rrslonglong.c$14$3_0$4
+                            136 ;_rrslonglong.c:14: b[2] = b[3];
+   007C DD 6E F4      [19]  137 	ld	l, -12 (ix)
+   007F DD 66 F5      [19]  138 	ld	h, -11 (ix)
+   0082 7E            [ 7]  139 	ld	a, (hl)
+   0083 23            [ 6]  140 	inc	hl
+   0084 66            [ 7]  141 	ld	h, (hl)
+   0085 6F            [ 4]  142 	ld	l, a
+   0086 FD 75 00      [19]  143 	ld	0 (iy), l
+   0089 FD 74 01      [19]  144 	ld	1 (iy), h
+                     008C   145 	C$_rrslonglong.c$15$3_0$4	= .
+                            146 	.globl	C$_rrslonglong.c$15$3_0$4
+                            147 ;_rrslonglong.c:15: b[3] = (b[3] & 0x8000) ? 0xffff : 0x000000;
+   008C E5            [11]  148 	push	hl
+   008D DD 6E F4      [19]  149 	ld	l, -12 (ix)
+   0090 DD 66 F5      [19]  150 	ld	h, -11 (ix)
+   0093 E5            [11]  151 	push	hl
+   0094 FD E1         [14]  152 	pop	iy
+   0096 E1            [10]  153 	pop	hl
+   0097 DD 6E F4      [19]  154 	ld	l, -12 (ix)
+   009A DD 66 F5      [19]  155 	ld	h, -11 (ix)
+   009D 7E            [ 7]  156 	ld	a, (hl)
+   009E 23            [ 6]  157 	inc	hl
+   009F 66            [ 7]  158 	ld	h, (hl)
+   00A0 6F            [ 4]  159 	ld	l, a
+   00A1 29            [11]  160 	add	hl, hl
+   00A2 30 06         [12]  161 	jr	NC,00107$
+   00A4 21 FF FF      [10]  162 	ld	hl, #0xffff
+   00A7 E3            [19]  163 	ex	(sp), hl
+   00A8 18 04         [12]  164 	jr	00108$
+   00AA                     165 00107$:
+   00AA 21 00 00      [10]  166 	ld	hl, #0x0000
+   00AD E3            [19]  167 	ex	(sp), hl
+   00AE                     168 00108$:
+   00AE DD 7E F2      [19]  169 	ld	a, -14 (ix)
+   00B1 FD 77 00      [19]  170 	ld	0 (iy), a
+   00B4 DD 7E F3      [19]  171 	ld	a, -13 (ix)
+   00B7 FD 77 01      [19]  172 	ld	1 (iy), a
+                     00BA   173 	C$_rrslonglong.c$10$2_0$3	= .
+                            174 	.globl	C$_rrslonglong.c$10$2_0$3
+                            175 ;_rrslonglong.c:10: for(;s >= 16; s-= 16)
+   00BA DD 7E 0E      [19]  176 	ld	a, 14 (ix)
+   00BD C6 F0         [ 7]  177 	add	a, #0xf0
+   00BF DD 77 0E      [19]  178 	ld	14 (ix), a
+   00C2 C3r35r00      [10]  179 	jp	00103$
+   00C5                     180 00101$:
+                     00C5   181 	C$_rrslonglong.c$18$1_0$2	= .
+                            182 	.globl	C$_rrslonglong.c$18$1_0$2
+                            183 ;_rrslonglong.c:18: (*bottom) >>= s;
+   00C5 DD 6E FC      [19]  184 	ld	l, -4 (ix)
+   00C8 DD 66 FD      [19]  185 	ld	h, -3 (ix)
+   00CB 5E            [ 7]  186 	ld	e, (hl)
+   00CC 23            [ 6]  187 	inc	hl
+   00CD 56            [ 7]  188 	ld	d, (hl)
+   00CE 23            [ 6]  189 	inc	hl
+   00CF 23            [ 6]  190 	inc	hl
+   00D0 7E            [ 7]  191 	ld	a, (hl)
+   00D1 2B            [ 6]  192 	dec	hl
+   00D2 6E            [ 7]  193 	ld	l, (hl)
+   00D3 67            [ 4]  194 	ld	h, a
+   00D4 DD 7E 0E      [19]  195 	ld	a, 14 (ix)
+   00D7 DD 73 F6      [19]  196 	ld	-10 (ix), e
+   00DA DD 72 F7      [19]  197 	ld	-9 (ix), d
+   00DD DD 75 F8      [19]  198 	ld	-8 (ix), l
+   00E0 DD 74 F9      [19]  199 	ld	-7 (ix), h
+   00E3 3C            [ 4]  200 	inc	a
+   00E4 18 10         [12]  201 	jr	00126$
+   00E6                     202 00125$:
+   00E6 DD CB F9 3E   [23]  203 	srl	-7 (ix)
+   00EA DD CB F8 1E   [23]  204 	rr	-8 (ix)
+   00EE DD CB F7 1E   [23]  205 	rr	-9 (ix)
+   00F2 DD CB F6 1E   [23]  206 	rr	-10 (ix)
+   00F6                     207 00126$:
+   00F6 3D            [ 4]  208 	dec	a
+   00F7 20 ED         [12]  209 	jr	NZ, 00125$
+   00F9 C5            [11]  210 	push	bc
+   00FA DD 5E FC      [19]  211 	ld	e, -4 (ix)
+   00FD DD 56 FD      [19]  212 	ld	d, -3 (ix)
+   0100 21 06 00      [10]  213 	ld	hl, #0x0006
+   0103 39            [11]  214 	add	hl, sp
+   0104 01 04 00      [10]  215 	ld	bc, #0x0004
+   0107 ED B0         [21]  216 	ldir
+   0109 C1            [10]  217 	pop	bc
+                     010A   218 	C$_rrslonglong.c$19$1_0$2	= .
+                            219 	.globl	C$_rrslonglong.c$19$1_0$2
+                            220 ;_rrslonglong.c:19: (*bottom) |= ((uint32_t)((*middle) >> s) << 16);
+   010A DD 6E FE      [19]  221 	ld	l, -2 (ix)
+   010D DD 66 FF      [19]  222 	ld	h, -1 (ix)
+   0110 5E            [ 7]  223 	ld	e, (hl)
+   0111 23            [ 6]  224 	inc	hl
+   0112 56            [ 7]  225 	ld	d, (hl)
+   0113 DD 7E 0E      [19]  226 	ld	a, 14 (ix)
+   0116 3C            [ 4]  227 	inc	a
+   0117 18 04         [12]  228 	jr	00128$
+   0119                     229 00127$:
+   0119 CB 3A         [ 8]  230 	srl	d
+   011B CB 1B         [ 8]  231 	rr	e
+   011D                     232 00128$:
+   011D 3D            [ 4]  233 	dec	a
+   011E 20 F9         [12]  234 	jr	NZ, 00127$
+   0120 21 00 00      [10]  235 	ld	hl, #0x0000
+   0123 DD 7E F6      [19]  236 	ld	a, -10 (ix)
+   0126 B5            [ 4]  237 	or	a, l
+   0127 DD 77 F6      [19]  238 	ld	-10 (ix), a
+   012A DD 7E F7      [19]  239 	ld	a, -9 (ix)
+   012D B4            [ 4]  240 	or	a, h
+   012E DD 77 F7      [19]  241 	ld	-9 (ix), a
+   0131 DD 7E F8      [19]  242 	ld	a, -8 (ix)
+   0134 B3            [ 4]  243 	or	a, e
+   0135 DD 77 F8      [19]  244 	ld	-8 (ix), a
+   0138 DD 7E F9      [19]  245 	ld	a, -7 (ix)
+   013B B2            [ 4]  246 	or	a, d
+   013C DD 77 F9      [19]  247 	ld	-7 (ix), a
+   013F C5            [11]  248 	push	bc
+   0140 DD 5E FC      [19]  249 	ld	e, -4 (ix)
+   0143 DD 56 FD      [19]  250 	ld	d, -3 (ix)
+   0146 21 06 00      [10]  251 	ld	hl, #0x0006
+   0149 39            [11]  252 	add	hl, sp
+   014A 01 04 00      [10]  253 	ld	bc, #0x0004
+   014D ED B0         [21]  254 	ldir
+   014F C1            [10]  255 	pop	bc
+                     0150   256 	C$_rrslonglong.c$20$1_0$2	= .
+                            257 	.globl	C$_rrslonglong.c$20$1_0$2
+                            258 ;_rrslonglong.c:20: (*top) |= (((*middle) & 0xffff0000) >> s);
+   0150 C5            [11]  259 	push	bc
+   0151 59            [ 4]  260 	ld	e, c
+   0152 50            [ 4]  261 	ld	d, b
+   0153 21 06 00      [10]  262 	ld	hl, #0x0006
+   0156 39            [11]  263 	add	hl, sp
+   0157 EB            [ 4]  264 	ex	de, hl
+   0158 01 04 00      [10]  265 	ld	bc, #0x0004
+   015B ED B0         [21]  266 	ldir
+   015D C1            [10]  267 	pop	bc
+   015E DD 6E FE      [19]  268 	ld	l, -2 (ix)
+   0161 DD 66 FF      [19]  269 	ld	h, -1 (ix)
+   0164 5E            [ 7]  270 	ld	e, (hl)
+   0165 23            [ 6]  271 	inc	hl
+   0166 56            [ 7]  272 	ld	d, (hl)
+   0167 21 00 00      [10]  273 	ld	hl,#0x0000
+   016A 5D            [ 4]  274 	ld	e,l
+   016B 54            [ 4]  275 	ld	d,h
+   016C DD 7E 0E      [19]  276 	ld	a, 14 (ix)
+   016F 3C            [ 4]  277 	inc	a
+   0170 18 08         [12]  278 	jr	00132$
+   0172                     279 00131$:
+   0172 CB 3C         [ 8]  280 	srl	h
+   0174 CB 1D         [ 8]  281 	rr	l
+   0176 CB 1A         [ 8]  282 	rr	d
+   0178 CB 1B         [ 8]  283 	rr	e
+   017A                     284 00132$:
+   017A 3D            [ 4]  285 	dec	a
+   017B 20 F5         [12]  286 	jr	NZ, 00131$
+   017D DD 7E F6      [19]  287 	ld	a, -10 (ix)
+   0180 B3            [ 4]  288 	or	a, e
+   0181 DD 77 F6      [19]  289 	ld	-10 (ix), a
+   0184 DD 7E F7      [19]  290 	ld	a, -9 (ix)
+   0187 B2            [ 4]  291 	or	a, d
+   0188 DD 77 F7      [19]  292 	ld	-9 (ix), a
+   018B DD 7E F8      [19]  293 	ld	a, -8 (ix)
+   018E B5            [ 4]  294 	or	a, l
+   018F DD 77 F8      [19]  295 	ld	-8 (ix), a
+   0192 DD 7E F9      [19]  296 	ld	a, -7 (ix)
+   0195 B4            [ 4]  297 	or	a, h
+   0196 DD 77 F9      [19]  298 	ld	-7 (ix), a
+   0199 59            [ 4]  299 	ld	e, c
+   019A 50            [ 4]  300 	ld	d, b
+   019B 21 04 00      [10]  301 	ld	hl, #0x0004
+   019E 39            [11]  302 	add	hl, sp
+   019F 01 04 00      [10]  303 	ld	bc, #0x0004
+   01A2 ED B0         [21]  304 	ldir
+                     01A4   305 	C$_rrslonglong.c$22$1_0$2	= .
+                            306 	.globl	C$_rrslonglong.c$22$1_0$2
+                            307 ;_rrslonglong.c:22: return(l);
+   01A4 21 12 00      [10]  308 	ld	hl,#18
+   01A7 39            [11]  309 	add	hl,sp
+   01A8 5E            [ 7]  310 	ld	e, (hl)
+   01A9 23            [ 6]  311 	inc	hl
+   01AA 56            [ 7]  312 	ld	d, (hl)
+   01AB 21 14 00      [10]  313 	ld	hl, #20
+   01AE 39            [11]  314 	add	hl, sp
+   01AF 01 08 00      [10]  315 	ld	bc, #8
+   01B2 ED B0         [21]  316 	ldir
+                     01B4   317 	C$_rrslonglong.c$23$1_0$2	= .
+                            318 	.globl	C$_rrslonglong.c$23$1_0$2
+                            319 ;_rrslonglong.c:23: }
+   01B4 DD F9         [10]  320 	ld	sp, ix
+   01B6 DD E1         [14]  321 	pop	ix
+                     01B8   322 	C$_rrslonglong.c$23$1_0$2	= .
+                            323 	.globl	C$_rrslonglong.c$23$1_0$2
+                     01B8   324 	XG$_rrslonglong$0$0	= .
+                            325 	.globl	XG$_rrslonglong$0$0
+   01B8 C9            [10]  326 	ret
+                            327 	.area _HOME
+                            328 ;--------------------------------------------------------
+                            329 ; code
+                            330 ;--------------------------------------------------------
+                            331 	.area _CODE
+                            332 	.area _CODE
+                            333 	.area _INITIALIZER
+                            334 	.area _CABS (ABS)

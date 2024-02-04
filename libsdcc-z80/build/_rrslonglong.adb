@@ -1,0 +1,12 @@
+M:_rrslonglong
+F:G$_rrslonglong$0_0$0({2}DF,SI:S),Z,0,4,0,0,0
+S:L_rrslonglong._rrslonglong$l$1_0$1({8}SI:S),B,1,4
+S:L_rrslonglong._rrslonglong$s$1_0$1({1}SC:U),B,1,12
+S:L_rrslonglong._rrslonglong$top$1_0$0({2}DG,SL:S),R,0,0,[c,b]
+S:L_rrslonglong._rrslonglong$middle$1_0$0({2}DG,SI:U),B,1,-2
+S:L_rrslonglong._rrslonglong$bottom$1_0$0({2}DG,SL:U),B,1,-4
+S:L_rrslonglong._rrslonglong$b$1_0$0({2}DG,SI:U),R,0,0,[e,d]
+S:L_rrslonglong._rrslonglong$sloc0$0_1$0({2}DG,SI:U),B,1,-12
+S:L_rrslonglong._rrslonglong$sloc1$0_1$0({2}DG,SI:U),B,1,-6
+S:L_rrslonglong._rrslonglong$sloc2$0_1$0({2}SI:U),B,1,-14
+S:L_rrslonglong._rrslonglong$sloc3$0_1$0({4}SL:U),B,1,-10

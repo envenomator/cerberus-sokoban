@@ -1,0 +1,267 @@
+;!FILE /mnt/c/source/cerberus-sokoban/libsdcc-z80/build/_divslonglong.asm
+XL2
+H 9 areas B7 global symbols
+M _divslonglong
+O -mz80
+S __divulonglong Ref0000
+S .__.ABS. Def0000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 180 flags 0 addr 0
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$90 Def0046
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$81 Def002E
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$72 Def0023
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$91 Def0048
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$82 Def0030
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$73 Def0024
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$64 Def0016
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$92 Def004B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$83 Def0033
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$74 Def0025
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$65 Def0019
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$56 Def000D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$47 Def0000
+S C$_divslonglong.c$7$1_0$2 Def000D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$93 Def004E
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$84 Def0036
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$66 Def001A
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$57 Def0010
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$48 Def0002
+S C$_divslonglong.c$8$1_0$2 Def0016
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$94 Def0050
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$85 Def0038
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$67 Def001C
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$58 Def0011
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$49 Def0006
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$95 Def0053
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$86 Def003B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$68 Def001F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$59 Def0013
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$96 Def0056
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$87 Def003E
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$78 Def0027
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$97 Def0058
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$88 Def0040
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$79 Def0028
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$98 Def005B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$89 Def0043
+S G$_divslonglong$0$0 Def0000
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$99 Def005E
+S __divslonglong Def0000
+S XG$_divslonglong$0$0 Def017F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$100 Def0060
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$200 Def0123
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$101 Def0063
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$210 Def013D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$201 Def0125
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$120 Def0082
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$220 Def0158
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$211 Def0140
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$202 Def0128
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$130 Def009D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$121 Def0085
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$112 Def006E
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$221 Def015B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$212 Def0143
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$203 Def012B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$140 Def00AD
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$131 Def009F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$122 Def0087
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$113 Def006F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$231 Def016B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$213 Def0145
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$204 Def012D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$150 Def00C0
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$141 Def00AE
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$132 Def00A2
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$123 Def008A
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$114 Def0072
+S C$_divslonglong.c$11$1_0$2 Def0023
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$232 Def016E
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$223 Def015D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$214 Def0148
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$205 Def0130
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$160 Def00D7
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$151 Def00C1
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$142 Def00B1
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$133 Def00A5
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$124 Def008D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$115 Def0075
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$106 Def0066
+S C$_divslonglong.c$12$1_0$2 Def0027
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$233 Def016F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$224 Def0160
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$215 Def014B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$206 Def0133
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$170 Def00ED
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$161 Def00D8
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$152 Def00C4
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$143 Def00B2
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$134 Def00A7
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$125 Def008F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$116 Def0077
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$107 Def0069
+S C$_divslonglong.c$13$1_0$2 Def0066
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$243 Def017B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$234 Def0170
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$225 Def0161
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$216 Def014D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$207 Def0135
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$180 Def0105
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$171 Def00F0
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$162 Def00DB
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$153 Def00C5
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$144 Def00B3
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$135 Def00AA
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$126 Def0092
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$117 Def007A
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$108 Def006C
+S C$_divslonglong.c$14$1_0$2 Def006E
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$244 Def017D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$235 Def0171
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$226 Def0162
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$217 Def0150
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$208 Def0138
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$190 Def0110
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$181 Def0106
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$172 Def00F3
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$163 Def00DE
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$154 Def00C8
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$145 Def00B6
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$127 Def0095
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$118 Def007D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$236 Def0172
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$227 Def0165
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$218 Def0153
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$209 Def013B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$191 Def0111
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$182 Def0107
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$173 Def00F4
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$164 Def00DF
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$155 Def00CA
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$146 Def00B7
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$128 Def0097
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$119 Def007F
+S C$_divslonglong.c$16$1_0$2 Def00AD
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$237 Def0175
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$228 Def0166
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$219 Def0155
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$192 Def0114
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$183 Def010A
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$174 Def00F7
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$165 Def00E2
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$156 Def00CD
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$147 Def00BA
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$129 Def009A
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$238 Def0176
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$229 Def0169
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$193 Def0115
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$184 Def010D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$175 Def00FA
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$166 Def00E5
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$157 Def00D0
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$148 Def00BC
+S C$_divslonglong.c$18$1_0$2 Def0110
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$239 Def0179
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$194 Def0116
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$185 Def010E
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$176 Def00FB
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$167 Def00E6
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$158 Def00D1
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$149 Def00BF
+S C$_divslonglong.c$19$1_0$2 Def017F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$249 Def017F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$195 Def0119
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$186 Def010F
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$177 Def00FE
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$168 Def00E9
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$159 Def00D4
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$196 Def011A
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$178 Def0101
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$169 Def00EC
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$197 Def011C
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$179 Def0102
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$198 Def011D
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$199 Def0120
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$50 Def0008
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$60 Def0014
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$51 Def000B
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$52 Def000C
+S A$_divslonglong/cerberus-sokoban/libsdcc-z80/build/_divslonglong$80 Def002B
+S C$_divslonglong.c$5$0_0$2 Def0000
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 04 00
+T 00 00 DD E5 DD 21 00 00 DD 39 21 E6 FF 39 F9 DD
+R 00 00 04 00
+T 0E 00 7E 0D 07 E6 01 4F 06 00 DD 7E 15 07 E6 01
+R 00 00 04 00
+T 1C 00 DD 77 FE DD 36 FF 00 78 B1 28 3F AF DD 96
+R 00 00 04 00
+T 2A 00 06 DD 77 06 3E 00 DD 9E 07 DD 77 07 3E 00
+R 00 00 04 00
+T 38 00 DD 9E 08 DD 77 08 3E 00 DD 9E 09 DD 77 09
+R 00 00 04 00
+T 46 00 3E 00 DD 9E 0A DD 77 0A 3E 00 DD 9E 0B DD
+R 00 00 04 00
+T 54 00 77 0B 3E 00 DD 9E 0C DD 77 0C 3E 00 DD 9E
+R 00 00 04 00
+T 62 00 0D DD 77 0D
+R 00 00 04 00
+T 66 00
+R 00 00 04 00
+T 66 00 DD 7E FF DD B6 FE 28 3F AF DD 96 0E DD 77
+R 00 00 04 00
+T 74 00 0E 3E 00 DD 9E 0F DD 77 0F 3E 00 DD 9E 10
+R 00 00 04 00
+T 82 00 DD 77 10 3E 00 DD 9E 11 DD 77 11 3E 00 DD
+R 00 00 04 00
+T 90 00 9E 12 DD 77 12 3E 00 DD 9E 13 DD 77 13 3E
+R 00 00 04 00
+T 9E 00 00 DD 9E 14 DD 77 14 3E 00 DD 9E 15 DD 77
+R 00 00 04 00
+T AC 00 15
+R 00 00 04 00
+T AD 00
+R 00 00 04 00
+T AD 00 C5 21 12 00 39 EB 21 22 00 39 01 08 00 ED
+R 00 00 04 00
+T BB 00 B0 21 0A 00 39 EB 21 2A 00 39 01 08 00 ED
+R 00 00 04 00
+T C9 00 B0 DD 5E F4 DD 56 F5 D5 DD 5E F2 DD 56 F3
+R 00 00 04 00
+T D7 00 D5 DD 5E F0 DD 56 F1 D5 DD 5E EE DD 56 EF
+R 00 00 04 00
+T E5 00 D5 DD 5E FC DD 56 FD D5 DD 5E FA DD 56 FB
+R 00 00 04 00
+T F3 00 D5 DD 5E F8 DD 56 F9 D5 DD 5E F6 DD 56 F7
+R 00 00 04 00
+T 01 01 D5 21 12 00 39 E5 CD 00 00 21 12 00 39 F9
+R 00 00 04 00 02 09 00 00
+T 0F 01 C1 79 DD AE FE 4F 78 DD AE FF B1 28 41 AF
+R 00 00 04 00
+T 1D 01 DD 96 E6 DD 77 EE 3E 00 DD 9E E7 DD 77 EF
+R 00 00 04 00
+T 2B 01 3E 00 DD 9E E8 DD 77 F0 3E 00 DD 9E E9 DD
+R 00 00 04 00
+T 39 01 77 F1 3E 00 DD 9E EA DD 77 F2 3E 00 DD 9E
+R 00 00 04 00
+T 47 01 EB DD 77 F3 3E 00 DD 9E EC DD 77 F4 3E 00
+R 00 00 04 00
+T 55 01 DD 9E ED DD 77 F5 18 0E
+R 00 00 04 00
+T 5D 01
+R 00 00 04 00
+T 5D 01 21 08 00 39 EB 21 00 00 39 01 08 00 ED B0
+R 00 00 04 00
+T 6B 01
+R 00 00 04 00
+T 6B 01 21 1E 00 39 5E 23 56 21 08 00 39 01 08 00
+R 00 00 04 00
+T 79 01 ED B0 DD F9 DD E1 C9
+R 00 00 04 00
