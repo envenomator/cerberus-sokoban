@@ -14,7 +14,7 @@ int main(void) {
 
 	con_init();
 	game_splash_screen();
-
+	while(1);
 	levels = sizeof(levels) / sizeof(struct sokobanlevel);
 	
 	game_sendTileData();		

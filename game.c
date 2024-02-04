@@ -429,13 +429,13 @@ char game_getResponse(char *message, char option1, char option2) {
 	
 	// vertical spacing
 	for(n = start - 1; n < (start+len+1); n++) {
-		//vdp_cursorGoto(n,27);
+		//con_gotoxy(n,27);
 		//putch(' ');
-		//vdp_cursorGoto(n,29);
+		//con_gotoxy(n,29);
 		//putch(' ');
 	}
 	// horizontal spacing
-	//vdp_cursorGoto(start-1,28);
+	//con_gotoxy(start-1,28);
 	//putch(' ');
 	printf("%s ", message);
 
@@ -447,51 +447,62 @@ char game_getResponse(char *message, char option1, char option2) {
 }
 
 void game_splash_screen() {
-	/*
-	vdp_cls();
+	chardefs *ptr = (chardefs *)0xf000;
 
-	vdp_cursorGoto(0,10);
-	vdp_cursorDisable();
-	vdp_fgcolour(BRIGHT_RED);
-	puts("             _____       _         _                 \r\n");
-	vdp_fgcolour(BRIGHT_MAGENTA);
-	puts("            / ____|     | |       | |                \r\n");
-	vdp_fgcolour(BRIGHT_CYAN);
-	puts("           | (___   ___ | | _____ | |__   __ _ _ __  \r\n");
-	vdp_fgcolour(BRIGHT_BLUE);
-	puts("            \\___ \\ / _ \\| |/ / _ \\| '_ \\ / _. | '_ \\ \r\n");
-	vdp_fgcolour(BRIGHT_GREEN);
-	puts("            ____) | (_) |   < (_) | |_) | (_| | | | |\r\n");
-	vdp_fgcolour(BRIGHT_WHITE);
-	puts("           |_____/ \\___/|_|\\_\\___/|_.__/ \\__,_|_| |_|\r\n");
-	puts("\r\n");
-	puts("\r\n");
-	vdp_fgcolour(DARK_GREEN);
-	puts("                         v1.1 For Agon (TM)\r\n");
-	puts("\r\n");
-	vdp_fgcolour(DARK_WHITE);
-	puts("                      (c) 2023 Jeroen Venema\r\n");
-	*/
+	memcpy(ptr[8], ptr['C'], 8); // green C
+	memcpy(ptr[9], ptr['r'], 8); // red r
+	memcpy(ptr[10], ptr['b'], 8); // blue b
+	memcpy(ptr[11], ptr['u'], 8); // yellow u
+	memcpy(ptr[12], ptr['s'], 8); // cyan s
+	memcpy(ptr[13], ptr['e'], 8); // purple e
+	con_cls();
+
+	con_gotoxy(0,1);
+	con_puts("  __        _         _                 ");
+	con_gotoxy(0,2);
+	con_puts(" / _|      | |       | |                ");
+	con_gotoxy(0,3);
+	con_puts(" |(_   ___ | | _____ | |__   __ _ _ __  ");
+	con_gotoxy(0,4);
+	con_puts(" \\_ \\ / _ \\| |/ / _ \\| '_ \\ / _. | '_ \\ ");
+	con_gotoxy(0,5);
+	con_puts("  _) | (_) |   < (_) | |_) | (_| | | | |");
+	con_gotoxy(0,6);
+	con_puts(" |__/ \\___/|_|\\_\\___/|_.__/ \\__,_|_| |_|");
+	con_gotoxy(0,12);
+	//con_puts("          v2.0 For Cerberus (TM)");
+	con_puts("          v2.0 ");
+	con_putc(8);
+	con_putc(13);
+	con_putc(9);
+	con_putc(10);
+	con_putc(13);
+	con_putc(9);
+	con_putc(11);
+	con_putc(12);
+	con_puts(" (TM)");
+	con_gotoxy(0,14);
+	con_puts("        (c) 2024 Jeroen Venema");
 }
 
 void game_displayHelp(uint8_t xpos, uint8_t ypos) {
 	uint16_t gxpos = xpos * MINIMAP_WIDTH;
 	uint16_t gypos = (ypos * 8) + 72;
 	/*
-	vdp_cursorGoto(xpos,ypos);
+	con_gotoxy(xpos,ypos);
 	vdp_fgcolour(BRIGHT_WHITE);
-	puts("Game objective");
-	vdp_cursorGoto(xpos,ypos+2);
+	con_puts("Game objective");
+	con_gotoxy(xpos,ypos+2);
 	vdp_fgcolour(DARK_WHITE);
-	puts("Push all boxes");
-	vdp_cursorGoto(xpos,ypos+3);
-	puts("in this warehouse");
-	vdp_cursorGoto(xpos,ypos+4);
-	puts("to the target goals.");
+	con_puts("Push all boxes");
+	con_gotoxy(xpos,ypos+3);
+	con_puts("in this warehouse");
+	con_gotoxy(xpos,ypos+4);
+	con_puts("to the target goals.");
 	
-	vdp_cursorGoto(xpos,ypos+7);
+	con_gotoxy(xpos,ypos+7);
 	vdp_fgcolour(BRIGHT_WHITE);
-	puts("Legend");
+	con_puts("Legend");
 	
 	vdp_bitmapDraw(TILE_PLAYER_MINI,gxpos,gypos);
 	vdp_bitmapDraw(TILE_BOX_MINI, gxpos, gypos + 16);
@@ -499,32 +510,32 @@ void game_displayHelp(uint8_t xpos, uint8_t ypos) {
 	vdp_bitmapDraw(TILE_GOAL_MINI, gxpos, gypos + 56);
 	
 	vdp_fgcolour(DARK_WHITE);
-	vdp_cursorGoto(xpos+2,ypos+9);
-	puts("You, hard at work");
-	vdp_cursorGoto(xpos+2,ypos+11);
-	puts("Boxes with stuff");
-	vdp_cursorGoto(xpos+2,ypos+13);
-	puts("Boxes in shipping");
-	vdp_cursorGoto(xpos+2,ypos+14);
-	puts("position");
-	vdp_cursorGoto(xpos+2,ypos+16);
-	puts("Shipping goal");
+	con_gotoxy(xpos+2,ypos+9);
+	con_puts("You, hard at work");
+	con_gotoxy(xpos+2,ypos+11);
+	con_puts("Boxes with stuff");
+	con_gotoxy(xpos+2,ypos+13);
+	con_puts("Boxes in shipping");
+	con_gotoxy(xpos+2,ypos+14);
+	con_puts("position");
+	con_gotoxy(xpos+2,ypos+16);
+	con_puts("Shipping goal");
 	
 	vdp_fgcolour(BRIGHT_WHITE);
-	vdp_cursorGoto(xpos,ypos+19);
-	puts("Game controls");
+	con_gotoxy(xpos,ypos+19);
+	con_puts("Game controls");
 	
 	vdp_fgcolour(DARK_WHITE);
-	vdp_cursorGoto(xpos,ypos+21);
-	puts("Cursor");
-	vdp_cursorGoto(xpos,ypos+22);
-	puts(" keys  - move player");
-	vdp_cursorGoto(xpos,ypos+23);
-	puts("    u  - undo move");
-	vdp_cursorGoto(xpos,ypos+24);
-	puts("esc/q  - quit level");
-	vdp_cursorGoto(xpos,ypos+26);
-	puts("ENTER  - start level");
+	con_gotoxy(xpos,ypos+21);
+	con_puts("Cursor");
+	con_gotoxy(xpos,ypos+22);
+	con_puts(" keys  - move player");
+	con_gotoxy(xpos,ypos+23);
+	con_puts("    u  - undo move");
+	con_gotoxy(xpos,ypos+24);
+	con_puts("esc/q  - quit level");
+	con_gotoxy(xpos,ypos+26);
+	con_puts("ENTER  - start level");
 	*/
 	return;
 }
@@ -539,15 +550,15 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 		//vdp_clearGraphics();
 		game_displayMinimap();			// display 'current' level
 
-		//vdp_cursorGoto(4,9);
+		//con_gotoxy(4,9);
 		//vdp_fgcolour(BRIGHT_WHITE);
 		printf("Level %03d / %03d",lvl+1,levels); // user level# starts at 1, internally this is level 0
 
-		//vdp_cursorGoto(9,43);
-		puts("Select level with cursor keys");
-		//vdp_cursorGoto(18,45);
+		//con_gotoxy(9,43);
+		con_puts("Select level with cursor keys");
+		//con_gotoxy(18,45);
 		//vdp_fgcolour(DARK_WHITE);
-		puts("ESC to quit");
+		con_puts("ESC to quit");
 
 		//vdp_plotMoveTo(750,335);
 		//vdp_plotColour(DARK_CYAN);
