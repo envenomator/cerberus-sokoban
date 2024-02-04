@@ -1,0 +1,2499 @@
+;!FILE game.asm
+XL2
+H 9 areas 675 global symbols
+M game
+O -mz80
+S .__.ABS. Def0000
+S _con_getc Ref0000
+S _puts Ref0000
+S _printf Ref0000
+S _strlen Ref0000
+A _CODE size AA7 flags 0 addr 0
+S A$game$913 Def02F7
+S A$game$904 Def02EA
+S A$game$832 Def0290
+S A$game$814 Def0280
+S A$game$805 Def0272
+S A$game$742 Def0248
+S A$game$670 Def0214
+S A$game$625 Def01F2
+S A$game$607 Def01DA
+S A$game$580 Def01AC
+S A$game$571 Def019F
+S A$game$562 Def0194
+S A$game$535 Def018C
+S A$game$526 Def017B
+S A$game$490 Def0156
+S A$game$481 Def0148
+S A$game$472 Def0139
+S A$game$436 Def011C
+S A$game$427 Def010F
+S A$game$409 Def00FE
+S A$game$382 Def00DF
+S A$game$373 Def00D0
+S A$game$364 Def00C6
+S A$game$346 Def00BB
+S A$game$265 Def0080
+S A$game$256 Def0073
+S A$game$247 Def0069
+S A$game$238 Def005A
+S A$game$175 Def0034
+S A$game$166 Def0023
+S A$game$148 Def000B
+S C$game.c$599$1_0$128 Def0958
+S C$game.c$220$2_0$94 Def0206
+S C$game.c$163$1_0$80 Def0125
+S C$game.c$102$2_0$77 Def009A
+S A$game$941 Def0318
+S A$game$914 Def02F8
+S A$game$905 Def02ED
+S A$game$833 Def0293
+S A$game$815 Def0282
+S A$game$806 Def0273
+S A$game$743 Def024B
+S A$game$644 Def0206
+S A$game$626 Def01F5
+S A$game$617 Def01E7
+S A$game$608 Def01DB
+S A$game$590 Def01C2
+S A$game$581 Def01AF
+S A$game$572 Def01A2
+S A$game$563 Def0196
+S A$game$527 Def017C
+S A$game$491 Def0157
+S A$game$482 Def0149
+S A$game$473 Def013A
+S A$game$437 Def011D
+S A$game$428 Def0110
+S A$game$383 Def00E0
+S A$game$374 Def00D1
+S A$game$275 Def008B
+S A$game$266 Def0081
+S A$game$257 Def0074
+S A$game$248 Def006A
+S A$game$239 Def005D
+S A$game$176 Def0037
+S A$game$167 Def0026
+S C$game.c$221$2_0$94 Def020B
+S C$game.c$214$1_0$93 Def019F
+S XG$undomove_sprites$0$0 Def0193
+S C$game.c$111$2_0$78 Def00B1
+S A$game$960 Def0325
+S A$game$915 Def02FB
+S A$game$906 Def02EE
+S A$game$870 Def02B2
+S A$game$843 Def0298
+S A$game$816 Def0284
+S A$game$807 Def0276
+S A$game$771 Def0258
+S A$game$753 Def0250
+S A$game$744 Def024C
+S A$game$726 Def0233
+S A$game$708 Def022B
+S A$game$663 Def020F
+S A$game$645 Def0207
+S A$game$627 Def01F8
+S A$game$618 Def01EA
+S A$game$609 Def01DE
+S A$game$591 Def01C5
+S A$game$582 Def01B0
+S A$game$573 Def01A5
+S A$game$564 Def019A
+S A$game$546 Def0190
+S A$game$528 Def017D
+S A$game$492 Def0159
+S A$game$483 Def014C
+S A$game$474 Def013B
+S A$game$438 Def011F
+S A$game$429 Def0111
+S A$game$384 Def00E1
+S A$game$375 Def00D2
+S A$game$276 Def008C
+S A$game$267 Def0082
+S A$game$258 Def0077
+S A$game$249 Def006B
+S A$game$168 Def0029
+S A$game$159 Def0018
+S C$game.c$222$2_0$94 Def020D
+S C$game.c$215$1_0$93 Def01CA
+S C$game.c$112$2_0$78 Def00B1
+S _game_splash_screen Def0813
+S A$game$970 Def0331
+S A$game$961 Def0326
+S A$game$925 Def030C
+S A$game$916 Def02FE
+S A$game$907 Def02EF
+S A$game$871 Def02B3
+S A$game$862 Def02A6
+S A$game$853 Def0299
+S A$game$817 Def0286
+S A$game$808 Def0277
+S A$game$772 Def025B
+S A$game$754 Def0252
+S A$game$745 Def024E
+S A$game$736 Def023A
+S A$game$727 Def0236
+S A$game$709 Def022D
+S A$game$664 Def0210
+S A$game$646 Def0209
+S A$game$628 Def01FA
+S A$game$619 Def01EC
+S A$game$592 Def01C6
+S A$game$583 Def01B3
+S A$game$574 Def01A6
+S A$game$565 Def019C
+S A$game$547 Def0191
+S A$game$529 Def017E
+S A$game$493 Def015A
+S A$game$475 Def013C
+S A$game$466 Def012F
+S A$game$439 Def0120
+S A$game$376 Def00D3
+S A$game$277 Def008E
+S A$game$268 Def0083
+S A$game$259 Def007A
+S A$game$187 Def0044
+S A$game$169 Def002C
+S C$game.c$231$2_0$95 Def021B
+S C$game.c$223$2_0$94 Def020D
+S C$game.c$157$1_0$80 Def00E7
+S C$game.c$105$2_0$77 Def009E
+S A$game$980 Def033A
+S A$game$971 Def0333
+S A$game$962 Def0329
+S A$game$926 Def030E
+S A$game$917 Def0301
+S A$game$908 Def02F0
+S A$game$890 Def02D1
+S A$game$872 Def02B6
+S A$game$863 Def02A9
+S A$game$854 Def029B
+S A$game$827 Def028A
+S A$game$809 Def0278
+S A$game$773 Def025C
+S A$game$737 Def023D
+S A$game$728 Def0237
+S A$game$665 Def0212
+S A$game$647 Def020A
+S A$game$629 Def01FC
+S A$game$593 Def01C7
+S A$game$584 Def01B6
+S A$game$575 Def01A7
+S A$game$566 Def019D
+S A$game$494 Def015B
+S A$game$476 Def013F
+S A$game$467 Def0132
+S A$game$449 Def0125
+S A$game$377 Def00D4
+S A$game$368 Def00C7
+S A$game$278 Def0090
+S A$game$269 Def0086
+S A$game$197 Def004F
+S A$game$188 Def0047
+S G$game_selectLevel$0$0 Def0815
+S C$game.c$262$1_0$93 Def028A
+S C$game.c$253$1_0$93 Def0264
+S C$game.c$241$2_0$95 Def023A
+S C$game.c$224$2_0$94 Def020F
+S C$game.c$217$1_0$93 Def01E7
+S C$game.c$208$1_0$93 Def0194
+S G$move_updatelevel$0$0 Def0194
+S C$game.c$206$1_0$86 Def0193
+S C$game.c$108$1_0$76 Def00A2
+S C$game.c$106$2_0$77 Def009E
+S _game_initLevel Def0A69
+S A$game$990 Def0341
+S A$game$981 Def033C
+S A$game$963 Def032A
+S A$game$927 Def0310
+S A$game$918 Def0304
+S A$game$909 Def02F1
+S A$game$891 Def02D2
+S A$game$882 Def02C5
+S A$game$873 Def02B7
+S A$game$864 Def02AC
+S A$game$855 Def029F
+S A$game$837 Def0294
+S A$game$828 Def028D
+S A$game$738 Def023F
+S A$game$666 Def0213
+S A$game$585 Def01B9
+S A$game$576 Def01A8
+S A$game$567 Def019E
+S A$game$495 Def015D
+S A$game$477 Def0140
+S A$game$468 Def0135
+S A$game$459 Def0126
+S A$game$396 Def00E7
+S A$game$378 Def00D7
+S A$game$369 Def00CA
+S A$game$279 Def0092
+S A$game$189 Def004A
+S C$game.c$320$1_0$99 Def03A1
+S C$game.c$263$1_0$93 Def0290
+S C$game.c$242$2_0$95 Def023A
+S C$game.c$225$2_0$94 Def0214
+S C$game.c$118$1_0$76 Def00B9
+S C$game.c$115$2_0$78 Def00B5
+S A$game$991 Def0343
+S A$game$964 Def032B
+S A$game$937 Def0316
+S A$game$928 Def0312
+S A$game$919 Def0307
+S A$game$892 Def02D5
+S A$game$883 Def02C8
+S A$game$874 Def02BA
+S A$game$865 Def02AD
+S A$game$856 Def02A1
+S A$game$838 Def0296
+S A$game$766 Def0255
+S A$game$739 Def0241
+S A$game$694 Def021B
+S A$game$586 Def01BC
+S A$game$577 Def01A9
+S A$game$496 Def015E
+S A$game$487 Def014D
+S A$game$478 Def0143
+S A$game$469 Def0136
+S A$game$397 Def00EA
+S A$game$388 Def00E4
+S A$game$379 Def00D8
+S C$game.c$321$1_0$99 Def03AB
+S C$game.c$264$1_0$93 Def0298
+S C$game.c$232$3_0$96 Def022B
+S C$game.c$237$1_0$93 Def021B
+S C$game.c$226$2_0$94 Def0216
+S C$game.c$116$2_0$78 Def00B5
+S _game_displayLevel Def0938
+S _undomove_updatelevel Def0299
+S A$game$992 Def0345
+S A$game$974 Def0336
+S A$game$929 Def0314
+S A$game$893 Def02D6
+S A$game$884 Def02CB
+S A$game$875 Def02BD
+S A$game$866 Def02AE
+S A$game$857 Def02A4
+S A$game$794 Def0264
+S A$game$785 Def0261
+S A$game$767 Def0257
+S A$game$758 Def0253
+S A$game$695 Def021E
+S A$game$686 Def0217
+S A$game$659 Def020D
+S A$game$587 Def01BD
+S A$game$578 Def01AA
+S A$game$497 Def015F
+S A$game$488 Def0151
+S A$game$479 Def0146
+S A$game$398 Def00ED
+S A$game$389 Def00E5
+S A$game$299 Def009E
+S C$game.c$250$3_0$97 Def0261
+S C$game.c$233$3_0$96 Def022B
+S C$game.c$229$1_0$93 Def0217
+S C$game.c$227$2_0$94 Def0216
+S C$game.c$218$2_0$94 Def0204
+S A$game$993 Def0347
+S A$game$957 Def031C
+S A$game$894 Def02D9
+S A$game$885 Def02CC
+S A$game$876 Def02BE
+S A$game$867 Def02AF
+S A$game$858 Def02A5
+S A$game$795 Def0267
+S A$game$786 Def0263
+S A$game$777 Def025F
+S A$game$696 Def0220
+S A$game$687 Def0219
+S A$game$678 Def0216
+S A$game$597 Def01CA
+S A$game$588 Def01C0
+S A$game$579 Def01AB
+S A$game$498 Def0160
+S A$game$489 Def0154
+S A$game$399 Def00EE
+S C$game.c$305$1_0$99 Def0381
+S C$game.c$251$3_0$97 Def0261
+S C$game.c$234$3_0$96 Def022E
+S C$game.c$219$2_0$94 Def0204
+S C$game.c$165$1_0$86 Def0126
+S _canmove Def0052
+S A$game$976 Def0337
+S A$game$958 Def0320
+S A$game$949 Def031A
+S A$game$895 Def02DC
+S A$game$886 Def02CD
+S A$game$877 Def02C1
+S A$game$868 Def02B0
+S A$game$796 Def0268
+S A$game$697 Def0222
+S A$game$598 Def01CD
+S A$game$589 Def01C1
+S A$game$499 Def0161
+S C$game.c$315$1_0$99 Def039B
+S C$game.c$270$1_0$99 Def02A6
+S C$game.c$258$1_0$93 Def0264
+S C$game.c$243$3_0$97 Def0250
+S C$game.c$235$3_0$96 Def0230
+S C$game.c$175$1_0$86 Def014D
+S A$game$968 Def032C
+S A$game$959 Def0323
+S A$game$896 Def02DD
+S A$game$887 Def02CE
+S A$game$878 Def02C4
+S A$game$869 Def02B1
+S A$game$797 Def0269
+S A$game$698 Def0225
+S A$game$599 Def01D0
+S C$game.c$271$1_0$99 Def02C5
+S C$game.c$259$1_0$93 Def0288
+S C$game.c$244$3_0$97 Def0250
+S C$game.c$236$3_0$96 Def0230
+S C$game.c$167$1_0$86 Def012F
+S C$game.c$159$2_0$84 Def00E7
+S _game_sendTileData Def0001
+S A$game$969 Def032F
+S A$game$897 Def02E0
+S A$game$888 Def02CF
+S A$game$798 Def026B
+S A$game$699 Def0227
+S G$game_displayHelp$0$0 Def0814
+S C$game.c$272$1_0$99 Def02E7
+S C$game.c$245$3_0$97 Def0253
+S C$game.c$237$3_0$96 Def0233
+S XG$move_sprites$0$0 Def0125
+S A$game$988 Def033E
+S A$game$898 Def02E3
+S A$game$889 Def02D0
+S A$game$799 Def026C
+S C$game.c$246$3_0$97 Def0255
+S C$game.c$35$0_0$70 Def0000
+S A$game$989 Def033F
+S A$game$899 Def02E4
+S G$game_displayMinimap$0$0 Def09F3
+S C$game.c$319$1_0$99 Def039B
+S C$game.c$292$1_0$99 Def033E
+S C$game.c$283$1_0$99 Def031C
+S C$game.c$274$1_0$99 Def030C
+S C$game.c$247$3_0$97 Def0255
+S C$game.c$60$1_0$72 Def000D
+S C$game.c$54$0_0$70 Def0000
+S XG$game_splash_screen$0$0 Def0813
+S C$game.c$266$1_0$99 Def0299
+S C$game.c$248$3_0$97 Def0258
+S C$game.c$61$1_0$72 Def0018
+S C$game.c$285$1_0$99 Def033A
+S C$game.c$249$3_0$97 Def025F
+S C$game.c$199$1_0$86 Def0169
+S C$game.c$62$1_0$72 Def0023
+S XG$game_initLevel$0$0 Def0AA6
+S C$game.c$63$1_0$72 Def002E
+S _game_selectLevel Def0815
+S _move_updatelevel Def0194
+S C$game.c$64$1_0$72 Def0039
+S C$game.c$56$0_0$72 Def0001
+S XG$game_displayLevel$0$0 Def09F2
+S XG$undomove_updatelevel$0$0 Def03AB
+S C$game.c$297$1_0$99 Def032C
+S C$game.c$90$1_0$74 Def0051
+S C$game.c$65$1_0$72 Def0044
+S C$game.c$91$1_0$74 Def0051
+S C$game.c$66$1_0$72 Def004F
+S XG$canmove$0$0 Def00BD
+S C$game.c$67$1_0$72 Def0050
+S C$game.c$59$1_0$72 Def0002
+S XG$game_sendTileData$0$0 Def0050
+S C$game.c$93$1_0$76 Def0052
+S _game_displayHelp Def0814
+S C$game.c$69$1_0$74 Def0051
+S G$game_resetSprites$0$0 Def0051
+S _game_displayMinimap Def09F3
+S G$game_getResponse$0$0 Def078F
+S C$game.c$97$1_0$76 Def005A
+S XG$game_selectLevel$0$0 Def08FB
+S XG$move_updatelevel$0$0 Def0298
+S C$game.c$98$1_0$76 Def0073
+S Fgame$__str_0$0_0$0 Def080F
+S G$game_handleKey$0$0 Def0561
+S Fgame$__str_1$0_0$0 Def08FC
+S XG$game_displayHelp$0$0 Def0814
+S G$debug_print_playfieldText$0$0 Def0000
+S A$game$1001 Def0349
+S XG$game_displayMinimap$0$0 Def0A68
+S Fgame$__str_4$0_0$0 Def090E
+S G$game_handleUndoMove$0$0 Def03AC
+S _game_resetSprites Def0051
+S A$game$2010 Def083A
+S A$game$1002 Def034C
+S A$game$2020 Def0842
+S A$game$2011 Def083B
+S A$game$1210 Def0437
+S A$game$1201 Def0428
+S A$game$1021 Def035B
+S A$game$1003 Def034F
+S C$game.c$420$1_0$111 Def0787
+S C$game.c$400$2_0$112 Def0693
+S C$game.c$300$3_0$103 Def0370
+S _game_getResponse Def078F
+S A$game$2300 Def09C2
+S A$game$2201 Def0945
+S A$game$2120 Def08D4
+S A$game$2111 Def08C4
+S A$game$2030 Def0855
+S A$game$2021 Def0845
+S A$game$2012 Def083E
+S A$game$2003 Def082F
+S A$game$1400 Def0548
+S A$game$1211 Def043A
+S A$game$1202 Def042B
+S A$game$1103 Def03A1
+S A$game$1031 Def0362
+S A$game$1022 Def035E
+S C$game.c$421$1_0$111 Def078E
+S C$game.c$401$2_0$112 Def0695
+S C$game.c$301$3_0$103 Def0377
+S A$game$2400 Def0A21
+S A$game$2310 Def09D9
+S A$game$2301 Def09C4
+S A$game$2220 Def095D
+S A$game$2202 Def0948
+S A$game$2112 Def08C7
+S A$game$2040 Def0869
+S A$game$2031 Def0856
+S A$game$2022 Def0847
+S A$game$2004 Def0833
+S A$game$1500 Def05D7
+S A$game$1401 Def0549
+S A$game$1320 Def04CD
+S A$game$1230 Def0459
+S A$game$1212 Def043C
+S A$game$1203 Def042D
+S A$game$1140 Def03D5
+S A$game$1104 Def03A4
+S A$game$1032 Def0365
+S A$game$1023 Def035F
+S C$game.c$402$2_0$112 Def0697
+S C$game.c$302$3_0$103 Def0379
+S G$undomove_sprites$0$0 Def0126
+S A$game$2500 Def0A78
+S A$game$2410 Def0A2D
+S A$game$2302 Def09C7
+S A$game$2230 Def0969
+S A$game$2221 Def095E
+S A$game$2203 Def0949
+S A$game$2113 Def08CA
+S A$game$2104 Def08B7
+S A$game$2050 Def0874
+S A$game$2041 Def086A
+S A$game$2032 Def0859
+S A$game$2023 Def084A
+S A$game$1510 Def05E6
+S A$game$1501 Def05D8
+S A$game$1411 Def0558
+S A$game$1402 Def054C
+S A$game$1312 Def04BE
+S A$game$1240 Def0462
+S A$game$1231 Def045C
+S A$game$1222 Def0446
+S A$game$1150 Def03E0
+S A$game$1114 Def03AB
+S A$game$1033 Def0366
+S A$game$1015 Def0353
+S C$game.c$405$1_0$111 Def0699
+S C$game.c$403$2_0$112 Def0697
+S C$game.c$310$3_0$105 Def0389
+S C$game.c$303$3_0$103 Def0379
+S A$game$2420 Def0A35
+S A$game$2411 Def0A2E
+S A$game$2303 Def09C9
+S A$game$2240 Def0973
+S A$game$2231 Def096A
+S A$game$2222 Def0960
+S A$game$2213 Def0953
+S A$game$2132 Def08DB
+S A$game$2114 Def08CD
+S A$game$2105 Def08BA
+S A$game$2060 Def0881
+S A$game$2042 Def086D
+S A$game$2033 Def085C
+S A$game$2024 Def084D
+S A$game$1700 Def06D7
+S A$game$1502 Def05DA
+S A$game$1412 Def055B
+S A$game$1403 Def054F
+S A$game$1340 Def04E1
+S A$game$1331 Def04DC
+S A$game$1313 Def04C1
+S A$game$1241 Def0465
+S A$game$1223 Def0449
+S A$game$1151 Def03E3
+S A$game$1133 Def03B9
+S A$game$1124 Def03AC
+S A$game$1070 Def0387
+S A$game$1043 Def0370
+S A$game$1016 Def0356
+S A$game$1007 Def0351
+S C$game.c$530$1_0$122 Def0814
+S C$game.c$406$1_0$111 Def0699
+S C$game.c$311$3_0$105 Def0391
+S A$game$2520 Def0A8E
+S A$game$2511 Def0A82
+S A$game$2502 Def0A7A
+S A$game$2430 Def0A42
+S A$game$2421 Def0A36
+S A$game$2412 Def0A2F
+S A$game$2322 Def09DC
+S A$game$2304 Def09CB
+S A$game$2250 Def097E
+S A$game$2241 Def0976
+S A$game$2232 Def096C
+S A$game$2223 Def0961
+S A$game$2214 Def0956
+S A$game$2124 Def08D8
+S A$game$2106 Def08BB
+S A$game$2061 Def0883
+S A$game$2043 Def086E
+S A$game$2034 Def085D
+S A$game$2025 Def084E
+S A$game$2016 Def083F
+S A$game$1800 Def077C
+S A$game$1710 Def06E1
+S A$game$1602 Def0662
+S A$game$1503 Def05DD
+S A$game$1404 Def0550
+S A$game$1341 Def04E4
+S A$game$1314 Def04C4
+S A$game$1305 Def04B2
+S A$game$1242 Def0468
+S A$game$1224 Def044B
+S A$game$1152 Def03E6
+S A$game$1134 Def03BD
+S A$game$1125 Def03AE
+S A$game$1080 Def0391
+S A$game$1044 Def0373
+S A$game$1017 Def0359
+S C$game.c$411$3_0$114 Def0708
+S C$game.c$312$3_0$105 Def0393
+S A$game$2521 Def0A8F
+S A$game$2512 Def0A85
+S A$game$2503 Def0A7C
+S A$game$2440 Def0A4D
+S A$game$2431 Def0A45
+S A$game$2422 Def0A37
+S A$game$2404 Def0A23
+S A$game$2323 Def09E0
+S A$game$2314 Def09DA
+S A$game$2305 Def09CE
+S A$game$2260 Def0988
+S A$game$2251 Def097F
+S A$game$2242 Def0978
+S A$game$2233 Def096D
+S A$game$2224 Def0962
+S A$game$2161 Def08F1
+S A$game$2107 Def08BE
+S A$game$2080 Def089B
+S A$game$2062 Def0885
+S A$game$2044 Def0871
+S A$game$2035 Def085E
+S A$game$2026 Def084F
+S A$game$2008 Def0836
+S A$game$1900 Def07F0
+S A$game$1801 Def077D
+S A$game$1720 Def06F1
+S A$game$1711 Def06E4
+S A$game$1540 Def0610
+S A$game$1504 Def05DE
+S A$game$1450 Def0582
+S A$game$1423 Def0560
+S A$game$1405 Def0553
+S A$game$1342 Def04E7
+S A$game$1324 Def04D0
+S A$game$1315 Def04C7
+S A$game$1306 Def04B5
+S A$game$1225 Def044D
+S A$game$1216 Def043F
+S A$game$1207 Def042F
+S A$game$1180 Def040F
+S A$game$1162 Def03F4
+S A$game$1144 Def03D9
+S A$game$1135 Def03C1
+S A$game$1126 Def03B2
+S A$game$1108 Def03A7
+S A$game$1090 Def0399
+S A$game$1063 Def0381
+S A$game$1045 Def0374
+S C$game.c$700$1_0$143 Def0A71
+S C$game.c$371$2_0$111 Def0572
+S C$game.c$340$1_0$107 Def0421
+S C$game.c$313$3_0$105 Def0393
+S _game_handleKey Def0561
+S A$game$2522 Def0A90
+S A$game$2513 Def0A87
+S A$game$2450 Def0A57
+S A$game$2441 Def0A4E
+S A$game$2432 Def0A47
+S A$game$2423 Def0A38
+S A$game$2342 Def09EA
+S A$game$2324 Def09E3
+S A$game$2306 Def09D0
+S A$game$2270 Def099B
+S A$game$2261 Def0989
+S A$game$2252 Def0980
+S A$game$2243 Def0979
+S A$game$2234 Def096E
+S A$game$2207 Def094C
+S A$game$2162 Def08F4
+S A$game$2153 Def08EE
+S A$game$2144 Def08E2
+S A$game$2108 Def08BF
+S A$game$2081 Def089E
+S A$game$2063 Def0887
+S A$game$2054 Def0875
+S A$game$2045 Def0872
+S A$game$2036 Def0861
+S A$game$2027 Def0850
+S A$game$2009 Def0839
+S A$game$1910 Def07FA
+S A$game$1901 Def07F1
+S A$game$1802 Def077E
+S A$game$1730 Def0703
+S A$game$1721 Def06F2
+S A$game$1712 Def06E7
+S A$game$1631 Def067F
+S A$game$1541 Def0613
+S A$game$1514 Def05E9
+S A$game$1505 Def05E0
+S A$game$1460 Def0599
+S A$game$1451 Def0586
+S A$game$1442 Def056E
+S A$game$1433 Def0561
+S A$game$1406 Def0556
+S A$game$1370 Def0509
+S A$game$1325 Def04D3
+S A$game$1307 Def04B8
+S A$game$1280 Def0498
+S A$game$1271 Def0486
+S A$game$1253 Def0477
+S A$game$1226 Def0450
+S A$game$1217 Def0442
+S A$game$1208 Def0432
+S A$game$1190 Def041D
+S A$game$1181 Def0412
+S A$game$1172 Def0403
+S A$game$1163 Def03F8
+S A$game$1145 Def03DC
+S A$game$1136 Def03C5
+S A$game$1127 Def03B4
+S A$game$1109 Def03A9
+S A$game$1037 Def0368
+S C$game.c$701$1_0$143 Def0A82
+S C$game.c$440$1_0$116 Def07E5
+S C$game.c$413$3_0$114 Def071A
+S C$game.c$380$2_0$112 Def05EB
+S C$game.c$373$1_0$111 Def0592
+S C$game.c$323$1_0$107 Def03AC
+S C$game.c$290$3_0$102 Def0353
+S C$game.c$275$2_0$100 Def0316
+S A$game$2532 Def0A9A
+S A$game$2523 Def0A91
+S A$game$2514 Def0A88
+S A$game$2505 Def0A7D
+S A$game$2451 Def0A59
+S A$game$2442 Def0A4F
+S A$game$2433 Def0A48
+S A$game$2424 Def0A39
+S A$game$2406 Def0A26
+S A$game$2343 Def09EB
+S A$game$2307 Def09D2
+S A$game$2280 Def09A6
+S A$game$2271 Def099E
+S A$game$2262 Def098C
+S A$game$2253 Def0981
+S A$game$2244 Def097A
+S A$game$2208 Def094F
+S A$game$2172 Def08FB
+S A$game$2145 Def08E6
+S A$game$2136 Def08DF
+S A$game$2109 Def08C2
+S A$game$2091 Def08AE
+S A$game$2082 Def08A1
+S A$game$2064 Def0889
+S A$game$2055 Def0877
+S A$game$2046 Def0873
+S A$game$2037 Def0862
+S A$game$2028 Def0851
+S A$game$1911 Def07FB
+S A$game$1902 Def07F4
+S A$game$1803 Def0780
+S A$game$1740 Def070F
+S A$game$1722 Def06F5
+S A$game$1713 Def06E8
+S A$game$1704 Def06D8
+S A$game$1650 Def0695
+S A$game$1641 Def068D
+S A$game$1632 Def0682
+S A$game$1623 Def0673
+S A$game$1614 Def0666
+S A$game$1542 Def0615
+S A$game$1533 Def05FB
+S A$game$1461 Def059C
+S A$game$1452 Def058A
+S A$game$1434 Def0563
+S A$game$1407 Def0557
+S A$game$1380 Def0521
+S A$game$1371 Def050C
+S A$game$1353 Def04F6
+S A$game$1326 Def04D6
+S A$game$1308 Def04BB
+S A$game$1281 Def049B
+S A$game$1272 Def0489
+S A$game$1263 Def0483
+S A$game$1254 Def047A
+S A$game$1227 Def0452
+S A$game$1218 Def0445
+S A$game$1209 Def0434
+S A$game$1191 Def0420
+S A$game$1182 Def0414
+S A$game$1173 Def0406
+S A$game$1164 Def03FB
+S A$game$1146 Def03DD
+S A$game$1137 Def03C9
+S A$game$1128 Def03B7
+S A$game$1074 Def0389
+S A$game$1038 Def036B
+S C$game.c$600$1_0$128 Def0964
+S C$game.c$532$1_0$124 Def0815
+S C$game.c$423$1_0$116 Def078F
+S C$game.c$407$2_0$113 Def069E
+S C$game.c$390$2_0$112 Def0640
+S C$game.c$381$2_0$112 Def05EE
+S C$game.c$331$2_0$108 Def03F4
+S C$game.c$308$2_0$104 Def0383
+S C$game.c$291$3_0$102 Def0353
+S C$game.c$276$2_0$100 Def0316
+S A$game$2542 Def0AA4
+S A$game$2533 Def0A9D
+S A$game$2524 Def0A92
+S A$game$2515 Def0A89
+S A$game$2506 Def0A7F
+S A$game$2452 Def0A5B
+S A$game$2443 Def0A50
+S A$game$2434 Def0A49
+S A$game$2425 Def0A3A
+S A$game$2416 Def0A31
+S A$game$2407 Def0A29
+S A$game$2380 Def0A08
+S A$game$2308 Def09D5
+S A$game$2290 Def09B3
+S A$game$2281 Def09A7
+S A$game$2272 Def09A0
+S A$game$2263 Def098D
+S A$game$2254 Def0982
+S A$game$2245 Def097B
+S A$game$2218 Def0958
+S A$game$2209 Def0950
+S A$game$2119 Def08D0
+S A$game$2092 Def08B1
+S A$game$2083 Def08A4
+S A$game$2074 Def088F
+S A$game$2065 Def088B
+S A$game$2056 Def0879
+S A$game$2038 Def0865
+S A$game$2029 Def0852
+S A$game$1912 Def07FD
+S A$game$1903 Def07F5
+S A$game$1813 Def0787
+S A$game$1750 Def0721
+S A$game$1741 Def0712
+S A$game$1732 Def0705
+S A$game$1723 Def06F8
+S A$game$1714 Def06E9
+S A$game$1705 Def06DB
+S A$game$1642 Def0690
+S A$game$1633 Def0683
+S A$game$1624 Def0676
+S A$game$1615 Def0669
+S A$game$1606 Def0664
+S A$game$1561 Def0632
+S A$game$1552 Def0622
+S A$game$1534 Def05FE
+S A$game$1480 Def05B9
+S A$game$1462 Def059E
+S A$game$1453 Def058E
+S A$game$1435 Def0567
+S A$game$1417 Def055C
+S A$game$1390 Def0530
+S A$game$1381 Def0524
+S A$game$1372 Def050F
+S A$game$1354 Def04F9
+S A$game$1327 Def04D9
+S A$game$1273 Def048C
+S A$game$1246 Def046B
+S A$game$1228 Def0454
+S A$game$1183 Def0415
+S A$game$1165 Def03FC
+S A$game$1156 Def03EA
+S A$game$1138 Def03CD
+S A$game$1129 Def03B8
+S A$game$1075 Def038C
+S A$game$1057 Def0379
+S A$game$1039 Def036E
+S C$game.c$703$1_0$143 Def0A9A
+S C$game.c$540$2_0$125 Def083F
+S C$game.c$442$1_0$116 Def07F7
+S C$game.c$431$2_0$117 Def07BB
+S C$game.c$415$3_0$114 Def072C
+S C$game.c$391$2_0$112 Def0650
+S C$game.c$382$2_0$112 Def05EE
+S C$game.c$332$2_0$108 Def0403
+S C$game.c$324$2_0$107 Def03B9
+S C$game.c$292$3_0$102 Def035B
+S C$game.c$277$2_0$100 Def0318
+S _debug_print_playfieldText Def0000
+S A$game$2525 Def0A93
+S A$game$2516 Def0A8A
+S A$game$2507 Def0A80
+S A$game$2480 Def0A68
+S A$game$2462 Def0A5E
+S A$game$2453 Def0A5D
+S A$game$2435 Def0A4A
+S A$game$2426 Def0A3D
+S A$game$2417 Def0A32
+S A$game$2408 Def0A2B
+S A$game$2390 Def0A15
+S A$game$2372 Def09FD
+S A$game$2354 Def09F2
+S A$game$2336 Def09E7
+S A$game$2309 Def09D7
+S A$game$2291 Def09B4
+S A$game$2282 Def09A8
+S A$game$2273 Def09A1
+S A$game$2264 Def098E
+S A$game$2255 Def0983
+S A$game$2246 Def097C
+S A$game$2228 Def0964
+S A$game$2219 Def095A
+S A$game$2192 Def0938
+S A$game$2084 Def08A5
+S A$game$2075 Def0890
+S A$game$2066 Def088D
+S A$game$2057 Def087B
+S A$game$2039 Def0866
+S A$game$1922 Def0809
+S A$game$1913 Def0800
+S A$game$1904 Def07F6
+S A$game$1850 Def07A5
+S A$game$1841 Def0799
+S A$game$1823 Def078E
+S A$game$1760 Def0732
+S A$game$1751 Def0723
+S A$game$1742 Def0714
+S A$game$1724 Def06F9
+S A$game$1715 Def06EA
+S A$game$1706 Def06DD
+S A$game$1634 Def0685
+S A$game$1625 Def0677
+S A$game$1616 Def066A
+S A$game$1580 Def0643
+S A$game$1553 Def0625
+S A$game$1535 Def0601
+S A$game$1526 Def05EE
+S A$game$1490 Def05C8
+S A$game$1481 Def05BA
+S A$game$1463 Def05A1
+S A$game$1436 Def0569
+S A$game$1418 Def055E
+S A$game$1391 Def0533
+S A$game$1382 Def0525
+S A$game$1373 Def0510
+S A$game$1346 Def04EA
+S A$game$1319 Def04CA
+S A$game$1292 Def04AA
+S A$game$1274 Def048F
+S A$game$1247 Def046E
+S A$game$1229 Def0457
+S A$game$1184 Def0416
+S A$game$1166 Def03FE
+S A$game$1157 Def03ED
+S A$game$1139 Def03D1
+S A$game$1076 Def038F
+S A$game$1058 Def037C
+S A$game$1049 Def0377
+S C$game.c$704$1_0$143 Def0A9F
+S C$game.c$605$4_0$131 Def09E7
+S C$game.c$603$5_0$132 Def0970
+S C$game.c$475$1_0$120 Def0813
+S C$game.c$425$1_0$116 Def0799
+S C$game.c$416$3_0$114 Def0750
+S C$game.c$392$2_0$112 Def065A
+S C$game.c$383$2_0$112 Def05FB
+S C$game.c$374$2_0$112 Def05B3
+S C$game.c$360$2_0$108 Def0502
+S C$game.c$340$3_0$109 Def047D
+S C$game.c$326$1_0$107 Def03D9
+S C$game.c$286$2_0$101 Def033E
+S C$game.c$278$2_0$100 Def031A
+S XG$game_resetSprites$0$0 Def0051
+S _game_handleUndoMove Def03AC
+S A$game$2526 Def0A94
+S A$game$2517 Def0A8B
+S A$game$2490 Def0A69
+S A$game$2463 Def0A5F
+S A$game$2436 Def0A4B
+S A$game$2427 Def0A3E
+S A$game$2418 Def0A33
+S A$game$2409 Def0A2C
+S A$game$2373 Def0A00
+S A$game$2364 Def09F3
+S A$game$2337 Def09E8
+S A$game$2328 Def09E4
+S A$game$2283 Def09A9
+S A$game$2274 Def09A2
+S A$game$2265 Def0991
+S A$game$2256 Def0984
+S A$game$2238 Def0970
+S A$game$2229 Def0966
+S A$game$2193 Def093A
+S A$game$2166 Def08F7
+S A$game$2085 Def08A8
+S A$game$2076 Def0893
+S A$game$2058 Def087D
+S A$game$1932 Def080E
+S A$game$1914 Def0801
+S A$game$1851 Def07A7
+S A$game$1842 Def079C
+S A$game$1833 Def078F
+S A$game$1806 Def0783
+S A$game$1770 Def0748
+S A$game$1761 Def0733
+S A$game$1752 Def0726
+S A$game$1743 Def0716
+S A$game$1734 Def0707
+S A$game$1725 Def06FA
+S A$game$1716 Def06EB
+S A$game$1707 Def06DE
+S A$game$1680 Def06B3
+S A$game$1671 Def069E
+S A$game$1635 Def0686
+S A$game$1626 Def0679
+S A$game$1617 Def066C
+S A$game$1590 Def0653
+S A$game$1581 Def0644
+S A$game$1554 Def0627
+S A$game$1536 Def0604
+S A$game$1527 Def05F1
+S A$game$1518 Def05EB
+S A$game$1509 Def05E3
+S A$game$1491 Def05C9
+S A$game$1482 Def05BC
+S A$game$1464 Def05A4
+S A$game$1446 Def0572
+S A$game$1437 Def056C
+S A$game$1392 Def0534
+S A$game$1374 Def0513
+S A$game$1347 Def04ED
+S A$game$1293 Def04AD
+S A$game$1248 Def0471
+S A$game$1239 Def045F
+S A$game$1185 Def0417
+S A$game$1167 Def0401
+S A$game$1158 Def03F0
+S A$game$1068 Def0383
+S A$game$1059 Def037F
+S C$game.c$705$1_0$143 Def0AA6
+S C$game.c$535$1_0$124 Def0823
+S C$game.c$534$2_0$124 Def081F
+S C$game.c$449$1_0$120 Def0813
+S C$game.c$426$1_0$116 Def07A5
+S C$game.c$417$3_0$114 Def0774
+S C$game.c$408$3_0$114 Def06C6
+S C$game.c$393$2_0$112 Def0662
+S C$game.c$384$2_0$112 Def0618
+S C$game.c$375$2_0$112 Def05B3
+S C$game.c$368$1_0$111 Def0561
+S C$game.c$361$2_0$108 Def0502
+S C$game.c$350$3_0$109 Def04BE
+S C$game.c$341$3_0$109 Def0483
+S C$game.c$345$1_0$107 Def042F
+S C$game.c$296$2_0$101 Def0362
+S C$game.c$279$2_0$100 Def031A
+S A$game$2527 Def0A95
+S A$game$2518 Def0A8C
+S A$game$2491 Def0A6B
+S A$game$2428 Def0A3F
+S A$game$2419 Def0A34
+S A$game$2374 Def0A01
+S A$game$2365 Def09F5
+S A$game$2284 Def09AA
+S A$game$2275 Def09A3
+S A$game$2266 Def0992
+S A$game$2257 Def0985
+S A$game$2194 Def093E
+S A$game$2167 Def08F9
+S A$game$2149 Def08EA
+S A$game$2086 Def08AB
+S A$game$2077 Def0896
+S A$game$2059 Def087F
+S A$game$1915 Def0803
+S A$game$1870 Def07BB
+S A$game$1861 Def07B5
+S A$game$1852 Def07AA
+S A$game$1843 Def079F
+S A$game$1834 Def0791
+S A$game$1780 Def0757
+S A$game$1771 Def074B
+S A$game$1762 Def0736
+S A$game$1753 Def0728
+S A$game$1726 Def06FC
+S A$game$1717 Def06EC
+S A$game$1708 Def06DF
+S A$game$1681 Def06B6
+S A$game$1672 Def06A1
+S A$game$1636 Def0687
+S A$game$1627 Def067C
+S A$game$1618 Def066D
+S A$game$1591 Def0656
+S A$game$1582 Def0646
+S A$game$1573 Def0636
+S A$game$1555 Def062A
+S A$game$1546 Def0618
+S A$game$1537 Def0608
+S A$game$1528 Def05F4
+S A$game$1492 Def05CB
+S A$game$1483 Def05BF
+S A$game$1465 Def05A6
+S A$game$1447 Def0576
+S A$game$1438 Def056D
+S A$game$1393 Def0537
+S A$game$1375 Def0516
+S A$game$1348 Def04F0
+S A$game$1339 Def04DE
+S A$game$1285 Def049E
+S A$game$1258 Def047D
+S A$game$1249 Def0474
+S A$game$1195 Def0421
+S A$game$1069 Def0386
+S C$game.c$605$5_0$132 Def097E
+S C$game.c$581$1_0$124 Def08F1
+S C$game.c$563$1_0$124 Def0874
+S C$game.c$529$1_0$122 Def0814
+S XG$game_getResponse$0$0 Def080E
+S C$game.c$427$1_0$116 Def07B9
+S C$game.c$409$3_0$114 Def06D8
+S C$game.c$394$2_0$112 Def0664
+S C$game.c$385$2_0$112 Def0622
+S C$game.c$376$2_0$112 Def05C5
+S C$game.c$362$2_0$108 Def0526
+S C$game.c$351$3_0$109 Def04CA
+S C$game.c$342$3_0$109 Def0486
+S C$game.c$346$1_0$107 Def043F
+S C$game.c$335$2_0$108 Def0446
+S C$game.c$297$2_0$101 Def0362
+S G$move_sprites$0$0 Def00BE
+S A$game$2537 Def0A9F
+S A$game$2528 Def0A98
+S A$game$2519 Def0A8D
+S A$game$2492 Def0A6F
+S A$game$2474 Def0A64
+S A$game$2447 Def0A51
+S A$game$2384 Def0A0B
+S A$game$2366 Def09F9
+S A$game$2348 Def09EE
+S A$game$2276 Def09A4
+S A$game$2267 Def0995
+S A$game$2258 Def0986
+S A$game$2195 Def0940
+S A$game$2096 Def08B4
+S A$game$2078 Def0899
+S A$game$1916 Def0806
+S A$game$1880 Def07CC
+S A$game$1871 Def07BC
+S A$game$1862 Def07B7
+S A$game$1853 Def07AB
+S A$game$1844 Def07A0
+S A$game$1835 Def0795
+S A$game$1817 Def078A
+S A$game$1808 Def0784
+S A$game$1790 Def076F
+S A$game$1781 Def075A
+S A$game$1772 Def074E
+S A$game$1763 Def0739
+S A$game$1727 Def06FE
+S A$game$1718 Def06ED
+S A$game$1709 Def06E0
+S A$game$1682 Def06B9
+S A$game$1673 Def06A4
+S A$game$1646 Def0693
+S A$game$1637 Def068A
+S A$game$1619 Def0670
+S A$game$1583 Def0649
+S A$game$1574 Def0639
+S A$game$1565 Def0634
+S A$game$1556 Def062D
+S A$game$1547 Def061B
+S A$game$1538 Def060B
+S A$game$1529 Def05F7
+S A$game$1493 Def05CE
+S A$game$1484 Def05C0
+S A$game$1466 Def05A8
+S A$game$1457 Def0592
+S A$game$1448 Def057A
+S A$game$1394 Def053A
+S A$game$1376 Def0517
+S A$game$1367 Def0502
+S A$game$1358 Def04FC
+S A$game$1349 Def04F3
+S A$game$1286 Def04A1
+S A$game$1259 Def0480
+S A$game$1196 Def0424
+S A$game$1178 Def0408
+S A$game$1088 Def0393
+S C$game.c$660$1_0$136 Def0A17
+S C$game.c$603$2_0$129 Def09EA
+S C$game.c$642$5_0$132 Def09E7
+S C$game.c$606$5_0$132 Def09A6
+S C$game.c$582$1_0$124 Def08FB
+S C$game.c$544$2_0$125 Def0842
+S C$game.c$446$1_0$116 Def0809
+S C$game.c$395$2_0$112 Def0666
+S C$game.c$386$2_0$112 Def0632
+S C$game.c$377$2_0$112 Def05D1
+S C$game.c$369$2_0$111 Def056E
+S C$game.c$352$3_0$109 Def04D0
+S C$game.c$343$3_0$109 Def0486
+S C$game.c$327$2_0$108 Def03E0
+S C$game.c$287$3_0$102 Def0349
+S A$game$2547 Def0AA6
+S A$game$2538 Def0AA2
+S A$game$2475 Def0A66
+S A$game$2448 Def0A53
+S A$game$2394 Def0A17
+S A$game$2385 Def0A0D
+S A$game$2367 Def09FB
+S A$game$2349 Def09F0
+S A$game$2295 Def09B6
+S A$game$2268 Def0998
+S A$game$2259 Def0987
+S A$game$2196 Def0943
+S A$game$1953 Def0813
+S A$game$1926 Def080A
+S A$game$1917 Def0807
+S A$game$1890 Def07E3
+S A$game$1881 Def07D0
+S A$game$1872 Def07BE
+S A$game$1854 Def07AD
+S A$game$1845 Def07A3
+S A$game$1836 Def0797
+S A$game$1818 Def078C
+S A$game$1791 Def0772
+S A$game$1782 Def075D
+S A$game$1773 Def074F
+S A$game$1764 Def073A
+S A$game$1728 Def0700
+S A$game$1719 Def06EE
+S A$game$1683 Def06BA
+S A$game$1674 Def06A5
+S A$game$1584 Def064A
+S A$game$1575 Def063C
+S A$game$1557 Def062F
+S A$game$1548 Def061E
+S A$game$1539 Def060D
+S A$game$1485 Def05C2
+S A$game$1467 Def05AB
+S A$game$1458 Def0595
+S A$game$1449 Def057E
+S A$game$1395 Def053B
+S A$game$1386 Def0526
+S A$game$1377 Def051A
+S A$game$1368 Def0505
+S A$game$1359 Def04FF
+S A$game$1287 Def04A4
+S A$game$1278 Def0492
+S A$game$1197 Def0427
+S A$game$1179 Def040B
+S A$game$1098 Def039B
+S A$game$1089 Def0396
+S C$game.c$651$2_0$136 Def09F3
+S C$game.c$570$3_0$126 Def08DB
+S C$game.c$561$3_0$126 Def088F
+S C$game.c$477$1_0$122 Def0814
+S C$game.c$447$1_0$116 Def080E
+S C$game.c$396$2_0$112 Def0666
+S C$game.c$387$2_0$112 Def0634
+S C$game.c$378$2_0$112 Def05E3
+S C$game.c$366$1_0$107 Def0560
+S C$game.c$364$2_0$108 Def0558
+S C$game.c$353$3_0$109 Def04DC
+S C$game.c$344$3_0$109 Def0492
+S C$game.c$339$1_0$107 Def041A
+S C$game.c$328$2_0$108 Def03EA
+S C$game.c$288$3_0$102 Def0349
+S _undomove_sprites Def0126
+S A$game$2449 Def0A55
+S A$game$2395 Def0A19
+S A$game$2386 Def0A10
+S A$game$2368 Def09FC
+S A$game$2296 Def09B9
+S A$game$2197 Def0944
+S A$game$1927 Def080C
+S A$game$1909 Def07F7
+S A$game$1882 Def07D3
+S A$game$1855 Def07AE
+S A$game$1846 Def07A4
+S A$game$1837 Def0798
+S A$game$1792 Def0773
+S A$game$1783 Def075E
+S A$game$1765 Def073D
+S A$game$1738 Def0708
+S A$game$1729 Def0702
+S A$game$1693 Def06C6
+S A$game$1684 Def06BD
+S A$game$1675 Def06A8
+S A$game$1666 Def0699
+S A$game$1585 Def064D
+S A$game$1477 Def05B3
+S A$game$1468 Def05AD
+S A$game$1459 Def0597
+S A$game$1396 Def053E
+S A$game$1387 Def0529
+S A$game$1378 Def051D
+S A$game$1369 Def0508
+S A$game$1297 Def04B0
+S A$game$1288 Def04A7
+S A$game$1279 Def0495
+S A$game$1189 Def041A
+S A$game$1099 Def039E
+S A$game$300 Def00A0
+S C$game.c$663$5_0$140 Def0A23
+S C$game.c$608$5_0$132 Def09B6
+S C$game.c$571$3_0$126 Def08DB
+S C$game.c$562$3_0$126 Def088F
+S C$game.c$537$2_0$125 Def082F
+S G$game_splash_screen$0$0 Def0813
+S C$game.c$397$2_0$112 Def0673
+S C$game.c$388$2_0$112 Def0636
+S C$game.c$379$2_0$112 Def05E9
+S C$game.c$354$3_0$109 Def04DE
+S C$game.c$345$3_0$109 Def049E
+S C$game.c$336$3_0$109 Def045F
+S C$game.c$289$3_0$102 Def0351
+S A$game$2468 Def0A61
+S A$game$2396 Def0A1C
+S A$game$2387 Def0A11
+S A$game$2378 Def0A04
+S A$game$2297 Def09BB
+S A$game$2288 Def09AD
+S A$game$1991 Def081F
+S A$game$1973 Def0814
+S A$game$1883 Def07D4
+S A$game$1874 Def07C1
+S A$game$1856 Def07AF
+S A$game$1784 Def0761
+S A$game$1766 Def0740
+S A$game$1748 Def071A
+S A$game$1739 Def070C
+S A$game$1694 Def06C9
+S A$game$1685 Def06BE
+S A$game$1676 Def06AB
+S A$game$1667 Def069B
+S A$game$1658 Def0697
+S A$game$1595 Def065A
+S A$game$1478 Def05B6
+S A$game$1469 Def05B0
+S A$game$1397 Def0541
+S A$game$1388 Def052C
+S A$game$1379 Def051E
+S A$game$400 Def00EF
+S A$game$310 Def00A5
+S A$game$202 Def0050
+S C$game.c$607$2_0$128 Def09AD
+S C$game.c$572$3_0$126 Def08DF
+S C$game.c$563$3_0$126 Def08AE
+S C$game.c$538$2_0$125 Def0836
+S C$game.c$398$2_0$112 Def067F
+S C$game.c$389$2_0$112 Def0636
+S C$game.c$355$3_0$109 Def04DE
+S C$game.c$346$3_0$109 Def04AA
+S C$game.c$337$3_0$109 Def045F
+S A$game$2496 Def0A71
+S A$game$2469 Def0A62
+S A$game$2397 Def0A1D
+S A$game$2388 Def0A13
+S A$game$2379 Def0A07
+S A$game$2298 Def09BD
+S A$game$2289 Def09B0
+S A$game$1983 Def0815
+S A$game$1884 Def07D7
+S A$game$1875 Def07C2
+S A$game$1866 Def07B9
+S A$game$1857 Def07B1
+S A$game$1785 Def0764
+S A$game$1767 Def0741
+S A$game$1758 Def072C
+S A$game$1749 Def071E
+S A$game$1695 Def06CD
+S A$game$1686 Def06BF
+S A$game$1677 Def06AC
+S A$game$1596 Def065B
+S A$game$1497 Def05D1
+S A$game$1479 Def05B7
+S A$game$1398 Def0542
+S A$game$1389 Def052D
+S A$game$500 Def0162
+S A$game$410 Def00FF
+S A$game$401 Def00F0
+S A$game$311 Def00A7
+S A$game$131 Def0000
+S G$game_initLevel$0$0 Def0A69
+S C$game.c$692$5_0$140 Def0A5E
+S C$game.c$665$5_0$140 Def0A31
+S C$game.c$655$1_0$136 Def09FD
+S C$game.c$617$6_0$133 Def09DA
+S C$game.c$591$1_0$128 Def0953
+S C$game.c$573$3_0$126 Def08E2
+S C$game.c$564$3_0$126 Def08B4
+S C$game.c$399$2_0$112 Def068D
+S C$game.c$356$3_0$109 Def04EA
+S C$game.c$347$3_0$109 Def04B0
+S C$game.c$338$3_0$109 Def046B
+S C$game.c$299$3_0$103 Def0368
+S A$game$2497 Def0A74
+S A$game$2398 Def0A1F
+S A$game$2389 Def0A14
+S A$game$2299 Def09C0
+S A$game$1984 Def0817
+S A$game$1885 Def07D8
+S A$game$1876 Def07C4
+S A$game$1858 Def07B3
+S A$game$1786 Def0765
+S A$game$1777 Def0750
+S A$game$1768 Def0744
+S A$game$1759 Def072F
+S A$game$1696 Def06D0
+S A$game$1687 Def06C0
+S A$game$1678 Def06AF
+S A$game$1597 Def065C
+S A$game$1579 Def0640
+S A$game$1498 Def05D4
+S A$game$1489 Def05C5
+S A$game$1399 Def0545
+S A$game$600 Def01D1
+S A$game$510 Def0169
+S A$game$501 Def0164
+S A$game$411 Def0102
+S A$game$402 Def00F1
+S A$game$312 Def00A9
+S A$game$240 Def0060
+S A$game$222 Def0051
+S A$game$141 Def0001
+S C$game.c$663$2_0$137 Def0A61
+S C$game.c$666$5_0$140 Def0A4D
+S C$game.c$656$1_0$136 Def0A04
+S C$game.c$574$3_0$126 Def08E2
+S XG$game_handleKey$0$0 Def078E
+S C$game.c$357$3_0$109 Def04F6
+S C$game.c$348$3_0$109 Def04B2
+S C$game.c$339$3_0$109 Def0477
+S A$game$2498 Def0A75
+S A$game$2399 Def0A20
+S A$game$1985 Def081B
+S A$game$1895 Def07E5
+S A$game$1886 Def07DB
+S A$game$1877 Def07C5
+S A$game$1859 Def07B4
+S A$game$1796 Def0774
+S A$game$1787 Def0768
+S A$game$1778 Def0753
+S A$game$1769 Def0747
+S A$game$1697 Def06D2
+S A$game$1688 Def06C1
+S A$game$1679 Def06B2
+S A$game$1598 Def065F
+S A$game$1589 Def0650
+S A$game$1499 Def05D5
+S A$game$700 Def0229
+S A$game$610 Def01E1
+S A$game$601 Def01D2
+S A$game$520 Def0171
+S A$game$511 Def016B
+S A$game$430 Def0112
+S A$game$421 Def0106
+S A$game$403 Def00F2
+S A$game$313 Def00AB
+S A$game$250 Def006E
+S A$game$241 Def0063
+S A$game$232 Def0052
+S A$game$160 Def001B
+S C$game.c$667$5_0$140 Def0A51
+S C$game.c$628$6_0$133 Def09DC
+S C$game.c$619$6_0$133 Def09DC
+S C$game.c$584$1_0$128 Def0938
+S G$game_displayLevel$0$0 Def0938
+S C$game.c$579$1_0$124 Def08F1
+S C$game.c$575$3_0$126 Def08EA
+S C$game.c$566$3_0$126 Def08B7
+S C$game.c$559$2_0$125 Def0875
+S C$game.c$358$3_0$109 Def04FC
+S C$game.c$349$3_0$109 Def04B2
+S G$undomove_updatelevel$0$0 Def0299
+S C$game.c$200$2_0$90 Def016D
+S A$game$2499 Def0A76
+S A$game$1995 Def0823
+S A$game$1986 Def081D
+S A$game$1896 Def07E6
+S A$game$1878 Def07C6
+S A$game$1797 Def0777
+S A$game$1788 Def076B
+S A$game$1779 Def0756
+S A$game$1698 Def06D3
+S A$game$1689 Def06C3
+S A$game$800 Def026D
+S A$game$620 Def01EE
+S A$game$611 Def01E2
+S A$game$602 Def01D3
+S A$game$530 Def0181
+S A$game$521 Def0174
+S A$game$431 Def0113
+S A$game$422 Def0109
+S A$game$404 Def00F3
+S A$game$341 Def00B9
+S A$game$332 Def00B5
+S A$game$323 Def00B1
+S A$game$314 Def00AD
+S A$game$260 Def007B
+S A$game$251 Def0071
+S A$game$242 Def0064
+S A$game$233 Def0054
+S A$game$161 Def001E
+S A$game$152 Def000D
+S C$game.c$629$6_0$133 Def09E4
+S C$game.c$576$3_0$126 Def08EE
+S C$game.c$567$3_0$126 Def08B7
+S C$game.c$140$1_0$80 Def00E4
+S A$game$1996 Def0826
+S A$game$1987 Def081E
+S A$game$1897 Def07E9
+S A$game$1888 Def07DD
+S A$game$1879 Def07C9
+S A$game$1798 Def0778
+S A$game$1789 Def076C
+S A$game$1699 Def06D4
+S A$game$810 Def027B
+S A$game$801 Def026E
+S A$game$630 Def01FF
+S A$game$612 Def01E3
+S A$game$603 Def01D4
+S A$game$540 Def018D
+S A$game$531 Def0182
+S A$game$522 Def0177
+S A$game$504 Def0167
+S A$game$432 Def0114
+S A$game$423 Def010A
+S A$game$405 Def00F4
+S A$game$351 Def00BD
+S A$game$333 Def00B7
+S A$game$324 Def00B3
+S A$game$315 Def00AF
+S A$game$270 Def0089
+S A$game$261 Def007C
+S A$game$252 Def0072
+S A$game$243 Def0065
+S A$game$234 Def0058
+S A$game$180 Def0039
+S A$game$162 Def0021
+S A$game$153 Def0010
+S C$game.c$659$1_0$136 Def0A0B
+S C$game.c$568$3_0$126 Def08D0
+S C$game.c$123$1_0$80 Def00BE
+S C$game.c$100$1_0$76 Def008B
+S G$canmove$0$0 Def0052
+S XG$debug_print_playfieldText$0$0 Def0000
+S A$game$1997 Def0829
+S A$game$1898 Def07EC
+S A$game$1889 Def07E0
+S A$game$1799 Def077B
+S A$game$910 Def02F2
+S A$game$811 Def027C
+S A$game$802 Def026F
+S A$game$721 Def0230
+S A$game$640 Def0204
+S A$game$631 Def0200
+S A$game$613 Def01E4
+S A$game$604 Def01D5
+S A$game$541 Def018F
+S A$game$532 Def0185
+S A$game$523 Def0178
+S A$game$460 Def0128
+S A$game$433 Def0117
+S A$game$424 Def010C
+S A$game$406 Def00F7
+S A$game$370 Def00CD
+S A$game$361 Def00BE
+S A$game$280 Def0094
+S A$game$271 Def008A
+S A$game$262 Def007D
+S A$game$244 Def0066
+S A$game$190 Def004D
+S A$game$181 Def003C
+S A$game$154 Def0013
+S A$game$145 Def0002
+S C$game.c$649$2_0$128 Def09F2
+S C$game.c$569$3_0$126 Def08D8
+S XG$game_handleUndoMove$0$0 Def0560
+S C$game.c$110$1_0$76 Def00A2
+S A$game$1998 Def082C
+S A$game$1899 Def07ED
+S A$game$920 Def030A
+S A$game$911 Def02F3
+S A$game$812 Def027E
+S A$game$803 Def0270
+S A$game$740 Def0244
+S A$game$722 Def0232
+S A$game$713 Def022E
+S A$game$632 Def0202
+S A$game$623 Def01F1
+S A$game$605 Def01D6
+S A$game$533 Def0188
+S A$game$524 Def0179
+S A$game$515 Def016D
+S A$game$506 Def0168
+S A$game$470 Def0137
+S A$game$461 Def012C
+S A$game$443 Def0122
+S A$game$434 Def0118
+S A$game$425 Def010D
+S A$game$416 Def0103
+S A$game$407 Def00F8
+S A$game$380 Def00DB
+S A$game$371 Def00CE
+S A$game$362 Def00C0
+S A$game$308 Def00A2
+S A$game$290 Def009A
+S A$game$281 Def0096
+S A$game$263 Def007E
+S A$game$245 Def0067
+S A$game$182 Def003F
+S A$game$173 Def002E
+S A$game$155 Def0016
+S A$game$146 Def0005
+S C$game.c$588$1_0$128 Def0945
+S C$game.c$204$2_0$90 Def018D
+S C$game.c$202$3_0$91 Def0171
+S C$game.c$161$1_0$80 Def0103
+S C$game.c$125$1_0$80 Def00C7
+S C$game.c$120$1_0$76 Def00B9
+S G$game_sendTileData$0$0 Def0001
+S A$game$921 Def030B
+S A$game$912 Def02F4
+S A$game$903 Def02E7
+S A$game$822 Def0288
+S A$game$813 Def027F
+S A$game$804 Def0271
+S A$game$741 Def0246
+S A$game$651 Def020B
+S A$game$606 Def01D7
+S A$game$552 Def0193
+S A$game$534 Def0189
+S A$game$525 Def017A
+S A$game$516 Def016F
+S A$game$480 Def0147
+S A$game$471 Def0138
+S A$game$462 Def012E
+S A$game$444 Def0123
+S A$game$435 Def0119
+S A$game$426 Def010E
+S A$game$417 Def0105
+S A$game$408 Def00FB
+S A$game$381 Def00DE
+S A$game$372 Def00CF
+S A$game$363 Def00C4
+S A$game$309 Def00A3
+S A$game$291 Def009C
+S A$game$282 Def0098
+S A$game$264 Def007F
+S A$game$246 Def0068
+S A$game$183 Def0042
+S A$game$174 Def0031
+S A$game$147 Def0008
+S C$game.c$699$2_0$143 Def0A69
+S C$game.c$697$2_0$136 Def0A68
+S C$game.c$665$4_0$139 Def0A5E
+S C$game.c$589$1_0$128 Def094C
+S C$game.c$230$1_0$93 Def0217
+S C$game.c$162$1_0$80 Def0106
+S C$game.c$121$1_0$76 Def00BD
+S C$game.c$101$2_0$77 Def009A
+S _move_sprites Def00BE
+A _DATA size 762 flags 0 addr 0
+S G$spritenumber$0_0$0 Def0761
+S _undo_head Def0100
+S G$undo_head$0_0$0 Def0100
+S _undomove Def0000
+S G$undomove$0_0$0 Def0000
+S _bitmapbuffer Def0102
+S G$bitmapbuffer$0_0$0 Def0102
+S _sprites Def0502
+S G$sprites$0_0$0 Def0502
+S _num_undomoves Def0101
+S G$num_undomoves$0_0$0 Def0101
+S _currentlevel Def062E
+S G$currentlevel$0_0$0 Def062E
+S _spritenumber Def0761
+A _INITIALIZED size C0 flags 0 addr 0
+S _box_ongoal_data Def0060
+S G$box_ongoal_data$0_0$0 Def0060
+S _wall_data Def0080
+S G$wall_data$0_0$0 Def0080
+S _box_data Def0020
+S G$box_data$0_0$0 Def0020
+S _player_data Def0000
+S G$player_data$0_0$0 Def0000
+S _floor_data Def00A0
+S _goal_data Def0040
+S G$floor_data$0_0$0 Def00A0
+S G$goal_data$0_0$0 Def0040
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size C0 flags 0 addr 0
+S Fgame$__xinit_box_data$0_0$0 Def0020
+S Fgame$__xinit_player_data$0_0$0 Def0000
+S Fgame$__xinit_floor_data$0_0$0 Def00A0
+S Fgame$__xinit_goal_data$0_0$0 Def0040
+S Fgame$__xinit_box_ongoal_data$0_0$0 Def0060
+S Fgame$__xinit_wall_data$0_0$0 Def0080
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 01 00
+T 00 00
+R 00 00 01 00
+T 00 01
+R 00 00 01 00
+T 00 01
+R 00 00 01 00
+T 01 01
+R 00 00 01 00
+T 01 01
+R 00 00 01 00
+T 02 01
+R 00 00 01 00
+T 02 01
+R 00 00 01 00
+T 02 05
+R 00 00 01 00
+T 02 05
+R 00 00 01 00
+T 2E 06
+R 00 00 01 00
+T 2E 06
+R 00 00 01 00
+T 61 07
+R 00 00 01 00
+T 61 07
+R 00 00 01 00
+T 00 00
+R 00 00 02 00
+T 00 00
+R 00 00 02 00
+T 20 00
+R 00 00 02 00
+T 20 00
+R 00 00 02 00
+T 40 00
+R 00 00 02 00
+T 40 00
+R 00 00 02 00
+T 60 00
+R 00 00 02 00
+T 60 00
+R 00 00 02 00
+T 80 00
+R 00 00 02 00
+T 80 00
+R 00 00 02 00
+T A0 00
+R 00 00 02 00
+T A0 00
+R 00 00 02 00
+T 00 00
+R 00 00 00 00
+T 00 00 C9
+R 00 00 00 00
+T 01 00
+R 00 00 00 00
+T 01 00 F5 11 00 F0 21 80 00 01 08 00 ED B0 11
+R 00 00 00 00 00 07 02 00
+T 0E 00 08 F0 21 00 00 01 08 00 ED B0 11 10 F0 21
+R 00 00 00 00 00 05 02 00
+T 1C 00 00 00 01 08 00 ED B0 11 18 F0 21 20 00 01
+R 00 00 00 00 00 02 02 00 00 0D 02 00
+T 2A 00 08 00 ED B0 11 20 F0 21 60 00 01 08 00 ED
+R 00 00 00 00 00 0A 02 00
+T 38 00 B0 11 28 F0 21 40 00 01 08 00 ED B0 11
+R 00 00 00 00 00 07 02 00
+T 45 00 30 F0 21 A0 00 01 08 00 ED B0 F1 C9
+R 00 00 00 00 00 05 02 00
+T 51 00
+R 00 00 00 00
+T 51 00 C9
+R 00 00 00 00
+T 52 00
+R 00 00 00 00
+T 52 00 DD E5 DD 21 00 00 DD 39 11 35 06 DD 4E 06
+R 00 00 00 00 00 0B 01 00
+T 60 00 DD 46 07 69 60 29 29 09 29 29 19 DD 4E 04
+R 00 00 00 00
+T 6E 00 DD 46 05 09 4E D5 DD 5E 0A DD 56 0B 6B 62
+R 00 00 00 00
+T 7C 00 29 29 19 29 29 D1 19 DD 5E 08 DD 56 09 19
+R 00 00 00 00
+T 8A 00 46 79 FE 20 28 0E FE 23 28 06 D6 2E 28 06
+R 00 00 00 00
+T 98 00 18 08
+R 00 00 00 00
+T 9A 00
+R 00 00 00 00
+T 9A 00 2E 00 18 1D
+R 00 00 00 00
+T 9E 00
+R 00 00 00 00
+T 9E 00 2E 01 18 19
+R 00 00 00 00
+T A2 00
+R 00 00 00 00
+T A2 00 78 FE 23 28 0A FE 24 28 0A D6 2A 28 06 18
+R 00 00 00 00
+T B0 00 08
+R 00 00 00 00
+T B1 00
+R 00 00 00 00
+T B1 00 2E 00 18 06
+R 00 00 00 00
+T B5 00
+R 00 00 00 00
+T B5 00 2E 00 18 02
+R 00 00 00 00
+T B9 00
+R 00 00 00 00
+T B9 00 2E 01
+R 00 00 00 00
+T BB 00
+R 00 00 00 00
+T BB 00 DD E1 C9
+R 00 00 00 00
+T BE 00
+R 00 00 00 00
+T BE 00 DD E5 DD 21 00 00 DD 39 3B DD 4E 06 DD 46
+R 00 00 00 00
+T CC 00 07 69 60 29 29 09 29 29 11 02 05 19 DD 4E
+R 00 00 00 00 00 0B 01 00
+T DA 00 04 DD 46 05 09 EB 1A DD 77 FF 3C 28 1C DD
+R 00 00 00 00
+T E8 00 4E 0A DD 46 0B 69 60 29 29 09 29 29 01
+R 00 00 00 00
+T F5 00 02 05 09 DD 4E 08 DD 46 09 09 DD 7E FF 77
+R 00 00 00 00 00 02 01 00
+T 03 01
+R 00 00 00 00
+T 03 01 3E FF 12 3A 2F 06 4F 06 00 69 60 29 29 09
+R 00 00 00 00 00 06 01 00
+T 11 01 29 29 EB 21 02 05 19 EB 3A 2E 06 6F 26 00
+R 00 00 00 00 00 06 01 00 00 0B 01 00
+T 1F 01 19 36 FF 33 DD E1 C9
+R 00 00 00 00
+T 26 01
+R 00 00 00 00
+T 26 01 DD E5 DD 21 00 00 DD 39 3B DD 4E 06 DD 46
+R 00 00 00 00
+T 34 01 07 69 60 29 29 09 29 29 11 02 05 19 DD 4E
+R 00 00 00 00 00 0B 01 00
+T 42 01 04 DD 46 05 09 EB 1A DD 77 FF 4F FD 21
+R 00 00 00 00
+T 4F 01 00 01 FD 6E 00 26 00 29 3E 00 00 85 6F 3E
+R 00 00 00 00 00 02 01 00 09 0B 01 00
+T 5C 01 00 00 8C 67 23 46 0C 20 03 3E 01 20
+R 00 00 00 00 89 02 01 00
+T 67 01
+R 00 00 00 00
+T 67 01 AF
+R 00 00 00 00
+T 68 01
+R 00 00 00 00
+T 68 01 4F CB 40 28 23 CB 41 20 1C DD 4E 0A DD 46
+R 00 00 00 00
+T 76 01 0B 69 60 29 29 09 29 29 01 02 05 09 DD 4E
+R 00 00 00 00 00 0B 01 00
+T 84 01 08 DD 46 09 09 DD 7E FF 77
+R 00 00 00 00
+T 8D 01
+R 00 00 00 00
+T 8D 01 3E FF 12
+R 00 00 00 00
+T 90 01
+R 00 00 00 00
+T 90 01 33 DD E1 C9
+R 00 00 00 00
+T 94 01
+R 00 00 00 00
+T 94 01 DD E5 DD 21 00 00 DD 39 F5 F5 3B DD 4E 06
+R 00 00 00 00
+T A2 01 DD 46 07 69 60 29 29 09 29 29 11 35 06 19
+R 00 00 00 00 00 0D 01 00
+T B0 01 DD 7E 04 DD 77 FC DD 7E 05 DD 77 FD 7D DD
+R 00 00 00 00
+T BE 01 86 FC 4F 7C DD 8E FD 47 0A DD 77 FF DD 5E
+R 00 00 00 00
+T CC 01 0A DD 56 0B 6B 62 29 29 19 29 29 11 35 06
+R 00 00 00 00 00 0E 01 00
+T DA 01 19 DD 5E 08 DD 56 09 19 EB 1A DD 77 FE DD
+R 00 00 00 00
+T E8 01 7E FF D6 2E 20 03 3E 01 20
+R 00 00 00 00
+T F1 01
+R 00 00 00 00
+T F1 01 AF
+R 00 00 00 00
+T F2 01
+R 00 00 00 00
+T F2 01 DD 77 FB DD 7E FF D6 20 28 08 DD 7E FB B7
+R 00 00 00 00
+T 00 02 20 0B 18 12
+R 00 00 00 00
+T 04 02
+R 00 00 00 00
+T 04 02 3E 01 F5 3E 40 02 F1 18 0A
+R 00 00 00 00
+T 0D 02
+R 00 00 00 00
+T 0D 02 3E 01 F5 3E 2B 02 F1 18 01
+R 00 00 00 00
+T 16 02
+R 00 00 00 00
+T 16 02 AF
+R 00 00 00 00
+T 17 02
+R 00 00 00 00
+T 17 02 CB 47 20 49 DD 7E FE D6 20 28 09 DD 7E FE
+R 00 00 00 00
+T 25 02 D6 2E 28 07 18 0F
+R 00 00 00 00
+T 2B 02
+R 00 00 00 00
+T 2B 02 3E 24 12 18 0A
+R 00 00 00 00
+T 30 02
+R 00 00 00 00
+T 30 02 3E 2A 12 3A 33 06 3C 32 33 06
+R 00 00 00 00 00 06 01 00 00 0A 01 00
+T 3A 02
+R 00 00 00 00
+T 3A 02 DD 7E FF D6 24 28 0F DD 7E FF D6 2A 28 0D
+R 00 00 00 00
+T 48 02 DD 7E FB B7 20 13 18 14
+R 00 00 00 00
+T 50 02
+R 00 00 00 00
+T 50 02 3E 40 02 18 0F
+R 00 00 00 00
+T 55 02
+R 00 00 00 00
+T 55 02 3E 2B 02 3A 33 06 3D 32 33 06 18 03
+R 00 00 00 00 00 06 01 00 00 0A 01 00
+T 61 02
+R 00 00 00 00
+T 61 02 3E 2B 02
+R 00 00 00 00
+T 64 02
+R 00 00 00 00
+T 64 02 01 2F 06 0A 5F 16 00 6B 62 29 29 19 29 29
+R 00 00 00 00 00 03 01 00
+T 72 02 EB 21 35 06 19 EB 3A 2E 06 6F 26 00 19 7E
+R 00 00 00 00 00 04 01 00 00 09 01 00
+T 80 02 D6 2B 20 04 36 2E 18 02
+R 00 00 00 00
+T 88 02
+R 00 00 00 00
+T 88 02 36 20
+R 00 00 00 00
+T 8A 02
+R 00 00 00 00
+T 8A 02 DD 7E FC 32 2E 06 DD 7E 06 02 DD F9 DD E1
+R 00 00 00 00 00 06 01 00
+T 98 02 C9
+R 00 00 00 00
+T 99 02
+R 00 00 00 00
+T 99 02 DD E5 DD 21 00 00 DD 39 21 F8 FF 39 F9 DD
+R 00 00 00 00
+T A7 02 4E 06 DD 46 07 69 60 29 29 09 29 29 11
+R 00 00 00 00
+T B4 02 35 06 19 DD 4E 04 DD 46 05 09 DD 75 F9 DD
+R 00 00 00 00 00 02 01 00
+T C2 02 74 FA 4E DD 5E 0A DD 56 0B 6B 62 29 29 19
+R 00 00 00 00
+T D0 02 29 29 11 35 06 19 DD 5E 08 DD 56 09 19 DD
+R 00 00 00 00 00 05 01 00
+T DE 02 75 FB DD 74 FC 7E DD 77 FF DD 5E 0E DD 56
+R 00 00 00 00
+T EC 02 0F 6B 62 29 29 19 29 29 11 35 06 19 DD 7E
+R 00 00 00 00 00 0B 01 00
+T FA 02 0C DD 77 FD DD 7E 0D DD 77 FE DD 5E FD DD
+R 00 00 00 00
+T 08 03 56 FE 19 7E FE 20 28 06 D6 2E 28 06 18 06
+R 00 00 00 00
+T 16 03
+R 00 00 00 00
+T 16 03 36 40 18 02
+R 00 00 00 00
+T 1A 03
+R 00 00 00 00
+T 1A 03 36 2B
+R 00 00 00 00
+T 1C 03
+R 00 00 00 00
+T 1C 03 FD 21 00 01 FD 6E 00 26 00 29 11 00 00 19
+R 00 00 00 00 00 04 01 00 00 0D 01 00
+T 2A 03 23 5E DD 7E FF D6 2B 20 03 3E 01 20
+R 00 00 00 00
+T 36 03
+R 00 00 00 00
+T 36 03 AF
+R 00 00 00 00
+T 37 03
+R 00 00 00 00
+T 37 03 DD 77 F8 CB 43 28 45 79 FE 24 28 06 D6 2A
+R 00 00 00 00
+T 45 03 28 0C 18 19
+R 00 00 00 00
+T 49 03
+R 00 00 00 00
+T 49 03 DD 6E F9 DD 66 FA 36 20 18 0F
+R 00 00 00 00
+T 53 03
+R 00 00 00 00
+T 53 03 DD 6E F9 DD 66 FA 36 2E 3A 33 06 3D 32
+R 00 00 00 00 00 0B 01 00
+T 60 03 33 06
+R 00 00 00 00 00 02 01 00
+T 62 03
+R 00 00 00 00
+T 62 03 DD 7E F8 B7 28 11 DD 6E FB DD 66 FC 36 2A
+R 00 00 00 00
+T 70 03 3A 33 06 3C 32 33 06 18 22
+R 00 00 00 00 00 03 01 00 00 07 01 00
+T 79 03
+R 00 00 00 00
+T 79 03 DD 6E FB DD 66 FC 36 24 18 18
+R 00 00 00 00
+T 83 03
+R 00 00 00 00
+T 83 03 DD 7E F8 B7 28 0A DD 6E FB DD 66 FC 36 2E
+R 00 00 00 00
+T 91 03 18 08
+R 00 00 00 00
+T 93 03
+R 00 00 00 00
+T 93 03 DD 6E FB DD 66 FC 36 20
+R 00 00 00 00
+T 9B 03
+R 00 00 00 00
+T 9B 03 DD 7E FD 32 2E 06 DD 7E 0E 32 2F 06 DD F9
+R 00 00 00 00 00 06 01 00 00 0C 01 00
+T A9 03 DD E1 C9
+R 00 00 00 00
+T AC 03
+R 00 00 00 00
+T AC 03 DD E5 DD 21 00 00 DD 39 21 F1 FF 39 F9 DD
+R 00 00 00 00
+T BA 03 36 FE 00 DD 36 FF 00 DD 36 FA 00 DD 36 FB
+R 00 00 00 00
+T C8 03 00 DD 36 F3 00 DD 36 F4 00 DD 36 F6 00 DD
+R 00 00 00 00
+T D6 03 36 F7 00 3A 01 01 B7 CA 5C 05 3A 2E 06 DD
+R 00 00 00 00 00 06 01 00 00 0A 00 00 00 0D 01 00
+T E4 03 77 FC DD 36 FD 00 3A 2F 06 DD 77 F8 DD 36
+R 00 00 00 00 00 09 01 00
+T F2 03 F9 00 FD 21 00 01 FD 7E 00 B7 28 05 FD 35
+R 00 00 00 00 00 06 01 00
+T 00 04 00 18 05
+R 00 00 00 00
+T 03 04
+R 00 00 00 00
+T 03 04 21 00 01 36 7F
+R 00 00 00 00 00 03 01 00
+T 08 04
+R 00 00 00 00
+T 08 04 01 00 00 FD 21 00 01 FD 6E 00 26 00 29 09
+R 00 00 00 00 00 03 01 00 00 07 01 00
+T 16 04 7E DD 77 F5 DD 4E FC DD 46 FD 0B DD 5E FC
+R 00 00 00 00
+T 24 04 DD 56 FD 13 DD 7E F5 D6 08 28 30 DD 7E F8
+R 00 00 00 00
+T 32 04 C6 FF DD 77 F1 DD 7E F9 CE FF DD 77 F2 DD
+R 00 00 00 00
+T 40 04 6E F8 DD 66 F9 23 DD 7E F5 D6 0A 28 65 DD
+R 00 00 00 00
+T 4E 04 7E F5 D6 0B 28 32 DD 7E F5 D6 15 CA DE 04
+R 00 00 00 00 00 0E 00 00
+T 5C 04 C3 02 05
+R 00 00 00 00 00 03 00 00
+T 5F 04
+R 00 00 00 00
+T 5F 04 DD 7E F8 DD 77 FA DD 7E F9 DD 77 FB DD 7E
+R 00 00 00 00
+T 6D 04 F8 DD 77 F6 DD 7E F9 DD 77 F7 DD 71 FE DD
+R 00 00 00 00
+T 7B 04 70 FF DD 73 F3 DD 72 F4 C3 02 05
+R 00 00 00 00 00 0B 00 00
+T 86 04
+R 00 00 00 00
+T 86 04 DD 7E FC DD 77 FE DD 7E FD DD 77 FF DD 7E
+R 00 00 00 00
+T 94 04 FC DD 77 F3 DD 7E FD DD 77 F4 DD 7E F1 DD
+R 00 00 00 00
+T A2 04 77 FA DD 7E F2 DD 77 FB DD 75 F6 DD 74 F7
+R 00 00 00 00
+T B0 04 18 50
+R 00 00 00 00
+T B2 04
+R 00 00 00 00
+T B2 04 DD 7E FC DD 77 FE DD 7E FD DD 77 FF DD 7E
+R 00 00 00 00
+T C0 04 FC DD 77 F3 DD 7E FD DD 77 F4 DD 75 FA DD
+R 00 00 00 00
+T CE 04 74 FB DD 7E F1 DD 77 F6 DD 7E F2 DD 77 F7
+R 00 00 00 00
+T DC 04 18 24
+R 00 00 00 00
+T DE 04
+R 00 00 00 00
+T DE 04 DD 7E F8 DD 77 FA DD 7E F9 DD 77 FB DD 7E
+R 00 00 00 00
+T EC 04 F8 DD 77 F6 DD 7E F9 DD 77 F7 DD 73 FE DD
+R 00 00 00 00
+T FA 04 72 FF DD 71 F3 DD 70 F4
+R 00 00 00 00
+T 02 05
+R 00 00 00 00
+T 02 05 DD 6E F8 DD 66 F9 E5 DD 6E FC DD 66 FD E5
+R 00 00 00 00
+T 10 05 DD 6E FA DD 66 FB E5 DD 6E FE DD 66 FF E5
+R 00 00 00 00
+T 1E 05 CD 26 01 21 08 00 39 F9 DD 6E F6 DD 66 F7
+R 00 00 00 00 00 03 00 00
+T 2C 05 E5 DD 6E F3 DD 66 F4 E5 DD 6E F8 DD 66 F9
+R 00 00 00 00
+T 3A 05 E5 DD 6E FC DD 66 FD E5 DD 6E FA DD 66 FB
+R 00 00 00 00
+T 48 05 E5 DD 6E FE DD 66 FF E5 CD 99 02 21 0C 00
+R 00 00 00 00 00 0B 00 00
+T 56 05 39 F9 21 01 01 35
+R 00 00 00 00 00 05 01 00
+T 5C 05
+R 00 00 00 00
+T 5C 05 DD F9 DD E1 C9
+R 00 00 00 00
+T 61 05
+R 00 00 00 00
+T 61 05 DD E5 DD 21 00 00 DD 39 21 F4 FF 39 F9 DD
+R 00 00 00 00
+T 6F 05 36 F7 00 DD 36 FC 00 DD 36 FD 00 DD 36 FA
+R 00 00 00 00
+T 7D 05 00 DD 36 FB 00 DD 36 F8 00 DD 36 F9 00 DD
+R 00 00 00 00
+T 8B 05 36 FE 00 DD 36 FF 00 DD 7E 04 D6 08 28 1A
+R 00 00 00 00
+T 99 05 DD 7E 04 D6 0A CA 36 06 DD 7E 04 D6 0B 28
+R 00 00 00 00 00 08 00 00
+T A7 05 46 DD 7E 04 D6 15 CA 66 06 C3 97 06
+R 00 00 00 00 00 09 00 00 00 0C 00 00
+T B3 05
+R 00 00 00 00
+T B3 05 3A 2E 06 4F 06 00 79 C6 FF DD 77 FC 78 CE
+R 00 00 00 00 00 03 01 00
+T C1 05 FF DD 77 FD 3A 2F 06 4F 06 00 DD 71 F8 DD
+R 00 00 00 00 00 07 01 00
+T CF 05 70 F9 3A 2E 06 5F 16 00 7B C6 FE DD 77 FA
+R 00 00 00 00 00 05 01 00
+T DD 05 7A CE FF DD 77 FB DD 71 FE DD 70 FF 0E 01
+R 00 00 00 00
+T EB 05 C3 99 06
+R 00 00 00 00 00 03 00 00
+T EE 05
+R 00 00 00 00
+T EE 05 3A 2E 06 DD 77 F4 DD 77 FC DD 36 FD 00 3A
+R 00 00 00 00 00 03 01 00
+T FC 05 2F 06 DD 77 F4 DD 77 F5 DD 36 F6 00 DD 7E
+R 00 00 00 00 00 02 01 00
+T 0A 06 F5 C6 FF DD 77 F8 DD 7E F6 CE FF DD 77 F9
+R 00 00 00 00
+T 18 06 3A 2E 06 DD 77 FA DD 36 FB 00 DD 7E F5 C6
+R 00 00 00 00 00 03 01 00
+T 26 06 FE DD 77 FE DD 7E F6 CE FF DD 77 FF 0E 01
+R 00 00 00 00
+T 34 06 18 63
+R 00 00 00 00
+T 36 06
+R 00 00 00 00
+T 36 06 3A 2E 06 DD 77 FC DD 36 FD 00 3A 2F 06 4F
+R 00 00 00 00 00 03 01 00 00 0D 01 00
+T 44 06 06 00 21 01 00 09 DD 75 F8 DD 74 F9 3A
+R 00 00 00 00
+T 51 06 2E 06 DD 77 FA DD 36 FB 00 03 03 DD 71 FE
+R 00 00 00 00 00 02 01 00
+T 5F 06 DD 70 FF 0E 01 18 33
+R 00 00 00 00
+T 66 06
+R 00 00 00 00
+T 66 06 3A 2E 06 4F 06 00 03 DD 71 FC DD 70 FD 3A
+R 00 00 00 00 00 03 01 00
+T 74 06 2F 06 4F 06 00 DD 71 F8 DD 70 F9 3A 2E 06
+R 00 00 00 00 00 02 01 00 00 0E 01 00
+T 82 06 5F 16 00 13 13 DD 73 FA DD 72 FB DD 71 FE
+R 00 00 00 00
+T 90 06 DD 70 FF 0E 01 18 02
+R 00 00 00 00
+T 97 06
+R 00 00 00 00
+T 97 06 0E 00
+R 00 00 00 00
+T 99 06
+R 00 00 00 00
+T 99 06 CB 41 CA 87 07 DD 6E FE DD 66 FF E5 DD 6E
+R 00 00 00 00 00 05 00 00
+T A7 06 FA DD 66 FB E5 DD 6E F8 DD 66 F9 E5 DD 6E
+R 00 00 00 00
+T B5 06 FC DD 66 FD E5 CD 52 00 F1 F1 F1 F1 CB 45
+R 00 00 00 00 00 08 00 00
+T C3 06 CA 87 07 01 00 00 FD 21 00 01 FD 6E 00 26
+R 00 00 00 00 00 03 00 00 00 06 01 00 00 0A 01 00
+T D1 06 00 29 09 DD 7E 04 77 FD 6E 00 26 00 29 09
+R 00 00 00 00
+T DF 06 EB 13 DD 4E F8 DD 46 F9 69 60 29 29 09 29
+R 00 00 00 00
+T ED 06 29 01 35 06 09 DD 4E FC DD 46 FD 09 7E FE
+R 00 00 00 00 00 04 01 00
+T FB 06 24 28 07 D6 2A 28 03 AF 18 02
+R 00 00 00 00
+T 05 07
+R 00 00 00 00
+T 05 07 3E 01
+R 00 00 00 00
+T 07 07
+R 00 00 00 00
+T 07 07 12 FD 21 00 01 FD 34 00 FD 7E 00 D6 80 20
+R 00 00 00 00 00 05 01 00
+T 15 07 04 FD 36 00 00
+R 00 00 00 00
+T 1A 07
+R 00 00 00 00
+T 1A 07 FD 21 01 01 FD 34 00 3E 80 FD 96 00 30 04
+R 00 00 00 00 00 04 01 00
+T 28 07 FD 36 00 80
+R 00 00 00 00
+T 2C 07
+R 00 00 00 00
+T 2C 07 DD 6E FE DD 66 FF E5 DD 6E FA DD 66 FB E5
+R 00 00 00 00
+T 3A 07 DD 6E F8 DD 66 F9 E5 DD 6E FC DD 66 FD E5
+R 00 00 00 00
+T 48 07 CD BE 00 21 08 00 39 F9 DD 6E FE DD 66 FF
+R 00 00 00 00 00 03 00 00
+T 56 07 E5 DD 6E FA DD 66 FB E5 DD 6E F8 DD 66 F9
+R 00 00 00 00
+T 64 07 E5 DD 6E FC DD 66 FD E5 CD 94 01 21 08 00
+R 00 00 00 00 00 0B 00 00
+T 72 07 39 F9 21 32 06 4E 21 33 06 46 79 90 20 03
+R 00 00 00 00 00 05 01 00 00 09 01 00
+T 80 07 3E 01 20
+R 00 00 00 00
+T 83 07
+R 00 00 00 00
+T 83 07 AF
+R 00 00 00 00
+T 84 07
+R 00 00 00 00
+T 84 07 DD 77 F7
+R 00 00 00 00
+T 87 07
+R 00 00 00 00
+T 87 07 DD 6E F7 DD F9 DD E1 C9
+R 00 00 00 00
+T 8F 07
+R 00 00 00 00
+T 8F 07 DD E5 DD 21 00 00 DD 39 F5 3B DD 6E 04 DD
+R 00 00 00 00
+T 9D 07 66 05 E5 CD 00 00 F1 4D 06 00 21 50 00 BF
+R 00 00 00 00 02 06 04 00
+T AB 07 ED 42 5D 54 CB 7C 28 02 EB 13
+R 00 00 00 00
+T B5 07
+R 00 00 00 00
+T B5 07 CB 2A CB 1B 16 00 7B C6 FF DD 77 FD
+R 00 00 00 00
+T C1 07
+R 00 00 00 00
+T C1 07 6B 26 00 09 23 DD 7E FD DD 77 FE DD 36 FF
+R 00 00 00 00
+T CF 07 00 DD 7E FE 95 DD 7E FF 9C E2 DD 07 EE 80
+R 00 00 00 00 00 0C 00 00
+T DD 07
+R 00 00 00 00
+T DD 07 F2 E5 07 DD 34 FD 18 DC
+R 00 00 00 00 00 03 00 00
+T E5 07
+R 00 00 00 00
+T E5 07 D5 DD 6E 04 DD 66 05 E5 21 0F 08 E5 CD
+R 00 00 00 00 00 0B 00 00
+T F2 07 00 00 F1 F1 D1
+R 00 00 00 00 02 02 03 00
+T F7 07
+R 00 00 00 00
+T F7 07 DD 7E 06 92 28 0C DD 7E 07 92 28 06 CD
+R 00 00 00 00
+T 04 08 00 00 55 18 EE
+R 00 00 00 00 02 02 01 00
+T 09 08
+R 00 00 00 00
+T 09 08 6A DD F9 DD E1 C9
+R 00 00 00 00
+T 0F 08
+R 00 00 00 00
+T 0F 08 25 73 20 00
+R 00 00 00 00
+T 13 08
+R 00 00 00 00
+T 13 08 C9
+R 00 00 00 00
+T 14 08
+R 00 00 00 00
+T 14 08 C9
+R 00 00 00 00
+T 15 08
+R 00 00 00 00
+T 15 08 DD E5 DD 21 00 00 DD 39 F5 3B DD 36 FD 00
+R 00 00 00 00
+T 23 08 DD 7E 05 DD 77 FE DD 7E 06 DD 77 FF
+R 00 00 00 00
+T 2F 08
+R 00 00 00 00
+T 2F 08 DD CB FD 46 C2 F1 08 DD 46 FE C5 33 CD
+R 00 00 00 00 00 07 00 00
+T 3C 08 69 0A 33 CD F3 09 DD 5E 04 16 00 DD 4E FE
+R 00 00 00 00 00 02 00 00 00 06 00 00
+T 4A 08 DD 46 FF 03 C5 D5 D5 C5 21 FC 08 E5 CD
+R 00 00 00 00 00 0B 00 00
+T 57 08 00 00 21 06 00 39 F9 21 0E 09 E5 CD 00 00
+R 00 00 00 00 02 02 03 00 00 0A 00 00 02 0E 02 00
+T 65 08 F1 11 32 0D D5 CD 14 08 F1 CD 00 00 7D D1
+R 00 00 00 00 00 08 00 00 02 0C 01 00
+T 73 08 C1 1B FE 08 28 16 FE 0A 28 12 FE 0B 28 36
+R 00 00 00 00
+T 81 08 FE 0D 28 56 FE 15 28 2E D6 1B 28 55 18 A0
+R 00 00 00 00
+T 8F 08
+R 00 00 00 00
+T 8F 08 AF DD BE FE DD 9E FF E2 9B 08 EE 80
+R 00 00 00 00 00 0A 00 00
+T 9B 08
+R 00 00 00 00
+T 9B 08 F2 AE 08 DD 6E FE DD 66 FF 2B DD 75 FE DD
+R 00 00 00 00 00 03 00 00
+T A9 08 74 FF C3 2F 08
+R 00 00 00 00 00 05 00 00
+T AE 08
+R 00 00 00 00
+T AE 08 DD 73 FE DD 72 FF C3 2F 08
+R 00 00 00 00 00 09 00 00
+T B7 08
+R 00 00 00 00
+T B7 08 DD 7E FE 93 DD 7E FF 9A E2 C4 08 EE 80
+R 00 00 00 00 00 0B 00 00
+T C4 08
+R 00 00 00 00
+T C4 08 F2 D0 08 DD 71 FE DD 70 FF C3 2F 08
+R 00 00 00 00 00 03 00 00 00 0C 00 00
+T D0 08
+R 00 00 00 00
+T D0 08 DD 36 FE 00 DD 36 FF 00 C3 2F 08
+R 00 00 00 00 00 0B 00 00
+T DB 08
+R 00 00 00 00
+T DB 08 DD 36 FD 01 C3 2F 08
+R 00 00 00 00 00 07 00 00
+T E2 08
+R 00 00 00 00
+T E2 08 DD 36 FE FF DD 36 FF FF DD 36 FD 01 C3
+R 00 00 00 00
+T EF 08 2F 08
+R 00 00 00 00 00 02 00 00
+T F1 08
+R 00 00 00 00
+T F1 08 DD 6E FE DD 66 FF DD F9 DD E1 C9
+R 00 00 00 00
+T FC 08
+R 00 00 00 00
+T FC 08 4C 65 76 65 6C 20 25 30 33 64 20 2F 20 25
+R 00 00 00 00
+T 0A 09 30 33 64 00
+R 00 00 00 00
+T 0E 09
+R 00 00 00 00
+T 0E 09 53 65 6C 65 63 74 20 6C 65 76 65 6C 20 77
+R 00 00 00 00
+T 1C 09 69 74 68 20 63 75 72 73 6F 72 20 6B 65 79
+R 00 00 00 00
+T 2A 09 73 0A 45 53 43 20 74 6F 20 71 75 69 74 00
+R 00 00 00 00
+T 38 09
+R 00 00 00 00
+T 38 09 DD E5 DD 21 00 00 DD 39 21 F9 FF 39 F9 21
+R 00 00 00 00
+T 46 09 30 06 5E DD 73 FE 21 31 06 4E DD 71 FD 21
+R 00 00 00 00 00 02 01 00 00 09 01 00
+T 54 09 61 07 36 01 16 00 21 14 00 BF ED 52 7C 07
+R 00 00 00 00 00 02 01 00
+T 62 09 E6 01 06 00 21 0F 00 BF ED 42 7C 07 E6 01
+R 00 00 00 00
+T 70 09 11 00 00
+R 00 00 00 00
+T 73 09
+R 00 00 00 00
+T 73 09 DD 4E FD 06 00 7B 91 7A 98 30 70 D5 6B 62
+R 00 00 00 00
+T 81 09 29 29 19 29 29 D1 4D 44 21 35 06 09 E3 21
+R 00 00 00 00 00 0B 01 00
+T 8F 09 02 05 09 DD 75 FB DD 74 FC 01 00 00
+R 00 00 00 00 00 02 01 00
+T 9B 09
+R 00 00 00 00
+T 9B 09 DD 6E FE 26 00 79 95 78 9C 30 44 E1 E5 09
+R 00 00 00 00
+T A9 09 7E DD 77 FF DD 6E FB DD 66 FC 09 36 FF DD
+R 00 00 00 00
+T B7 09 7E FF D6 20 28 2A DD 7E FF D6 23 28 23 DD
+R 00 00 00 00
+T C5 09 7E FF D6 24 28 11 DD 7E FF D6 2A 28 0A DD
+R 00 00 00 00
+T D3 09 7E FF D6 2B 28 0E AF 18 0B
+R 00 00 00 00
+T DC 09
+R 00 00 00 00
+T DC 09 FD 21 61 07 FD 7E 00 77 FD 34 00
+R 00 00 00 00 00 04 01 00
+T E7 09
+R 00 00 00 00
+T E7 09 03 18 B1
+R 00 00 00 00
+T EA 09
+R 00 00 00 00
+T EA 09 13 C3 73 09
+R 00 00 00 00 00 04 00 00
+T EE 09
+R 00 00 00 00
+T EE 09 DD F9 DD E1 C9
+R 00 00 00 00
+T F3 09
+R 00 00 00 00
+T F3 09 DD E5 DD 21 00 00 DD 39 F5 F5 21 30 06 5E
+R 00 00 00 00 00 0D 01 00
+T 01 0A DD 73 FE 21 31 06 4E DD 71 FF 16 00 21
+R 00 00 00 00 00 06 01 00
+T 0E 0A 14 00 BF ED 52 7C 07 E6 01 06 00 21 0F 00
+R 00 00 00 00
+T 1C 0A BF ED 42 7C 07 E6 01 11 00 00
+R 00 00 00 00
+T 26 0A
+R 00 00 00 00
+T 26 0A DD 4E FF 06 00 7B 91 7A 98 30 33 D5 6B 62
+R 00 00 00 00
+T 34 0A 29 29 19 29 29 D1 01 35 06 09 E3 01 00 00
+R 00 00 00 00 00 09 01 00
+T 42 0A
+R 00 00 00 00
+T 42 0A DD 6E FE 26 00 79 95 78 9C 30 14 E1 E5 09
+R 00 00 00 00
+T 50 0A 7E FE 20 28 09 FE 23 28 05 D6 24 28 01 AF
+R 00 00 00 00
+T 5E 0A
+R 00 00 00 00
+T 5E 0A
+R 00 00 00 00
+T 5E 0A 03 18 E1
+R 00 00 00 00
+T 61 0A
+R 00 00 00 00
+T 61 0A 13 18 C2
+R 00 00 00 00
+T 64 0A
+R 00 00 00 00
+T 64 0A DD F9 DD E1 C9
+R 00 00 00 00
+T 69 0A
+R 00 00 00 00
+T 69 0A DD E5 DD 21 00 00 DD 39 11 2E 06 6B 62 06
+R 00 00 00 00 00 0B 01 00
+T 77 0A 9A 18 03
+R 00 00 00 00
+T 7A 0A
+R 00 00 00 00
+T 7A 0A 36 00 23
+R 00 00 00 00
+T 7D 0A
+R 00 00 00 00
+T 7D 0A 36 00 23 10 F8 DD 4E 04 06 00 69 60 29 29
+R 00 00 00 00
+T 8B 0A 29 09 29 09 29 29 29 09 29 09 01 33 01 ED
+R 00 00 00 00
+T 99 0A B0 21 00 01 36 00 21 01 01 36 00 DD E1 C9
+R 00 00 00 00 00 04 01 00 00 09 01 00
+T 00 00
+R 00 00 07 00
+T 00 00 01 03 04 0A 08 05 04 03 80 C0 20 50 10 A0
+R 00 00 07 00
+T 0E 00 20 C0 06 0F 0E 1B 03 02 06 0E 60 F0 70 D8
+R 00 00 07 00
+T 1C 00 C0 40 60 70
+R 00 00 07 00
+T 20 00
+R 00 00 07 00
+T 20 00 00 77 48 44 22 51 48 44 00 EE 12 22 44 8A
+R 00 00 07 00
+T 2E 00 12 22 44 48 51 22 44 48 77 00 22 12 8A 44
+R 00 00 07 00
+T 3C 00 22 12 EE 00
+R 00 00 07 00
+T 40 00
+R 00 00 07 00
+T 40 00 00 00 04 02 01 20 10 09 00 00 20 40 80 04
+R 00 00 07 00
+T 4E 00 08 90 09 10 20 01 02 04 00 00 90 08 04 80
+R 00 00 07 00
+T 5C 00 40 20 00 00
+R 00 00 07 00
+T 60 00
+R 00 00 07 00
+T 60 00 00 77 68 54 2A 55 4A 45 00 EE 16 2A 54 AA
+R 00 00 07 00
+T 6E 00 52 A2 45 4A 55 2A 54 68 77 00 A2 52 AA 54
+R 00 00 07 00
+T 7C 00 2A 16 EE 00
+R 00 00 07 00
+T 80 00
+R 00 00 07 00
+T 80 00 F7 F7 F7 00 7F 7F 7F 00 F7 F7 F7 00 7F 7F
+R 00 00 07 00
+T 8E 00 7F 00 F7 F7 F7 00 7F 7F 7F 00 F7 F7 F7 00
+R 00 00 07 00
+T 9C 00 7F 7F 7F 00
+R 00 00 07 00
+T A0 00
+R 00 00 07 00
+T A0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T AE 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 07 00
+T BC 00 00 00 00 00
+R 00 00 07 00

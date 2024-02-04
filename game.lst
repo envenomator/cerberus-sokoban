@@ -1,0 +1,2761 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.8.0 #10562 (Linux)
+                              4 ;--------------------------------------------------------
+                              5 	.module game
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _undomove_updatelevel
+                             12 	.globl _move_updatelevel
+                             13 	.globl _undomove_sprites
+                             14 	.globl _move_sprites
+                             15 	.globl _canmove
+                             16 	.globl _debug_print_playfieldText
+                             17 	.globl _con_getc
+                             18 	.globl _strlen
+                             19 	.globl _puts
+                             20 	.globl _printf
+                             21 	.globl _floor_data
+                             22 	.globl _wall_data
+                             23 	.globl _box_ongoal_data
+                             24 	.globl _goal_data
+                             25 	.globl _box_data
+                             26 	.globl _player_data
+                             27 	.globl _spritenumber
+                             28 	.globl _currentlevel
+                             29 	.globl _sprites
+                             30 	.globl _bitmapbuffer
+                             31 	.globl _num_undomoves
+                             32 	.globl _undo_head
+                             33 	.globl _undomove
+                             34 	.globl _game_sendTileData
+                             35 	.globl _game_resetSprites
+                             36 	.globl _game_handleUndoMove
+                             37 	.globl _game_handleKey
+                             38 	.globl _game_getResponse
+                             39 	.globl _game_splash_screen
+                             40 	.globl _game_displayHelp
+                             41 	.globl _game_selectLevel
+                             42 	.globl _game_displayLevel
+                             43 	.globl _game_displayMinimap
+                             44 	.globl _game_initLevel
+                             45 ;--------------------------------------------------------
+                             46 ; special function registers
+                             47 ;--------------------------------------------------------
+                             48 ;--------------------------------------------------------
+                             49 ; ram data
+                             50 ;--------------------------------------------------------
+                             51 	.area _DATA
+                     0000    52 G$undomove$0_0$0==.
+   0000                      53 _undomove::
+   0000                      54 	.ds 256
+                     0100    55 G$undo_head$0_0$0==.
+   0100                      56 _undo_head::
+   0100                      57 	.ds 1
+                     0101    58 G$num_undomoves$0_0$0==.
+   0101                      59 _num_undomoves::
+   0101                      60 	.ds 1
+                     0102    61 G$bitmapbuffer$0_0$0==.
+   0102                      62 _bitmapbuffer::
+   0102                      63 	.ds 1024
+                     0502    64 G$sprites$0_0$0==.
+   0502                      65 _sprites::
+   0502                      66 	.ds 300
+                     062E    67 G$currentlevel$0_0$0==.
+   062E                      68 _currentlevel::
+   062E                      69 	.ds 307
+                     0761    70 G$spritenumber$0_0$0==.
+   0761                      71 _spritenumber::
+   0761                      72 	.ds 1
+                             73 ;--------------------------------------------------------
+                             74 ; ram data
+                             75 ;--------------------------------------------------------
+                             76 	.area _INITIALIZED
+                     0000    77 G$player_data$0_0$0==.
+   0000                      78 _player_data::
+   0000                      79 	.ds 32
+                     0020    80 G$box_data$0_0$0==.
+   0020                      81 _box_data::
+   0020                      82 	.ds 32
+                     0040    83 G$goal_data$0_0$0==.
+   0040                      84 _goal_data::
+   0040                      85 	.ds 32
+                     0060    86 G$box_ongoal_data$0_0$0==.
+   0060                      87 _box_ongoal_data::
+   0060                      88 	.ds 32
+                     0080    89 G$wall_data$0_0$0==.
+   0080                      90 _wall_data::
+   0080                      91 	.ds 32
+                     00A0    92 G$floor_data$0_0$0==.
+   00A0                      93 _floor_data::
+   00A0                      94 	.ds 32
+                             95 ;--------------------------------------------------------
+                             96 ; absolute external ram data
+                             97 ;--------------------------------------------------------
+                             98 	.area _DABS (ABS)
+                             99 ;--------------------------------------------------------
+                            100 ; global & static initialisations
+                            101 ;--------------------------------------------------------
+                            102 	.area _HOME
+                            103 	.area _GSINIT
+                            104 	.area _GSFINAL
+                            105 	.area _GSINIT
+                            106 ;--------------------------------------------------------
+                            107 ; Home
+                            108 ;--------------------------------------------------------
+                            109 	.area _HOME
+                            110 	.area _HOME
+                            111 ;--------------------------------------------------------
+                            112 ; code
+                            113 ;--------------------------------------------------------
+                            114 	.area _CODE
+                     0000   115 	G$debug_print_playfieldText$0$0	= .
+                            116 	.globl	G$debug_print_playfieldText$0$0
+                     0000   117 	C$game.c$35$0_0$70	= .
+                            118 	.globl	C$game.c$35$0_0$70
+                            119 ;game.c:35: void debug_print_playfieldText(void) {
+                            120 ;	---------------------------------
+                            121 ; Function debug_print_playfieldText
+                            122 ; ---------------------------------
+   0000                     123 _debug_print_playfieldText::
+                     0000   124 	C$game.c$54$0_0$70	= .
+                            125 	.globl	C$game.c$54$0_0$70
+                            126 ;game.c:54: }
+                     0000   127 	C$game.c$54$0_0$70	= .
+                            128 	.globl	C$game.c$54$0_0$70
+                     0000   129 	XG$debug_print_playfieldText$0$0	= .
+                            130 	.globl	XG$debug_print_playfieldText$0$0
+   0000 C9            [10]  131 	ret
+                     0001   132 	G$game_sendTileData$0$0	= .
+                            133 	.globl	G$game_sendTileData$0$0
+                     0001   134 	C$game.c$56$0_0$72	= .
+                            135 	.globl	C$game.c$56$0_0$72
+                            136 ;game.c:56: void game_sendTileData(void) {
+                            137 ;	---------------------------------
+                            138 ; Function game_sendTileData
+                            139 ; ---------------------------------
+   0001                     140 _game_sendTileData::
+   0001 F5            [11]  141 	push	af
+                     0002   142 	C$game.c$59$1_0$72	= .
+                            143 	.globl	C$game.c$59$1_0$72
+                            144 ;game.c:59: memcpy(ptr[TILE_WALL], wall_data,8);
+   0002 11 00 F0      [10]  145 	ld	de, #0xf000
+   0005 21r80r00      [10]  146 	ld	hl, #_wall_data
+   0008 01 08 00      [10]  147 	ld	bc, #0x0008
+   000B ED B0         [21]  148 	ldir
+                     000D   149 	C$game.c$60$1_0$72	= .
+                            150 	.globl	C$game.c$60$1_0$72
+                            151 ;game.c:60: memcpy(ptr[TILE_PLAYER],player_data,8);
+   000D 11 08 F0      [10]  152 	ld	de, #0xf008
+   0010 21r00r00      [10]  153 	ld	hl, #_player_data
+   0013 01 08 00      [10]  154 	ld	bc, #0x0008
+   0016 ED B0         [21]  155 	ldir
+                     0018   156 	C$game.c$61$1_0$72	= .
+                            157 	.globl	C$game.c$61$1_0$72
+                            158 ;game.c:61: memcpy(ptr[TILE_PLAYERONGOAL], player_data, 8);
+   0018 11 10 F0      [10]  159 	ld	de, #0xf010
+   001B 21r00r00      [10]  160 	ld	hl, #_player_data
+   001E 01 08 00      [10]  161 	ld	bc, #0x0008
+   0021 ED B0         [21]  162 	ldir
+                     0023   163 	C$game.c$62$1_0$72	= .
+                            164 	.globl	C$game.c$62$1_0$72
+                            165 ;game.c:62: memcpy(ptr[TILE_BOX], box_data, 8);
+   0023 11 18 F0      [10]  166 	ld	de, #0xf018
+   0026 21r20r00      [10]  167 	ld	hl, #_box_data
+   0029 01 08 00      [10]  168 	ld	bc, #0x0008
+   002C ED B0         [21]  169 	ldir
+                     002E   170 	C$game.c$63$1_0$72	= .
+                            171 	.globl	C$game.c$63$1_0$72
+                            172 ;game.c:63: memcpy(ptr[TILE_BOXONGOAL], box_ongoal_data, 8);
+   002E 11 20 F0      [10]  173 	ld	de, #0xf020
+   0031 21r60r00      [10]  174 	ld	hl, #_box_ongoal_data
+   0034 01 08 00      [10]  175 	ld	bc, #0x0008
+   0037 ED B0         [21]  176 	ldir
+                     0039   177 	C$game.c$64$1_0$72	= .
+                            178 	.globl	C$game.c$64$1_0$72
+                            179 ;game.c:64: memcpy(ptr[TILE_GOAL], goal_data, 8);
+   0039 11 28 F0      [10]  180 	ld	de, #0xf028
+   003C 21r40r00      [10]  181 	ld	hl, #_goal_data
+   003F 01 08 00      [10]  182 	ld	bc, #0x0008
+   0042 ED B0         [21]  183 	ldir
+                     0044   184 	C$game.c$65$1_0$72	= .
+                            185 	.globl	C$game.c$65$1_0$72
+                            186 ;game.c:65: memcpy(ptr[TILE_FLOOR], floor_data, 8);	
+   0044 11 30 F0      [10]  187 	ld	de, #0xf030
+   0047 21rA0r00      [10]  188 	ld	hl, #_floor_data
+   004A 01 08 00      [10]  189 	ld	bc, #0x0008
+   004D ED B0         [21]  190 	ldir
+                     004F   191 	C$game.c$66$1_0$72	= .
+                            192 	.globl	C$game.c$66$1_0$72
+                            193 ;game.c:66: return;
+                     004F   194 	C$game.c$67$1_0$72	= .
+                            195 	.globl	C$game.c$67$1_0$72
+                            196 ;game.c:67: }
+   004F F1            [10]  197 	pop	af
+                     0050   198 	C$game.c$67$1_0$72	= .
+                            199 	.globl	C$game.c$67$1_0$72
+                     0050   200 	XG$game_sendTileData$0$0	= .
+                            201 	.globl	XG$game_sendTileData$0$0
+   0050 C9            [10]  202 	ret
+                     0051   203 	G$game_resetSprites$0$0	= .
+                            204 	.globl	G$game_resetSprites$0$0
+                     0051   205 	C$game.c$69$1_0$74	= .
+                            206 	.globl	C$game.c$69$1_0$74
+                            207 ;game.c:69: void game_resetSprites(void)
+                            208 ;	---------------------------------
+                            209 ; Function game_resetSprites
+                            210 ; ---------------------------------
+   0051                     211 _game_resetSprites::
+                     0051   212 	C$game.c$90$1_0$74	= .
+                            213 	.globl	C$game.c$90$1_0$74
+                            214 ;game.c:90: return;
+                     0051   215 	C$game.c$91$1_0$74	= .
+                            216 	.globl	C$game.c$91$1_0$74
+                            217 ;game.c:91: }
+                     0051   218 	C$game.c$91$1_0$74	= .
+                            219 	.globl	C$game.c$91$1_0$74
+                     0051   220 	XG$game_resetSprites$0$0	= .
+                            221 	.globl	XG$game_resetSprites$0$0
+   0051 C9            [10]  222 	ret
+                     0052   223 	G$canmove$0$0	= .
+                            224 	.globl	G$canmove$0$0
+                     0052   225 	C$game.c$93$1_0$76	= .
+                            226 	.globl	C$game.c$93$1_0$76
+                            227 ;game.c:93: bool canmove(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
+                            228 ;	---------------------------------
+                            229 ; Function canmove
+                            230 ; ---------------------------------
+   0052                     231 _canmove::
+   0052 DD E5         [15]  232 	push	ix
+   0054 DD 21 00 00   [14]  233 	ld	ix,#0
+   0058 DD 39         [15]  234 	add	ix,sp
+                     005A   235 	C$game.c$97$1_0$76	= .
+                            236 	.globl	C$game.c$97$1_0$76
+                            237 ;game.c:97: n1 = currentlevel.data[yn1][xn1];
+   005A 11r35r06      [10]  238 	ld	de, #_currentlevel+7
+   005D DD 4E 06      [19]  239 	ld	c, 6 (ix)
+   0060 DD 46 07      [19]  240 	ld	b, 7 (ix)
+   0063 69            [ 4]  241 	ld	l, c
+   0064 60            [ 4]  242 	ld	h, b
+   0065 29            [11]  243 	add	hl, hl
+   0066 29            [11]  244 	add	hl, hl
+   0067 09            [11]  245 	add	hl, bc
+   0068 29            [11]  246 	add	hl, hl
+   0069 29            [11]  247 	add	hl, hl
+   006A 19            [11]  248 	add	hl, de
+   006B DD 4E 04      [19]  249 	ld	c, 4 (ix)
+   006E DD 46 05      [19]  250 	ld	b, 5 (ix)
+   0071 09            [11]  251 	add	hl, bc
+   0072 4E            [ 7]  252 	ld	c, (hl)
+                     0073   253 	C$game.c$98$1_0$76	= .
+                            254 	.globl	C$game.c$98$1_0$76
+                            255 ;game.c:98: n2 = currentlevel.data[yn2][xn2];
+   0073 D5            [11]  256 	push	de
+   0074 DD 5E 0A      [19]  257 	ld	e, 10 (ix)
+   0077 DD 56 0B      [19]  258 	ld	d, 11 (ix)
+   007A 6B            [ 4]  259 	ld	l, e
+   007B 62            [ 4]  260 	ld	h, d
+   007C 29            [11]  261 	add	hl, hl
+   007D 29            [11]  262 	add	hl, hl
+   007E 19            [11]  263 	add	hl, de
+   007F 29            [11]  264 	add	hl, hl
+   0080 29            [11]  265 	add	hl, hl
+   0081 D1            [10]  266 	pop	de
+   0082 19            [11]  267 	add	hl, de
+   0083 DD 5E 08      [19]  268 	ld	e, 8 (ix)
+   0086 DD 56 09      [19]  269 	ld	d, 9 (ix)
+   0089 19            [11]  270 	add	hl, de
+   008A 46            [ 7]  271 	ld	b, (hl)
+                     008B   272 	C$game.c$100$1_0$76	= .
+                            273 	.globl	C$game.c$100$1_0$76
+                            274 ;game.c:100: switch(n1) {
+   008B 79            [ 4]  275 	ld	a,c
+   008C FE 20         [ 7]  276 	cp	a,#0x20
+   008E 28 0E         [12]  277 	jr	Z,00103$
+   0090 FE 23         [ 7]  278 	cp	a,#0x23
+   0092 28 06         [12]  279 	jr	Z,00101$
+   0094 D6 2E         [ 7]  280 	sub	a, #0x2e
+   0096 28 06         [12]  281 	jr	Z,00103$
+   0098 18 08         [12]  282 	jr	00104$
+                     009A   283 	C$game.c$101$2_0$77	= .
+                            284 	.globl	C$game.c$101$2_0$77
+                            285 ;game.c:101: case CHAR_WALL:
+   009A                     286 00101$:
+                     009A   287 	C$game.c$102$2_0$77	= .
+                            288 	.globl	C$game.c$102$2_0$77
+                            289 ;game.c:102: return false;
+   009A 2E 00         [ 7]  290 	ld	l, #0x00
+   009C 18 1D         [12]  291 	jr	00109$
+                     009E   292 	C$game.c$105$2_0$77	= .
+                            293 	.globl	C$game.c$105$2_0$77
+                            294 ;game.c:105: case CHAR_GOAL:
+   009E                     295 00103$:
+                     009E   296 	C$game.c$106$2_0$77	= .
+                            297 	.globl	C$game.c$106$2_0$77
+                            298 ;game.c:106: return true;
+   009E 2E 01         [ 7]  299 	ld	l, #0x01
+   00A0 18 19         [12]  300 	jr	00109$
+                     00A2   301 	C$game.c$108$1_0$76	= .
+                            302 	.globl	C$game.c$108$1_0$76
+                            303 ;game.c:108: }
+   00A2                     304 00104$:
+                     00A2   305 	C$game.c$110$1_0$76	= .
+                            306 	.globl	C$game.c$110$1_0$76
+                            307 ;game.c:110: switch(n2) {
+   00A2 78            [ 4]  308 	ld	a,b
+   00A3 FE 23         [ 7]  309 	cp	a,#0x23
+   00A5 28 0A         [12]  310 	jr	Z,00105$
+   00A7 FE 24         [ 7]  311 	cp	a,#0x24
+   00A9 28 0A         [12]  312 	jr	Z,00107$
+   00AB D6 2A         [ 7]  313 	sub	a, #0x2a
+   00AD 28 06         [12]  314 	jr	Z,00107$
+   00AF 18 08         [12]  315 	jr	00108$
+                     00B1   316 	C$game.c$111$2_0$78	= .
+                            317 	.globl	C$game.c$111$2_0$78
+                            318 ;game.c:111: case CHAR_WALL:
+   00B1                     319 00105$:
+                     00B1   320 	C$game.c$112$2_0$78	= .
+                            321 	.globl	C$game.c$112$2_0$78
+                            322 ;game.c:112: return false;
+   00B1 2E 00         [ 7]  323 	ld	l, #0x00
+   00B3 18 06         [12]  324 	jr	00109$
+                     00B5   325 	C$game.c$115$2_0$78	= .
+                            326 	.globl	C$game.c$115$2_0$78
+                            327 ;game.c:115: case CHAR_BOXONGOAL:
+   00B5                     328 00107$:
+                     00B5   329 	C$game.c$116$2_0$78	= .
+                            330 	.globl	C$game.c$116$2_0$78
+                            331 ;game.c:116: return false;
+   00B5 2E 00         [ 7]  332 	ld	l, #0x00
+   00B7 18 02         [12]  333 	jr	00109$
+                     00B9   334 	C$game.c$118$1_0$76	= .
+                            335 	.globl	C$game.c$118$1_0$76
+                            336 ;game.c:118: }
+   00B9                     337 00108$:
+                     00B9   338 	C$game.c$120$1_0$76	= .
+                            339 	.globl	C$game.c$120$1_0$76
+                            340 ;game.c:120: return true;
+   00B9 2E 01         [ 7]  341 	ld	l, #0x01
+   00BB                     342 00109$:
+                     00BB   343 	C$game.c$121$1_0$76	= .
+                            344 	.globl	C$game.c$121$1_0$76
+                            345 ;game.c:121: }
+   00BB DD E1         [14]  346 	pop	ix
+                     00BD   347 	C$game.c$121$1_0$76	= .
+                            348 	.globl	C$game.c$121$1_0$76
+                     00BD   349 	XG$canmove$0$0	= .
+                            350 	.globl	XG$canmove$0$0
+   00BD C9            [10]  351 	ret
+                     00BE   352 	G$move_sprites$0$0	= .
+                            353 	.globl	G$move_sprites$0$0
+                     00BE   354 	C$game.c$123$1_0$80	= .
+                            355 	.globl	C$game.c$123$1_0$80
+                            356 ;game.c:123: void move_sprites(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
+                            357 ;	---------------------------------
+                            358 ; Function move_sprites
+                            359 ; ---------------------------------
+   00BE                     360 _move_sprites::
+   00BE DD E5         [15]  361 	push	ix
+   00C0 DD 21 00 00   [14]  362 	ld	ix,#0
+   00C4 DD 39         [15]  363 	add	ix,sp
+   00C6 3B            [ 6]  364 	dec	sp
+                     00C7   365 	C$game.c$125$1_0$80	= .
+                            366 	.globl	C$game.c$125$1_0$80
+                            367 ;game.c:125: uint8_t spriteid = sprites[yn1][xn1];
+   00C7 DD 4E 06      [19]  368 	ld	c, 6 (ix)
+   00CA DD 46 07      [19]  369 	ld	b, 7 (ix)
+   00CD 69            [ 4]  370 	ld	l, c
+   00CE 60            [ 4]  371 	ld	h, b
+   00CF 29            [11]  372 	add	hl, hl
+   00D0 29            [11]  373 	add	hl, hl
+   00D1 09            [11]  374 	add	hl, bc
+   00D2 29            [11]  375 	add	hl, hl
+   00D3 29            [11]  376 	add	hl, hl
+   00D4 11r02r05      [10]  377 	ld	de, #_sprites
+   00D7 19            [11]  378 	add	hl, de
+   00D8 DD 4E 04      [19]  379 	ld	c, 4 (ix)
+   00DB DD 46 05      [19]  380 	ld	b, 5 (ix)
+   00DE 09            [11]  381 	add	hl, bc
+   00DF EB            [ 4]  382 	ex	de, hl
+   00E0 1A            [ 7]  383 	ld	a, (de)
+   00E1 DD 77 FF      [19]  384 	ld	-1 (ix), a
+                     00E4   385 	C$game.c$140$1_0$80	= .
+                            386 	.globl	C$game.c$140$1_0$80
+                            387 ;game.c:140: if(spriteid != NOSPRITE) {
+   00E4 3C            [ 4]  388 	inc	a
+   00E5 28 1C         [12]  389 	jr	Z,00108$
+                     00E7   390 	C$game.c$157$1_0$80	= .
+                            391 	.globl	C$game.c$157$1_0$80
+                            392 ;game.c:157: if(spriteid != NOSPRITE) {
+                     00E7   393 	C$game.c$159$2_0$84	= .
+                            394 	.globl	C$game.c$159$2_0$84
+                            395 ;game.c:159: sprites[yn2][xn2] = sprites[yn1][xn1];
+   00E7 DD 4E 0A      [19]  396 	ld	c, 10 (ix)
+   00EA DD 46 0B      [19]  397 	ld	b, 11 (ix)
+   00ED 69            [ 4]  398 	ld	l, c
+   00EE 60            [ 4]  399 	ld	h, b
+   00EF 29            [11]  400 	add	hl, hl
+   00F0 29            [11]  401 	add	hl, hl
+   00F1 09            [11]  402 	add	hl, bc
+   00F2 29            [11]  403 	add	hl, hl
+   00F3 29            [11]  404 	add	hl, hl
+   00F4 01r02r05      [10]  405 	ld	bc, #_sprites
+   00F7 09            [11]  406 	add	hl, bc
+   00F8 DD 4E 08      [19]  407 	ld	c, 8 (ix)
+   00FB DD 46 09      [19]  408 	ld	b, 9 (ix)
+   00FE 09            [11]  409 	add	hl, bc
+   00FF DD 7E FF      [19]  410 	ld	a, -1 (ix)
+   0102 77            [ 7]  411 	ld	(hl), a
+   0103                     412 00108$:
+                     0103   413 	C$game.c$161$1_0$80	= .
+                            414 	.globl	C$game.c$161$1_0$80
+                            415 ;game.c:161: sprites[yn1][xn1] = NOSPRITE; // player's sprite isn't handled by using a box spriteid
+   0103 3E FF         [ 7]  416 	ld	a, #0xff
+   0105 12            [ 7]  417 	ld	(de), a
+                     0106   418 	C$game.c$162$1_0$80	= .
+                            419 	.globl	C$game.c$162$1_0$80
+                            420 ;game.c:162: sprites[currentlevel.ypos][currentlevel.xpos] = NOSPRITE;
+   0106 3Ar2Fr06      [13]  421 	ld	a, (#_currentlevel + 1)
+   0109 4F            [ 4]  422 	ld	c, a
+   010A 06 00         [ 7]  423 	ld	b, #0x00
+   010C 69            [ 4]  424 	ld	l, c
+   010D 60            [ 4]  425 	ld	h, b
+   010E 29            [11]  426 	add	hl, hl
+   010F 29            [11]  427 	add	hl, hl
+   0110 09            [11]  428 	add	hl, bc
+   0111 29            [11]  429 	add	hl, hl
+   0112 29            [11]  430 	add	hl, hl
+   0113 EB            [ 4]  431 	ex	de, hl
+   0114 21r02r05      [10]  432 	ld	hl, #_sprites
+   0117 19            [11]  433 	add	hl, de
+   0118 EB            [ 4]  434 	ex	de, hl
+   0119 3Ar2Er06      [13]  435 	ld	a, (#_currentlevel + 0)
+   011C 6F            [ 4]  436 	ld	l, a
+   011D 26 00         [ 7]  437 	ld	h, #0x00
+   011F 19            [11]  438 	add	hl, de
+   0120 36 FF         [10]  439 	ld	(hl), #0xff
+                     0122   440 	C$game.c$163$1_0$80	= .
+                            441 	.globl	C$game.c$163$1_0$80
+                            442 ;game.c:163: }
+   0122 33            [ 6]  443 	inc	sp
+   0123 DD E1         [14]  444 	pop	ix
+                     0125   445 	C$game.c$163$1_0$80	= .
+                            446 	.globl	C$game.c$163$1_0$80
+                     0125   447 	XG$move_sprites$0$0	= .
+                            448 	.globl	XG$move_sprites$0$0
+   0125 C9            [10]  449 	ret
+                     0126   450 	G$undomove_sprites$0$0	= .
+                            451 	.globl	G$undomove_sprites$0$0
+                     0126   452 	C$game.c$165$1_0$86	= .
+                            453 	.globl	C$game.c$165$1_0$86
+                            454 ;game.c:165: void undomove_sprites(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
+                            455 ;	---------------------------------
+                            456 ; Function undomove_sprites
+                            457 ; ---------------------------------
+   0126                     458 _undomove_sprites::
+   0126 DD E5         [15]  459 	push	ix
+   0128 DD 21 00 00   [14]  460 	ld	ix,#0
+   012C DD 39         [15]  461 	add	ix,sp
+   012E 3B            [ 6]  462 	dec	sp
+                     012F   463 	C$game.c$167$1_0$86	= .
+                            464 	.globl	C$game.c$167$1_0$86
+                            465 ;game.c:167: uint8_t spriteid = sprites[yn1][xn1];
+   012F DD 4E 06      [19]  466 	ld	c, 6 (ix)
+   0132 DD 46 07      [19]  467 	ld	b, 7 (ix)
+   0135 69            [ 4]  468 	ld	l, c
+   0136 60            [ 4]  469 	ld	h, b
+   0137 29            [11]  470 	add	hl, hl
+   0138 29            [11]  471 	add	hl, hl
+   0139 09            [11]  472 	add	hl, bc
+   013A 29            [11]  473 	add	hl, hl
+   013B 29            [11]  474 	add	hl, hl
+   013C 11r02r05      [10]  475 	ld	de, #_sprites
+   013F 19            [11]  476 	add	hl, de
+   0140 DD 4E 04      [19]  477 	ld	c, 4 (ix)
+   0143 DD 46 05      [19]  478 	ld	b, 5 (ix)
+   0146 09            [11]  479 	add	hl, bc
+   0147 EB            [ 4]  480 	ex	de, hl
+   0148 1A            [ 7]  481 	ld	a, (de)
+   0149 DD 77 FF      [19]  482 	ld	-1 (ix), a
+   014C 4F            [ 4]  483 	ld	c, a
+                     014D   484 	C$game.c$175$1_0$86	= .
+                            485 	.globl	C$game.c$175$1_0$86
+                            486 ;game.c:175: if((undomove[undo_head].pushed) && (spriteid != NOSPRITE)) {
+   014D FD 21r00r01   [14]  487 	ld	iy, #_undo_head
+   0151 FD 6E 00      [19]  488 	ld	l, 0 (iy)
+   0154 26 00         [ 7]  489 	ld	h, #0x00
+   0156 29            [11]  490 	add	hl, hl
+   0157 3Er00         [ 7]  491 	ld	a, #<(_undomove)
+   0159 85            [ 4]  492 	add	a, l
+   015A 6F            [ 4]  493 	ld	l, a
+   015B 3Es00         [ 7]  494 	ld	a, #>(_undomove)
+   015D 8C            [ 4]  495 	adc	a, h
+   015E 67            [ 4]  496 	ld	h, a
+   015F 23            [ 6]  497 	inc	hl
+   0160 46            [ 7]  498 	ld	b, (hl)
+   0161 0C            [ 4]  499 	inc	c
+   0162 20 03         [12]  500 	jr	NZ, 00133$
+   0164 3E 01         [ 7]  501 	ld	a, #0x01
+   0166 20                  502 	.db	#0x20
+   0167                     503 00133$:
+   0167 AF            [ 4]  504 	xor	a, a
+   0168                     505 00134$:
+   0168 4F            [ 4]  506 	ld	c, a
+                     0169   507 	C$game.c$199$1_0$86	= .
+                            508 	.globl	C$game.c$199$1_0$86
+                            509 ;game.c:199: if(undomove[undo_head].pushed) {
+   0169 CB 40         [ 8]  510 	bit	0, b
+   016B 28 23         [12]  511 	jr	Z,00112$
+                     016D   512 	C$game.c$200$2_0$90	= .
+                            513 	.globl	C$game.c$200$2_0$90
+                            514 ;game.c:200: if(spriteid != NOSPRITE) {
+   016D CB 41         [ 8]  515 	bit	0, c
+   016F 20 1C         [12]  516 	jr	NZ,00109$
+                     0171   517 	C$game.c$202$3_0$91	= .
+                            518 	.globl	C$game.c$202$3_0$91
+                            519 ;game.c:202: sprites[yn2][xn2] = sprites[yn1][xn1];
+   0171 DD 4E 0A      [19]  520 	ld	c, 10 (ix)
+   0174 DD 46 0B      [19]  521 	ld	b, 11 (ix)
+   0177 69            [ 4]  522 	ld	l, c
+   0178 60            [ 4]  523 	ld	h, b
+   0179 29            [11]  524 	add	hl, hl
+   017A 29            [11]  525 	add	hl, hl
+   017B 09            [11]  526 	add	hl, bc
+   017C 29            [11]  527 	add	hl, hl
+   017D 29            [11]  528 	add	hl, hl
+   017E 01r02r05      [10]  529 	ld	bc, #_sprites
+   0181 09            [11]  530 	add	hl, bc
+   0182 DD 4E 08      [19]  531 	ld	c, 8 (ix)
+   0185 DD 46 09      [19]  532 	ld	b, 9 (ix)
+   0188 09            [11]  533 	add	hl, bc
+   0189 DD 7E FF      [19]  534 	ld	a, -1 (ix)
+   018C 77            [ 7]  535 	ld	(hl), a
+   018D                     536 00109$:
+                     018D   537 	C$game.c$204$2_0$90	= .
+                            538 	.globl	C$game.c$204$2_0$90
+                            539 ;game.c:204: sprites[yn1][xn1] = NOSPRITE; // player's sprite isn't handled by using a box spriteid			
+   018D 3E FF         [ 7]  540 	ld	a, #0xff
+   018F 12            [ 7]  541 	ld	(de), a
+   0190                     542 00112$:
+                     0190   543 	C$game.c$206$1_0$86	= .
+                            544 	.globl	C$game.c$206$1_0$86
+                            545 ;game.c:206: }
+   0190 33            [ 6]  546 	inc	sp
+   0191 DD E1         [14]  547 	pop	ix
+                     0193   548 	C$game.c$206$1_0$86	= .
+                            549 	.globl	C$game.c$206$1_0$86
+                     0193   550 	XG$undomove_sprites$0$0	= .
+                            551 	.globl	XG$undomove_sprites$0$0
+   0193 C9            [10]  552 	ret
+                     0194   553 	G$move_updatelevel$0$0	= .
+                            554 	.globl	G$move_updatelevel$0$0
+                     0194   555 	C$game.c$208$1_0$93	= .
+                            556 	.globl	C$game.c$208$1_0$93
+                            557 ;game.c:208: void move_updatelevel(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
+                            558 ;	---------------------------------
+                            559 ; Function move_updatelevel
+                            560 ; ---------------------------------
+   0194                     561 _move_updatelevel::
+   0194 DD E5         [15]  562 	push	ix
+   0196 DD 21 00 00   [14]  563 	ld	ix,#0
+   019A DD 39         [15]  564 	add	ix,sp
+   019C F5            [11]  565 	push	af
+   019D F5            [11]  566 	push	af
+   019E 3B            [ 6]  567 	dec	sp
+                     019F   568 	C$game.c$214$1_0$93	= .
+                            569 	.globl	C$game.c$214$1_0$93
+                            570 ;game.c:214: n1 = currentlevel.data[yn1][xn1];
+   019F DD 4E 06      [19]  571 	ld	c, 6 (ix)
+   01A2 DD 46 07      [19]  572 	ld	b, 7 (ix)
+   01A5 69            [ 4]  573 	ld	l, c
+   01A6 60            [ 4]  574 	ld	h, b
+   01A7 29            [11]  575 	add	hl, hl
+   01A8 29            [11]  576 	add	hl, hl
+   01A9 09            [11]  577 	add	hl, bc
+   01AA 29            [11]  578 	add	hl, hl
+   01AB 29            [11]  579 	add	hl, hl
+   01AC 11r35r06      [10]  580 	ld	de, #(_currentlevel + 0x0007)
+   01AF 19            [11]  581 	add	hl, de
+   01B0 DD 7E 04      [19]  582 	ld	a, 4 (ix)
+   01B3 DD 77 FC      [19]  583 	ld	-4 (ix), a
+   01B6 DD 7E 05      [19]  584 	ld	a, 5 (ix)
+   01B9 DD 77 FD      [19]  585 	ld	-3 (ix), a
+   01BC 7D            [ 4]  586 	ld	a, l
+   01BD DD 86 FC      [19]  587 	add	a, -4 (ix)
+   01C0 4F            [ 4]  588 	ld	c, a
+   01C1 7C            [ 4]  589 	ld	a, h
+   01C2 DD 8E FD      [19]  590 	adc	a, -3 (ix)
+   01C5 47            [ 4]  591 	ld	b, a
+   01C6 0A            [ 7]  592 	ld	a, (bc)
+   01C7 DD 77 FF      [19]  593 	ld	-1 (ix), a
+                     01CA   594 	C$game.c$215$1_0$93	= .
+                            595 	.globl	C$game.c$215$1_0$93
+                            596 ;game.c:215: n2 = currentlevel.data[yn2][xn2];
+   01CA DD 5E 0A      [19]  597 	ld	e, 10 (ix)
+   01CD DD 56 0B      [19]  598 	ld	d, 11 (ix)
+   01D0 6B            [ 4]  599 	ld	l, e
+   01D1 62            [ 4]  600 	ld	h, d
+   01D2 29            [11]  601 	add	hl, hl
+   01D3 29            [11]  602 	add	hl, hl
+   01D4 19            [11]  603 	add	hl, de
+   01D5 29            [11]  604 	add	hl, hl
+   01D6 29            [11]  605 	add	hl, hl
+   01D7 11r35r06      [10]  606 	ld	de, #(_currentlevel + 0x0007)
+   01DA 19            [11]  607 	add	hl, de
+   01DB DD 5E 08      [19]  608 	ld	e, 8 (ix)
+   01DE DD 56 09      [19]  609 	ld	d, 9 (ix)
+   01E1 19            [11]  610 	add	hl, de
+   01E2 EB            [ 4]  611 	ex	de, hl
+   01E3 1A            [ 7]  612 	ld	a, (de)
+   01E4 DD 77 FE      [19]  613 	ld	-2 (ix), a
+                     01E7   614 	C$game.c$217$1_0$93	= .
+                            615 	.globl	C$game.c$217$1_0$93
+                            616 ;game.c:217: switch(n1) {
+   01E7 DD 7E FF      [19]  617 	ld	a, -1 (ix)
+   01EA D6 2E         [ 7]  618 	sub	a, #0x2e
+   01EC 20 03         [12]  619 	jr	NZ, 00165$
+   01EE 3E 01         [ 7]  620 	ld	a, #0x01
+   01F0 20                  621 	.db	#0x20
+   01F1                     622 00165$:
+   01F1 AF            [ 4]  623 	xor	a, a
+   01F2                     624 00166$:
+   01F2 DD 77 FB      [19]  625 	ld	-5 (ix), a
+   01F5 DD 7E FF      [19]  626 	ld	a, -1 (ix)
+   01F8 D6 20         [ 7]  627 	sub	a, #0x20
+   01FA 28 08         [12]  628 	jr	Z,00101$
+   01FC DD 7E FB      [19]  629 	ld	a, -5 (ix)
+   01FF B7            [ 4]  630 	or	a, a
+   0200 20 0B         [12]  631 	jr	NZ,00102$
+   0202 18 12         [12]  632 	jr	00103$
+                     0204   633 	C$game.c$218$2_0$94	= .
+                            634 	.globl	C$game.c$218$2_0$94
+                            635 ;game.c:218: case CHAR_FLOOR:
+   0204                     636 00101$:
+                     0204   637 	C$game.c$219$2_0$94	= .
+                            638 	.globl	C$game.c$219$2_0$94
+                            639 ;game.c:219: onlyplayermoves = true;
+   0204 3E 01         [ 7]  640 	ld	a, #0x01
+                     0206   641 	C$game.c$220$2_0$94	= .
+                            642 	.globl	C$game.c$220$2_0$94
+                            643 ;game.c:220: currentlevel.data[yn1][xn1] = CHAR_PLAYER;
+   0206 F5            [11]  644 	push	af
+   0207 3E 40         [ 7]  645 	ld	a, #0x40
+   0209 02            [ 7]  646 	ld	(bc), a
+   020A F1            [10]  647 	pop	af
+                     020B   648 	C$game.c$221$2_0$94	= .
+                            649 	.globl	C$game.c$221$2_0$94
+                            650 ;game.c:221: break;
+   020B 18 0A         [12]  651 	jr	00104$
+                     020D   652 	C$game.c$222$2_0$94	= .
+                            653 	.globl	C$game.c$222$2_0$94
+                            654 ;game.c:222: case CHAR_GOAL:
+   020D                     655 00102$:
+                     020D   656 	C$game.c$223$2_0$94	= .
+                            657 	.globl	C$game.c$223$2_0$94
+                            658 ;game.c:223: onlyplayermoves = true;
+   020D 3E 01         [ 7]  659 	ld	a, #0x01
+                     020F   660 	C$game.c$224$2_0$94	= .
+                            661 	.globl	C$game.c$224$2_0$94
+                            662 ;game.c:224: currentlevel.data[yn1][xn1] = CHAR_PLAYERONGOAL;
+   020F F5            [11]  663 	push	af
+   0210 3E 2B         [ 7]  664 	ld	a, #0x2b
+   0212 02            [ 7]  665 	ld	(bc), a
+   0213 F1            [10]  666 	pop	af
+                     0214   667 	C$game.c$225$2_0$94	= .
+                            668 	.globl	C$game.c$225$2_0$94
+                            669 ;game.c:225: break;
+   0214 18 01         [12]  670 	jr	00104$
+                     0216   671 	C$game.c$226$2_0$94	= .
+                            672 	.globl	C$game.c$226$2_0$94
+                            673 ;game.c:226: default:
+   0216                     674 00103$:
+                     0216   675 	C$game.c$227$2_0$94	= .
+                            676 	.globl	C$game.c$227$2_0$94
+                            677 ;game.c:227: onlyplayermoves = false;
+   0216 AF            [ 4]  678 	xor	a, a
+                     0217   679 	C$game.c$229$1_0$93	= .
+                            680 	.globl	C$game.c$229$1_0$93
+                            681 ;game.c:229: }
+   0217                     682 00104$:
+                     0217   683 	C$game.c$230$1_0$93	= .
+                            684 	.globl	C$game.c$230$1_0$93
+                            685 ;game.c:230: if(!onlyplayermoves) {
+   0217 CB 47         [ 8]  686 	bit	0, a
+   0219 20 49         [12]  687 	jr	NZ,00114$
+                     021B   688 	C$game.c$237$1_0$93	= .
+                            689 	.globl	C$game.c$237$1_0$93
+                            690 ;game.c:237: currentlevel.goalstaken++;
+                     021B   691 	C$game.c$231$2_0$95	= .
+                            692 	.globl	C$game.c$231$2_0$95
+                            693 ;game.c:231: switch(n2) {
+   021B DD 7E FE      [19]  694 	ld	a, -2 (ix)
+   021E D6 20         [ 7]  695 	sub	a, #0x20
+   0220 28 09         [12]  696 	jr	Z,00105$
+   0222 DD 7E FE      [19]  697 	ld	a, -2 (ix)
+   0225 D6 2E         [ 7]  698 	sub	a, #0x2e
+   0227 28 07         [12]  699 	jr	Z,00106$
+   0229 18 0F         [12]  700 	jr	00108$
+                     022B   701 	C$game.c$232$3_0$96	= .
+                            702 	.globl	C$game.c$232$3_0$96
+                            703 ;game.c:232: case CHAR_FLOOR:
+   022B                     704 00105$:
+                     022B   705 	C$game.c$233$3_0$96	= .
+                            706 	.globl	C$game.c$233$3_0$96
+                            707 ;game.c:233: currentlevel.data[yn2][xn2] = CHAR_BOX;
+   022B 3E 24         [ 7]  708 	ld	a, #0x24
+   022D 12            [ 7]  709 	ld	(de), a
+                     022E   710 	C$game.c$234$3_0$96	= .
+                            711 	.globl	C$game.c$234$3_0$96
+                            712 ;game.c:234: break;
+   022E 18 0A         [12]  713 	jr	00108$
+                     0230   714 	C$game.c$235$3_0$96	= .
+                            715 	.globl	C$game.c$235$3_0$96
+                            716 ;game.c:235: case CHAR_GOAL:
+   0230                     717 00106$:
+                     0230   718 	C$game.c$236$3_0$96	= .
+                            719 	.globl	C$game.c$236$3_0$96
+                            720 ;game.c:236: currentlevel.data[yn2][xn2] = CHAR_BOXONGOAL;
+   0230 3E 2A         [ 7]  721 	ld	a, #0x2a
+   0232 12            [ 7]  722 	ld	(de), a
+                     0233   723 	C$game.c$237$3_0$96	= .
+                            724 	.globl	C$game.c$237$3_0$96
+                            725 ;game.c:237: currentlevel.goalstaken++;
+   0233 3Ar33r06      [13]  726 	ld	a, (#(_currentlevel + 0x0005) + 0)
+   0236 3C            [ 4]  727 	inc	a
+   0237 32r33r06      [13]  728 	ld	(#(_currentlevel + 0x0005)),a
+                     023A   729 	C$game.c$241$2_0$95	= .
+                            730 	.globl	C$game.c$241$2_0$95
+                            731 ;game.c:241: }
+   023A                     732 00108$:
+                     023A   733 	C$game.c$242$2_0$95	= .
+                            734 	.globl	C$game.c$242$2_0$95
+                            735 ;game.c:242: switch(n1) {
+   023A DD 7E FF      [19]  736 	ld	a, -1 (ix)
+   023D D6 24         [ 7]  737 	sub	a, #0x24
+   023F 28 0F         [12]  738 	jr	Z,00109$
+   0241 DD 7E FF      [19]  739 	ld	a, -1 (ix)
+   0244 D6 2A         [ 7]  740 	sub	a, #0x2a
+   0246 28 0D         [12]  741 	jr	Z,00110$
+   0248 DD 7E FB      [19]  742 	ld	a, -5 (ix)
+   024B B7            [ 4]  743 	or	a, a
+   024C 20 13         [12]  744 	jr	NZ,00111$
+   024E 18 14         [12]  745 	jr	00114$
+                     0250   746 	C$game.c$243$3_0$97	= .
+                            747 	.globl	C$game.c$243$3_0$97
+                            748 ;game.c:243: case CHAR_BOX:
+   0250                     749 00109$:
+                     0250   750 	C$game.c$244$3_0$97	= .
+                            751 	.globl	C$game.c$244$3_0$97
+                            752 ;game.c:244: currentlevel.data[yn1][xn1] = CHAR_PLAYER;				
+   0250 3E 40         [ 7]  753 	ld	a, #0x40
+   0252 02            [ 7]  754 	ld	(bc), a
+                     0253   755 	C$game.c$245$3_0$97	= .
+                            756 	.globl	C$game.c$245$3_0$97
+                            757 ;game.c:245: break;
+   0253 18 0F         [12]  758 	jr	00114$
+                     0255   759 	C$game.c$246$3_0$97	= .
+                            760 	.globl	C$game.c$246$3_0$97
+                            761 ;game.c:246: case CHAR_BOXONGOAL:
+   0255                     762 00110$:
+                     0255   763 	C$game.c$247$3_0$97	= .
+                            764 	.globl	C$game.c$247$3_0$97
+                            765 ;game.c:247: currentlevel.data[yn1][xn1] = CHAR_PLAYERONGOAL;				
+   0255 3E 2B         [ 7]  766 	ld	a, #0x2b
+   0257 02            [ 7]  767 	ld	(bc), a
+                     0258   768 	C$game.c$248$3_0$97	= .
+                            769 	.globl	C$game.c$248$3_0$97
+                            770 ;game.c:248: currentlevel.goalstaken--;
+   0258 3Ar33r06      [13]  771 	ld	a, (#(_currentlevel + 0x0005) + 0)
+   025B 3D            [ 4]  772 	dec	a
+   025C 32r33r06      [13]  773 	ld	(#(_currentlevel + 0x0005)),a
+                     025F   774 	C$game.c$249$3_0$97	= .
+                            775 	.globl	C$game.c$249$3_0$97
+                            776 ;game.c:249: break;
+   025F 18 03         [12]  777 	jr	00114$
+                     0261   778 	C$game.c$250$3_0$97	= .
+                            779 	.globl	C$game.c$250$3_0$97
+                            780 ;game.c:250: case CHAR_GOAL:
+   0261                     781 00111$:
+                     0261   782 	C$game.c$251$3_0$97	= .
+                            783 	.globl	C$game.c$251$3_0$97
+                            784 ;game.c:251: currentlevel.data[yn1][xn1] = CHAR_PLAYERONGOAL;
+   0261 3E 2B         [ 7]  785 	ld	a, #0x2b
+   0263 02            [ 7]  786 	ld	(bc), a
+                     0264   787 	C$game.c$253$1_0$93	= .
+                            788 	.globl	C$game.c$253$1_0$93
+                            789 ;game.c:253: }
+   0264                     790 00114$:
+                     0264   791 	C$game.c$258$1_0$93	= .
+                            792 	.globl	C$game.c$258$1_0$93
+                            793 ;game.c:258: if(currentlevel.data[currentlevel.ypos][currentlevel.xpos] == CHAR_PLAYERONGOAL) currentlevel.data[currentlevel.ypos][currentlevel.xpos] = CHAR_GOAL;
+   0264 01r2Fr06      [10]  794 	ld	bc, #_currentlevel + 1
+   0267 0A            [ 7]  795 	ld	a, (bc)
+   0268 5F            [ 4]  796 	ld	e, a
+   0269 16 00         [ 7]  797 	ld	d, #0x00
+   026B 6B            [ 4]  798 	ld	l, e
+   026C 62            [ 4]  799 	ld	h, d
+   026D 29            [11]  800 	add	hl, hl
+   026E 29            [11]  801 	add	hl, hl
+   026F 19            [11]  802 	add	hl, de
+   0270 29            [11]  803 	add	hl, hl
+   0271 29            [11]  804 	add	hl, hl
+   0272 EB            [ 4]  805 	ex	de, hl
+   0273 21r35r06      [10]  806 	ld	hl, #(_currentlevel + 0x0007)
+   0276 19            [11]  807 	add	hl, de
+   0277 EB            [ 4]  808 	ex	de, hl
+   0278 3Ar2Er06      [13]  809 	ld	a, (#_currentlevel + 0)
+   027B 6F            [ 4]  810 	ld	l, a
+   027C 26 00         [ 7]  811 	ld	h, #0x00
+   027E 19            [11]  812 	add	hl, de
+   027F 7E            [ 7]  813 	ld	a, (hl)
+   0280 D6 2B         [ 7]  814 	sub	a, #0x2b
+   0282 20 04         [12]  815 	jr	NZ,00116$
+   0284 36 2E         [10]  816 	ld	(hl), #0x2e
+   0286 18 02         [12]  817 	jr	00117$
+   0288                     818 00116$:
+                     0288   819 	C$game.c$259$1_0$93	= .
+                            820 	.globl	C$game.c$259$1_0$93
+                            821 ;game.c:259: else currentlevel.data[currentlevel.ypos][currentlevel.xpos] = CHAR_FLOOR;
+   0288 36 20         [10]  822 	ld	(hl), #0x20
+   028A                     823 00117$:
+                     028A   824 	C$game.c$262$1_0$93	= .
+                            825 	.globl	C$game.c$262$1_0$93
+                            826 ;game.c:262: currentlevel.xpos = xn1;
+   028A DD 7E FC      [19]  827 	ld	a, -4 (ix)
+   028D 32r2Er06      [13]  828 	ld	(#_currentlevel),a
+                     0290   829 	C$game.c$263$1_0$93	= .
+                            830 	.globl	C$game.c$263$1_0$93
+                            831 ;game.c:263: currentlevel.ypos = yn1;
+   0290 DD 7E 06      [19]  832 	ld	a, 6 (ix)
+   0293 02            [ 7]  833 	ld	(bc), a
+                     0294   834 	C$game.c$264$1_0$93	= .
+                            835 	.globl	C$game.c$264$1_0$93
+                            836 ;game.c:264: }
+   0294 DD F9         [10]  837 	ld	sp, ix
+   0296 DD E1         [14]  838 	pop	ix
+                     0298   839 	C$game.c$264$1_0$93	= .
+                            840 	.globl	C$game.c$264$1_0$93
+                     0298   841 	XG$move_updatelevel$0$0	= .
+                            842 	.globl	XG$move_updatelevel$0$0
+   0298 C9            [10]  843 	ret
+                     0299   844 	G$undomove_updatelevel$0$0	= .
+                            845 	.globl	G$undomove_updatelevel$0$0
+                     0299   846 	C$game.c$266$1_0$99	= .
+                            847 	.globl	C$game.c$266$1_0$99
+                            848 ;game.c:266: void undomove_updatelevel(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2, uint16_t xn3, uint16_t yn3) {
+                            849 ;	---------------------------------
+                            850 ; Function undomove_updatelevel
+                            851 ; ---------------------------------
+   0299                     852 _undomove_updatelevel::
+   0299 DD E5         [15]  853 	push	ix
+   029B DD 21 00 00   [14]  854 	ld	ix,#0
+   029F DD 39         [15]  855 	add	ix,sp
+   02A1 21 F8 FF      [10]  856 	ld	hl, #-8
+   02A4 39            [11]  857 	add	hl, sp
+   02A5 F9            [ 6]  858 	ld	sp, hl
+                     02A6   859 	C$game.c$270$1_0$99	= .
+                            860 	.globl	C$game.c$270$1_0$99
+                            861 ;game.c:270: n1 = currentlevel.data[yn1][xn1]; // Source / from
+   02A6 DD 4E 06      [19]  862 	ld	c, 6 (ix)
+   02A9 DD 46 07      [19]  863 	ld	b, 7 (ix)
+   02AC 69            [ 4]  864 	ld	l, c
+   02AD 60            [ 4]  865 	ld	h, b
+   02AE 29            [11]  866 	add	hl, hl
+   02AF 29            [11]  867 	add	hl, hl
+   02B0 09            [11]  868 	add	hl, bc
+   02B1 29            [11]  869 	add	hl, hl
+   02B2 29            [11]  870 	add	hl, hl
+   02B3 11r35r06      [10]  871 	ld	de, #(_currentlevel + 0x0007)
+   02B6 19            [11]  872 	add	hl, de
+   02B7 DD 4E 04      [19]  873 	ld	c, 4 (ix)
+   02BA DD 46 05      [19]  874 	ld	b, 5 (ix)
+   02BD 09            [11]  875 	add	hl, bc
+   02BE DD 75 F9      [19]  876 	ld	-7 (ix), l
+   02C1 DD 74 FA      [19]  877 	ld	-6 (ix), h
+   02C4 4E            [ 7]  878 	ld	c, (hl)
+                     02C5   879 	C$game.c$271$1_0$99	= .
+                            880 	.globl	C$game.c$271$1_0$99
+                            881 ;game.c:271: n2 = currentlevel.data[yn2][xn2]; // This is the curent player's position
+   02C5 DD 5E 0A      [19]  882 	ld	e, 10 (ix)
+   02C8 DD 56 0B      [19]  883 	ld	d, 11 (ix)
+   02CB 6B            [ 4]  884 	ld	l, e
+   02CC 62            [ 4]  885 	ld	h, d
+   02CD 29            [11]  886 	add	hl, hl
+   02CE 29            [11]  887 	add	hl, hl
+   02CF 19            [11]  888 	add	hl, de
+   02D0 29            [11]  889 	add	hl, hl
+   02D1 29            [11]  890 	add	hl, hl
+   02D2 11r35r06      [10]  891 	ld	de, #(_currentlevel + 0x0007)
+   02D5 19            [11]  892 	add	hl, de
+   02D6 DD 5E 08      [19]  893 	ld	e, 8 (ix)
+   02D9 DD 56 09      [19]  894 	ld	d, 9 (ix)
+   02DC 19            [11]  895 	add	hl, de
+   02DD DD 75 FB      [19]  896 	ld	-5 (ix), l
+   02E0 DD 74 FC      [19]  897 	ld	-4 (ix), h
+   02E3 7E            [ 7]  898 	ld	a, (hl)
+   02E4 DD 77 FF      [19]  899 	ld	-1 (ix), a
+                     02E7   900 	C$game.c$272$1_0$99	= .
+                            901 	.globl	C$game.c$272$1_0$99
+                            902 ;game.c:272: n3 = currentlevel.data[yn3][xn3]; // Destination / to
+   02E7 DD 5E 0E      [19]  903 	ld	e, 14 (ix)
+   02EA DD 56 0F      [19]  904 	ld	d, 15 (ix)
+   02ED 6B            [ 4]  905 	ld	l, e
+   02EE 62            [ 4]  906 	ld	h, d
+   02EF 29            [11]  907 	add	hl, hl
+   02F0 29            [11]  908 	add	hl, hl
+   02F1 19            [11]  909 	add	hl, de
+   02F2 29            [11]  910 	add	hl, hl
+   02F3 29            [11]  911 	add	hl, hl
+   02F4 11r35r06      [10]  912 	ld	de, #(_currentlevel + 0x0007)
+   02F7 19            [11]  913 	add	hl, de
+   02F8 DD 7E 0C      [19]  914 	ld	a, 12 (ix)
+   02FB DD 77 FD      [19]  915 	ld	-3 (ix), a
+   02FE DD 7E 0D      [19]  916 	ld	a, 13 (ix)
+   0301 DD 77 FE      [19]  917 	ld	-2 (ix), a
+   0304 DD 5E FD      [19]  918 	ld	e, -3 (ix)
+   0307 DD 56 FE      [19]  919 	ld	d, -2 (ix)
+   030A 19            [11]  920 	add	hl, de
+   030B 7E            [ 7]  921 	ld	a, (hl)
+                     030C   922 	C$game.c$274$1_0$99	= .
+                            923 	.globl	C$game.c$274$1_0$99
+                            924 ;game.c:274: switch(n3) {
+   030C FE 20         [ 7]  925 	cp	a, #0x20
+   030E 28 06         [12]  926 	jr	Z,00101$
+   0310 D6 2E         [ 7]  927 	sub	a, #0x2e
+   0312 28 06         [12]  928 	jr	Z,00102$
+   0314 18 06         [12]  929 	jr	00104$
+                     0316   930 	C$game.c$275$2_0$100	= .
+                            931 	.globl	C$game.c$275$2_0$100
+                            932 ;game.c:275: case CHAR_FLOOR:
+   0316                     933 00101$:
+                     0316   934 	C$game.c$276$2_0$100	= .
+                            935 	.globl	C$game.c$276$2_0$100
+                            936 ;game.c:276: currentlevel.data[yn3][xn3] = CHAR_PLAYER;
+   0316 36 40         [10]  937 	ld	(hl), #0x40
+                     0318   938 	C$game.c$277$2_0$100	= .
+                            939 	.globl	C$game.c$277$2_0$100
+                            940 ;game.c:277: break;
+   0318 18 02         [12]  941 	jr	00104$
+                     031A   942 	C$game.c$278$2_0$100	= .
+                            943 	.globl	C$game.c$278$2_0$100
+                            944 ;game.c:278: case CHAR_GOAL:
+   031A                     945 00102$:
+                     031A   946 	C$game.c$279$2_0$100	= .
+                            947 	.globl	C$game.c$279$2_0$100
+                            948 ;game.c:279: currentlevel.data[yn3][xn3] = CHAR_PLAYERONGOAL;
+   031A 36 2B         [10]  949 	ld	(hl), #0x2b
+                     031C   950 	C$game.c$283$1_0$99	= .
+                            951 	.globl	C$game.c$283$1_0$99
+                            952 ;game.c:283: }
+   031C                     953 00104$:
+                     031C   954 	C$game.c$285$1_0$99	= .
+                            955 	.globl	C$game.c$285$1_0$99
+                            956 ;game.c:285: if(undomove[undo_head].pushed) {
+   031C FD 21r00r01   [14]  957 	ld	iy, #_undo_head
+   0320 FD 6E 00      [19]  958 	ld	l, 0 (iy)
+   0323 26 00         [ 7]  959 	ld	h, #0x00
+   0325 29            [11]  960 	add	hl, hl
+   0326 11r00r00      [10]  961 	ld	de, #_undomove
+   0329 19            [11]  962 	add	hl, de
+   032A 23            [ 6]  963 	inc	hl
+   032B 5E            [ 7]  964 	ld	e, (hl)
+                     032C   965 	C$game.c$297$1_0$99	= .
+                            966 	.globl	C$game.c$297$1_0$99
+                            967 ;game.c:297: switch(n2) { // revert push to box
+   032C DD 7E FF      [19]  968 	ld	a, -1 (ix)
+   032F D6 2B         [ 7]  969 	sub	a, #0x2b
+   0331 20 03         [12]  970 	jr	NZ, 00157$
+   0333 3E 01         [ 7]  971 	ld	a, #0x01
+   0335 20                  972 	.db	#0x20
+   0336                     973 00157$:
+   0336 AF            [ 4]  974 	xor	a, a
+   0337                     975 00158$:
+   0337 DD 77 F8      [19]  976 	ld	-8 (ix), a
+                     033A   977 	C$game.c$285$1_0$99	= .
+                            978 	.globl	C$game.c$285$1_0$99
+                            979 ;game.c:285: if(undomove[undo_head].pushed) {
+   033A CB 43         [ 8]  980 	bit	0, e
+   033C 28 45         [12]  981 	jr	Z,00116$
+                     033E   982 	C$game.c$292$1_0$99	= .
+                            983 	.globl	C$game.c$292$1_0$99
+                            984 ;game.c:292: currentlevel.goalstaken--;
+                     033E   985 	C$game.c$286$2_0$101	= .
+                            986 	.globl	C$game.c$286$2_0$101
+                            987 ;game.c:286: switch(n1) {
+   033E 79            [ 4]  988 	ld	a,c
+   033F FE 24         [ 7]  989 	cp	a,#0x24
+   0341 28 06         [12]  990 	jr	Z,00105$
+   0343 D6 2A         [ 7]  991 	sub	a, #0x2a
+   0345 28 0C         [12]  992 	jr	Z,00106$
+   0347 18 19         [12]  993 	jr	00108$
+                     0349   994 	C$game.c$287$3_0$102	= .
+                            995 	.globl	C$game.c$287$3_0$102
+                            996 ;game.c:287: case CHAR_BOX:
+   0349                     997 00105$:
+                     0349   998 	C$game.c$288$3_0$102	= .
+                            999 	.globl	C$game.c$288$3_0$102
+                           1000 ;game.c:288: currentlevel.data[yn1][xn1] = CHAR_FLOOR;
+   0349 DD 6E F9      [19] 1001 	ld	l, -7 (ix)
+   034C DD 66 FA      [19] 1002 	ld	h, -6 (ix)
+   034F 36 20         [10] 1003 	ld	(hl), #0x20
+                     0351  1004 	C$game.c$289$3_0$102	= .
+                           1005 	.globl	C$game.c$289$3_0$102
+                           1006 ;game.c:289: break;
+   0351 18 0F         [12] 1007 	jr	00108$
+                     0353  1008 	C$game.c$290$3_0$102	= .
+                           1009 	.globl	C$game.c$290$3_0$102
+                           1010 ;game.c:290: case CHAR_BOXONGOAL:
+   0353                    1011 00106$:
+                     0353  1012 	C$game.c$291$3_0$102	= .
+                           1013 	.globl	C$game.c$291$3_0$102
+                           1014 ;game.c:291: currentlevel.data[yn1][xn1] = CHAR_GOAL;
+   0353 DD 6E F9      [19] 1015 	ld	l, -7 (ix)
+   0356 DD 66 FA      [19] 1016 	ld	h, -6 (ix)
+   0359 36 2E         [10] 1017 	ld	(hl), #0x2e
+                     035B  1018 	C$game.c$292$3_0$102	= .
+                           1019 	.globl	C$game.c$292$3_0$102
+                           1020 ;game.c:292: currentlevel.goalstaken--;
+   035B 3Ar33r06      [13] 1021 	ld	a, (#(_currentlevel + 0x0005) + 0)
+   035E 3D            [ 4] 1022 	dec	a
+   035F 32r33r06      [13] 1023 	ld	(#(_currentlevel + 0x0005)),a
+                     0362  1024 	C$game.c$296$2_0$101	= .
+                           1025 	.globl	C$game.c$296$2_0$101
+                           1026 ;game.c:296: }
+   0362                    1027 00108$:
+                     0362  1028 	C$game.c$297$2_0$101	= .
+                           1029 	.globl	C$game.c$297$2_0$101
+                           1030 ;game.c:297: switch(n2) { // revert push to box
+   0362 DD 7E F8      [19] 1031 	ld	a, -8 (ix)
+   0365 B7            [ 4] 1032 	or	a, a
+   0366 28 11         [12] 1033 	jr	Z,00110$
+                     0368  1034 	C$game.c$299$3_0$103	= .
+                           1035 	.globl	C$game.c$299$3_0$103
+                           1036 ;game.c:299: currentlevel.data[yn2][xn2] = CHAR_BOXONGOAL;
+   0368 DD 6E FB      [19] 1037 	ld	l, -5 (ix)
+   036B DD 66 FC      [19] 1038 	ld	h, -4 (ix)
+   036E 36 2A         [10] 1039 	ld	(hl), #0x2a
+                     0370  1040 	C$game.c$300$3_0$103	= .
+                           1041 	.globl	C$game.c$300$3_0$103
+                           1042 ;game.c:300: currentlevel.goalstaken++;
+   0370 3Ar33r06      [13] 1043 	ld	a, (#(_currentlevel + 0x0005) + 0)
+   0373 3C            [ 4] 1044 	inc	a
+   0374 32r33r06      [13] 1045 	ld	(#(_currentlevel + 0x0005)),a
+                     0377  1046 	C$game.c$301$3_0$103	= .
+                           1047 	.globl	C$game.c$301$3_0$103
+                           1048 ;game.c:301: break;
+   0377 18 22         [12] 1049 	jr	00117$
+                     0379  1050 	C$game.c$302$3_0$103	= .
+                           1051 	.globl	C$game.c$302$3_0$103
+                           1052 ;game.c:302: default:
+   0379                    1053 00110$:
+                     0379  1054 	C$game.c$303$3_0$103	= .
+                           1055 	.globl	C$game.c$303$3_0$103
+                           1056 ;game.c:303: currentlevel.data[yn2][xn2] = CHAR_BOX;
+   0379 DD 6E FB      [19] 1057 	ld	l, -5 (ix)
+   037C DD 66 FC      [19] 1058 	ld	h, -4 (ix)
+   037F 36 24         [10] 1059 	ld	(hl), #0x24
+                     0381  1060 	C$game.c$305$1_0$99	= .
+                           1061 	.globl	C$game.c$305$1_0$99
+                           1062 ;game.c:305: }
+   0381 18 18         [12] 1063 	jr	00117$
+   0383                    1064 00116$:
+                     0383  1065 	C$game.c$308$2_0$104	= .
+                           1066 	.globl	C$game.c$308$2_0$104
+                           1067 ;game.c:308: switch(n2) {
+   0383 DD 7E F8      [19] 1068 	ld	a, -8 (ix)
+   0386 B7            [ 4] 1069 	or	a, a
+   0387 28 0A         [12] 1070 	jr	Z,00113$
+                     0389  1071 	C$game.c$310$3_0$105	= .
+                           1072 	.globl	C$game.c$310$3_0$105
+                           1073 ;game.c:310: currentlevel.data[yn2][xn2] = CHAR_GOAL;
+   0389 DD 6E FB      [19] 1074 	ld	l, -5 (ix)
+   038C DD 66 FC      [19] 1075 	ld	h, -4 (ix)
+   038F 36 2E         [10] 1076 	ld	(hl), #0x2e
+                     0391  1077 	C$game.c$311$3_0$105	= .
+                           1078 	.globl	C$game.c$311$3_0$105
+                           1079 ;game.c:311: break;
+   0391 18 08         [12] 1080 	jr	00117$
+                     0393  1081 	C$game.c$312$3_0$105	= .
+                           1082 	.globl	C$game.c$312$3_0$105
+                           1083 ;game.c:312: default:
+   0393                    1084 00113$:
+                     0393  1085 	C$game.c$313$3_0$105	= .
+                           1086 	.globl	C$game.c$313$3_0$105
+                           1087 ;game.c:313: currentlevel.data[yn2][xn2] = CHAR_FLOOR;
+   0393 DD 6E FB      [19] 1088 	ld	l, -5 (ix)
+   0396 DD 66 FC      [19] 1089 	ld	h, -4 (ix)
+   0399 36 20         [10] 1090 	ld	(hl), #0x20
+                     039B  1091 	C$game.c$315$1_0$99	= .
+                           1092 	.globl	C$game.c$315$1_0$99
+                           1093 ;game.c:315: }
+   039B                    1094 00117$:
+                     039B  1095 	C$game.c$319$1_0$99	= .
+                           1096 	.globl	C$game.c$319$1_0$99
+                           1097 ;game.c:319: currentlevel.xpos = xn3;
+   039B DD 7E FD      [19] 1098 	ld	a, -3 (ix)
+   039E 32r2Er06      [13] 1099 	ld	(#_currentlevel),a
+                     03A1  1100 	C$game.c$320$1_0$99	= .
+                           1101 	.globl	C$game.c$320$1_0$99
+                           1102 ;game.c:320: currentlevel.ypos = yn3;
+   03A1 DD 7E 0E      [19] 1103 	ld	a, 14 (ix)
+   03A4 32r2Fr06      [13] 1104 	ld	(#(_currentlevel + 0x0001)),a
+                     03A7  1105 	C$game.c$321$1_0$99	= .
+                           1106 	.globl	C$game.c$321$1_0$99
+                           1107 ;game.c:321: }
+   03A7 DD F9         [10] 1108 	ld	sp, ix
+   03A9 DD E1         [14] 1109 	pop	ix
+                     03AB  1110 	C$game.c$321$1_0$99	= .
+                           1111 	.globl	C$game.c$321$1_0$99
+                     03AB  1112 	XG$undomove_updatelevel$0$0	= .
+                           1113 	.globl	XG$undomove_updatelevel$0$0
+   03AB C9            [10] 1114 	ret
+                     03AC  1115 	G$game_handleUndoMove$0$0	= .
+                           1116 	.globl	G$game_handleUndoMove$0$0
+                     03AC  1117 	C$game.c$323$1_0$107	= .
+                           1118 	.globl	C$game.c$323$1_0$107
+                           1119 ;game.c:323: void game_handleUndoMove(void) {
+                           1120 ;	---------------------------------
+                           1121 ; Function game_handleUndoMove
+                           1122 ; ---------------------------------
+   03AC                    1123 _game_handleUndoMove::
+   03AC DD E5         [15] 1124 	push	ix
+   03AE DD 21 00 00   [14] 1125 	ld	ix,#0
+   03B2 DD 39         [15] 1126 	add	ix,sp
+   03B4 21 F1 FF      [10] 1127 	ld	hl, #-15
+   03B7 39            [11] 1128 	add	hl, sp
+   03B8 F9            [ 6] 1129 	ld	sp, hl
+                     03B9  1130 	C$game.c$324$2_0$107	= .
+                           1131 	.globl	C$game.c$324$2_0$107
+                           1132 ;game.c:324: int16_t xn1 = 0, xn2 = 0, yn1 = 0, yn2 = 0, xn3 = 0, yn3 = 0;
+   03B9 DD 36 FE 00   [19] 1133 	ld	-2 (ix), #0x00
+   03BD DD 36 FF 00   [19] 1134 	ld	-1 (ix), #0x00
+   03C1 DD 36 FA 00   [19] 1135 	ld	-6 (ix), #0x00
+   03C5 DD 36 FB 00   [19] 1136 	ld	-5 (ix), #0x00
+   03C9 DD 36 F3 00   [19] 1137 	ld	-13 (ix), #0x00
+   03CD DD 36 F4 00   [19] 1138 	ld	-12 (ix), #0x00
+   03D1 DD 36 F6 00   [19] 1139 	ld	-10 (ix), #0x00
+   03D5 DD 36 F7 00   [19] 1140 	ld	-9 (ix), #0x00
+                     03D9  1141 	C$game.c$326$1_0$107	= .
+                           1142 	.globl	C$game.c$326$1_0$107
+                           1143 ;game.c:326: if(num_undomoves) {
+   03D9 3Ar01r01      [13] 1144 	ld	a,(#_num_undomoves + 0)
+   03DC B7            [ 4] 1145 	or	a, a
+   03DD CAr5Cr05      [10] 1146 	jp	Z, 00111$
+                     03E0  1147 	C$game.c$327$2_0$108	= .
+                           1148 	.globl	C$game.c$327$2_0$108
+                           1149 ;game.c:327: xn2 = currentlevel.xpos;
+   03E0 3Ar2Er06      [13] 1150 	ld	a, (#_currentlevel + 0)
+   03E3 DD 77 FC      [19] 1151 	ld	-4 (ix), a
+   03E6 DD 36 FD 00   [19] 1152 	ld	-3 (ix), #0x00
+                     03EA  1153 	C$game.c$328$2_0$108	= .
+                           1154 	.globl	C$game.c$328$2_0$108
+                           1155 ;game.c:328: yn2 = currentlevel.ypos;
+   03EA 3Ar2Fr06      [13] 1156 	ld	a, (#(_currentlevel + 0x0001) + 0)
+   03ED DD 77 F8      [19] 1157 	ld	-8 (ix), a
+   03F0 DD 36 F9 00   [19] 1158 	ld	-7 (ix), #0x00
+                     03F4  1159 	C$game.c$331$2_0$108	= .
+                           1160 	.globl	C$game.c$331$2_0$108
+                           1161 ;game.c:331: if(undo_head) undo_head--;
+   03F4 FD 21r00r01   [14] 1162 	ld	iy, #_undo_head
+   03F8 FD 7E 00      [19] 1163 	ld	a, 0 (iy)
+   03FB B7            [ 4] 1164 	or	a, a
+   03FC 28 05         [12] 1165 	jr	Z,00102$
+   03FE FD 35 00      [23] 1166 	dec	0 (iy)
+   0401 18 05         [12] 1167 	jr	00103$
+   0403                    1168 00102$:
+                     0403  1169 	C$game.c$332$2_0$108	= .
+                           1170 	.globl	C$game.c$332$2_0$108
+                           1171 ;game.c:332: else undo_head = UNDOBUFFERSIZE-1;		
+   0403 21r00r01      [10] 1172 	ld	hl,#_undo_head + 0
+   0406 36 7F         [10] 1173 	ld	(hl), #0x7f
+   0408                    1174 00103$:
+                     0408  1175 	C$game.c$335$2_0$108	= .
+                           1176 	.globl	C$game.c$335$2_0$108
+                           1177 ;game.c:335: switch(undomove[undo_head].movekey) {
+   0408 01r00r00      [10] 1178 	ld	bc, #_undomove+0
+   040B FD 21r00r01   [14] 1179 	ld	iy, #_undo_head
+   040F FD 6E 00      [19] 1180 	ld	l, 0 (iy)
+   0412 26 00         [ 7] 1181 	ld	h, #0x00
+   0414 29            [11] 1182 	add	hl, hl
+   0415 09            [11] 1183 	add	hl, bc
+   0416 7E            [ 7] 1184 	ld	a, (hl)
+   0417 DD 77 F5      [19] 1185 	ld	-11 (ix), a
+                     041A  1186 	C$game.c$339$1_0$107	= .
+                           1187 	.globl	C$game.c$339$1_0$107
+                           1188 ;game.c:339: xn1 = xn2 - 1;
+   041A DD 4E FC      [19] 1189 	ld	c, -4 (ix)
+   041D DD 46 FD      [19] 1190 	ld	b, -3 (ix)
+   0420 0B            [ 6] 1191 	dec	bc
+                     0421  1192 	C$game.c$340$1_0$107	= .
+                           1193 	.globl	C$game.c$340$1_0$107
+                           1194 ;game.c:340: xn3 = xn2 + 1;
+   0421 DD 5E FC      [19] 1195 	ld	e, -4 (ix)
+   0424 DD 56 FD      [19] 1196 	ld	d, -3 (ix)
+   0427 13            [ 6] 1197 	inc	de
+                     0428  1198 	C$game.c$335$2_0$108	= .
+                           1199 	.globl	C$game.c$335$2_0$108
+                           1200 ;game.c:335: switch(undomove[undo_head].movekey) {
+   0428 DD 7E F5      [19] 1201 	ld	a, -11 (ix)
+   042B D6 08         [ 7] 1202 	sub	a, #0x08
+   042D 28 30         [12] 1203 	jr	Z,00104$
+                     042F  1204 	C$game.c$345$1_0$107	= .
+                           1205 	.globl	C$game.c$345$1_0$107
+                           1206 ;game.c:345: yn1 = yn2 - 1;
+   042F DD 7E F8      [19] 1207 	ld	a, -8 (ix)
+   0432 C6 FF         [ 7] 1208 	add	a, #0xff
+   0434 DD 77 F1      [19] 1209 	ld	-15 (ix), a
+   0437 DD 7E F9      [19] 1210 	ld	a, -7 (ix)
+   043A CE FF         [ 7] 1211 	adc	a, #0xff
+   043C DD 77 F2      [19] 1212 	ld	-14 (ix), a
+                     043F  1213 	C$game.c$346$1_0$107	= .
+                           1214 	.globl	C$game.c$346$1_0$107
+                           1215 ;game.c:346: yn3 = yn2 + 1;
+   043F DD 6E F8      [19] 1216 	ld	l, -8 (ix)
+   0442 DD 66 F9      [19] 1217 	ld	h, -7 (ix)
+   0445 23            [ 6] 1218 	inc	hl
+                     0446  1219 	C$game.c$335$2_0$108	= .
+                           1220 	.globl	C$game.c$335$2_0$108
+                           1221 ;game.c:335: switch(undomove[undo_head].movekey) {
+   0446 DD 7E F5      [19] 1222 	ld	a, -11 (ix)
+   0449 D6 0A         [ 7] 1223 	sub	a, #0x0a
+   044B 28 65         [12] 1224 	jr	Z,00106$
+   044D DD 7E F5      [19] 1225 	ld	a, -11 (ix)
+   0450 D6 0B         [ 7] 1226 	sub	a, #0x0b
+   0452 28 32         [12] 1227 	jr	Z,00105$
+   0454 DD 7E F5      [19] 1228 	ld	a, -11 (ix)
+   0457 D6 15         [ 7] 1229 	sub	a, #0x15
+   0459 CArDEr04      [10] 1230 	jp	Z,00107$
+   045C C3r02r05      [10] 1231 	jp	00108$
+                     045F  1232 	C$game.c$336$3_0$109	= .
+                           1233 	.globl	C$game.c$336$3_0$109
+                           1234 ;game.c:336: case 0x8: // undo LEFT
+   045F                    1235 00104$:
+                     045F  1236 	C$game.c$337$3_0$109	= .
+                           1237 	.globl	C$game.c$337$3_0$109
+                           1238 ;game.c:337: yn1 = yn2;
+   045F DD 7E F8      [19] 1239 	ld	a, -8 (ix)
+   0462 DD 77 FA      [19] 1240 	ld	-6 (ix), a
+   0465 DD 7E F9      [19] 1241 	ld	a, -7 (ix)
+   0468 DD 77 FB      [19] 1242 	ld	-5 (ix), a
+                     046B  1243 	C$game.c$338$3_0$109	= .
+                           1244 	.globl	C$game.c$338$3_0$109
+                           1245 ;game.c:338: yn3 = yn2;
+   046B DD 7E F8      [19] 1246 	ld	a, -8 (ix)
+   046E DD 77 F6      [19] 1247 	ld	-10 (ix), a
+   0471 DD 7E F9      [19] 1248 	ld	a, -7 (ix)
+   0474 DD 77 F7      [19] 1249 	ld	-9 (ix), a
+                     0477  1250 	C$game.c$339$3_0$109	= .
+                           1251 	.globl	C$game.c$339$3_0$109
+                           1252 ;game.c:339: xn1 = xn2 - 1;
+   0477 DD 71 FE      [19] 1253 	ld	-2 (ix), c
+   047A DD 70 FF      [19] 1254 	ld	-1 (ix), b
+                     047D  1255 	C$game.c$340$3_0$109	= .
+                           1256 	.globl	C$game.c$340$3_0$109
+                           1257 ;game.c:340: xn3 = xn2 + 1;
+   047D DD 73 F3      [19] 1258 	ld	-13 (ix), e
+   0480 DD 72 F4      [19] 1259 	ld	-12 (ix), d
+                     0483  1260 	C$game.c$341$3_0$109	= .
+                           1261 	.globl	C$game.c$341$3_0$109
+                           1262 ;game.c:341: break;
+   0483 C3r02r05      [10] 1263 	jp	00108$
+                     0486  1264 	C$game.c$342$3_0$109	= .
+                           1265 	.globl	C$game.c$342$3_0$109
+                           1266 ;game.c:342: case 0xb: // undo UP
+   0486                    1267 00105$:
+                     0486  1268 	C$game.c$343$3_0$109	= .
+                           1269 	.globl	C$game.c$343$3_0$109
+                           1270 ;game.c:343: xn1 = xn2;
+   0486 DD 7E FC      [19] 1271 	ld	a, -4 (ix)
+   0489 DD 77 FE      [19] 1272 	ld	-2 (ix), a
+   048C DD 7E FD      [19] 1273 	ld	a, -3 (ix)
+   048F DD 77 FF      [19] 1274 	ld	-1 (ix), a
+                     0492  1275 	C$game.c$344$3_0$109	= .
+                           1276 	.globl	C$game.c$344$3_0$109
+                           1277 ;game.c:344: xn3 = xn2;
+   0492 DD 7E FC      [19] 1278 	ld	a, -4 (ix)
+   0495 DD 77 F3      [19] 1279 	ld	-13 (ix), a
+   0498 DD 7E FD      [19] 1280 	ld	a, -3 (ix)
+   049B DD 77 F4      [19] 1281 	ld	-12 (ix), a
+                     049E  1282 	C$game.c$345$3_0$109	= .
+                           1283 	.globl	C$game.c$345$3_0$109
+                           1284 ;game.c:345: yn1 = yn2 - 1;
+   049E DD 7E F1      [19] 1285 	ld	a, -15 (ix)
+   04A1 DD 77 FA      [19] 1286 	ld	-6 (ix), a
+   04A4 DD 7E F2      [19] 1287 	ld	a, -14 (ix)
+   04A7 DD 77 FB      [19] 1288 	ld	-5 (ix), a
+                     04AA  1289 	C$game.c$346$3_0$109	= .
+                           1290 	.globl	C$game.c$346$3_0$109
+                           1291 ;game.c:346: yn3 = yn2 + 1;
+   04AA DD 75 F6      [19] 1292 	ld	-10 (ix), l
+   04AD DD 74 F7      [19] 1293 	ld	-9 (ix), h
+                     04B0  1294 	C$game.c$347$3_0$109	= .
+                           1295 	.globl	C$game.c$347$3_0$109
+                           1296 ;game.c:347: break;
+   04B0 18 50         [12] 1297 	jr	00108$
+                     04B2  1298 	C$game.c$348$3_0$109	= .
+                           1299 	.globl	C$game.c$348$3_0$109
+                           1300 ;game.c:348: case 0xa: // undo DOWN
+   04B2                    1301 00106$:
+                     04B2  1302 	C$game.c$349$3_0$109	= .
+                           1303 	.globl	C$game.c$349$3_0$109
+                           1304 ;game.c:349: xn1 = xn2;
+   04B2 DD 7E FC      [19] 1305 	ld	a, -4 (ix)
+   04B5 DD 77 FE      [19] 1306 	ld	-2 (ix), a
+   04B8 DD 7E FD      [19] 1307 	ld	a, -3 (ix)
+   04BB DD 77 FF      [19] 1308 	ld	-1 (ix), a
+                     04BE  1309 	C$game.c$350$3_0$109	= .
+                           1310 	.globl	C$game.c$350$3_0$109
+                           1311 ;game.c:350: xn3 = xn2;
+   04BE DD 7E FC      [19] 1312 	ld	a, -4 (ix)
+   04C1 DD 77 F3      [19] 1313 	ld	-13 (ix), a
+   04C4 DD 7E FD      [19] 1314 	ld	a, -3 (ix)
+   04C7 DD 77 F4      [19] 1315 	ld	-12 (ix), a
+                     04CA  1316 	C$game.c$351$3_0$109	= .
+                           1317 	.globl	C$game.c$351$3_0$109
+                           1318 ;game.c:351: yn1 = yn2 + 1;
+   04CA DD 75 FA      [19] 1319 	ld	-6 (ix), l
+   04CD DD 74 FB      [19] 1320 	ld	-5 (ix), h
+                     04D0  1321 	C$game.c$352$3_0$109	= .
+                           1322 	.globl	C$game.c$352$3_0$109
+                           1323 ;game.c:352: yn3 = yn2 - 1;
+   04D0 DD 7E F1      [19] 1324 	ld	a, -15 (ix)
+   04D3 DD 77 F6      [19] 1325 	ld	-10 (ix), a
+   04D6 DD 7E F2      [19] 1326 	ld	a, -14 (ix)
+   04D9 DD 77 F7      [19] 1327 	ld	-9 (ix), a
+                     04DC  1328 	C$game.c$353$3_0$109	= .
+                           1329 	.globl	C$game.c$353$3_0$109
+                           1330 ;game.c:353: break;
+   04DC 18 24         [12] 1331 	jr	00108$
+                     04DE  1332 	C$game.c$354$3_0$109	= .
+                           1333 	.globl	C$game.c$354$3_0$109
+                           1334 ;game.c:354: case 0x15: // undo RIGHT
+   04DE                    1335 00107$:
+                     04DE  1336 	C$game.c$355$3_0$109	= .
+                           1337 	.globl	C$game.c$355$3_0$109
+                           1338 ;game.c:355: yn1 = yn2;
+   04DE DD 7E F8      [19] 1339 	ld	a, -8 (ix)
+   04E1 DD 77 FA      [19] 1340 	ld	-6 (ix), a
+   04E4 DD 7E F9      [19] 1341 	ld	a, -7 (ix)
+   04E7 DD 77 FB      [19] 1342 	ld	-5 (ix), a
+                     04EA  1343 	C$game.c$356$3_0$109	= .
+                           1344 	.globl	C$game.c$356$3_0$109
+                           1345 ;game.c:356: yn3 = yn2;
+   04EA DD 7E F8      [19] 1346 	ld	a, -8 (ix)
+   04ED DD 77 F6      [19] 1347 	ld	-10 (ix), a
+   04F0 DD 7E F9      [19] 1348 	ld	a, -7 (ix)
+   04F3 DD 77 F7      [19] 1349 	ld	-9 (ix), a
+                     04F6  1350 	C$game.c$357$3_0$109	= .
+                           1351 	.globl	C$game.c$357$3_0$109
+                           1352 ;game.c:357: xn1 = xn2 + 1;
+   04F6 DD 73 FE      [19] 1353 	ld	-2 (ix), e
+   04F9 DD 72 FF      [19] 1354 	ld	-1 (ix), d
+                     04FC  1355 	C$game.c$358$3_0$109	= .
+                           1356 	.globl	C$game.c$358$3_0$109
+                           1357 ;game.c:358: xn3 = xn2 - 1;
+   04FC DD 71 F3      [19] 1358 	ld	-13 (ix), c
+   04FF DD 70 F4      [19] 1359 	ld	-12 (ix), b
+                     0502  1360 	C$game.c$360$2_0$108	= .
+                           1361 	.globl	C$game.c$360$2_0$108
+                           1362 ;game.c:360: }
+   0502                    1363 00108$:
+                     0502  1364 	C$game.c$361$2_0$108	= .
+                           1365 	.globl	C$game.c$361$2_0$108
+                           1366 ;game.c:361: undomove_sprites(xn1,yn1,xn2,yn2);			
+   0502 DD 6E F8      [19] 1367 	ld	l, -8 (ix)
+   0505 DD 66 F9      [19] 1368 	ld	h, -7 (ix)
+   0508 E5            [11] 1369 	push	hl
+   0509 DD 6E FC      [19] 1370 	ld	l, -4 (ix)
+   050C DD 66 FD      [19] 1371 	ld	h, -3 (ix)
+   050F E5            [11] 1372 	push	hl
+   0510 DD 6E FA      [19] 1373 	ld	l, -6 (ix)
+   0513 DD 66 FB      [19] 1374 	ld	h, -5 (ix)
+   0516 E5            [11] 1375 	push	hl
+   0517 DD 6E FE      [19] 1376 	ld	l, -2 (ix)
+   051A DD 66 FF      [19] 1377 	ld	h, -1 (ix)
+   051D E5            [11] 1378 	push	hl
+   051E CDr26r01      [17] 1379 	call	_undomove_sprites
+   0521 21 08 00      [10] 1380 	ld	hl, #8
+   0524 39            [11] 1381 	add	hl, sp
+   0525 F9            [ 6] 1382 	ld	sp, hl
+                     0526  1383 	C$game.c$362$2_0$108	= .
+                           1384 	.globl	C$game.c$362$2_0$108
+                           1385 ;game.c:362: undomove_updatelevel(xn1, yn1, xn2, yn2, xn3, yn3);
+   0526 DD 6E F6      [19] 1386 	ld	l, -10 (ix)
+   0529 DD 66 F7      [19] 1387 	ld	h, -9 (ix)
+   052C E5            [11] 1388 	push	hl
+   052D DD 6E F3      [19] 1389 	ld	l, -13 (ix)
+   0530 DD 66 F4      [19] 1390 	ld	h, -12 (ix)
+   0533 E5            [11] 1391 	push	hl
+   0534 DD 6E F8      [19] 1392 	ld	l, -8 (ix)
+   0537 DD 66 F9      [19] 1393 	ld	h, -7 (ix)
+   053A E5            [11] 1394 	push	hl
+   053B DD 6E FC      [19] 1395 	ld	l, -4 (ix)
+   053E DD 66 FD      [19] 1396 	ld	h, -3 (ix)
+   0541 E5            [11] 1397 	push	hl
+   0542 DD 6E FA      [19] 1398 	ld	l, -6 (ix)
+   0545 DD 66 FB      [19] 1399 	ld	h, -5 (ix)
+   0548 E5            [11] 1400 	push	hl
+   0549 DD 6E FE      [19] 1401 	ld	l, -2 (ix)
+   054C DD 66 FF      [19] 1402 	ld	h, -1 (ix)
+   054F E5            [11] 1403 	push	hl
+   0550 CDr99r02      [17] 1404 	call	_undomove_updatelevel
+   0553 21 0C 00      [10] 1405 	ld	hl, #12
+   0556 39            [11] 1406 	add	hl, sp
+   0557 F9            [ 6] 1407 	ld	sp, hl
+                     0558  1408 	C$game.c$364$2_0$108	= .
+                           1409 	.globl	C$game.c$364$2_0$108
+                           1410 ;game.c:364: num_undomoves--;
+   0558 21r01r01      [10] 1411 	ld	hl, #_num_undomoves+0
+   055B 35            [11] 1412 	dec	(hl)
+   055C                    1413 00111$:
+                     055C  1414 	C$game.c$366$1_0$107	= .
+                           1415 	.globl	C$game.c$366$1_0$107
+                           1416 ;game.c:366: }
+   055C DD F9         [10] 1417 	ld	sp, ix
+   055E DD E1         [14] 1418 	pop	ix
+                     0560  1419 	C$game.c$366$1_0$107	= .
+                           1420 	.globl	C$game.c$366$1_0$107
+                     0560  1421 	XG$game_handleUndoMove$0$0	= .
+                           1422 	.globl	XG$game_handleUndoMove$0$0
+   0560 C9            [10] 1423 	ret
+                     0561  1424 	G$game_handleKey$0$0	= .
+                           1425 	.globl	G$game_handleKey$0$0
+                     0561  1426 	C$game.c$368$1_0$111	= .
+                           1427 	.globl	C$game.c$368$1_0$111
+                           1428 ;game.c:368: bool game_handleKey(char key) {
+                           1429 ;	---------------------------------
+                           1430 ; Function game_handleKey
+                           1431 ; ---------------------------------
+   0561                    1432 _game_handleKey::
+   0561 DD E5         [15] 1433 	push	ix
+   0563 DD 21 00 00   [14] 1434 	ld	ix,#0
+   0567 DD 39         [15] 1435 	add	ix,sp
+   0569 21 F4 FF      [10] 1436 	ld	hl, #-12
+   056C 39            [11] 1437 	add	hl, sp
+   056D F9            [ 6] 1438 	ld	sp, hl
+                     056E  1439 	C$game.c$369$2_0$111	= .
+                           1440 	.globl	C$game.c$369$2_0$111
+                           1441 ;game.c:369: bool done = false;
+   056E DD 36 F7 00   [19] 1442 	ld	-9 (ix), #0x00
+                     0572  1443 	C$game.c$371$2_0$111	= .
+                           1444 	.globl	C$game.c$371$2_0$111
+                           1445 ;game.c:371: int16_t	xn1 = 0,xn2 = 0,yn1 = 0,yn2 = 0;
+   0572 DD 36 FC 00   [19] 1446 	ld	-4 (ix), #0x00
+   0576 DD 36 FD 00   [19] 1447 	ld	-3 (ix), #0x00
+   057A DD 36 FA 00   [19] 1448 	ld	-6 (ix), #0x00
+   057E DD 36 FB 00   [19] 1449 	ld	-5 (ix), #0x00
+   0582 DD 36 F8 00   [19] 1450 	ld	-8 (ix), #0x00
+   0586 DD 36 F9 00   [19] 1451 	ld	-7 (ix), #0x00
+   058A DD 36 FE 00   [19] 1452 	ld	-2 (ix), #0x00
+   058E DD 36 FF 00   [19] 1453 	ld	-1 (ix), #0x00
+                     0592  1454 	C$game.c$373$1_0$111	= .
+                           1455 	.globl	C$game.c$373$1_0$111
+                           1456 ;game.c:373: switch(key) {
+   0592 DD 7E 04      [19] 1457 	ld	a, 4 (ix)
+   0595 D6 08         [ 7] 1458 	sub	a, #0x08
+   0597 28 1A         [12] 1459 	jr	Z,00101$
+   0599 DD 7E 04      [19] 1460 	ld	a, 4 (ix)
+   059C D6 0A         [ 7] 1461 	sub	a, #0x0a
+   059E CAr36r06      [10] 1462 	jp	Z,00103$
+   05A1 DD 7E 04      [19] 1463 	ld	a, 4 (ix)
+   05A4 D6 0B         [ 7] 1464 	sub	a, #0x0b
+   05A6 28 46         [12] 1465 	jr	Z,00102$
+   05A8 DD 7E 04      [19] 1466 	ld	a, 4 (ix)
+   05AB D6 15         [ 7] 1467 	sub	a, #0x15
+   05AD CAr66r06      [10] 1468 	jp	Z,00104$
+   05B0 C3r97r06      [10] 1469 	jp	00105$
+                     05B3  1470 	C$game.c$374$2_0$112	= .
+                           1471 	.globl	C$game.c$374$2_0$112
+                           1472 ;game.c:374: case 0x8: // LEFT
+   05B3                    1473 00101$:
+                     05B3  1474 	C$game.c$375$2_0$112	= .
+                           1475 	.globl	C$game.c$375$2_0$112
+                           1476 ;game.c:375: xn1 = currentlevel.xpos - 1;
+   05B3 3Ar2Er06      [13] 1477 	ld	a, (#_currentlevel + 0)
+   05B6 4F            [ 4] 1478 	ld	c, a
+   05B7 06 00         [ 7] 1479 	ld	b, #0x00
+   05B9 79            [ 4] 1480 	ld	a, c
+   05BA C6 FF         [ 7] 1481 	add	a, #0xff
+   05BC DD 77 FC      [19] 1482 	ld	-4 (ix), a
+   05BF 78            [ 4] 1483 	ld	a, b
+   05C0 CE FF         [ 7] 1484 	adc	a, #0xff
+   05C2 DD 77 FD      [19] 1485 	ld	-3 (ix), a
+                     05C5  1486 	C$game.c$376$2_0$112	= .
+                           1487 	.globl	C$game.c$376$2_0$112
+                           1488 ;game.c:376: yn1 = currentlevel.ypos;
+   05C5 3Ar2Fr06      [13] 1489 	ld	a, (#_currentlevel + 1)
+   05C8 4F            [ 4] 1490 	ld	c, a
+   05C9 06 00         [ 7] 1491 	ld	b, #0x00
+   05CB DD 71 F8      [19] 1492 	ld	-8 (ix), c
+   05CE DD 70 F9      [19] 1493 	ld	-7 (ix), b
+                     05D1  1494 	C$game.c$377$2_0$112	= .
+                           1495 	.globl	C$game.c$377$2_0$112
+                           1496 ;game.c:377: xn2 = currentlevel.xpos - 2;
+   05D1 3Ar2Er06      [13] 1497 	ld	a, (#_currentlevel + 0)
+   05D4 5F            [ 4] 1498 	ld	e, a
+   05D5 16 00         [ 7] 1499 	ld	d, #0x00
+   05D7 7B            [ 4] 1500 	ld	a, e
+   05D8 C6 FE         [ 7] 1501 	add	a, #0xfe
+   05DA DD 77 FA      [19] 1502 	ld	-6 (ix), a
+   05DD 7A            [ 4] 1503 	ld	a, d
+   05DE CE FF         [ 7] 1504 	adc	a, #0xff
+   05E0 DD 77 FB      [19] 1505 	ld	-5 (ix), a
+                     05E3  1506 	C$game.c$378$2_0$112	= .
+                           1507 	.globl	C$game.c$378$2_0$112
+                           1508 ;game.c:378: yn2 = currentlevel.ypos;
+   05E3 DD 71 FE      [19] 1509 	ld	-2 (ix), c
+   05E6 DD 70 FF      [19] 1510 	ld	-1 (ix), b
+                     05E9  1511 	C$game.c$379$2_0$112	= .
+                           1512 	.globl	C$game.c$379$2_0$112
+                           1513 ;game.c:379: move = true;
+   05E9 0E 01         [ 7] 1514 	ld	c, #0x01
+                     05EB  1515 	C$game.c$380$2_0$112	= .
+                           1516 	.globl	C$game.c$380$2_0$112
+                           1517 ;game.c:380: break;
+   05EB C3r99r06      [10] 1518 	jp	00106$
+                     05EE  1519 	C$game.c$381$2_0$112	= .
+                           1520 	.globl	C$game.c$381$2_0$112
+                           1521 ;game.c:381: case 0xb:
+   05EE                    1522 00102$:
+                     05EE  1523 	C$game.c$382$2_0$112	= .
+                           1524 	.globl	C$game.c$382$2_0$112
+                           1525 ;game.c:382: xn1 = currentlevel.xpos;
+   05EE 3Ar2Er06      [13] 1526 	ld	a,(#_currentlevel + 0)
+   05F1 DD 77 F4      [19] 1527 	ld	-12 (ix), a
+   05F4 DD 77 FC      [19] 1528 	ld	-4 (ix), a
+   05F7 DD 36 FD 00   [19] 1529 	ld	-3 (ix), #0x00
+                     05FB  1530 	C$game.c$383$2_0$112	= .
+                           1531 	.globl	C$game.c$383$2_0$112
+                           1532 ;game.c:383: yn1 = currentlevel.ypos - 1;
+   05FB 3Ar2Fr06      [13] 1533 	ld	a,(#_currentlevel + 1)
+   05FE DD 77 F4      [19] 1534 	ld	-12 (ix), a
+   0601 DD 77 F5      [19] 1535 	ld	-11 (ix), a
+   0604 DD 36 F6 00   [19] 1536 	ld	-10 (ix), #0x00
+   0608 DD 7E F5      [19] 1537 	ld	a, -11 (ix)
+   060B C6 FF         [ 7] 1538 	add	a, #0xff
+   060D DD 77 F8      [19] 1539 	ld	-8 (ix), a
+   0610 DD 7E F6      [19] 1540 	ld	a, -10 (ix)
+   0613 CE FF         [ 7] 1541 	adc	a, #0xff
+   0615 DD 77 F9      [19] 1542 	ld	-7 (ix), a
+                     0618  1543 	C$game.c$384$2_0$112	= .
+                           1544 	.globl	C$game.c$384$2_0$112
+                           1545 ;game.c:384: xn2 = currentlevel.xpos;
+   0618 3Ar2Er06      [13] 1546 	ld	a, (#_currentlevel + 0)
+   061B DD 77 FA      [19] 1547 	ld	-6 (ix), a
+   061E DD 36 FB 00   [19] 1548 	ld	-5 (ix), #0x00
+                     0622  1549 	C$game.c$385$2_0$112	= .
+                           1550 	.globl	C$game.c$385$2_0$112
+                           1551 ;game.c:385: yn2 = currentlevel.ypos - 2;
+   0622 DD 7E F5      [19] 1552 	ld	a, -11 (ix)
+   0625 C6 FE         [ 7] 1553 	add	a, #0xfe
+   0627 DD 77 FE      [19] 1554 	ld	-2 (ix), a
+   062A DD 7E F6      [19] 1555 	ld	a, -10 (ix)
+   062D CE FF         [ 7] 1556 	adc	a, #0xff
+   062F DD 77 FF      [19] 1557 	ld	-1 (ix), a
+                     0632  1558 	C$game.c$386$2_0$112	= .
+                           1559 	.globl	C$game.c$386$2_0$112
+                           1560 ;game.c:386: move = true;
+   0632 0E 01         [ 7] 1561 	ld	c, #0x01
+                     0634  1562 	C$game.c$387$2_0$112	= .
+                           1563 	.globl	C$game.c$387$2_0$112
+                           1564 ;game.c:387: break;
+   0634 18 63         [12] 1565 	jr	00106$
+                     0636  1566 	C$game.c$388$2_0$112	= .
+                           1567 	.globl	C$game.c$388$2_0$112
+                           1568 ;game.c:388: case 0xa:
+   0636                    1569 00103$:
+                     0636  1570 	C$game.c$389$2_0$112	= .
+                           1571 	.globl	C$game.c$389$2_0$112
+                           1572 ;game.c:389: xn1 = currentlevel.xpos;
+   0636 3Ar2Er06      [13] 1573 	ld	a, (#_currentlevel + 0)
+   0639 DD 77 FC      [19] 1574 	ld	-4 (ix), a
+   063C DD 36 FD 00   [19] 1575 	ld	-3 (ix), #0x00
+                     0640  1576 	C$game.c$390$2_0$112	= .
+                           1577 	.globl	C$game.c$390$2_0$112
+                           1578 ;game.c:390: yn1 = currentlevel.ypos + 1;
+   0640 3Ar2Fr06      [13] 1579 	ld	a, (#_currentlevel + 1)
+   0643 4F            [ 4] 1580 	ld	c, a
+   0644 06 00         [ 7] 1581 	ld	b, #0x00
+   0646 21 01 00      [10] 1582 	ld	hl, #0x0001
+   0649 09            [11] 1583 	add	hl, bc
+   064A DD 75 F8      [19] 1584 	ld	-8 (ix), l
+   064D DD 74 F9      [19] 1585 	ld	-7 (ix), h
+                     0650  1586 	C$game.c$391$2_0$112	= .
+                           1587 	.globl	C$game.c$391$2_0$112
+                           1588 ;game.c:391: xn2 = currentlevel.xpos;
+   0650 3Ar2Er06      [13] 1589 	ld	a, (#_currentlevel + 0)
+   0653 DD 77 FA      [19] 1590 	ld	-6 (ix), a
+   0656 DD 36 FB 00   [19] 1591 	ld	-5 (ix), #0x00
+                     065A  1592 	C$game.c$392$2_0$112	= .
+                           1593 	.globl	C$game.c$392$2_0$112
+                           1594 ;game.c:392: yn2 = currentlevel.ypos + 2;
+   065A 03            [ 6] 1595 	inc	bc
+   065B 03            [ 6] 1596 	inc	bc
+   065C DD 71 FE      [19] 1597 	ld	-2 (ix), c
+   065F DD 70 FF      [19] 1598 	ld	-1 (ix), b
+                     0662  1599 	C$game.c$393$2_0$112	= .
+                           1600 	.globl	C$game.c$393$2_0$112
+                           1601 ;game.c:393: move = true;
+   0662 0E 01         [ 7] 1602 	ld	c, #0x01
+                     0664  1603 	C$game.c$394$2_0$112	= .
+                           1604 	.globl	C$game.c$394$2_0$112
+                           1605 ;game.c:394: break;
+   0664 18 33         [12] 1606 	jr	00106$
+                     0666  1607 	C$game.c$395$2_0$112	= .
+                           1608 	.globl	C$game.c$395$2_0$112
+                           1609 ;game.c:395: case 0x15: // RIGHT
+   0666                    1610 00104$:
+                     0666  1611 	C$game.c$396$2_0$112	= .
+                           1612 	.globl	C$game.c$396$2_0$112
+                           1613 ;game.c:396: xn1 = currentlevel.xpos + 1;
+   0666 3Ar2Er06      [13] 1614 	ld	a, (#_currentlevel + 0)
+   0669 4F            [ 4] 1615 	ld	c, a
+   066A 06 00         [ 7] 1616 	ld	b, #0x00
+   066C 03            [ 6] 1617 	inc	bc
+   066D DD 71 FC      [19] 1618 	ld	-4 (ix), c
+   0670 DD 70 FD      [19] 1619 	ld	-3 (ix), b
+                     0673  1620 	C$game.c$397$2_0$112	= .
+                           1621 	.globl	C$game.c$397$2_0$112
+                           1622 ;game.c:397: yn1 = currentlevel.ypos;
+   0673 3Ar2Fr06      [13] 1623 	ld	a, (#_currentlevel + 1)
+   0676 4F            [ 4] 1624 	ld	c, a
+   0677 06 00         [ 7] 1625 	ld	b, #0x00
+   0679 DD 71 F8      [19] 1626 	ld	-8 (ix), c
+   067C DD 70 F9      [19] 1627 	ld	-7 (ix), b
+                     067F  1628 	C$game.c$398$2_0$112	= .
+                           1629 	.globl	C$game.c$398$2_0$112
+                           1630 ;game.c:398: xn2 = currentlevel.xpos + 2;
+   067F 3Ar2Er06      [13] 1631 	ld	a, (#_currentlevel + 0)
+   0682 5F            [ 4] 1632 	ld	e, a
+   0683 16 00         [ 7] 1633 	ld	d, #0x00
+   0685 13            [ 6] 1634 	inc	de
+   0686 13            [ 6] 1635 	inc	de
+   0687 DD 73 FA      [19] 1636 	ld	-6 (ix), e
+   068A DD 72 FB      [19] 1637 	ld	-5 (ix), d
+                     068D  1638 	C$game.c$399$2_0$112	= .
+                           1639 	.globl	C$game.c$399$2_0$112
+                           1640 ;game.c:399: yn2 = currentlevel.ypos;
+   068D DD 71 FE      [19] 1641 	ld	-2 (ix), c
+   0690 DD 70 FF      [19] 1642 	ld	-1 (ix), b
+                     0693  1643 	C$game.c$400$2_0$112	= .
+                           1644 	.globl	C$game.c$400$2_0$112
+                           1645 ;game.c:400: move = true;
+   0693 0E 01         [ 7] 1646 	ld	c, #0x01
+                     0695  1647 	C$game.c$401$2_0$112	= .
+                           1648 	.globl	C$game.c$401$2_0$112
+                           1649 ;game.c:401: break;
+   0695 18 02         [12] 1650 	jr	00106$
+                     0697  1651 	C$game.c$402$2_0$112	= .
+                           1652 	.globl	C$game.c$402$2_0$112
+                           1653 ;game.c:402: default:
+   0697                    1654 00105$:
+                     0697  1655 	C$game.c$403$2_0$112	= .
+                           1656 	.globl	C$game.c$403$2_0$112
+                           1657 ;game.c:403: move = false;
+   0697 0E 00         [ 7] 1658 	ld	c, #0x00
+                     0699  1659 	C$game.c$405$1_0$111	= .
+                           1660 	.globl	C$game.c$405$1_0$111
+                           1661 ;game.c:405: }
+   0699                    1662 00106$:
+                     0699  1663 	C$game.c$406$1_0$111	= .
+                           1664 	.globl	C$game.c$406$1_0$111
+                           1665 ;game.c:406: if(move) {
+   0699 CB 41         [ 8] 1666 	bit	0, c
+   069B CAr87r07      [10] 1667 	jp	Z, 00114$
+                     069E  1668 	C$game.c$407$2_0$113	= .
+                           1669 	.globl	C$game.c$407$2_0$113
+                           1670 ;game.c:407: if(canmove(xn1,yn1,xn2,yn2)) {
+   069E DD 6E FE      [19] 1671 	ld	l, -2 (ix)
+   06A1 DD 66 FF      [19] 1672 	ld	h, -1 (ix)
+   06A4 E5            [11] 1673 	push	hl
+   06A5 DD 6E FA      [19] 1674 	ld	l, -6 (ix)
+   06A8 DD 66 FB      [19] 1675 	ld	h, -5 (ix)
+   06AB E5            [11] 1676 	push	hl
+   06AC DD 6E F8      [19] 1677 	ld	l, -8 (ix)
+   06AF DD 66 F9      [19] 1678 	ld	h, -7 (ix)
+   06B2 E5            [11] 1679 	push	hl
+   06B3 DD 6E FC      [19] 1680 	ld	l, -4 (ix)
+   06B6 DD 66 FD      [19] 1681 	ld	h, -3 (ix)
+   06B9 E5            [11] 1682 	push	hl
+   06BA CDr52r00      [17] 1683 	call	_canmove
+   06BD F1            [10] 1684 	pop	af
+   06BE F1            [10] 1685 	pop	af
+   06BF F1            [10] 1686 	pop	af
+   06C0 F1            [10] 1687 	pop	af
+   06C1 CB 45         [ 8] 1688 	bit	0, l
+   06C3 CAr87r07      [10] 1689 	jp	Z, 00114$
+                     06C6  1690 	C$game.c$408$3_0$114	= .
+                           1691 	.globl	C$game.c$408$3_0$114
+                           1692 ;game.c:408: undomove[undo_head].movekey = key;
+   06C6 01r00r00      [10] 1693 	ld	bc, #_undomove+0
+   06C9 FD 21r00r01   [14] 1694 	ld	iy, #_undo_head
+   06CD FD 6E 00      [19] 1695 	ld	l, 0 (iy)
+   06D0 26 00         [ 7] 1696 	ld	h, #0x00
+   06D2 29            [11] 1697 	add	hl, hl
+   06D3 09            [11] 1698 	add	hl, bc
+   06D4 DD 7E 04      [19] 1699 	ld	a, 4 (ix)
+   06D7 77            [ 7] 1700 	ld	(hl), a
+                     06D8  1701 	C$game.c$409$3_0$114	= .
+                           1702 	.globl	C$game.c$409$3_0$114
+                           1703 ;game.c:409: undomove[undo_head].pushed = (currentlevel.data[yn1][xn1] == CHAR_BOX) || (currentlevel.data[yn1][xn1] == CHAR_BOXONGOAL);
+   06D8 FD 6E 00      [19] 1704 	ld	l, 0 (iy)
+   06DB 26 00         [ 7] 1705 	ld	h, #0x00
+   06DD 29            [11] 1706 	add	hl, hl
+   06DE 09            [11] 1707 	add	hl, bc
+   06DF EB            [ 4] 1708 	ex	de, hl
+   06E0 13            [ 6] 1709 	inc	de
+   06E1 DD 4E F8      [19] 1710 	ld	c, -8 (ix)
+   06E4 DD 46 F9      [19] 1711 	ld	b, -7 (ix)
+   06E7 69            [ 4] 1712 	ld	l, c
+   06E8 60            [ 4] 1713 	ld	h, b
+   06E9 29            [11] 1714 	add	hl, hl
+   06EA 29            [11] 1715 	add	hl, hl
+   06EB 09            [11] 1716 	add	hl, bc
+   06EC 29            [11] 1717 	add	hl, hl
+   06ED 29            [11] 1718 	add	hl, hl
+   06EE 01r35r06      [10] 1719 	ld	bc, #(_currentlevel + 0x0007)
+   06F1 09            [11] 1720 	add	hl, bc
+   06F2 DD 4E FC      [19] 1721 	ld	c, -4 (ix)
+   06F5 DD 46 FD      [19] 1722 	ld	b, -3 (ix)
+   06F8 09            [11] 1723 	add	hl, bc
+   06F9 7E            [ 7] 1724 	ld	a, (hl)
+   06FA FE 24         [ 7] 1725 	cp	a, #0x24
+   06FC 28 07         [12] 1726 	jr	Z,00118$
+   06FE D6 2A         [ 7] 1727 	sub	a, #0x2a
+   0700 28 03         [12] 1728 	jr	Z,00118$
+   0702 AF            [ 4] 1729 	xor	a, a
+   0703 18 02         [12] 1730 	jr	00119$
+   0705                    1731 00118$:
+   0705 3E 01         [ 7] 1732 	ld	a, #0x01
+   0707                    1733 00119$:
+   0707 12            [ 7] 1734 	ld	(de), a
+                     0708  1735 	C$game.c$411$3_0$114	= .
+                           1736 	.globl	C$game.c$411$3_0$114
+                           1737 ;game.c:411: if(++undo_head == UNDOBUFFERSIZE) undo_head = 0;
+   0708 FD 21r00r01   [14] 1738 	ld	iy, #_undo_head
+   070C FD 34 00      [23] 1739 	inc	0 (iy)
+   070F FD 7E 00      [19] 1740 	ld	a, 0 (iy)
+   0712 D6 80         [ 7] 1741 	sub	a, #0x80
+   0714 20 04         [12] 1742 	jr	NZ,00108$
+   0716 FD 36 00 00   [19] 1743 	ld	0 (iy), #0x00
+   071A                    1744 00108$:
+                     071A  1745 	C$game.c$413$3_0$114	= .
+                           1746 	.globl	C$game.c$413$3_0$114
+                           1747 ;game.c:413: if(++num_undomoves > UNDOBUFFERSIZE) num_undomoves = UNDOBUFFERSIZE;
+   071A FD 21r01r01   [14] 1748 	ld	iy, #_num_undomoves
+   071E FD 34 00      [23] 1749 	inc	0 (iy)
+   0721 3E 80         [ 7] 1750 	ld	a, #0x80
+   0723 FD 96 00      [19] 1751 	sub	a, 0 (iy)
+   0726 30 04         [12] 1752 	jr	NC,00110$
+   0728 FD 36 00 80   [19] 1753 	ld	0 (iy), #0x80
+   072C                    1754 00110$:
+                     072C  1755 	C$game.c$415$3_0$114	= .
+                           1756 	.globl	C$game.c$415$3_0$114
+                           1757 ;game.c:415: move_sprites(xn1,yn1,xn2,yn2);
+   072C DD 6E FE      [19] 1758 	ld	l, -2 (ix)
+   072F DD 66 FF      [19] 1759 	ld	h, -1 (ix)
+   0732 E5            [11] 1760 	push	hl
+   0733 DD 6E FA      [19] 1761 	ld	l, -6 (ix)
+   0736 DD 66 FB      [19] 1762 	ld	h, -5 (ix)
+   0739 E5            [11] 1763 	push	hl
+   073A DD 6E F8      [19] 1764 	ld	l, -8 (ix)
+   073D DD 66 F9      [19] 1765 	ld	h, -7 (ix)
+   0740 E5            [11] 1766 	push	hl
+   0741 DD 6E FC      [19] 1767 	ld	l, -4 (ix)
+   0744 DD 66 FD      [19] 1768 	ld	h, -3 (ix)
+   0747 E5            [11] 1769 	push	hl
+   0748 CDrBEr00      [17] 1770 	call	_move_sprites
+   074B 21 08 00      [10] 1771 	ld	hl, #8
+   074E 39            [11] 1772 	add	hl, sp
+   074F F9            [ 6] 1773 	ld	sp, hl
+                     0750  1774 	C$game.c$416$3_0$114	= .
+                           1775 	.globl	C$game.c$416$3_0$114
+                           1776 ;game.c:416: move_updatelevel(xn1,yn1,xn2,yn2);
+   0750 DD 6E FE      [19] 1777 	ld	l, -2 (ix)
+   0753 DD 66 FF      [19] 1778 	ld	h, -1 (ix)
+   0756 E5            [11] 1779 	push	hl
+   0757 DD 6E FA      [19] 1780 	ld	l, -6 (ix)
+   075A DD 66 FB      [19] 1781 	ld	h, -5 (ix)
+   075D E5            [11] 1782 	push	hl
+   075E DD 6E F8      [19] 1783 	ld	l, -8 (ix)
+   0761 DD 66 F9      [19] 1784 	ld	h, -7 (ix)
+   0764 E5            [11] 1785 	push	hl
+   0765 DD 6E FC      [19] 1786 	ld	l, -4 (ix)
+   0768 DD 66 FD      [19] 1787 	ld	h, -3 (ix)
+   076B E5            [11] 1788 	push	hl
+   076C CDr94r01      [17] 1789 	call	_move_updatelevel
+   076F 21 08 00      [10] 1790 	ld	hl, #8
+   0772 39            [11] 1791 	add	hl, sp
+   0773 F9            [ 6] 1792 	ld	sp, hl
+                     0774  1793 	C$game.c$417$3_0$114	= .
+                           1794 	.globl	C$game.c$417$3_0$114
+                           1795 ;game.c:417: done = (currentlevel.goals == currentlevel.goalstaken);
+   0774 21r32r06      [10] 1796 	ld	hl, #_currentlevel + 4
+   0777 4E            [ 7] 1797 	ld	c, (hl)
+   0778 21r33r06      [10] 1798 	ld	hl, #_currentlevel + 5
+   077B 46            [ 7] 1799 	ld	b, (hl)
+   077C 79            [ 4] 1800 	ld	a, c
+   077D 90            [ 4] 1801 	sub	a, b
+   077E 20 03         [12] 1802 	jr	NZ, 00178$
+   0780 3E 01         [ 7] 1803 	ld	a, #0x01
+   0782 20                 1804 	.db	#0x20
+   0783                    1805 00178$:
+   0783 AF            [ 4] 1806 	xor	a, a
+   0784                    1807 00179$:
+   0784 DD 77 F7      [19] 1808 	ld	-9 (ix), a
+   0787                    1809 00114$:
+                     0787  1810 	C$game.c$420$1_0$111	= .
+                           1811 	.globl	C$game.c$420$1_0$111
+                           1812 ;game.c:420: return done;
+   0787 DD 6E F7      [19] 1813 	ld	l, -9 (ix)
+                     078A  1814 	C$game.c$421$1_0$111	= .
+                           1815 	.globl	C$game.c$421$1_0$111
+                           1816 ;game.c:421: }
+   078A DD F9         [10] 1817 	ld	sp, ix
+   078C DD E1         [14] 1818 	pop	ix
+                     078E  1819 	C$game.c$421$1_0$111	= .
+                           1820 	.globl	C$game.c$421$1_0$111
+                     078E  1821 	XG$game_handleKey$0$0	= .
+                           1822 	.globl	XG$game_handleKey$0$0
+   078E C9            [10] 1823 	ret
+                     078F  1824 	G$game_getResponse$0$0	= .
+                           1825 	.globl	G$game_getResponse$0$0
+                     078F  1826 	C$game.c$423$1_0$116	= .
+                           1827 	.globl	C$game.c$423$1_0$116
+                           1828 ;game.c:423: char game_getResponse(char *message, char option1, char option2) {
+                           1829 ;	---------------------------------
+                           1830 ; Function game_getResponse
+                           1831 ; ---------------------------------
+   078F                    1832 _game_getResponse::
+   078F DD E5         [15] 1833 	push	ix
+   0791 DD 21 00 00   [14] 1834 	ld	ix,#0
+   0795 DD 39         [15] 1835 	add	ix,sp
+   0797 F5            [11] 1836 	push	af
+   0798 3B            [ 6] 1837 	dec	sp
+                     0799  1838 	C$game.c$425$1_0$116	= .
+                           1839 	.globl	C$game.c$425$1_0$116
+                           1840 ;game.c:425: uint8_t len = strlen(message);
+   0799 DD 6E 04      [19] 1841 	ld	l, 4 (ix)
+   079C DD 66 05      [19] 1842 	ld	h, 5 (ix)
+   079F E5            [11] 1843 	push	hl
+   07A0 CDr00r00      [17] 1844 	call	_strlen
+   07A3 F1            [10] 1845 	pop	af
+   07A4 4D            [ 4] 1846 	ld	c, l
+                     07A5  1847 	C$game.c$426$1_0$116	= .
+                           1848 	.globl	C$game.c$426$1_0$116
+                           1849 ;game.c:426: uint8_t start = (80 - len) / 2;
+   07A5 06 00         [ 7] 1850 	ld	b, #0x00
+   07A7 21 50 00      [10] 1851 	ld	hl, #0x0050
+   07AA BF            [ 4] 1852 	cp	a, a
+   07AB ED 42         [15] 1853 	sbc	hl, bc
+   07AD 5D            [ 4] 1854 	ld	e, l
+   07AE 54            [ 4] 1855 	ld	d, h
+   07AF CB 7C         [ 8] 1856 	bit	7, h
+   07B1 28 02         [12] 1857 	jr	Z,00111$
+   07B3 EB            [ 4] 1858 	ex	de,hl
+   07B4 13            [ 6] 1859 	inc	de
+   07B5                    1860 00111$:
+   07B5 CB 2A         [ 8] 1861 	sra	d
+   07B7 CB 1B         [ 8] 1862 	rr	e
+                     07B9  1863 	C$game.c$427$1_0$116	= .
+                           1864 	.globl	C$game.c$427$1_0$116
+                           1865 ;game.c:427: char ret = 0;
+   07B9 16 00         [ 7] 1866 	ld	d, #0x00
+                     07BB  1867 	C$game.c$431$2_0$117	= .
+                           1868 	.globl	C$game.c$431$2_0$117
+                           1869 ;game.c:431: for(n = start - 1; n < (start+len+1); n++) {
+   07BB 7B            [ 4] 1870 	ld	a, e
+   07BC C6 FF         [ 7] 1871 	add	a, #0xff
+   07BE DD 77 FD      [19] 1872 	ld	-3 (ix), a
+   07C1                    1873 00107$:
+   07C1 6B            [ 4] 1874 	ld	l, e
+   07C2 26 00         [ 7] 1875 	ld	h, #0x00
+   07C4 09            [11] 1876 	add	hl, bc
+   07C5 23            [ 6] 1877 	inc	hl
+   07C6 DD 7E FD      [19] 1878 	ld	a, -3 (ix)
+   07C9 DD 77 FE      [19] 1879 	ld	-2 (ix), a
+   07CC DD 36 FF 00   [19] 1880 	ld	-1 (ix), #0x00
+   07D0 DD 7E FE      [19] 1881 	ld	a, -2 (ix)
+   07D3 95            [ 4] 1882 	sub	a, l
+   07D4 DD 7E FF      [19] 1883 	ld	a, -1 (ix)
+   07D7 9C            [ 4] 1884 	sbc	a, h
+   07D8 E2rDDr07      [10] 1885 	jp	PO, 00143$
+   07DB EE 80         [ 7] 1886 	xor	a, #0x80
+   07DD                    1887 00143$:
+   07DD F2rE5r07      [10] 1888 	jp	P, 00101$
+   07E0 DD 34 FD      [23] 1889 	inc	-3 (ix)
+   07E3 18 DC         [12] 1890 	jr	00107$
+   07E5                    1891 00101$:
+                     07E5  1892 	C$game.c$440$1_0$116	= .
+                           1893 	.globl	C$game.c$440$1_0$116
+                           1894 ;game.c:440: printf("%s ", message);
+   07E5 D5            [11] 1895 	push	de
+   07E6 DD 6E 04      [19] 1896 	ld	l, 4 (ix)
+   07E9 DD 66 05      [19] 1897 	ld	h, 5 (ix)
+   07EC E5            [11] 1898 	push	hl
+   07ED 21r0Fr08      [10] 1899 	ld	hl, #___str_0
+   07F0 E5            [11] 1900 	push	hl
+   07F1 CDr00r00      [17] 1901 	call	_printf
+   07F4 F1            [10] 1902 	pop	af
+   07F5 F1            [10] 1903 	pop	af
+   07F6 D1            [10] 1904 	pop	de
+                     07F7  1905 	C$game.c$442$1_0$116	= .
+                           1906 	.globl	C$game.c$442$1_0$116
+                           1907 ;game.c:442: while((ret != option1) && (ret != option2)) ret = con_getc();
+   07F7                    1908 00103$:
+   07F7 DD 7E 06      [19] 1909 	ld	a, 6 (ix)
+   07FA 92            [ 4] 1910 	sub	a, d
+   07FB 28 0C         [12] 1911 	jr	Z,00105$
+   07FD DD 7E 07      [19] 1912 	ld	a, 7 (ix)
+   0800 92            [ 4] 1913 	sub	a, d
+   0801 28 06         [12] 1914 	jr	Z,00105$
+   0803 CDr00r00      [17] 1915 	call	_con_getc
+   0806 55            [ 4] 1916 	ld	d, l
+   0807 18 EE         [12] 1917 	jr	00103$
+   0809                    1918 00105$:
+                     0809  1919 	C$game.c$446$1_0$116	= .
+                           1920 	.globl	C$game.c$446$1_0$116
+                           1921 ;game.c:446: return ret;
+   0809 6A            [ 4] 1922 	ld	l, d
+                     080A  1923 	C$game.c$447$1_0$116	= .
+                           1924 	.globl	C$game.c$447$1_0$116
+                           1925 ;game.c:447: }
+   080A DD F9         [10] 1926 	ld	sp, ix
+   080C DD E1         [14] 1927 	pop	ix
+                     080E  1928 	C$game.c$447$1_0$116	= .
+                           1929 	.globl	C$game.c$447$1_0$116
+                     080E  1930 	XG$game_getResponse$0$0	= .
+                           1931 	.globl	XG$game_getResponse$0$0
+   080E C9            [10] 1932 	ret
+                     080F  1933 Fgame$__str_0$0_0$0 == .
+   080F                    1934 ___str_0:
+   080F 25 73 20           1935 	.ascii "%s "
+   0812 00                 1936 	.db 0x00
+                     0813  1937 	G$game_splash_screen$0$0	= .
+                           1938 	.globl	G$game_splash_screen$0$0
+                     0813  1939 	C$game.c$449$1_0$120	= .
+                           1940 	.globl	C$game.c$449$1_0$120
+                           1941 ;game.c:449: void game_splash_screen() {
+                           1942 ;	---------------------------------
+                           1943 ; Function game_splash_screen
+                           1944 ; ---------------------------------
+   0813                    1945 _game_splash_screen::
+                     0813  1946 	C$game.c$475$1_0$120	= .
+                           1947 	.globl	C$game.c$475$1_0$120
+                           1948 ;game.c:475: }
+                     0813  1949 	C$game.c$475$1_0$120	= .
+                           1950 	.globl	C$game.c$475$1_0$120
+                     0813  1951 	XG$game_splash_screen$0$0	= .
+                           1952 	.globl	XG$game_splash_screen$0$0
+   0813 C9            [10] 1953 	ret
+                     0814  1954 	G$game_displayHelp$0$0	= .
+                           1955 	.globl	G$game_displayHelp$0$0
+                     0814  1956 	C$game.c$477$1_0$122	= .
+                           1957 	.globl	C$game.c$477$1_0$122
+                           1958 ;game.c:477: void game_displayHelp(uint8_t xpos, uint8_t ypos) {
+                           1959 ;	---------------------------------
+                           1960 ; Function game_displayHelp
+                           1961 ; ---------------------------------
+   0814                    1962 _game_displayHelp::
+                     0814  1963 	C$game.c$529$1_0$122	= .
+                           1964 	.globl	C$game.c$529$1_0$122
+                           1965 ;game.c:529: return;
+                     0814  1966 	C$game.c$530$1_0$122	= .
+                           1967 	.globl	C$game.c$530$1_0$122
+                           1968 ;game.c:530: }
+                     0814  1969 	C$game.c$530$1_0$122	= .
+                           1970 	.globl	C$game.c$530$1_0$122
+                     0814  1971 	XG$game_displayHelp$0$0	= .
+                           1972 	.globl	XG$game_displayHelp$0$0
+   0814 C9            [10] 1973 	ret
+                     0815  1974 	G$game_selectLevel$0$0	= .
+                           1975 	.globl	G$game_selectLevel$0$0
+                     0815  1976 	C$game.c$532$1_0$124	= .
+                           1977 	.globl	C$game.c$532$1_0$124
+                           1978 ;game.c:532: int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
+                           1979 ;	---------------------------------
+                           1980 ; Function game_selectLevel
+                           1981 ; ---------------------------------
+   0815                    1982 _game_selectLevel::
+   0815 DD E5         [15] 1983 	push	ix
+   0817 DD 21 00 00   [14] 1984 	ld	ix,#0
+   081B DD 39         [15] 1985 	add	ix,sp
+   081D F5            [11] 1986 	push	af
+   081E 3B            [ 6] 1987 	dec	sp
+                     081F  1988 	C$game.c$534$2_0$124	= .
+                           1989 	.globl	C$game.c$534$2_0$124
+                           1990 ;game.c:534: bool selected = false;
+   081F DD 36 FD 00   [19] 1991 	ld	-3 (ix), #0x00
+                     0823  1992 	C$game.c$535$1_0$124	= .
+                           1993 	.globl	C$game.c$535$1_0$124
+                           1994 ;game.c:535: lvl = previouslevel;
+   0823 DD 7E 05      [19] 1995 	ld	a, 5 (ix)
+   0826 DD 77 FE      [19] 1996 	ld	-2 (ix), a
+   0829 DD 7E 06      [19] 1997 	ld	a, 6 (ix)
+   082C DD 77 FF      [19] 1998 	ld	-1 (ix), a
+                     082F  1999 	C$game.c$537$2_0$125	= .
+                           2000 	.globl	C$game.c$537$2_0$125
+                           2001 ;game.c:537: while(!selected) {
+   082F                    2002 00115$:
+   082F DD CB FD 46   [20] 2003 	bit	0, -3 (ix)
+   0833 C2rF1r08      [10] 2004 	jp	NZ, 00117$
+                     0836  2005 	C$game.c$538$2_0$125	= .
+                           2006 	.globl	C$game.c$538$2_0$125
+                           2007 ;game.c:538: game_initLevel(lvl);			// initialize playing field data from memory or disk
+   0836 DD 46 FE      [19] 2008 	ld	b, -2 (ix)
+   0839 C5            [11] 2009 	push	bc
+   083A 33            [ 6] 2010 	inc	sp
+   083B CDr69r0A      [17] 2011 	call	_game_initLevel
+   083E 33            [ 6] 2012 	inc	sp
+                     083F  2013 	C$game.c$540$2_0$125	= .
+                           2014 	.globl	C$game.c$540$2_0$125
+                           2015 ;game.c:540: game_displayMinimap();			// display 'current' level
+   083F CDrF3r09      [17] 2016 	call	_game_displayMinimap
+                     0842  2017 	C$game.c$544$2_0$125	= .
+                           2018 	.globl	C$game.c$544$2_0$125
+                           2019 ;game.c:544: printf("Level %03d / %03d",lvl+1,levels); // user level# starts at 1, internally this is level 0
+   0842 DD 5E 04      [19] 2020 	ld	e, 4 (ix)
+   0845 16 00         [ 7] 2021 	ld	d, #0x00
+   0847 DD 4E FE      [19] 2022 	ld	c, -2 (ix)
+   084A DD 46 FF      [19] 2023 	ld	b, -1 (ix)
+   084D 03            [ 6] 2024 	inc	bc
+   084E C5            [11] 2025 	push	bc
+   084F D5            [11] 2026 	push	de
+   0850 D5            [11] 2027 	push	de
+   0851 C5            [11] 2028 	push	bc
+   0852 21rFCr08      [10] 2029 	ld	hl, #___str_1
+   0855 E5            [11] 2030 	push	hl
+   0856 CDr00r00      [17] 2031 	call	_printf
+   0859 21 06 00      [10] 2032 	ld	hl, #6
+   085C 39            [11] 2033 	add	hl, sp
+   085D F9            [ 6] 2034 	ld	sp, hl
+   085E 21r0Er09      [10] 2035 	ld	hl, #___str_4
+   0861 E5            [11] 2036 	push	hl
+   0862 CDr00r00      [17] 2037 	call	_puts
+   0865 F1            [10] 2038 	pop	af
+   0866 11 32 0D      [10] 2039 	ld	de, #0x0d32
+   0869 D5            [11] 2040 	push	de
+   086A CDr14r08      [17] 2041 	call	_game_displayHelp
+   086D F1            [10] 2042 	pop	af
+   086E CDr00r00      [17] 2043 	call	_con_getc
+   0871 7D            [ 4] 2044 	ld	a, l
+   0872 D1            [10] 2045 	pop	de
+   0873 C1            [10] 2046 	pop	bc
+                     0874  2047 	C$game.c$563$1_0$124	= .
+                           2048 	.globl	C$game.c$563$1_0$124
+                           2049 ;game.c:563: else lvl = levels-1;
+   0874 1B            [ 6] 2050 	dec	de
+                     0875  2051 	C$game.c$559$2_0$125	= .
+                           2052 	.globl	C$game.c$559$2_0$125
+                           2053 ;game.c:559: switch(con_getc())	{
+   0875 FE 08         [ 7] 2054 	cp	a, #0x08
+   0877 28 16         [12] 2055 	jr	Z,00102$
+   0879 FE 0A         [ 7] 2056 	cp	a, #0x0a
+   087B 28 12         [12] 2057 	jr	Z,00102$
+   087D FE 0B         [ 7] 2058 	cp	a, #0x0b
+   087F 28 36         [12] 2059 	jr	Z,00107$
+   0881 FE 0D         [ 7] 2060 	cp	a, #0x0d
+   0883 28 56         [12] 2061 	jr	Z,00111$
+   0885 FE 15         [ 7] 2062 	cp	a, #0x15
+   0887 28 2E         [12] 2063 	jr	Z,00107$
+   0889 D6 1B         [ 7] 2064 	sub	a, #0x1b
+   088B 28 55         [12] 2065 	jr	Z,00112$
+   088D 18 A0         [12] 2066 	jr	00115$
+                     088F  2067 	C$game.c$561$3_0$126	= .
+                           2068 	.globl	C$game.c$561$3_0$126
+                           2069 ;game.c:561: case 0x0a:
+   088F                    2070 00102$:
+                     088F  2071 	C$game.c$562$3_0$126	= .
+                           2072 	.globl	C$game.c$562$3_0$126
+                           2073 ;game.c:562: if(lvl > 0) lvl --;
+   088F AF            [ 4] 2074 	xor	a, a
+   0890 DD BE FE      [19] 2075 	cp	a, -2 (ix)
+   0893 DD 9E FF      [19] 2076 	sbc	a, -1 (ix)
+   0896 E2r9Br08      [10] 2077 	jp	PO, 00176$
+   0899 EE 80         [ 7] 2078 	xor	a, #0x80
+   089B                    2079 00176$:
+   089B F2rAEr08      [10] 2080 	jp	P, 00104$
+   089E DD 6E FE      [19] 2081 	ld	l, -2 (ix)
+   08A1 DD 66 FF      [19] 2082 	ld	h, -1 (ix)
+   08A4 2B            [ 6] 2083 	dec	hl
+   08A5 DD 75 FE      [19] 2084 	ld	-2 (ix), l
+   08A8 DD 74 FF      [19] 2085 	ld	-1 (ix), h
+   08AB C3r2Fr08      [10] 2086 	jp	00115$
+   08AE                    2087 00104$:
+                     08AE  2088 	C$game.c$563$3_0$126	= .
+                           2089 	.globl	C$game.c$563$3_0$126
+                           2090 ;game.c:563: else lvl = levels-1;
+   08AE DD 73 FE      [19] 2091 	ld	-2 (ix), e
+   08B1 DD 72 FF      [19] 2092 	ld	-1 (ix), d
+                     08B4  2093 	C$game.c$564$3_0$126	= .
+                           2094 	.globl	C$game.c$564$3_0$126
+                           2095 ;game.c:564: break;
+   08B4 C3r2Fr08      [10] 2096 	jp	00115$
+                     08B7  2097 	C$game.c$566$3_0$126	= .
+                           2098 	.globl	C$game.c$566$3_0$126
+                           2099 ;game.c:566: case 0x15:
+   08B7                    2100 00107$:
+                     08B7  2101 	C$game.c$567$3_0$126	= .
+                           2102 	.globl	C$game.c$567$3_0$126
+                           2103 ;game.c:567: if(lvl < levels-1) lvl++;
+   08B7 DD 7E FE      [19] 2104 	ld	a, -2 (ix)
+   08BA 93            [ 4] 2105 	sub	a, e
+   08BB DD 7E FF      [19] 2106 	ld	a, -1 (ix)
+   08BE 9A            [ 4] 2107 	sbc	a, d
+   08BF E2rC4r08      [10] 2108 	jp	PO, 00177$
+   08C2 EE 80         [ 7] 2109 	xor	a, #0x80
+   08C4                    2110 00177$:
+   08C4 F2rD0r08      [10] 2111 	jp	P, 00109$
+   08C7 DD 71 FE      [19] 2112 	ld	-2 (ix), c
+   08CA DD 70 FF      [19] 2113 	ld	-1 (ix), b
+   08CD C3r2Fr08      [10] 2114 	jp	00115$
+   08D0                    2115 00109$:
+                     08D0  2116 	C$game.c$568$3_0$126	= .
+                           2117 	.globl	C$game.c$568$3_0$126
+                           2118 ;game.c:568: else lvl = 0;
+   08D0 DD 36 FE 00   [19] 2119 	ld	-2 (ix), #0x00
+   08D4 DD 36 FF 00   [19] 2120 	ld	-1 (ix), #0x00
+                     08D8  2121 	C$game.c$569$3_0$126	= .
+                           2122 	.globl	C$game.c$569$3_0$126
+                           2123 ;game.c:569: break;
+   08D8 C3r2Fr08      [10] 2124 	jp	00115$
+                     08DB  2125 	C$game.c$570$3_0$126	= .
+                           2126 	.globl	C$game.c$570$3_0$126
+                           2127 ;game.c:570: case 0xd:
+   08DB                    2128 00111$:
+                     08DB  2129 	C$game.c$571$3_0$126	= .
+                           2130 	.globl	C$game.c$571$3_0$126
+                           2131 ;game.c:571: selected = true;
+   08DB DD 36 FD 01   [19] 2132 	ld	-3 (ix), #0x01
+                     08DF  2133 	C$game.c$572$3_0$126	= .
+                           2134 	.globl	C$game.c$572$3_0$126
+                           2135 ;game.c:572: break;
+   08DF C3r2Fr08      [10] 2136 	jp	00115$
+                     08E2  2137 	C$game.c$573$3_0$126	= .
+                           2138 	.globl	C$game.c$573$3_0$126
+                           2139 ;game.c:573: case 27:
+   08E2                    2140 00112$:
+                     08E2  2141 	C$game.c$574$3_0$126	= .
+                           2142 	.globl	C$game.c$574$3_0$126
+                           2143 ;game.c:574: lvl = -1;
+   08E2 DD 36 FE FF   [19] 2144 	ld	-2 (ix), #0xff
+   08E6 DD 36 FF FF   [19] 2145 	ld	-1 (ix), #0xff
+                     08EA  2146 	C$game.c$575$3_0$126	= .
+                           2147 	.globl	C$game.c$575$3_0$126
+                           2148 ;game.c:575: selected = true;
+   08EA DD 36 FD 01   [19] 2149 	ld	-3 (ix), #0x01
+                     08EE  2150 	C$game.c$576$3_0$126	= .
+                           2151 	.globl	C$game.c$576$3_0$126
+                           2152 ;game.c:576: break;
+   08EE C3r2Fr08      [10] 2153 	jp	00115$
+                     08F1  2154 	C$game.c$579$1_0$124	= .
+                           2155 	.globl	C$game.c$579$1_0$124
+                           2156 ;game.c:579: }
+   08F1                    2157 00117$:
+                     08F1  2158 	C$game.c$581$1_0$124	= .
+                           2159 	.globl	C$game.c$581$1_0$124
+                           2160 ;game.c:581: return lvl;
+   08F1 DD 6E FE      [19] 2161 	ld	l, -2 (ix)
+   08F4 DD 66 FF      [19] 2162 	ld	h, -1 (ix)
+                     08F7  2163 	C$game.c$582$1_0$124	= .
+                           2164 	.globl	C$game.c$582$1_0$124
+                           2165 ;game.c:582: }
+   08F7 DD F9         [10] 2166 	ld	sp, ix
+   08F9 DD E1         [14] 2167 	pop	ix
+                     08FB  2168 	C$game.c$582$1_0$124	= .
+                           2169 	.globl	C$game.c$582$1_0$124
+                     08FB  2170 	XG$game_selectLevel$0$0	= .
+                           2171 	.globl	XG$game_selectLevel$0$0
+   08FB C9            [10] 2172 	ret
+                     08FC  2173 Fgame$__str_1$0_0$0 == .
+   08FC                    2174 ___str_1:
+   08FC 4C 65 76 65 6C 20  2175 	.ascii "Level %03d / %03d"
+        25 30 33 64 20 2F
+        20 25 30 33 64
+   090D 00                 2176 	.db 0x00
+                     090E  2177 Fgame$__str_4$0_0$0 == .
+   090E                    2178 ___str_4:
+   090E 53 65 6C 65 63 74  2179 	.ascii "Select level with cursor keys"
+        20 6C 65 76 65 6C
+        20 77 69 74 68 20
+        63 75 72 73 6F 72
+        20 6B 65 79 73
+   092B 0A                 2180 	.db 0x0a
+   092C 45 53 43 20 74 6F  2181 	.ascii "ESC to quit"
+        20 71 75 69 74
+   0937 00                 2182 	.db 0x00
+                     0938  2183 	G$game_displayLevel$0$0	= .
+                           2184 	.globl	G$game_displayLevel$0$0
+                     0938  2185 	C$game.c$584$1_0$128	= .
+                           2186 	.globl	C$game.c$584$1_0$128
+                           2187 ;game.c:584: void game_displayLevel(void) {
+                           2188 ;	---------------------------------
+                           2189 ; Function game_displayLevel
+                           2190 ; ---------------------------------
+   0938                    2191 _game_displayLevel::
+   0938 DD E5         [15] 2192 	push	ix
+   093A DD 21 00 00   [14] 2193 	ld	ix,#0
+   093E DD 39         [15] 2194 	add	ix,sp
+   0940 21 F9 FF      [10] 2195 	ld	hl, #-7
+   0943 39            [11] 2196 	add	hl, sp
+   0944 F9            [ 6] 2197 	ld	sp, hl
+                     0945  2198 	C$game.c$588$1_0$128	= .
+                           2199 	.globl	C$game.c$588$1_0$128
+                           2200 ;game.c:588: uint8_t currentlevel_width = currentlevel.width; // compiler bug later on
+   0945 21r30r06      [10] 2201 	ld	hl, #_currentlevel + 2
+   0948 5E            [ 7] 2202 	ld	e, (hl)
+   0949 DD 73 FE      [19] 2203 	ld	-2 (ix), e
+                     094C  2204 	C$game.c$589$1_0$128	= .
+                           2205 	.globl	C$game.c$589$1_0$128
+                           2206 ;game.c:589: uint8_t currentlevel_height = currentlevel.height; // compiler bug later on
+   094C 21r31r06      [10] 2207 	ld	hl, #_currentlevel + 3
+   094F 4E            [ 7] 2208 	ld	c, (hl)
+   0950 DD 71 FD      [19] 2209 	ld	-3 (ix), c
+                     0953  2210 	C$game.c$591$1_0$128	= .
+                           2211 	.globl	C$game.c$591$1_0$128
+                           2212 ;game.c:591: spritenumber = 1;
+   0953 21r61r07      [10] 2213 	ld	hl,#_spritenumber + 0
+   0956 36 01         [10] 2214 	ld	(hl), #0x01
+                     0958  2215 	C$game.c$599$1_0$128	= .
+                           2216 	.globl	C$game.c$599$1_0$128
+                           2217 ;game.c:599: xstart = ((MAXWIDTH - currentlevel.width) / 2) * BITMAP_WIDTH;
+   0958 16 00         [ 7] 2218 	ld	d, #0x00
+   095A 21 14 00      [10] 2219 	ld	hl, #0x0014
+   095D BF            [ 4] 2220 	cp	a, a
+   095E ED 52         [15] 2221 	sbc	hl, de
+   0960 7C            [ 4] 2222 	ld	a, h
+   0961 07            [ 4] 2223 	rlca
+   0962 E6 01         [ 7] 2224 	and	a,#0x01
+                     0964  2225 	C$game.c$600$1_0$128	= .
+                           2226 	.globl	C$game.c$600$1_0$128
+                           2227 ;game.c:600: ystart = ((MAXHEIGHT - currentlevel.height) / 2) *BITMAP_HEIGHT;
+   0964 06 00         [ 7] 2228 	ld	b, #0x00
+   0966 21 0F 00      [10] 2229 	ld	hl, #0x000f
+   0969 BF            [ 4] 2230 	cp	a, a
+   096A ED 42         [15] 2231 	sbc	hl, bc
+   096C 7C            [ 4] 2232 	ld	a, h
+   096D 07            [ 4] 2233 	rlca
+   096E E6 01         [ 7] 2234 	and	a,#0x01
+                     0970  2235 	C$game.c$603$5_0$132	= .
+                           2236 	.globl	C$game.c$603$5_0$132
+                           2237 ;game.c:603: for(height = 0; height < currentlevel_height; height++) {
+   0970 11 00 00      [10] 2238 	ld	de, #0x0000
+   0973                    2239 00116$:
+   0973 DD 4E FD      [19] 2240 	ld	c, -3 (ix)
+   0976 06 00         [ 7] 2241 	ld	b, #0x00
+   0978 7B            [ 4] 2242 	ld	a, e
+   0979 91            [ 4] 2243 	sub	a, c
+   097A 7A            [ 4] 2244 	ld	a, d
+   097B 98            [ 4] 2245 	sbc	a, b
+   097C 30 70         [12] 2246 	jr	NC,00118$
+                     097E  2247 	C$game.c$605$5_0$132	= .
+                           2248 	.globl	C$game.c$605$5_0$132
+                           2249 ;game.c:605: for(width = 0; width < currentlevel_width; width++) {
+   097E D5            [11] 2250 	push	de
+   097F 6B            [ 4] 2251 	ld	l, e
+   0980 62            [ 4] 2252 	ld	h, d
+   0981 29            [11] 2253 	add	hl, hl
+   0982 29            [11] 2254 	add	hl, hl
+   0983 19            [11] 2255 	add	hl, de
+   0984 29            [11] 2256 	add	hl, hl
+   0985 29            [11] 2257 	add	hl, hl
+   0986 D1            [10] 2258 	pop	de
+   0987 4D            [ 4] 2259 	ld	c, l
+   0988 44            [ 4] 2260 	ld	b, h
+   0989 21r35r06      [10] 2261 	ld	hl, #(_currentlevel + 0x0007)
+   098C 09            [11] 2262 	add	hl, bc
+   098D E3            [19] 2263 	ex	(sp), hl
+   098E 21r02r05      [10] 2264 	ld	hl, #_sprites
+   0991 09            [11] 2265 	add	hl, bc
+   0992 DD 75 FB      [19] 2266 	ld	-5 (ix), l
+   0995 DD 74 FC      [19] 2267 	ld	-4 (ix), h
+   0998 01 00 00      [10] 2268 	ld	bc, #0x0000
+   099B                    2269 00113$:
+   099B DD 6E FE      [19] 2270 	ld	l, -2 (ix)
+   099E 26 00         [ 7] 2271 	ld	h, #0x00
+   09A0 79            [ 4] 2272 	ld	a, c
+   09A1 95            [ 4] 2273 	sub	a, l
+   09A2 78            [ 4] 2274 	ld	a, b
+   09A3 9C            [ 4] 2275 	sbc	a, h
+   09A4 30 44         [12] 2276 	jr	NC,00110$
+                     09A6  2277 	C$game.c$606$5_0$132	= .
+                           2278 	.globl	C$game.c$606$5_0$132
+                           2279 ;game.c:606: c = currentlevel.data[height][width];
+   09A6 E1            [10] 2280 	pop	hl
+   09A7 E5            [11] 2281 	push	hl
+   09A8 09            [11] 2282 	add	hl, bc
+   09A9 7E            [ 7] 2283 	ld	a, (hl)
+   09AA DD 77 FF      [19] 2284 	ld	-1 (ix), a
+                     09AD  2285 	C$game.c$607$2_0$128	= .
+                           2286 	.globl	C$game.c$607$2_0$128
+                           2287 ;game.c:607: sprites[height][width] = NOSPRITE; // Faster in most cases
+   09AD DD 6E FB      [19] 2288 	ld	l, -5 (ix)
+   09B0 DD 66 FC      [19] 2289 	ld	h, -4 (ix)
+   09B3 09            [11] 2290 	add	hl, bc
+   09B4 36 FF         [10] 2291 	ld	(hl), #0xff
+                     09B6  2292 	C$game.c$608$5_0$132	= .
+                           2293 	.globl	C$game.c$608$5_0$132
+                           2294 ;game.c:608: switch(c) {
+   09B6 DD 7E FF      [19] 2295 	ld	a, -1 (ix)
+   09B9 D6 20         [ 7] 2296 	sub	a, #0x20
+   09BB 28 2A         [12] 2297 	jr	Z,00109$
+   09BD DD 7E FF      [19] 2298 	ld	a, -1 (ix)
+   09C0 D6 23         [ 7] 2299 	sub	a, #0x23
+   09C2 28 23         [12] 2300 	jr	Z,00109$
+   09C4 DD 7E FF      [19] 2301 	ld	a, -1 (ix)
+   09C7 D6 24         [ 7] 2302 	sub	a, #0x24
+   09C9 28 11         [12] 2303 	jr	Z,00105$
+   09CB DD 7E FF      [19] 2304 	ld	a, -1 (ix)
+   09CE D6 2A         [ 7] 2305 	sub	a, #0x2a
+   09D0 28 0A         [12] 2306 	jr	Z,00105$
+   09D2 DD 7E FF      [19] 2307 	ld	a, -1 (ix)
+   09D5 D6 2B         [ 7] 2308 	sub	a, #0x2b
+   09D7 28 0E         [12] 2309 	jr	Z,00109$
+   09D9 AF            [ 4] 2310 	xor	a,a
+                     09DA  2311 	C$game.c$617$6_0$133	= .
+                           2312 	.globl	C$game.c$617$6_0$133
+                           2313 ;game.c:617: break;
+   09DA 18 0B         [12] 2314 	jr	00109$
+                     09DC  2315 	C$game.c$619$6_0$133	= .
+                           2316 	.globl	C$game.c$619$6_0$133
+                           2317 ;game.c:619: case CHAR_BOXONGOAL:
+   09DC                    2318 00105$:
+                     09DC  2319 	C$game.c$628$6_0$133	= .
+                           2320 	.globl	C$game.c$628$6_0$133
+                           2321 ;game.c:628: sprites[height][width] = spritenumber;
+   09DC FD 21r61r07   [14] 2322 	ld	iy, #_spritenumber
+   09E0 FD 7E 00      [19] 2323 	ld	a, 0 (iy)
+   09E3 77            [ 7] 2324 	ld	(hl), a
+                     09E4  2325 	C$game.c$629$6_0$133	= .
+                           2326 	.globl	C$game.c$629$6_0$133
+                           2327 ;game.c:629: spritenumber++;
+   09E4 FD 34 00      [23] 2328 	inc	0 (iy)
+                     09E7  2329 	C$game.c$642$5_0$132	= .
+                           2330 	.globl	C$game.c$642$5_0$132
+                           2331 ;game.c:642: }
+   09E7                    2332 00109$:
+                     09E7  2333 	C$game.c$605$4_0$131	= .
+                           2334 	.globl	C$game.c$605$4_0$131
+                           2335 ;game.c:605: for(width = 0; width < currentlevel_width; width++) {
+   09E7 03            [ 6] 2336 	inc	bc
+   09E8 18 B1         [12] 2337 	jr	00113$
+   09EA                    2338 00110$:
+                     09EA  2339 	C$game.c$603$2_0$129	= .
+                           2340 	.globl	C$game.c$603$2_0$129
+                           2341 ;game.c:603: for(height = 0; height < currentlevel_height; height++) {
+   09EA 13            [ 6] 2342 	inc	de
+   09EB C3r73r09      [10] 2343 	jp	00116$
+   09EE                    2344 00118$:
+                     09EE  2345 	C$game.c$649$2_0$128	= .
+                           2346 	.globl	C$game.c$649$2_0$128
+                           2347 ;game.c:649: }
+   09EE DD F9         [10] 2348 	ld	sp, ix
+   09F0 DD E1         [14] 2349 	pop	ix
+                     09F2  2350 	C$game.c$649$2_0$128	= .
+                           2351 	.globl	C$game.c$649$2_0$128
+                     09F2  2352 	XG$game_displayLevel$0$0	= .
+                           2353 	.globl	XG$game_displayLevel$0$0
+   09F2 C9            [10] 2354 	ret
+                     09F3  2355 	G$game_displayMinimap$0$0	= .
+                           2356 	.globl	G$game_displayMinimap$0$0
+                     09F3  2357 	C$game.c$651$2_0$136	= .
+                           2358 	.globl	C$game.c$651$2_0$136
+                           2359 ;game.c:651: void game_displayMinimap(void) {
+                           2360 ;	---------------------------------
+                           2361 ; Function game_displayMinimap
+                           2362 ; ---------------------------------
+   09F3                    2363 _game_displayMinimap::
+   09F3 DD E5         [15] 2364 	push	ix
+   09F5 DD 21 00 00   [14] 2365 	ld	ix,#0
+   09F9 DD 39         [15] 2366 	add	ix,sp
+   09FB F5            [11] 2367 	push	af
+   09FC F5            [11] 2368 	push	af
+                     09FD  2369 	C$game.c$655$1_0$136	= .
+                           2370 	.globl	C$game.c$655$1_0$136
+                           2371 ;game.c:655: uint8_t currentlevel_width = currentlevel.width; // compiler bug later on
+   09FD 21r30r06      [10] 2372 	ld	hl, #_currentlevel + 2
+   0A00 5E            [ 7] 2373 	ld	e, (hl)
+   0A01 DD 73 FE      [19] 2374 	ld	-2 (ix), e
+                     0A04  2375 	C$game.c$656$1_0$136	= .
+                           2376 	.globl	C$game.c$656$1_0$136
+                           2377 ;game.c:656: uint8_t currentlevel_height = currentlevel.height; // compiler bug later on
+   0A04 21r31r06      [10] 2378 	ld	hl, #_currentlevel + 3
+   0A07 4E            [ 7] 2379 	ld	c, (hl)
+   0A08 DD 71 FF      [19] 2380 	ld	-1 (ix), c
+                     0A0B  2381 	C$game.c$659$1_0$136	= .
+                           2382 	.globl	C$game.c$659$1_0$136
+                           2383 ;game.c:659: xstart = (((MAXWIDTH - currentlevel.width) / 2) * MINIMAP_WIDTH) + MINIMAP_XSTART;
+   0A0B 16 00         [ 7] 2384 	ld	d, #0x00
+   0A0D 21 14 00      [10] 2385 	ld	hl, #0x0014
+   0A10 BF            [ 4] 2386 	cp	a, a
+   0A11 ED 52         [15] 2387 	sbc	hl, de
+   0A13 7C            [ 4] 2388 	ld	a, h
+   0A14 07            [ 4] 2389 	rlca
+   0A15 E6 01         [ 7] 2390 	and	a,#0x01
+                     0A17  2391 	C$game.c$660$1_0$136	= .
+                           2392 	.globl	C$game.c$660$1_0$136
+                           2393 ;game.c:660: ystart = (((MAXHEIGHT - currentlevel.height) / 2) * MINIMAP_HEIGHT) + MINIMAP_YSTART;
+   0A17 06 00         [ 7] 2394 	ld	b, #0x00
+   0A19 21 0F 00      [10] 2395 	ld	hl, #0x000f
+   0A1C BF            [ 4] 2396 	cp	a, a
+   0A1D ED 42         [15] 2397 	sbc	hl, bc
+   0A1F 7C            [ 4] 2398 	ld	a, h
+   0A20 07            [ 4] 2399 	rlca
+   0A21 E6 01         [ 7] 2400 	and	a,#0x01
+                     0A23  2401 	C$game.c$663$5_0$140	= .
+                           2402 	.globl	C$game.c$663$5_0$140
+                           2403 ;game.c:663: for(height = 0; height < currentlevel_height; height++)	{
+   0A23 11 00 00      [10] 2404 	ld	de, #0x0000
+   0A26                    2405 00116$:
+   0A26 DD 4E FF      [19] 2406 	ld	c, -1 (ix)
+   0A29 06 00         [ 7] 2407 	ld	b, #0x00
+   0A2B 7B            [ 4] 2408 	ld	a, e
+   0A2C 91            [ 4] 2409 	sub	a, c
+   0A2D 7A            [ 4] 2410 	ld	a, d
+   0A2E 98            [ 4] 2411 	sbc	a, b
+   0A2F 30 33         [12] 2412 	jr	NC,00118$
+                     0A31  2413 	C$game.c$665$5_0$140	= .
+                           2414 	.globl	C$game.c$665$5_0$140
+                           2415 ;game.c:665: for(width = 0; width < currentlevel_width; width++) {
+   0A31 D5            [11] 2416 	push	de
+   0A32 6B            [ 4] 2417 	ld	l, e
+   0A33 62            [ 4] 2418 	ld	h, d
+   0A34 29            [11] 2419 	add	hl, hl
+   0A35 29            [11] 2420 	add	hl, hl
+   0A36 19            [11] 2421 	add	hl, de
+   0A37 29            [11] 2422 	add	hl, hl
+   0A38 29            [11] 2423 	add	hl, hl
+   0A39 D1            [10] 2424 	pop	de
+   0A3A 01r35r06      [10] 2425 	ld	bc,#(_currentlevel + 0x0007)
+   0A3D 09            [11] 2426 	add	hl,bc
+   0A3E E3            [19] 2427 	ex	(sp), hl
+   0A3F 01 00 00      [10] 2428 	ld	bc, #0x0000
+   0A42                    2429 00113$:
+   0A42 DD 6E FE      [19] 2430 	ld	l, -2 (ix)
+   0A45 26 00         [ 7] 2431 	ld	h, #0x00
+   0A47 79            [ 4] 2432 	ld	a, c
+   0A48 95            [ 4] 2433 	sub	a, l
+   0A49 78            [ 4] 2434 	ld	a, b
+   0A4A 9C            [ 4] 2435 	sbc	a, h
+   0A4B 30 14         [12] 2436 	jr	NC,00110$
+                     0A4D  2437 	C$game.c$666$5_0$140	= .
+                           2438 	.globl	C$game.c$666$5_0$140
+                           2439 ;game.c:666: c = currentlevel.data[height][width];
+   0A4D E1            [10] 2440 	pop	hl
+   0A4E E5            [11] 2441 	push	hl
+   0A4F 09            [11] 2442 	add	hl, bc
+   0A50 7E            [ 7] 2443 	ld	a, (hl)
+                     0A51  2444 	C$game.c$667$5_0$140	= .
+                           2445 	.globl	C$game.c$667$5_0$140
+                           2446 ;game.c:667: switch(c) {
+   0A51 FE 20         [ 7] 2447 	cp	a, #0x20
+   0A53 28 09         [12] 2448 	jr	Z,00109$
+   0A55 FE 23         [ 7] 2449 	cp	a, #0x23
+   0A57 28 05         [12] 2450 	jr	Z,00109$
+   0A59 D6 24         [ 7] 2451 	sub	a, #0x24
+   0A5B 28 01         [12] 2452 	jr	Z,00169$
+   0A5D AF            [ 4] 2453 	xor	a,a
+   0A5E                    2454 00169$:
+                     0A5E  2455 	C$game.c$692$5_0$140	= .
+                           2456 	.globl	C$game.c$692$5_0$140
+                           2457 ;game.c:692: }
+   0A5E                    2458 00109$:
+                     0A5E  2459 	C$game.c$665$4_0$139	= .
+                           2460 	.globl	C$game.c$665$4_0$139
+                           2461 ;game.c:665: for(width = 0; width < currentlevel_width; width++) {
+   0A5E 03            [ 6] 2462 	inc	bc
+   0A5F 18 E1         [12] 2463 	jr	00113$
+   0A61                    2464 00110$:
+                     0A61  2465 	C$game.c$663$2_0$137	= .
+                           2466 	.globl	C$game.c$663$2_0$137
+                           2467 ;game.c:663: for(height = 0; height < currentlevel_height; height++)	{
+   0A61 13            [ 6] 2468 	inc	de
+   0A62 18 C2         [12] 2469 	jr	00116$
+   0A64                    2470 00118$:
+                     0A64  2471 	C$game.c$697$2_0$136	= .
+                           2472 	.globl	C$game.c$697$2_0$136
+                           2473 ;game.c:697: }
+   0A64 DD F9         [10] 2474 	ld	sp, ix
+   0A66 DD E1         [14] 2475 	pop	ix
+                     0A68  2476 	C$game.c$697$2_0$136	= .
+                           2477 	.globl	C$game.c$697$2_0$136
+                     0A68  2478 	XG$game_displayMinimap$0$0	= .
+                           2479 	.globl	XG$game_displayMinimap$0$0
+   0A68 C9            [10] 2480 	ret
+                     0A69  2481 	G$game_initLevel$0$0	= .
+                           2482 	.globl	G$game_initLevel$0$0
+                     0A69  2483 	C$game.c$699$2_0$143	= .
+                           2484 	.globl	C$game.c$699$2_0$143
+                           2485 ;game.c:699: void game_initLevel(uint8_t levelid) {
+                           2486 ;	---------------------------------
+                           2487 ; Function game_initLevel
+                           2488 ; ---------------------------------
+   0A69                    2489 _game_initLevel::
+   0A69 DD E5         [15] 2490 	push	ix
+   0A6B DD 21 00 00   [14] 2491 	ld	ix,#0
+   0A6F DD 39         [15] 2492 	add	ix,sp
+                     0A71  2493 	C$game.c$700$1_0$143	= .
+                           2494 	.globl	C$game.c$700$1_0$143
+                           2495 ;game.c:700: memset(&currentlevel, 0, sizeof(struct sokobanlevel));
+   0A71 11r2Er06      [10] 2496 	ld	de, #_currentlevel+0
+   0A74 6B            [ 4] 2497 	ld	l, e
+   0A75 62            [ 4] 2498 	ld	h, d
+   0A76 06 9A         [ 7] 2499 	ld	b, #0x9a
+   0A78 18 03         [12] 2500 	jr	00104$
+   0A7A                    2501 00103$:
+   0A7A 36 00         [10] 2502 	ld	(hl), #0x00
+   0A7C 23            [ 6] 2503 	inc	hl
+   0A7D                    2504 00104$:
+   0A7D 36 00         [10] 2505 	ld	(hl), #0x00
+   0A7F 23            [ 6] 2506 	inc	hl
+   0A80 10 F8         [13] 2507 	djnz	00103$
+                     0A82  2508 	C$game.c$701$1_0$143	= .
+                           2509 	.globl	C$game.c$701$1_0$143
+                           2510 ;game.c:701: memcpy(&currentlevel, (void*)(LEVELDATA+(sizeof(struct sokobanlevel))*levelid), sizeof(struct sokobanlevel));
+   0A82 DD 4E 04      [19] 2511 	ld	c, 4 (ix)
+   0A85 06 00         [ 7] 2512 	ld	b, #0x00
+   0A87 69            [ 4] 2513 	ld	l, c
+   0A88 60            [ 4] 2514 	ld	h, b
+   0A89 29            [11] 2515 	add	hl, hl
+   0A8A 29            [11] 2516 	add	hl, hl
+   0A8B 29            [11] 2517 	add	hl, hl
+   0A8C 09            [11] 2518 	add	hl, bc
+   0A8D 29            [11] 2519 	add	hl, hl
+   0A8E 09            [11] 2520 	add	hl, bc
+   0A8F 29            [11] 2521 	add	hl, hl
+   0A90 29            [11] 2522 	add	hl, hl
+   0A91 29            [11] 2523 	add	hl, hl
+   0A92 09            [11] 2524 	add	hl, bc
+   0A93 29            [11] 2525 	add	hl, hl
+   0A94 09            [11] 2526 	add	hl, bc
+   0A95 01 33 01      [10] 2527 	ld	bc, #0x0133
+   0A98 ED B0         [21] 2528 	ldir
+                     0A9A  2529 	C$game.c$703$1_0$143	= .
+                           2530 	.globl	C$game.c$703$1_0$143
+                           2531 ;game.c:703: undo_head = 0;
+   0A9A 21r00r01      [10] 2532 	ld	hl,#_undo_head + 0
+   0A9D 36 00         [10] 2533 	ld	(hl), #0x00
+                     0A9F  2534 	C$game.c$704$1_0$143	= .
+                           2535 	.globl	C$game.c$704$1_0$143
+                           2536 ;game.c:704: num_undomoves = 0;
+   0A9F 21r01r01      [10] 2537 	ld	hl,#_num_undomoves + 0
+   0AA2 36 00         [10] 2538 	ld	(hl), #0x00
+                     0AA4  2539 	C$game.c$705$1_0$143	= .
+                           2540 	.globl	C$game.c$705$1_0$143
+                           2541 ;game.c:705: }
+   0AA4 DD E1         [14] 2542 	pop	ix
+                     0AA6  2543 	C$game.c$705$1_0$143	= .
+                           2544 	.globl	C$game.c$705$1_0$143
+                     0AA6  2545 	XG$game_initLevel$0$0	= .
+                           2546 	.globl	XG$game_initLevel$0$0
+   0AA6 C9            [10] 2547 	ret
+                           2548 	.area _CODE
+                           2549 	.area _INITIALIZER
+                     0000  2550 Fgame$__xinit_player_data$0_0$0 == .
+   0000                    2551 __xinit__player_data:
+   0000 01                 2552 	.db #0x01	; 1
+   0001 03                 2553 	.db #0x03	; 3
+   0002 04                 2554 	.db #0x04	; 4
+   0003 0A                 2555 	.db #0x0a	; 10
+   0004 08                 2556 	.db #0x08	; 8
+   0005 05                 2557 	.db #0x05	; 5
+   0006 04                 2558 	.db #0x04	; 4
+   0007 03                 2559 	.db #0x03	; 3
+   0008 80                 2560 	.db #0x80	; 128
+   0009 C0                 2561 	.db #0xc0	; 192
+   000A 20                 2562 	.db #0x20	; 32
+   000B 50                 2563 	.db #0x50	; 80	'P'
+   000C 10                 2564 	.db #0x10	; 16
+   000D A0                 2565 	.db #0xa0	; 160
+   000E 20                 2566 	.db #0x20	; 32
+   000F C0                 2567 	.db #0xc0	; 192
+   0010 06                 2568 	.db #0x06	; 6
+   0011 0F                 2569 	.db #0x0f	; 15
+   0012 0E                 2570 	.db #0x0e	; 14
+   0013 1B                 2571 	.db #0x1b	; 27
+   0014 03                 2572 	.db #0x03	; 3
+   0015 02                 2573 	.db #0x02	; 2
+   0016 06                 2574 	.db #0x06	; 6
+   0017 0E                 2575 	.db #0x0e	; 14
+   0018 60                 2576 	.db #0x60	; 96
+   0019 F0                 2577 	.db #0xf0	; 240
+   001A 70                 2578 	.db #0x70	; 112	'p'
+   001B D8                 2579 	.db #0xd8	; 216
+   001C C0                 2580 	.db #0xc0	; 192
+   001D 40                 2581 	.db #0x40	; 64
+   001E 60                 2582 	.db #0x60	; 96
+   001F 70                 2583 	.db #0x70	; 112	'p'
+                     0020  2584 Fgame$__xinit_box_data$0_0$0 == .
+   0020                    2585 __xinit__box_data:
+   0020 00                 2586 	.db #0x00	; 0
+   0021 77                 2587 	.db #0x77	; 119	'w'
+   0022 48                 2588 	.db #0x48	; 72	'H'
+   0023 44                 2589 	.db #0x44	; 68	'D'
+   0024 22                 2590 	.db #0x22	; 34
+   0025 51                 2591 	.db #0x51	; 81	'Q'
+   0026 48                 2592 	.db #0x48	; 72	'H'
+   0027 44                 2593 	.db #0x44	; 68	'D'
+   0028 00                 2594 	.db #0x00	; 0
+   0029 EE                 2595 	.db #0xee	; 238
+   002A 12                 2596 	.db #0x12	; 18
+   002B 22                 2597 	.db #0x22	; 34
+   002C 44                 2598 	.db #0x44	; 68	'D'
+   002D 8A                 2599 	.db #0x8a	; 138
+   002E 12                 2600 	.db #0x12	; 18
+   002F 22                 2601 	.db #0x22	; 34
+   0030 44                 2602 	.db #0x44	; 68	'D'
+   0031 48                 2603 	.db #0x48	; 72	'H'
+   0032 51                 2604 	.db #0x51	; 81	'Q'
+   0033 22                 2605 	.db #0x22	; 34
+   0034 44                 2606 	.db #0x44	; 68	'D'
+   0035 48                 2607 	.db #0x48	; 72	'H'
+   0036 77                 2608 	.db #0x77	; 119	'w'
+   0037 00                 2609 	.db #0x00	; 0
+   0038 22                 2610 	.db #0x22	; 34
+   0039 12                 2611 	.db #0x12	; 18
+   003A 8A                 2612 	.db #0x8a	; 138
+   003B 44                 2613 	.db #0x44	; 68	'D'
+   003C 22                 2614 	.db #0x22	; 34
+   003D 12                 2615 	.db #0x12	; 18
+   003E EE                 2616 	.db #0xee	; 238
+   003F 00                 2617 	.db #0x00	; 0
+                     0040  2618 Fgame$__xinit_goal_data$0_0$0 == .
+   0040                    2619 __xinit__goal_data:
+   0040 00                 2620 	.db #0x00	; 0
+   0041 00                 2621 	.db #0x00	; 0
+   0042 04                 2622 	.db #0x04	; 4
+   0043 02                 2623 	.db #0x02	; 2
+   0044 01                 2624 	.db #0x01	; 1
+   0045 20                 2625 	.db #0x20	; 32
+   0046 10                 2626 	.db #0x10	; 16
+   0047 09                 2627 	.db #0x09	; 9
+   0048 00                 2628 	.db #0x00	; 0
+   0049 00                 2629 	.db #0x00	; 0
+   004A 20                 2630 	.db #0x20	; 32
+   004B 40                 2631 	.db #0x40	; 64
+   004C 80                 2632 	.db #0x80	; 128
+   004D 04                 2633 	.db #0x04	; 4
+   004E 08                 2634 	.db #0x08	; 8
+   004F 90                 2635 	.db #0x90	; 144
+   0050 09                 2636 	.db #0x09	; 9
+   0051 10                 2637 	.db #0x10	; 16
+   0052 20                 2638 	.db #0x20	; 32
+   0053 01                 2639 	.db #0x01	; 1
+   0054 02                 2640 	.db #0x02	; 2
+   0055 04                 2641 	.db #0x04	; 4
+   0056 00                 2642 	.db #0x00	; 0
+   0057 00                 2643 	.db #0x00	; 0
+   0058 90                 2644 	.db #0x90	; 144
+   0059 08                 2645 	.db #0x08	; 8
+   005A 04                 2646 	.db #0x04	; 4
+   005B 80                 2647 	.db #0x80	; 128
+   005C 40                 2648 	.db #0x40	; 64
+   005D 20                 2649 	.db #0x20	; 32
+   005E 00                 2650 	.db #0x00	; 0
+   005F 00                 2651 	.db #0x00	; 0
+                     0060  2652 Fgame$__xinit_box_ongoal_data$0_0$0 == .
+   0060                    2653 __xinit__box_ongoal_data:
+   0060 00                 2654 	.db #0x00	; 0
+   0061 77                 2655 	.db #0x77	; 119	'w'
+   0062 68                 2656 	.db #0x68	; 104	'h'
+   0063 54                 2657 	.db #0x54	; 84	'T'
+   0064 2A                 2658 	.db #0x2a	; 42
+   0065 55                 2659 	.db #0x55	; 85	'U'
+   0066 4A                 2660 	.db #0x4a	; 74	'J'
+   0067 45                 2661 	.db #0x45	; 69	'E'
+   0068 00                 2662 	.db #0x00	; 0
+   0069 EE                 2663 	.db #0xee	; 238
+   006A 16                 2664 	.db #0x16	; 22
+   006B 2A                 2665 	.db #0x2a	; 42
+   006C 54                 2666 	.db #0x54	; 84	'T'
+   006D AA                 2667 	.db #0xaa	; 170
+   006E 52                 2668 	.db #0x52	; 82	'R'
+   006F A2                 2669 	.db #0xa2	; 162
+   0070 45                 2670 	.db #0x45	; 69	'E'
+   0071 4A                 2671 	.db #0x4a	; 74	'J'
+   0072 55                 2672 	.db #0x55	; 85	'U'
+   0073 2A                 2673 	.db #0x2a	; 42
+   0074 54                 2674 	.db #0x54	; 84	'T'
+   0075 68                 2675 	.db #0x68	; 104	'h'
+   0076 77                 2676 	.db #0x77	; 119	'w'
+   0077 00                 2677 	.db #0x00	; 0
+   0078 A2                 2678 	.db #0xa2	; 162
+   0079 52                 2679 	.db #0x52	; 82	'R'
+   007A AA                 2680 	.db #0xaa	; 170
+   007B 54                 2681 	.db #0x54	; 84	'T'
+   007C 2A                 2682 	.db #0x2a	; 42
+   007D 16                 2683 	.db #0x16	; 22
+   007E EE                 2684 	.db #0xee	; 238
+   007F 00                 2685 	.db #0x00	; 0
+                     0080  2686 Fgame$__xinit_wall_data$0_0$0 == .
+   0080                    2687 __xinit__wall_data:
+   0080 F7                 2688 	.db #0xf7	; 247
+   0081 F7                 2689 	.db #0xf7	; 247
+   0082 F7                 2690 	.db #0xf7	; 247
+   0083 00                 2691 	.db #0x00	; 0
+   0084 7F                 2692 	.db #0x7f	; 127
+   0085 7F                 2693 	.db #0x7f	; 127
+   0086 7F                 2694 	.db #0x7f	; 127
+   0087 00                 2695 	.db #0x00	; 0
+   0088 F7                 2696 	.db #0xf7	; 247
+   0089 F7                 2697 	.db #0xf7	; 247
+   008A F7                 2698 	.db #0xf7	; 247
+   008B 00                 2699 	.db #0x00	; 0
+   008C 7F                 2700 	.db #0x7f	; 127
+   008D 7F                 2701 	.db #0x7f	; 127
+   008E 7F                 2702 	.db #0x7f	; 127
+   008F 00                 2703 	.db #0x00	; 0
+   0090 F7                 2704 	.db #0xf7	; 247
+   0091 F7                 2705 	.db #0xf7	; 247
+   0092 F7                 2706 	.db #0xf7	; 247
+   0093 00                 2707 	.db #0x00	; 0
+   0094 7F                 2708 	.db #0x7f	; 127
+   0095 7F                 2709 	.db #0x7f	; 127
+   0096 7F                 2710 	.db #0x7f	; 127
+   0097 00                 2711 	.db #0x00	; 0
+   0098 F7                 2712 	.db #0xf7	; 247
+   0099 F7                 2713 	.db #0xf7	; 247
+   009A F7                 2714 	.db #0xf7	; 247
+   009B 00                 2715 	.db #0x00	; 0
+   009C 7F                 2716 	.db #0x7f	; 127
+   009D 7F                 2717 	.db #0x7f	; 127
+   009E 7F                 2718 	.db #0x7f	; 127
+   009F 00                 2719 	.db #0x00	; 0
+                     00A0  2720 Fgame$__xinit_floor_data$0_0$0 == .
+   00A0                    2721 __xinit__floor_data:
+   00A0 00                 2722 	.db #0x00	; 0
+   00A1 00                 2723 	.db #0x00	; 0
+   00A2 00                 2724 	.db #0x00	; 0
+   00A3 00                 2725 	.db #0x00	; 0
+   00A4 00                 2726 	.db #0x00	; 0
+   00A5 00                 2727 	.db #0x00	; 0
+   00A6 00                 2728 	.db #0x00	; 0
+   00A7 00                 2729 	.db #0x00	; 0
+   00A8 00                 2730 	.db #0x00	; 0
+   00A9 00                 2731 	.db #0x00	; 0
+   00AA 00                 2732 	.db #0x00	; 0
+   00AB 00                 2733 	.db #0x00	; 0
+   00AC 00                 2734 	.db #0x00	; 0
+   00AD 00                 2735 	.db #0x00	; 0
+   00AE 00                 2736 	.db #0x00	; 0
+   00AF 00                 2737 	.db #0x00	; 0
+   00B0 00                 2738 	.db #0x00	; 0
+   00B1 00                 2739 	.db #0x00	; 0
+   00B2 00                 2740 	.db #0x00	; 0
+   00B3 00                 2741 	.db #0x00	; 0
+   00B4 00                 2742 	.db #0x00	; 0
+   00B5 00                 2743 	.db #0x00	; 0
+   00B6 00                 2744 	.db #0x00	; 0
+   00B7 00                 2745 	.db #0x00	; 0
+   00B8 00                 2746 	.db #0x00	; 0
+   00B9 00                 2747 	.db #0x00	; 0
+   00BA 00                 2748 	.db #0x00	; 0
+   00BB 00                 2749 	.db #0x00	; 0
+   00BC 00                 2750 	.db #0x00	; 0
+   00BD 00                 2751 	.db #0x00	; 0
+   00BE 00                 2752 	.db #0x00	; 0
+   00BF 00                 2753 	.db #0x00	; 0
+                           2754 	.area _CABS (ABS)
