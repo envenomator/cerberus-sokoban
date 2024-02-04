@@ -455,6 +455,8 @@ void game_splash_screen() {
 	memcpy(ptr[11], ptr['u'], 8); // yellow u
 	memcpy(ptr[12], ptr['s'], 8); // cyan s
 	memcpy(ptr[13], ptr['e'], 8); // purple e
+	memcpy(ptr[17], ptr['e'], 8); // yellow e
+	memcpy(ptr[18], ptr['r'], 8); // cyan r
 	con_cls();
 
 	con_gotoxy(0,1);
@@ -473,8 +475,8 @@ void game_splash_screen() {
 	//con_puts("          v2.0 For Cerberus (TM)");
 	con_puts("          v2.0 ");
 	con_putc(8);
-	con_putc(13);
-	con_putc(9);
+	con_putc(17);
+	con_putc(18);
 	con_putc(10);
 	con_putc(13);
 	con_putc(9);
