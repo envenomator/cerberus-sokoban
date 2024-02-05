@@ -5,7 +5,6 @@
 #include <math.h>
 #include "sokobanprep.h"
 #define BUFFERSIZE 128
-
 #define DEBUG   0
 
 int getplayerpos(char *string);
@@ -16,8 +15,11 @@ void trim_validright(char *string, int length);     // replaces non-playfield ch
 void trim_validleft(char *string);      // replaces non-playfield characters at the left of the string to 0
 void purge_string(char *string, int length);
 void remove_lfcrchars(char *string);
-bool close_level(FILE *outptr, int levelwidth, int levelheight, bool playerfound, struct sokobanlevel *levelbuffer, int numlevels, int numlevels_valid);
+//bool close_level(FILE *outptr, int levelwidth, int levelheight, bool playerfound, struct sokobanlevel *levelbuffer, int numlevels, int numlevels_valid);
+bool close_level(int levelid, int levelwidth, int levelheight, bool playerfound, struct sokobanlevel *levelbuffer, int numlevels, int numlevels_valid);
 bool isLevelLine(char *string);
+
+struct sokobanlevel *levelarray;   // will point to dynamic memory
 
 int main(int argc, char *argv[])
 {
@@ -30,7 +32,8 @@ int main(int argc, char *argv[])
     int n;
     int playerpos;
     bool playerfound;
-    int numlevels, numlevels_valid;
+    int numlevels;
+    uint16_t numlevels_valid;
 
     FILE *fptr,*outptr;
     
@@ -39,16 +42,24 @@ int main(int argc, char *argv[])
         printf("Usage:\n\nsokobanprep inputfile outputfile\n");
         exit(1);
     }
+
+    levelarray = (struct sokobanlevel *)malloc(MAXLEVELS * sizeof(struct sokobanlevel));
+    if(levelarray == NULL) {
+        printf("Error allocating memory for buffer\n");
+        exit(1);
+    }
     fptr = fopen(argv[1],"r");
     if(fptr == NULL)
     {
         printf("Error opening \"%s\"\n",argv[1]);   
+        free(levelarray);
         exit(1);             
     }
     outptr = fopen(argv[2],"wb");
     if(outptr == NULL)
     {
         printf("Error opening \"%s\"\n",argv[2]);
+        free(levelarray);
         fclose(fptr);
         exit(1);
     }
@@ -106,7 +117,7 @@ int main(int argc, char *argv[])
         {
             if(levelline)
             {
-                if(close_level(outptr, levelwidth, levelheight, playerfound, &levelbuffer, numlevels, numlevels_valid)) numlevels_valid++;
+                if(close_level(numlevels_valid, levelwidth, levelheight, playerfound, &levelbuffer, numlevels, numlevels_valid)) numlevels_valid++;
                 numlevels++;
                 // reset for next level(s)
                 memset(&levelbuffer, 0, sizeof(struct sokobanlevel));        // clear out level before start
@@ -118,15 +129,78 @@ int main(int argc, char *argv[])
             // ignore comment line
         }
         memset(&linebuffer, 0, BUFFERSIZE); // clear out linebuffer for next line
+        if(numlevels_valid == MAXLEVELS) break;
     }
     // done
-    if(levelline)
+    if((levelline) && (numlevels_valid < MAXLEVELS))
     {
         // close previous level, if valid
         {
-            if(close_level(outptr, levelwidth, levelheight, playerfound, &levelbuffer, numlevels, numlevels_valid)) numlevels_valid++;
+            if(close_level(numlevels_valid, levelwidth, levelheight, playerfound, &levelbuffer, numlevels, numlevels_valid)) numlevels_valid++;
             numlevels++;
         }
+    }
+
+    if(numlevels_valid >= MAXLEVELS) {
+        printf("Maximum levels (%d) reached\n", MAXLEVELS);
+    }
+
+    // Write number of valid levels to output
+    fwrite(&numlevels_valid, sizeof(uint16_t), 1, outptr);
+
+    // Write all levels metadata
+    for(n = 0; n < numlevels_valid; n++) {
+        struct sokobanlevel_info tmp;
+
+        tmp.xpos = levelarray[n].xpos;
+        tmp.ypos = levelarray[n].ypos;
+        tmp.width = levelarray[n].width;
+        tmp.height = levelarray[n].height;
+        tmp.goals = levelarray[n].goals;
+        tmp.goalstaken = levelarray[n].goalstaken;
+        tmp.crates = levelarray[n].crates;
+        tmp.datasize = 2 * levelarray[n].height; // each output 'line' has startpos & len, so 2 bytes per outputline
+
+        uint8_t *out = &levelarray[n].outputdata[0];
+        uint8_t *lineptr;
+        uint8_t startpos, lastpos;
+
+        for(levelheight = 0; levelheight < levelarray[n].height; levelheight++) {
+            lineptr = &levelarray[n].data[levelheight][0];
+            
+            bool foundfirstposition = false;
+            startpos = 0;
+            lastpos = 0;
+            for(levelwidth = 0; levelwidth < levelarray[n].width; levelwidth++) {
+                if(*lineptr != 0) { // non-floor tile
+                    if(!foundfirstposition) { // mark first found position
+                        startpos = levelwidth;
+                    }
+                    foundfirstposition = true;
+                    lastpos = levelwidth;
+                }
+                lineptr++;
+            }
+            lineptr = &levelarray[n].data[levelheight][startpos];
+            *out++ = startpos;
+
+            uint8_t len = lastpos - startpos + 1; // length of data
+            *out++ = len;
+            
+            while(len--) {
+                *out++ = *lineptr++;
+                tmp.datasize++;
+            }
+        }
+        levelarray[n].datasize = tmp.datasize; // update size in memory for this level
+        // write metadata for this level
+        fwrite(&tmp, sizeof(struct sokobanlevel_info),1, outptr);
+    }
+
+    // Write data for all levels in compressed form
+    for(n = 0; n < numlevels_valid; n++) {
+        fwrite(&levelarray[n].outputdata, levelarray[n].datasize, 1, outptr);
+        printf("Level %02d - size %03d\n", n, levelarray[n].datasize);
     }
 
     printf("%d Total levels present, %d error levels\n", numlevels, numlevels - numlevels_valid);
@@ -135,6 +209,7 @@ int main(int argc, char *argv[])
 
     fclose(fptr);
     fclose(outptr);
+    free(levelarray);
     exit(EXIT_SUCCESS);
 }
 
@@ -257,14 +332,16 @@ void remove_lfcrchars(char *string)
     }
 }
 
-bool close_level(FILE *outptr, int levelwidth, int levelheight, bool playerfound, struct sokobanlevel *levelbuffer, int numlevels, int numlevels_valid)
+//bool close_level(FILE *outptr, int levelwidth, int levelheight, bool playerfound, struct sokobanlevel *levelbuffer, int numlevels, int numlevels_valid)
+bool close_level(int levelid, int levelwidth, int levelheight, bool playerfound, struct sokobanlevel *levelbuffer, int numlevels, int numlevels_valid)
 {
     // output level, if valid
     if((levelwidth <= MAXWIDTH) && (levelheight <= MAXHEIGHT) && (playerfound) && (levelbuffer->goals) && (levelbuffer->crates) && (levelbuffer->goals <= levelbuffer->crates))
     {
         levelbuffer->width = levelwidth;
         levelbuffer->height = levelheight;
-        fwrite(levelbuffer, sizeof(struct sokobanlevel),1, outptr);
+        //fwrite(levelbuffer, sizeof(struct sokobanlevel),1, outptr);
+        memcpy(&levelarray[levelid], levelbuffer, sizeof(struct sokobanlevel));
         return true;
     }
     else // print error(s) for this level

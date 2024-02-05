@@ -5,11 +5,8 @@
 #include <math.h>
 #include "sokobanprep.h"
 
-#define BUFFERSIZE 128
-
-char linebuffer[BUFFERSIZE];
-
 struct sokobanlevel levelbuffer;
+struct sokobanlevel_info levelinfo[MAXLEVELS];
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +14,7 @@ int main(int argc, char *argv[])
     int x,y;
     int n;
     int level;
+    uint16_t levels;
     char c;
 
     if(argc <= 1)
@@ -32,28 +30,35 @@ int main(int argc, char *argv[])
     }
 
     level = 0;
-    while(1)
-    {
-        fread(&levelbuffer, sizeof(levelbuffer),1,fptr);
-        if(feof(fptr)) break;
-
+    fread(&levels, sizeof(uint16_t), 1, fptr);
+    printf("%d levels in file\n", levels);
+    for(level = 0; level < levels; level++) {
+        fread(&levelinfo[level], sizeof(struct sokobanlevel_info), 1, fptr);
+    }
+    for(level = 0; level < levels; level++) {
         printf("Level %d\n", level);
-        printf("Level width: %d, height: %d\n",levelbuffer.width, levelbuffer.height);
-        printf("Level  xpos: %d,   ypos: %d\n",levelbuffer.xpos, levelbuffer.ypos);
-        printf("Level goals: %d\n",levelbuffer.goals);
-        printf("Level goals taken: %d\n",levelbuffer.goalstaken);
-        printf("Level crates: %d\n",levelbuffer.crates);
+        printf("Level width: %d, height: %d\n",levelinfo[level].width, levelinfo[level].height);
+        printf("Level  xpos: %d,   ypos: %d\n",levelinfo[level].xpos, levelinfo[level].ypos);
+        printf("Level goals: %d\n",levelinfo[level].goals);
+        printf("Level goals taken: %d\n",levelinfo[level].goalstaken);
+        printf("Level crates: %d\n",levelinfo[level].crates);
         printf("Level data:\n");
-        for(y = 0; y < levelbuffer.height; y++)
+        
+        for(y = 0; y < levelinfo[level].height; y++)
         {
-            for(x = 0; x < levelbuffer.width; x++)
-            {
-                c = levelbuffer.data[y][x];
-                printf("%c",c?c:' ');
+            uint8_t startpos, len;
+            fread(&startpos, 1, 1, fptr);
+            fread(&len, 1, 1, fptr);
+            for(x = 0; x < startpos; x++) {
+                printf(" ");
+            }
+            while(len--) {
+                fread(&c, 1, 1, fptr);
+                printf("%c",c);
             }
             printf("\n");
         }
-        level++;
+        
     }
     fclose(fptr);
     exit(EXIT_SUCCESS);
