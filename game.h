@@ -24,22 +24,14 @@
 #define HELP_XPOS_GAME		30
 #define HELP_YPOS_GAME		13
 
-
-#define TILE_WALL				0
-#define TILE_PLAYER				1
-#define TILE_PLAYERONGOAL		2
-#define TILE_BOX				3
-#define TILE_BOXONGOAL			4
-#define TILE_GOAL				5
-#define TILE_FLOOR				6
-
-#define TILE_WALL_MINI			7
-#define TILE_PLAYER_MINI		8
-#define TILE_PLAYERONGOAL_MINI	9
-#define TILE_BOX_MINI			10
-#define TILE_BOXONGOAL_MINI		11
-#define TILE_GOAL_MINI			12
-#define TILE_FLOOR_MINI			13
+// Cerberus character IDs
+#define TILE_WALL				0	// white
+#define TILE_PLAYER				11	// yellow
+#define TILE_PLAYERONGOAL		13	// purple
+#define TILE_BOX				10	// blue
+#define TILE_BOXONGOAL			8	// green
+#define TILE_GOAL				12	// cyan
+#define TILE_FLOOR				4	// 'white'
 
 #define TILE_MINIMAP_CLEAR		14
 
@@ -63,6 +55,7 @@ struct undoitem
 	bool  pushed;	// an item was pushed in this move to potentially undo
 };
 
+uint16_t game_getNumLevels(const uint8_t* data);
 void print_playfieldText();
 uint8_t game_readLevels(char *filename);
 void game_sendTileData();

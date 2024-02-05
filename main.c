@@ -6,18 +6,72 @@
 #include "levels.h"
 
 int main(void) {
-	uint8_t levels;
+	uint16_t levels;
 	int16_t levelnumber = 0;
 	//bool quit;
 	bool ingame;
 	char key;
 
 	con_init();
-	game_splash_screen();
-	while(1);
-	levels = sizeof(levels) / sizeof(struct sokobanlevel);
+	//game_splash_screen();
 	
+	//levels = game_getNumLevels(binarylevels);
+
 	game_sendTileData();		
+	
+	con_cls();
+	
+	con_gotoxy(4,0);
+	con_putc(TILE_WALL);
+	con_putc(TILE_WALL + 1);
+	con_gotoxy(4,1);
+	con_putc(TILE_WALL + 2);
+	con_putc(TILE_WALL + 3);
+
+	con_gotoxy(8,0);
+	con_putc(TILE_FLOOR);
+	con_putc(TILE_FLOOR + 1);
+	con_gotoxy(8,1);
+	con_putc(TILE_FLOOR + 2);
+	con_putc(TILE_FLOOR + 3);
+
+	con_gotoxy(12,0);
+	con_putc(TILE_PLAYER);
+	con_putc(TILE_PLAYER + 6);
+	con_gotoxy(12,1);
+	con_putc(TILE_PLAYER + 12);
+	con_putc(TILE_PLAYER + 18);
+
+	con_gotoxy(16,0);
+	con_putc(TILE_PLAYERONGOAL);
+	con_putc(TILE_PLAYERONGOAL + 6);
+	con_gotoxy(16,1);
+	con_putc(TILE_PLAYERONGOAL + 12);
+	con_putc(TILE_PLAYERONGOAL + 18);
+	
+	con_gotoxy(20,0);
+	con_putc(TILE_BOX);
+	con_putc(TILE_BOX + 6);
+	con_gotoxy(20,1);
+	con_putc(TILE_BOX + 12);
+	con_putc(TILE_BOX + 18);
+
+	con_gotoxy(24,0);
+	con_putc(TILE_BOXONGOAL);
+	con_putc(TILE_BOXONGOAL + 6);
+	con_gotoxy(24,1);
+	con_putc(TILE_BOXONGOAL + 12);
+	con_putc(TILE_BOXONGOAL + 18);
+
+	con_gotoxy(28,0);
+	con_putc(TILE_GOAL);
+	con_putc(TILE_GOAL + 6);
+	con_gotoxy(28,1);
+	con_putc(TILE_GOAL + 12);
+	con_putc(TILE_GOAL + 18);
+
+	while(1);
+
 	while(levelnumber >= 0) {
 		levelnumber = game_selectLevel(levels, levelnumber); // returns -1 if abort, or valid number between 0-(levels-1)
 		if(levelnumber >= 0) {
