@@ -4,6 +4,9 @@
 #include "game.h"
 #include "console.h"
 
+// These files are linked separately by SDCC, so we cannot include levels.h here
+extern const uint8_t binlevels[];
+
 struct undoitem undomove[UNDOBUFFERSIZE];
 uint8_t undo_head;
 uint8_t num_undomoves;
@@ -33,34 +36,29 @@ uint8_t floor_data[] = {
     0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0
 };
 
-uint16_t game_getNumLevels(const uint8_t* data) {
+uint16_t game_getNumLevels(void) {
 	uint16_t numlevels = 0;
 
 	// Number of levels in the header
-	memcpy(&numlevels, data, sizeof(uint16_t));
+	memcpy(&numlevels, binlevels, sizeof(uint16_t));
 	return numlevels;
 }
 
 
 void debug_print_playfieldText(void) {
-/*
-	uint16_t width, height;
+	uint16_t width, height, maxwidth, maxheight;
 	char c;
 	
-	for(height = 0; height < currentlevel.height; height++) {
-		for(width = 0; width < currentlevel.width; width++) {
+	con_cls();
+	maxwidth = currentlevel.width;
+	maxheight = currentlevel.height;
+	for(height = 0; height < maxheight; height++) {
+		con_gotoxy(0, height);
+		for(width = 0; width < maxwidth; width++) {
 			c = currentlevel.data[height][width];
-			printf("%c",c?c:' ');
+			con_putc(c);
 		}
-		printf(" ");
-		for(width = 0; width < currentlevel.width; width++) {
-			c = sprites[height][width] + '0';
-			if(c > '9') c = 'X';
-			printf("%c",c);
-		}
-		printf("\n\r");
 	}
-*/
 }
 
 void game_sendTileData(void) {
@@ -565,7 +563,7 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 	lvl = previouslevel;
 	
 	while(!selected) {
-		game_initLevel(lvl);			// initialize playing field data from memory or disk
+		game_initLevel(levels, lvl);			// initialize playing field data from memory or disk
 		//vdp_clearGraphics();
 		game_displayMinimap();			// display 'current' level
 
@@ -726,9 +724,49 @@ void game_displayMinimap(void) {
 	}
 }
 
-void game_initLevel(uint8_t levelid) {
+void game_initLevel(uint8_t levels, uint8_t levelid) {
+	uint8_t y;
+	uint8_t *ptr,*outptr;
+	struct sokobanlevel_info *sblptr;
+
 	memset(&currentlevel, 0, sizeof(struct sokobanlevel));
-	memcpy(&currentlevel, (void*)(LEVELDATA+(sizeof(struct sokobanlevel))*levelid), sizeof(struct sokobanlevel));
+	// copy over level information
+	sblptr = (struct sokobanlevel_info *)&binlevels[2]; // just after the uint16_t levels number
+	currentlevel.xpos = sblptr[levelid].xpos;
+	currentlevel.ypos = sblptr[levelid].ypos;
+	currentlevel.width = sblptr[levelid].width;
+	currentlevel.height = sblptr[levelid].height;
+	currentlevel.goals = sblptr[levelid].goalstaken;
+	currentlevel.goalstaken = sblptr[levelid].goalstaken;
+	currentlevel.crates = sblptr[levelid].crates;
+	currentlevel.datasize = sblptr[levelid].datasize;
+
+	// decode run-length encoded level data
+	ptr = (uint8_t *)&sblptr[levels]; // the first byte after the info array
+	for(uint8_t n = 0; n < levelid; n++) {
+		ptr += sblptr[n].datasize;	// advance to correct level data part
+	}
+	for(y = 0; y < currentlevel.height; y++)
+	{
+		uint8_t code;
+		uint8_t repeat = 1;
+
+		outptr = &currentlevel.data[y][0];
+		while(1) {
+			code = *ptr++;
+			if((code == 0) || (code & 0x80)) { // end-of-record or 'character' coded
+				while(repeat--) {
+					*outptr++ = code & 0x7f;
+				}
+				if(code == 0) break;
+				repeat = 1;
+			}
+			else { // 'repeat' coded
+				repeat = code;
+			}
+		}
+	}	
+
 	// initialize undo buffer
 	undo_head = 0;
 	num_undomoves = 0;

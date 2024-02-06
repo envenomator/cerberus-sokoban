@@ -55,12 +55,13 @@ struct undoitem
 	bool  pushed;	// an item was pushed in this move to potentially undo
 };
 
-uint16_t game_getNumLevels(const uint8_t* data);
+void debug_print_playfieldText(void);
+uint16_t game_getNumLevels(void);
 void print_playfieldText();
 uint8_t game_readLevels(char *filename);
 void game_sendTileData();
 
-void game_initLevel(uint8_t levelid);
+void game_initLevel(uint8_t levels, uint8_t levelid);
 void game_resetSprites(void);
 void game_displayLevel(void);
 void game_displayMinimap(void);

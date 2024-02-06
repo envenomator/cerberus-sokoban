@@ -63,26 +63,40 @@ void test_tiledata(void) {
 int main(void) {
 	uint16_t levels;
 	int16_t levelnumber = 0;
-	//bool quit;
 	bool ingame;
 	char key;
 
 	con_init();
 	//game_splash_screen();
 	
-	//levels = game_getNumLevels(binarylevels);
+	levels = game_getNumLevels();
 
 	game_sendTileData();		
-	
-	test_tiledata();
 
+	// DEBUG	
+	//test_tiledata();
+	uint8_t ans;
+	while(1) {
+		game_initLevel(levels, levelnumber);
+		debug_print_playfieldText();
+		ans = con_getc();
+		if(ans == KEY_DOWN) {
+			if(++levelnumber >= levels) levelnumber = 0;
+		}
+		if(ans == KEY_UP) {
+			if(--levelnumber < 0) levelnumber = 0;
+		}
+	}
+
+	while(1);
+	// DEBUG
 	while(levelnumber >= 0) {
 		levelnumber = game_selectLevel(levels, levelnumber); // returns -1 if abort, or valid number between 0-(levels-1)
 		if(levelnumber >= 0) {
 			// Start game
 			ingame = true;
 			con_cls();
-			game_initLevel(levelnumber);	// initialize playing field data from memory or disk
+			game_initLevel(levels, levelnumber);	// initialize playing field data from memory or disk
 			game_displayLevel();
 			while(ingame) {
 				key = con_getc();
