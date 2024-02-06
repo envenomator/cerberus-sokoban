@@ -77,17 +77,11 @@ int main(void) {
 	//test_tiledata();
 	uint8_t ans;
 	while(1) {
-		//game_initLevel(levels, levelnumber);
-		//con_cls();
-		//print_playfieldText(0,0);
-		//ans = con_getc();
-		//if(ans == KEY_DOWN) {
-		//	if(++levelnumber >= levels) levelnumber = 0;
-		//}
-		//if(ans == KEY_UP) {
-		//	if(--levelnumber < 0) levelnumber = 0;
-		//}
 		levelnumber = game_selectLevel(levels, levelnumber);
+		game_initLevel(levels, levelnumber);
+		game_sendTileData();
+		game_displayLevel();
+		while(1);
 	}
 
 	while(1);
@@ -99,6 +93,7 @@ int main(void) {
 			ingame = true;
 			con_cls();
 			game_initLevel(levels, levelnumber);	// initialize playing field data from memory or disk
+			game_sendTileData();
 			game_displayLevel();
 			while(ingame) {
 				key = con_getc();
@@ -106,14 +101,14 @@ int main(void) {
 					case 'q':
 					case 'Q':
 					case 27:
-						game_resetSprites();
+						//game_resetSprites();
 						ingame = (game_getResponse("Really QUIT level (y/n)?",'y','n') != 'y');
 						if(ingame) {
 							game_displayLevel();
 						}
 						break;
 					case 'h':
-						game_resetSprites();
+						//game_resetSprites();
 						con_cls();
 						game_displayHelp(HELP_XPOS_GAME, HELP_YPOS_GAME);
 						con_getc();
@@ -129,7 +124,7 @@ int main(void) {
 							levelnumber++;
 							if(levelnumber == levels) levelnumber = 0;
 							//delayms(200);
-							game_resetSprites();
+							//game_resetSprites();
 							game_getResponse("Level complete!",0xd,27);
 						}
 					break;
@@ -137,7 +132,6 @@ int main(void) {
 			}
 		}
 	}
-	puts("Thank you for playing Sokoban\r\n");
 	con_exit();
 	return 0;
 }

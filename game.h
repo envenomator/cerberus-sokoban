@@ -28,8 +28,8 @@
 #define TILE_WALL				0	// white
 #define TILE_PLAYER				11	// yellow
 #define TILE_PLAYERONGOAL		13	// purple
-#define TILE_BOX				10	// blue
-#define TILE_BOXONGOAL			8	// green
+#define TILE_BOX				8	// green
+#define TILE_BOXONGOAL			10	// blue
 #define TILE_GOAL				12	// cyan
 #define TILE_FLOOR				4	// 'white'
 

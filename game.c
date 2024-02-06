@@ -646,7 +646,69 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 	return lvl;
 }
 
+void displayTile(uint8_t tileid, uint8_t xpos, uint8_t ypos) {
+	uint8_t tilebase;
+	bool color = true;
+
+	switch(tileid) {
+		case CHAR_WALL:
+			tilebase = TILE_WALL;
+			color = false;
+			break;
+		case CHAR_PLAYER:
+			tilebase = TILE_PLAYER;
+			break;
+		case CHAR_PLAYERONGOAL:
+			tilebase = TILE_PLAYER;
+			break;
+		case CHAR_BOX:
+			tilebase = TILE_BOX;
+			break;
+		case CHAR_BOXONGOAL:
+			tilebase = TILE_BOXONGOAL;
+			break;
+		case CHAR_GOAL:
+			tilebase = TILE_GOAL;
+			break;
+		case 0:
+		case CHAR_FLOOR:
+			tilebase = TILE_FLOOR;
+			color = false;
+			break;
+	}
+	con_gotoxy(xpos,ypos);
+	con_putc(tilebase);
+	con_putc(tilebase + (color?6:1));
+
+	con_gotoxy(xpos, ypos + 1);
+	con_putc(tilebase + (color?12:2));
+	con_putc(tilebase + (color?18:3));
+}
+
 void game_displayLevel(void) {
+	// Paint the entire screen with central oriented level
+	uint8_t width, height;
+	uint8_t levelwidth, levelheight;
+	uint8_t xstart, ystart;
+	uint8_t screenxpos, screenypos;
+
+	xstart = ((MAXWIDTH - currentlevel.width) / 2);
+	ystart = ((MAXHEIGHT - currentlevel.height) / 2);
+
+	levelwidth = currentlevel.width;
+	levelheight = currentlevel.height;
+
+	con_cls();
+	for(height = 0; height < levelheight; height++) {
+		screenypos = ystart + (height << 1);
+		for(width = 0; width < levelwidth; width++) {
+			screenxpos = xstart + (width << 1);
+			displayTile(currentlevel.data[height][width], screenxpos, screenypos);
+		}
+	}
+}
+
+void game_displayLevel_old(void) {
 	uint16_t width, height;		// position in level GRID
 	uint16_t ystart,xstart,x,y;	// on-screen positions
 	char c;
