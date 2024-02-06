@@ -5,20 +5,7 @@
 #include "console.h"
 #include "levels.h"
 
-int main(void) {
-	uint16_t levels;
-	int16_t levelnumber = 0;
-	//bool quit;
-	bool ingame;
-	char key;
-
-	con_init();
-	//game_splash_screen();
-	
-	//levels = game_getNumLevels(binarylevels);
-
-	game_sendTileData();		
-	
+void test_tiledata(void) {
 	con_cls();
 	
 	con_gotoxy(4,0);
@@ -71,6 +58,23 @@ int main(void) {
 	con_putc(TILE_GOAL + 18);
 
 	while(1);
+}
+
+int main(void) {
+	uint16_t levels;
+	int16_t levelnumber = 0;
+	//bool quit;
+	bool ingame;
+	char key;
+
+	con_init();
+	//game_splash_screen();
+	
+	//levels = game_getNumLevels(binarylevels);
+
+	game_sendTileData();		
+	
+	test_tiledata();
 
 	while(levelnumber >= 0) {
 		levelnumber = game_selectLevel(levels, levelnumber); // returns -1 if abort, or valid number between 0-(levels-1)

@@ -1,3 +1,21 @@
+// LEVEL FORMAT
+// 2-byte UINT16_T  - Number of levels in file
+// number of levels * sizeof(struct sokobanlevel_info) bytes - Array of metadata for each level
+// Variable runlength encoded data per level, length encoded in '.datasize' member of sokobanlevel_info
+
+// Runlength encoding used:
+// 1 record per HEIGHT level line
+// Each record is terminated by a '0'
+// A single non-repeating game character (#,@,*,'.',' ') is encoded as-is
+// Repeating game characters are preceded by a one-byte number, followed by the character that is to be repeated
+// Trailing spaces are not encoded
+//
+// Line encoding examples:
+// " # @ #  " - encoded as 0xA0, 0xA3, 0xC0, 0xA0, 0xA3, 0x00
+// "###     " - encoded as 0x03, 0xA3, 0x00
+// "########" - encoded as 0x08, 0xA3, 0x00
+// "   @### " - encoded as 0x03, 0xA3, 0xC0, 0x03, 0xA3, 0x00
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -18,6 +36,9 @@ void remove_lfcrchars(char *string);
 //bool close_level(FILE *outptr, int levelwidth, int levelheight, bool playerfound, struct sokobanlevel *levelbuffer, int numlevels, int numlevels_valid);
 bool close_level(int levelid, int levelwidth, int levelheight, bool playerfound, struct sokobanlevel *levelbuffer, int numlevels, int numlevels_valid);
 bool isLevelLine(char *string);
+
+// convert input character to encoded byte
+uint8_t encodeCharacter(uint8_t c);
 
 struct sokobanlevel *levelarray;   // will point to dynamic memory
 
@@ -97,9 +118,9 @@ int main(int argc, char *argv[])
                 levelbuffer.goalstaken += get_takengoalsfromline(linebuffer);
                 levelbuffer.crates += get_cratesfromline(linebuffer);
 
-                // prepare line for output formatting, with leading and trailing 0's
+                // prepare line for output formatting, with leading spaces and trailing 0's
                 trim_validright(linebuffer, MAXWIDTH);
-                trim_validleft(linebuffer);
+                //trim_validleft(linebuffer);
                 // store line
                 for(n = 0; n < MAXWIDTH; n++) levelbuffer.data[levelheight][n] = linebuffer[n];
  
@@ -159,40 +180,49 @@ int main(int argc, char *argv[])
         tmp.goals = levelarray[n].goals;
         tmp.goalstaken = levelarray[n].goalstaken;
         tmp.crates = levelarray[n].crates;
-        tmp.datasize = 2 * levelarray[n].height; // each output 'line' has startpos & len, so 2 bytes per outputline
+        tmp.datasize = 0;
 
+        // format output data for each level
         uint8_t *out = &levelarray[n].outputdata[0];
         uint8_t *lineptr;
         uint8_t startpos, lastpos;
 
+        // Create run-time encoded datastructure for this level
         for(levelheight = 0; levelheight < levelarray[n].height; levelheight++) {
             lineptr = &levelarray[n].data[levelheight][0];
-            
-            bool foundfirstposition = false;
-            startpos = 0;
-            lastpos = 0;
-            for(levelwidth = 0; levelwidth < levelarray[n].width; levelwidth++) {
-                if(*lineptr != 0) { // non-floor tile
-                    if(!foundfirstposition) { // mark first found position
-                        startpos = levelwidth;
+            levelwidth = levelarray[n].width;
+            uint8_t lastchar = *lineptr;
+            uint8_t charcount = 0;
+            while(levelwidth--) {
+                if(*lineptr == lastchar) {
+                    charcount++;
+                }
+                else {
+                    if(charcount > 1) {
+                        *out++ = charcount;
+                        tmp.datasize++;
                     }
-                    foundfirstposition = true;
-                    lastpos = levelwidth;
+                    *out++ = encodeCharacter(lastchar);
+                    tmp.datasize++;
+                    //printf("line %02d - %2d x %c\n", levelheight, charcount, lastchar);
+
+                    lastchar = *lineptr;
+                    charcount = 1;
                 }
                 lineptr++;
             }
-            lineptr = &levelarray[n].data[levelheight][startpos];
-            *out++ = startpos;
-
-            uint8_t len = lastpos - startpos + 1; // length of data
-            *out++ = len;
-            
-            while(len--) {
-                *out++ = *lineptr++;
+            if(charcount > 1) {
+                *out++ = charcount;
                 tmp.datasize++;
             }
+            *out++ = encodeCharacter(lastchar);
+            *out++ = 0; // terminate line in output
+            tmp.datasize += 2;
+            //printf("line %02d - %2d x %c\n", levelheight, charcount, lastchar);
+
         }
         levelarray[n].datasize = tmp.datasize; // update size in memory for this level
+
         // write metadata for this level
         fwrite(&tmp, sizeof(struct sokobanlevel_info),1, outptr);
     }
@@ -211,6 +241,10 @@ int main(int argc, char *argv[])
     fclose(outptr);
     free(levelarray);
     exit(EXIT_SUCCESS);
+}
+
+uint8_t encodeCharacter(uint8_t c) {
+    return (c + 0x80);
 }
 
 int getplayerpos(char *string)
@@ -296,7 +330,7 @@ void trim_validright(char *string, int length)
     {
         c = string[n];
         if((c == '#') || (c == '@') || (c == '$') || (c == '.') || (c == '+') || (c == '*')) break; // valid character found. space is invalid outside the walls
-        string[n] = 0;
+        string[n] = ' ';
         n--;
     }
 }

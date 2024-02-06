@@ -44,17 +44,24 @@ int main(int argc, char *argv[])
         printf("Level crates: %d\n",levelinfo[level].crates);
         printf("Level data:\n");
         
+        // decode all line records in this level, sequentially from file
         for(y = 0; y < levelinfo[level].height; y++)
         {
-            uint8_t startpos, len;
-            fread(&startpos, 1, 1, fptr);
-            fread(&len, 1, 1, fptr);
-            for(x = 0; x < startpos; x++) {
-                printf(" ");
-            }
-            while(len--) {
-                fread(&c, 1, 1, fptr);
-                printf("%c",c);
+            uint8_t code;
+            uint8_t repeat = 1;
+
+            while(1) {
+                fread(&code, 1, 1, fptr);
+                if((code == 0) || (code & 0x80)) { // end-of-record or 'character' coded
+                    while(repeat--) {
+                        printf("%c", code & 0x7f);
+                    }
+                    if(code == 0) break;
+                    repeat = 1;
+                }
+                else { // 'repeat' coded
+                    repeat = code;
+                }
             }
             printf("\n");
         }
