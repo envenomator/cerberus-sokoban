@@ -77,15 +77,17 @@ int main(void) {
 	//test_tiledata();
 	uint8_t ans;
 	while(1) {
-		game_initLevel(levels, levelnumber);
-		debug_print_playfieldText();
-		ans = con_getc();
-		if(ans == KEY_DOWN) {
-			if(++levelnumber >= levels) levelnumber = 0;
-		}
-		if(ans == KEY_UP) {
-			if(--levelnumber < 0) levelnumber = 0;
-		}
+		//game_initLevel(levels, levelnumber);
+		//con_cls();
+		//print_playfieldText(0,0);
+		//ans = con_getc();
+		//if(ans == KEY_DOWN) {
+		//	if(++levelnumber >= levels) levelnumber = 0;
+		//}
+		//if(ans == KEY_UP) {
+		//	if(--levelnumber < 0) levelnumber = 0;
+		//}
+		levelnumber = game_selectLevel(levels, levelnumber);
 	}
 
 	while(1);

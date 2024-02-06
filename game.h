@@ -12,10 +12,10 @@
 #define BITMAPNUMBER	7
 #define BITMAP_WIDTH	16
 #define BITMAP_HEIGHT	16	
-#define MINIMAP_WIDTH	8
-#define MINIMAP_HEIGHT	8
-#define MINIMAP_XSTART	32
-#define MINIMAP_YSTART	92
+//#define MINIMAP_WIDTH	8
+//#define MINIMAP_HEIGHT	8
+#define MINIMAP_XSTART	20
+#define MINIMAP_YSTART	15
 
 #define BITMAPSIZE		(BITMAP_WIDTH*BITMAP_HEIGHT)
 
@@ -55,9 +55,8 @@ struct undoitem
 	bool  pushed;	// an item was pushed in this move to potentially undo
 };
 
-void debug_print_playfieldText(void);
+void print_playfieldText(uint8_t x, uint8_t y);
 uint16_t game_getNumLevels(void);
-void print_playfieldText();
 uint8_t game_readLevels(char *filename);
 void game_sendTileData();
 

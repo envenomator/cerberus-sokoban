@@ -45,15 +45,14 @@ uint16_t game_getNumLevels(void) {
 }
 
 
-void debug_print_playfieldText(void) {
+void print_playfieldText(uint8_t x, uint8_t y) {
 	uint16_t width, height, maxwidth, maxheight;
 	char c;
 	
-	con_cls();
 	maxwidth = currentlevel.width;
 	maxheight = currentlevel.height;
 	for(height = 0; height < maxheight; height++) {
-		con_gotoxy(0, height);
+		con_gotoxy(x, y + height);
 		for(width = 0; width < maxwidth; width++) {
 			c = currentlevel.data[height][width];
 			con_putc(c);
@@ -65,6 +64,11 @@ void game_sendTileData(void) {
 	// Send 4 tile sections (4 chars per tile
 	chardefs *ptr = (chardefs *)0xf000;
 	uint8_t tilesection = 0;
+
+	// 'Save' cerberus to character code 151
+	memcpy(&ptr[151], &ptr[0], 8);
+
+
 	// copy color sections, spaced out 6 apart
 	for(uint8_t n = 0; n < (4*6); n = n + 6) {
 		memcpy(&ptr[TILE_PLAYER + n], &player_data[tilesection], 8);
@@ -503,8 +507,8 @@ void game_splash_screen() {
 }
 
 void game_displayHelp(uint8_t xpos, uint8_t ypos) {
-	uint16_t gxpos = xpos * MINIMAP_WIDTH;
-	uint16_t gypos = (ypos * 8) + 72;
+	//uint16_t gxpos = xpos * MINIMAP_WIDTH;
+	//uint16_t gypos = (ypos * 8) + 72;
 	/*
 	con_gotoxy(xpos,ypos);
 	vdp_fgcolour(BRIGHT_WHITE);
@@ -561,44 +565,77 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 	int16_t lvl;
 	bool selected = false;
 	lvl = previouslevel;
-	
+	chardefs *ptr = (chardefs *)0xf000;
+
+	// Color coded 'Cerberus'
+	memcpy(ptr[8], ptr['C'], 8); // green C
+	memcpy(ptr[9], ptr['r'], 8); // red r
+	memcpy(ptr[10], ptr['b'], 8); // blue b
+	memcpy(ptr[11], ptr['u'], 8); // yellow u
+	memcpy(ptr[12], ptr['s'], 8); // cyan s
+	memcpy(ptr[13], ptr['e'], 8); // purple e
+	memcpy(ptr[17], ptr['e'], 8); // yellow e
+	memcpy(ptr[18], ptr['r'], 8); // cyan r
+
+	con_cls();
+	con_gotoxy(0,0);
+	con_puts("  __        _         _                 ");
+	con_gotoxy(0,1);
+	con_puts(" / _|      | |       | |                ");
+	con_gotoxy(0,2);
+	con_puts(" |(_   ___ | | _____ | |__   __ _ _ __  ");
+	con_gotoxy(0,3);
+	con_puts(" \\_ \\ / _ \\| |/ / _ \\| '_ \\ / _. | '_ \\ ");
+	con_gotoxy(0,4);
+	con_puts("  _) | (_) |   < (_) | |_) | (_| | | | |");
+	con_gotoxy(0,5);
+	con_puts(" |__/ \\___/|_|\\_\\___/|_.__/ \\__,_|_| |_|");
+	con_gotoxy(0,8);
+	con_puts("          v2.0 ");
+	con_putc(8);
+	con_putc(17);
+	con_putc(18);
+	con_putc(10);
+	con_putc(13);
+	con_putc(9);
+	con_putc(11);
+	con_putc(12);
+	con_puts(" 2100");
+	con_gotoxy(0,10);
+	con_puts("        (c)2024 Jeroen Venema");
+	con_gotoxy(3,17);
+	con_puts("game controls:");
+	con_gotoxy(0,19);
+	con_puts("cursor:move player");
+	con_gotoxy(0,20);
+	con_puts(" ESC/q:quit");
+	con_gotoxy(0,21);
+	con_puts("     u:undo");
+	con_gotoxy(0,22);
+	con_puts("     r:reset level");
+	con_gotoxy(0,27);
+	con_puts("  ENTER to start");
+
 	while(!selected) {
-		game_initLevel(levels, lvl);			// initialize playing field data from memory or disk
-		//vdp_clearGraphics();
+		game_initLevel(levels, lvl);	// initialize playing field data from memory or disk
+		con_gotoxy(22,13);
+		printf("Level %03d / %03d", lvl + 1, levels);
 		game_displayMinimap();			// display 'current' level
-
-		//con_gotoxy(4,9);
-		//vdp_fgcolour(BRIGHT_WHITE);
-		printf("Level %03d / %03d",lvl+1,levels); // user level# starts at 1, internally this is level 0
-
-		//con_gotoxy(9,43);
-		con_puts("Select level with cursor keys");
-		//con_gotoxy(18,45);
-		//vdp_fgcolour(DARK_WHITE);
-		con_puts("ESC to quit");
-
-		//vdp_plotMoveTo(750,335);
-		//vdp_plotColour(DARK_CYAN);
-		//vdp_plotLineTo(750,804);
-		
-
-		game_displayHelp(HELP_XPOS_MAP, HELP_YPOS_MAP);
-		
 		switch(con_getc())	{
-			case 0x8:
-			case 0x0a:
+			case KEY_UP:
+			case KEY_LEFT:
 				if(lvl > 0) lvl --;
 				else lvl = levels-1;
 				break;
-			case 0x0b:
-			case 0x15:
+			case KEY_DOWN:
+			case KEY_RIGHT:
 				if(lvl < levels-1) lvl++;
 				else lvl = 0;
 				break;
-			case 0xd:
+			case KEY_ENTER:
 				selected = true;
 				break;
-			case 27:
+			case 'q':
 				lvl = -1;
 				selected = true;
 				break;
@@ -677,50 +714,38 @@ void game_displayLevel(void) {
 }
 
 void game_displayMinimap(void) {
-	uint16_t width, height;
-	uint16_t ystart,xstart,x,y;
-	char c;
-	uint8_t currentlevel_width = currentlevel.width; // compiler bug later on
-	uint8_t currentlevel_height = currentlevel.height; // compiler bug later on
-
-	// calculate on-screen base coordinates
-	xstart = (((MAXWIDTH - currentlevel.width) / 2) * MINIMAP_WIDTH) + MINIMAP_XSTART;
-	ystart = (((MAXHEIGHT - currentlevel.height) / 2) * MINIMAP_HEIGHT) + MINIMAP_YSTART;
+	uint16_t width, height, maxwidth, maxheight;
+	char c,out;
 	
-	y = ystart;
-	for(height = 0; height < currentlevel_height; height++)	{
-		x = xstart;
-		for(width = 0; width < currentlevel_width; width++) {
+	// clear out full area
+	for(height = 0; height < MAXHEIGHT; height++) {
+		con_gotoxy(MINIMAP_XSTART, MINIMAP_YSTART + height);
+		for(width = 0; width < MAXWIDTH; width++) {
+			con_putc(' ');
+		}
+	}
+	// paint minimap
+	maxwidth = currentlevel.width;
+	maxheight = currentlevel.height;
+	for(height = 0; height < maxheight; height++) {
+		con_gotoxy(MINIMAP_XSTART, MINIMAP_YSTART + height);
+		for(width = 0; width < maxwidth; width++) {
 			c = currentlevel.data[height][width];
 			switch(c) {
-				case CHAR_WALL:
-					//vdp_bitmapDraw(TILE_WALL_MINI, x, y);
+				case '#':
+					out = 136;
 					break;
-				case CHAR_PLAYER:
-					//vdp_bitmapDraw(TILE_PLAYER_MINI, x, y);
+				case '@':
+					out = 151;
 					break;
-				case CHAR_PLAYERONGOAL:
-					//vdp_bitmapDraw(TILE_PLAYERONGOAL_MINI, x, y);
-					break;
-				case CHAR_BOX:
-					//vdp_bitmapDraw(TILE_BOX_MINI, x, y);
-					break;
-				case CHAR_BOXONGOAL:
-					//vdp_bitmapDraw(TILE_BOXONGOAL_MINI, x, y);
-					break;
-					break;
-				case CHAR_GOAL:
-					//vdp_bitmapDraw(TILE_GOAL_MINI, x, y);					
-					break;
-				case CHAR_FLOOR:
-					//vdp_bitmapDraw(TILE_FLOOR_MINI, x, y);			
+				case '$':
+					out = '#';
 					break;
 				default:
-					break;
+					out = c;
 			}
-			x += MINIMAP_WIDTH;
+			con_putc(out);
 		}
-		y += MINIMAP_HEIGHT;
 	}
 }
 
