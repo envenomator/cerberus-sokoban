@@ -395,8 +395,8 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 	con_puts("  _) | (_) |   < (_) | |_) | (_| | | | |");
 	con_gotoxy(0,5);
 	con_puts(" |__/ \\___/|_|\\_\\___/|_.__/ \\__,_|_| |_|");
-	con_gotoxy(0,8);
-	con_puts("          v2.0 ");
+	con_gotoxy(12,8);
+	con_puts("v2.0 ");
 	con_putc(8);
 	con_putc(17);
 	con_putc(18);
@@ -405,7 +405,6 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 	con_putc(9);
 	con_putc(11);
 	con_putc(12);
-	con_puts(" 2100");
 	con_gotoxy(0,10);
 	con_puts("        (c)2024 Jeroen Venema");
 
