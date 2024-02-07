@@ -4,17 +4,18 @@
 #include "game.h"
 #include "console.h"
 
+// Function prototypes for local functions
+void displayGRIDTile(uint8_t x, uint8_t y);
+void displayTile(uint8_t tileid, uint8_t xpos, uint8_t ypos);
+
 // These files are linked separately by SDCC, so we cannot include levels.h here
 extern const uint8_t binlevels[];
 
+// Module variables
+struct sokobanlevel currentlevel;	// will contain the currentlevel;
 struct undoitem undomove[UNDOBUFFERSIZE];
 uint8_t undo_head;
 uint8_t num_undomoves;
-
-uint32_t bitmapbuffer[BITMAPSIZE];	// will hold one bitmap at a time, to transmit to the VDU
-uint8_t sprites[MAXHEIGHT][MAXWIDTH]; // will contain all sprites on-screen
-struct sokobanlevel currentlevel;	// will contain the currentlevel;
-uint8_t spritenumber;					// the current number of sprites in the current level
 
 uint8_t player_data[] = {
     0x1,0x3,0x4,0xA,0x8,0x5,0x4,0x3,0x80,0xC0,0x20,0x50,0x10,0xA0,0x20,0xC0,0x6,0xF,0xE,0x1B,0x3,0x2,0x6,0xE,0x60,0xF0,0x70,0xD8,0xC0,0x40,0x60,0x70
@@ -28,7 +29,6 @@ uint8_t goal_data[] = {
 uint8_t box_ongoal_data[] = {
     0x0,0x77,0x68,0x54,0x2A,0x55,0x4A,0x45,0x0,0xEE,0x16,0x2A,0x54,0xAA,0x52,0xA2,0x45,0x4A,0x55,0x2A,0x54,0x68,0x77,0x0,0xA2,0x52,0xAA,0x54,0x2A,0x16,0xEE,0x0
 };
-
 uint8_t wall_data[] = {
     0xF7,0xF7,0xF7,0x0,0x7F,0x7F,0x7F,0x0,0xF7,0xF7,0xF7,0x0,0x7F,0x7F,0x7F,0x0,0xF7,0xF7,0xF7,0x0,0x7F,0x7F,0x7F,0x0,0xF7,0xF7,0xF7,0x0,0x7F,0x7F,0x7F,0x0
 };
@@ -44,30 +44,18 @@ uint16_t game_getNumLevels(void) {
 	return numlevels;
 }
 
+void game_saveCerberusPlayerCharacter(void) {
+	chardefs *ptr = (chardefs *)0xf000;
 
-void print_playfieldText(uint8_t x, uint8_t y) {
-	uint16_t width, height, maxwidth, maxheight;
-	char c;
-	
-	maxwidth = currentlevel.width;
-	maxheight = currentlevel.height;
-	for(height = 0; height < maxheight; height++) {
-		con_gotoxy(x, y + height);
-		for(width = 0; width < maxwidth; width++) {
-			c = currentlevel.data[height][width];
-			con_putc(c);
-		}
-	}
+	// 'Save' cerberus to character code 151
+	memcpy(&ptr[151], &ptr[0], 8);
+
 }
 
 void game_sendTileData(void) {
 	// Send 4 tile sections (4 chars per tile
 	chardefs *ptr = (chardefs *)0xf000;
 	uint8_t tilesection = 0;
-
-	// 'Save' cerberus to character code 151
-	memcpy(&ptr[151], &ptr[0], 8);
-
 
 	// copy color sections, spaced out 6 apart
 	for(uint8_t n = 0; n < (4*6); n = n + 6) {
@@ -85,34 +73,10 @@ void game_sendTileData(void) {
 	return;
 }
 
-void game_resetSprites(void)
-{
-	/*
-	uint8_t n;
-	
-	// disable all sprites
-	for(n = 0; n < spritenumber; n++) {
-		vdp_spriteSelect(n);
-		vdp_spriteHide(n);
-		vdp_spriteSetFrame(n,0);
-		vdp_spriteClearFramesSelected();
-	}
-	vdp_spriteWaitRefresh();
-	vdp_spriteActivateTotal(0);
-	spritenumber = 0;
-
-	// reset all sprite positions and clear out any sprites
-	memset(sprites, 255, MAXHEIGHT*MAXWIDTH);
-
-	vdp_spriteWaitRefresh();
-	*/
-	return;
-}
-
-bool canmove(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
+bool canmove(uint8_t xn1, uint8_t yn1, uint8_t xn2, uint8_t yn2) {
 	bool can = false;
 	uint8_t n1, n2;
-	
+
 	n1 = currentlevel.data[yn1][xn1];
 	n2 = currentlevel.data[yn2][xn2];
 	
@@ -139,94 +103,14 @@ bool canmove(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
 	return true;
 }
 
-void move_sprites(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
-	// move can happen, no need to check again
-	uint8_t spriteid = sprites[yn1][xn1];
-	uint8_t n;
-	int16_t dx, dy;
-	uint8_t n2;
-		
-	dx = (xn2 - xn1)*BITMAP_WIDTH;
-	dy = (yn2 - yn1)*BITMAP_HEIGHT;
-	
-	if(spriteid != NOSPRITE) {
-		//vdp_spriteMoveBy(spriteid, dx, dy);
-	}
-	//vdp_spriteMoveBy(SPRITE_PLAYER, dx, dy);
-	//vdp_spriteWaitRefresh();
-
-	// set destination sprite frame
-	if(spriteid != NOSPRITE) {
-		// Check if the sprite moved to a goal or floor
-		n2 = currentlevel.data[yn2][xn2];
-		switch(n2) {
-			case CHAR_FLOOR:
-				//vdp_spriteSetFrame(spriteid, 0);
-				//vdp_spriteWaitRefresh();
-				break;
-			case CHAR_GOAL:
-				//vdp_spriteSetFrame(spriteid, 1);
-				//vdp_spriteWaitRefresh();
-				break;
-			default:
-				break;
-		}
-	}
-	// update sprite number matrix
-	if(spriteid != NOSPRITE) {
-		// player shoves a box here
-		sprites[yn2][xn2] = sprites[yn1][xn1];
-	}
-	sprites[yn1][xn1] = NOSPRITE; // player's sprite isn't handled by using a box spriteid
-	sprites[currentlevel.ypos][currentlevel.xpos] = NOSPRITE;
-}
-
-void undomove_sprites(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
-	// move can happen, no need to check again
-	uint8_t spriteid = sprites[yn1][xn1];
-	uint8_t n;
-	int16_t dx, dy;
-	uint8_t n2;
-		
-	dx = (xn2 - xn1)*BITMAP_WIDTH;
-	dy = (yn2 - yn1)*BITMAP_HEIGHT;
-	
-	if((undomove[undo_head].pushed) && (spriteid != NOSPRITE)) {
-		//vdp_spriteMoveBy(spriteid, dx, dy);
-	}
-	//vdp_spriteMoveBy(SPRITE_PLAYER, dx, dy);
-	//vdp_spriteWaitRefresh();
-
-	// set destination sprite frame
-	if((undomove[undo_head].pushed) && (spriteid != NOSPRITE)) {
-		// Check if the sprite moved to a goal or floor
-		n2 = currentlevel.data[yn2][xn2];
-		switch(n2) {
-			case CHAR_PLAYER:
-				//vdp_spriteSetFrame(spriteid, 0);
-				//vdp_spriteWaitRefresh();
-				break;
-			case CHAR_PLAYERONGOAL:
-				//vdp_spriteSetFrame(spriteid, 1);
-				//vdp_spriteWaitRefresh();
-				break;
-			default:
-				break;
-		}
-	}
-	// update sprite number matrix
-	if(undomove[undo_head].pushed) {
-		if(spriteid != NOSPRITE) {
-			// player shoved a box here
-			sprites[yn2][xn2] = sprites[yn1][xn1];
-		}
-		sprites[yn1][xn1] = NOSPRITE; // player's sprite isn't handled by using a box spriteid			
-	}
-}
-
-void move_updatelevel(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
+void move_updatelevel(uint8_t xn1, uint8_t yn1, uint8_t xn2, uint8_t yn2) {
 	// move can happen, no need to check again
 	uint8_t n1, n2;
+	uint8_t player_oldxpos, player_oldypos;
+
+	player_oldxpos = currentlevel.xpos;
+	player_oldypos = currentlevel.ypos;
+
 	bool onlyplayermoves;
 	
 	// move n1 => n2
@@ -280,11 +164,16 @@ void move_updatelevel(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2) {
 	// update player position
 	currentlevel.xpos = xn1;
 	currentlevel.ypos = yn1;
+
+	// update screen tiles
+	displayGRIDTile(xn2, yn2);
+	displayGRIDTile(xn1, yn1);
+	displayGRIDTile(player_oldxpos, player_oldypos);
 }
 
-void undomove_updatelevel(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2, uint16_t xn3, uint16_t yn3) {
+void undomove_updatelevel(uint8_t xn1, uint8_t yn1, uint8_t xn2, uint8_t yn2, uint8_t xn3, uint8_t yn3) {
 	uint8_t n1, n2, n3;
-	
+
 	// move n1 => n2 => n3
 	n1 = currentlevel.data[yn1][xn1]; // Source / from
 	n2 = currentlevel.data[yn2][xn2]; // This is the curent player's position
@@ -337,10 +226,15 @@ void undomove_updatelevel(uint16_t xn1, uint16_t yn1, uint16_t xn2, uint16_t yn2
 	// update player position
 	currentlevel.xpos = xn3;
 	currentlevel.ypos = yn3;
+
+	// update screen tiles
+	displayGRIDTile(xn2, yn2);
+	displayGRIDTile(xn1, yn1);
+	displayGRIDTile(currentlevel.xpos, currentlevel.ypos);
 }
 
 void game_handleUndoMove(void) {
-	int16_t xn1 = 0, xn2 = 0, yn1 = 0, yn2 = 0, xn3 = 0, yn3 = 0;
+	int8_t xn1 = 0, xn2 = 0, yn1 = 0, yn2 = 0, xn3 = 0, yn3 = 0;
 	
 	if(num_undomoves) {
 		xn2 = currentlevel.xpos;
@@ -377,9 +271,7 @@ void game_handleUndoMove(void) {
 				xn3 = xn2 - 1;
 				break;
 		}
-		undomove_sprites(xn1,yn1,xn2,yn2);			
 		undomove_updatelevel(xn1, yn1, xn2, yn2, xn3, yn3);
-		
 		num_undomoves--;
 	}
 }
@@ -387,31 +279,31 @@ void game_handleUndoMove(void) {
 bool game_handleKey(char key) {
 	bool done = false;
 	bool move = false;
-	int16_t	xn1 = 0,xn2 = 0,yn1 = 0,yn2 = 0;
+	int8_t	xn1 = 0,xn2 = 0,yn1 = 0,yn2 = 0;
 	
 	switch(key) {
-		case 0x8: // LEFT
+		case KEY_LEFT:
 			xn1 = currentlevel.xpos - 1;
 			yn1 = currentlevel.ypos;
 			xn2 = currentlevel.xpos - 2;
 			yn2 = currentlevel.ypos;
 			move = true;
 			break;
-		case 0xb:
+		case KEY_UP:
 			xn1 = currentlevel.xpos;
 			yn1 = currentlevel.ypos - 1;
 			xn2 = currentlevel.xpos;
 			yn2 = currentlevel.ypos - 2;
 			move = true;
 			break;
-		case 0xa:
+		case KEY_DOWN:
 			xn1 = currentlevel.xpos;
 			yn1 = currentlevel.ypos + 1;
 			xn2 = currentlevel.xpos;
 			yn2 = currentlevel.ypos + 2;
 			move = true;
 			break;
-		case 0x15: // RIGHT
+		case KEY_RIGHT:
 			xn1 = currentlevel.xpos + 1;
 			yn1 = currentlevel.ypos;
 			xn2 = currentlevel.xpos + 2;
@@ -431,7 +323,6 @@ bool game_handleKey(char key) {
 			// maximize number of undo
 			if(++num_undomoves > UNDOBUFFERSIZE) num_undomoves = UNDOBUFFERSIZE;
 			
-			move_sprites(xn1,yn1,xn2,yn2);
 			move_updatelevel(xn1,yn1,xn2,yn2);
 			done = (currentlevel.goals == currentlevel.goalstaken);
 		}
@@ -442,123 +333,37 @@ bool game_handleKey(char key) {
 char game_getResponse(char *message, char option1, char option2) {
 	uint8_t n;
 	uint8_t len = strlen(message);
-	uint8_t start = (80 - len) / 2;
+	uint8_t start = (SCREENWIDTH - len) / 2;
 	char ret = 0;
-	
-	
+
 	// vertical spacing
 	for(n = start - 1; n < (start+len+1); n++) {
-		//con_gotoxy(n,27);
-		//putch(' ');
-		//con_gotoxy(n,29);
-		//putch(' ');
+		con_gotoxy(n,14);
+		con_putc(' ');
+		con_gotoxy(n,16);
+		con_putc(' ');
 	}
 	// horizontal spacing
-	//con_gotoxy(start-1,28);
-	//putch(' ');
+	con_gotoxy(start-1,15);
+	con_putc(' ');
 	printf("%s ", message);
 
 	while((ret != option1) && (ret != option2)) ret = con_getc();
-	
-	//vdp_cls();
-
 	return ret;
 }
 
-void game_splash_screen() {
-	chardefs *ptr = (chardefs *)0xf000;
+void game_displayHelp(uint8_t xstart, uint8_t ystart) {
 
-	memcpy(ptr[8], ptr['C'], 8); // green C
-	memcpy(ptr[9], ptr['r'], 8); // red r
-	memcpy(ptr[10], ptr['b'], 8); // blue b
-	memcpy(ptr[11], ptr['u'], 8); // yellow u
-	memcpy(ptr[12], ptr['s'], 8); // cyan s
-	memcpy(ptr[13], ptr['e'], 8); // purple e
-	memcpy(ptr[17], ptr['e'], 8); // yellow e
-	memcpy(ptr[18], ptr['r'], 8); // cyan r
-	con_cls();
-
-	con_gotoxy(0,1);
-	con_puts("  __        _         _                 ");
-	con_gotoxy(0,2);
-	con_puts(" / _|      | |       | |                ");
-	con_gotoxy(0,3);
-	con_puts(" |(_   ___ | | _____ | |__   __ _ _ __  ");
-	con_gotoxy(0,4);
-	con_puts(" \\_ \\ / _ \\| |/ / _ \\| '_ \\ / _. | '_ \\ ");
-	con_gotoxy(0,5);
-	con_puts("  _) | (_) |   < (_) | |_) | (_| | | | |");
-	con_gotoxy(0,6);
-	con_puts(" |__/ \\___/|_|\\_\\___/|_.__/ \\__,_|_| |_|");
-	con_gotoxy(0,12);
-	//con_puts("          v2.0 For Cerberus (TM)");
-	con_puts("          v2.0 ");
-	con_putc(8);
-	con_putc(17);
-	con_putc(18);
-	con_putc(10);
-	con_putc(13);
-	con_putc(9);
-	con_putc(11);
-	con_putc(12);
-	con_puts(" (TM)");
-	con_gotoxy(0,14);
-	con_puts("        (c) 2024 Jeroen Venema");
-}
-
-void game_displayHelp(uint8_t xpos, uint8_t ypos) {
-	//uint16_t gxpos = xpos * MINIMAP_WIDTH;
-	//uint16_t gypos = (ypos * 8) + 72;
-	/*
-	con_gotoxy(xpos,ypos);
-	vdp_fgcolour(BRIGHT_WHITE);
-	con_puts("Game objective");
-	con_gotoxy(xpos,ypos+2);
-	vdp_fgcolour(DARK_WHITE);
-	con_puts("Push all boxes");
-	con_gotoxy(xpos,ypos+3);
-	con_puts("in this warehouse");
-	con_gotoxy(xpos,ypos+4);
-	con_puts("to the target goals.");
-	
-	con_gotoxy(xpos,ypos+7);
-	vdp_fgcolour(BRIGHT_WHITE);
-	con_puts("Legend");
-	
-	vdp_bitmapDraw(TILE_PLAYER_MINI,gxpos,gypos);
-	vdp_bitmapDraw(TILE_BOX_MINI, gxpos, gypos + 16);
-	vdp_bitmapDraw(TILE_BOXONGOAL_MINI, gxpos, gypos + 32);
-	vdp_bitmapDraw(TILE_GOAL_MINI, gxpos, gypos + 56);
-	
-	vdp_fgcolour(DARK_WHITE);
-	con_gotoxy(xpos+2,ypos+9);
-	con_puts("You, hard at work");
-	con_gotoxy(xpos+2,ypos+11);
-	con_puts("Boxes with stuff");
-	con_gotoxy(xpos+2,ypos+13);
-	con_puts("Boxes in shipping");
-	con_gotoxy(xpos+2,ypos+14);
-	con_puts("position");
-	con_gotoxy(xpos+2,ypos+16);
-	con_puts("Shipping goal");
-	
-	vdp_fgcolour(BRIGHT_WHITE);
-	con_gotoxy(xpos,ypos+19);
-	con_puts("Game controls");
-	
-	vdp_fgcolour(DARK_WHITE);
-	con_gotoxy(xpos,ypos+21);
-	con_puts("Cursor");
-	con_gotoxy(xpos,ypos+22);
-	con_puts(" keys  - move player");
-	con_gotoxy(xpos,ypos+23);
-	con_puts("    u  - undo move");
-	con_gotoxy(xpos,ypos+24);
-	con_puts("esc/q  - quit level");
-	con_gotoxy(xpos,ypos+26);
-	con_puts("ENTER  - start level");
-	*/
-	return;
+	con_gotoxy(xstart,ystart);
+	con_puts("   game controls:");
+	con_gotoxy(xstart,ystart + 2);
+	con_puts("cursor:move player");
+	con_gotoxy(xstart,ystart + 3);
+	con_puts(" ESC/q:quit");
+	con_gotoxy(xstart,ystart + 4);
+	con_puts("     u:undo");
+	con_gotoxy(xstart,ystart + 5);
+	con_puts("     r:reset level");
 }
 
 int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
@@ -567,7 +372,7 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 	lvl = previouslevel;
 	chardefs *ptr = (chardefs *)0xf000;
 
-	// Color coded 'Cerberus'
+	// Generate color-coded 'Cerberus'
 	memcpy(ptr[8], ptr['C'], 8); // green C
 	memcpy(ptr[9], ptr['r'], 8); // red r
 	memcpy(ptr[10], ptr['b'], 8); // blue b
@@ -603,16 +408,9 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 	con_puts(" 2100");
 	con_gotoxy(0,10);
 	con_puts("        (c)2024 Jeroen Venema");
-	con_gotoxy(3,17);
-	con_puts("game controls:");
-	con_gotoxy(0,19);
-	con_puts("cursor:move player");
-	con_gotoxy(0,20);
-	con_puts(" ESC/q:quit");
-	con_gotoxy(0,21);
-	con_puts("     u:undo");
-	con_gotoxy(0,22);
-	con_puts("     r:reset level");
+
+	game_displayHelp(0,17);
+
 	con_gotoxy(0,27);
 	con_puts("  ENTER to start");
 
@@ -646,8 +444,9 @@ int16_t game_selectLevel(uint8_t levels, uint16_t previouslevel) {
 	return lvl;
 }
 
+// Display Tile ID on screen X/Y position
 void displayTile(uint8_t tileid, uint8_t xpos, uint8_t ypos) {
-	uint8_t tilebase;
+	uint8_t tilebase = TILE_FLOOR;
 	bool color = true;
 
 	switch(tileid) {
@@ -685,6 +484,16 @@ void displayTile(uint8_t tileid, uint8_t xpos, uint8_t ypos) {
 	con_putc(tilebase + (color?18:3));
 }
 
+// displays TileID from GRID using currentlevel[y][x] coordinates
+// Calculates screen position and displays it on screen
+void displayGRIDTile(uint8_t x, uint8_t y) {
+	uint8_t screenxpos, screenypos;
+
+	screenxpos = (((MAXWIDTH - currentlevel.width) >> 1) + x) << 1;
+	screenypos = (((MAXHEIGHT - currentlevel.height) >> 1) + y) << 1;
+	displayTile(currentlevel.data[y][x], screenxpos, screenypos);
+}
+
 void game_displayLevel(void) {
 	// Paint the entire screen with central oriented level
 	uint8_t width, height;
@@ -692,91 +501,24 @@ void game_displayLevel(void) {
 	uint8_t xstart, ystart;
 	uint8_t screenxpos, screenypos;
 
-	xstart = ((MAXWIDTH - currentlevel.width) / 2);
-	ystart = ((MAXHEIGHT - currentlevel.height) / 2);
+	xstart = ((MAXWIDTH - currentlevel.width) >> 1);	// GRID coordinate
+	ystart = ((MAXHEIGHT - currentlevel.height) >> 1);	// GRID coordinate
 
 	levelwidth = currentlevel.width;
 	levelheight = currentlevel.height;
 
 	con_cls();
 	for(height = 0; height < levelheight; height++) {
-		screenypos = ystart + (height << 1);
+		screenypos = (ystart + height) << 1;
 		for(width = 0; width < levelwidth; width++) {
-			screenxpos = xstart + (width << 1);
+			screenxpos = (xstart + width) << 1;
 			displayTile(currentlevel.data[height][width], screenxpos, screenypos);
 		}
 	}
 }
 
-void game_displayLevel_old(void) {
-	uint16_t width, height;		// position in level GRID
-	uint16_t ystart,xstart,x,y;	// on-screen positions
-	char c;
-	uint8_t currentlevel_width = currentlevel.width; // compiler bug later on
-	uint8_t currentlevel_height = currentlevel.height; // compiler bug later on
-
-	spritenumber = 1;
-	// Player sprite
-	//vdp_spriteSelect(SPRITE_PLAYER);
-	//vdp_spriteClearFramesSelected();
-	//vdp_spriteAddFrameSelected(TILE_PLAYER);
-	//vdp_spriteHideSelected();
-
-	// calculate on-screen base coordinates
-	xstart = ((MAXWIDTH - currentlevel.width) / 2) * BITMAP_WIDTH;
-	ystart = ((MAXHEIGHT - currentlevel.height) / 2) *BITMAP_HEIGHT;
-	
-	y = ystart;
-	for(height = 0; height < currentlevel_height; height++) {
-		x = xstart;
-		for(width = 0; width < currentlevel_width; width++) {
-			c = currentlevel.data[height][width];
-			sprites[height][width] = NOSPRITE; // Faster in most cases
-			switch(c) {
-				case CHAR_WALL:
-					//vdp_bitmapDraw(TILE_WALL, x, y);
-					break;
-				case CHAR_PLAYER:
-				case CHAR_PLAYERONGOAL:
-					//vdp_spriteSelect(SPRITE_PLAYER);
-					//vdp_spriteMoveToSelected(x,y);
-					//vdp_spriteShowSelected();
-					break;
-				case CHAR_BOX:
-				case CHAR_BOXONGOAL:
-					//vdp_spriteSelect(spritenumber);
-					//vdp_spriteClearFramesSelected();
-					//vdp_spriteAddFrameSelected(TILE_BOX);
-					//vdp_spriteAddFrameSelected(TILE_BOXONGOAL);
-					if(c == CHAR_BOXONGOAL) /*vdp_spriteSetFrameSelected(1)*/;
-					else /*vdp_spriteSetFrameSelected(0)*/;
-					//vdp_spriteMoveToSelected(x,y);
-					//vdp_spriteShowSelected();
-					sprites[height][width] = spritenumber;
-					spritenumber++;
-					if(c == CHAR_BOXONGOAL) {
-						//vdp_bitmapDraw(TILE_GOAL, x, y); // don't forget to draw the goal beneath
-					}
-					break;
-				case CHAR_GOAL:
-					//vdp_bitmapDraw(TILE_GOAL, x, y);					
-					break;
-				case CHAR_FLOOR:
-					//vdp_bitmapDraw(TILE_FLOOR, x, y);			
-					break;
-				default:
-					break;
-			}
-			x += BITMAP_WIDTH;
-		}
-		y += BITMAP_HEIGHT;
-	}
-	//vdp_spriteActivateTotal(spritenumber);
-	//vdp_spriteWaitRefresh();
-}
-
 void game_displayMinimap(void) {
-	uint16_t width, height, maxwidth, maxheight;
+	uint8_t width, height, maxwidth, maxheight;
 	char c,out;
 	
 	// clear out full area
@@ -798,7 +540,7 @@ void game_displayMinimap(void) {
 					out = 136;
 					break;
 				case '@':
-					out = 151;
+					out = 151; // Special Cerberus player character, mapped to char 151
 					break;
 				case '$':
 					out = '#';
@@ -823,7 +565,7 @@ void game_initLevel(uint8_t levels, uint8_t levelid) {
 	currentlevel.ypos = sblptr[levelid].ypos;
 	currentlevel.width = sblptr[levelid].width;
 	currentlevel.height = sblptr[levelid].height;
-	currentlevel.goals = sblptr[levelid].goalstaken;
+	currentlevel.goals = sblptr[levelid].goals;
 	currentlevel.goalstaken = sblptr[levelid].goalstaken;
 	currentlevel.crates = sblptr[levelid].crates;
 	currentlevel.datasize = sblptr[levelid].datasize;
@@ -858,3 +600,20 @@ void game_initLevel(uint8_t levels, uint8_t levelid) {
 	undo_head = 0;
 	num_undomoves = 0;
 }
+
+/*
+void print_playfieldText(uint8_t x, uint8_t y) {
+	uint16_t width, height, maxwidth, maxheight;
+	char c;
+	
+	maxwidth = currentlevel.width;
+	maxheight = currentlevel.height;
+	for(height = 0; height < maxheight; height++) {
+		con_gotoxy(x, y + height);
+		for(width = 0; width < maxwidth; width++) {
+			c = currentlevel.data[height][width];
+			con_putc(c);
+		}
+	}
+}
+*/
