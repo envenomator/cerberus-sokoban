@@ -1,4 +1,4 @@
-PROJECTNAME		= sokz80
+PROJECTNAME		= sokoz80
 CODE_START		= 0x0205
 DATA_START		= 0x8000
 DEPS			= game.h console.h
@@ -36,7 +36,7 @@ all: $(BASEOBJ) $(LEVELOBJ) $(RELEASEDIR)
 	$(LNK)	-o $(PROJECTNAME)-nabokosmos.ihx $(LNKFLAGS) $(BASEOBJ) binlevels-nabokosmos.rel
 
 	# Convert all .ihx to .bin files in release folder
-	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-original.ihx $(RELEASEDIR)/original\ \(69\ levels\)/$(PROJECTNAME)bin
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-original.ihx $(RELEASEDIR)/original\ \(69\ levels\)/$(PROJECTNAME).bin
 	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-sasquatch.ihx $(RELEASEDIR)/sasquatch\ \(21\ levels\)/$(PROJECTNAME).bin
 	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-nabokosmos.ihx $(RELEASEDIR)/nabokosmos\ \(40\ levels\)/$(PROJECTNAME).bin
 
