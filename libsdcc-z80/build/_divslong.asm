@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
-; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.8.0 #10562 (Linux)
+; File Created by SDCC : free open source ISO C Compiler 
+; Version 4.4.0 #14620 (Linux)
 ;--------------------------------------------------------
 	.module _divslong
 	.optsdcc -mz80
@@ -47,18 +47,54 @@ __divslong::
 	push	ix
 	ld	ix,#0
 	add	ix,sp
-	ld	hl, #-6
-	add	hl, sp
-	ld	sp, hl
+	ld	iy, #-10
+	add	iy, sp
+	ld	sp, iy
+	ld	c, e
+	ld	b, d
+	ex	de,hl
 	C$_divslong.c$6$1_0$2	= .
 	.globl	C$_divslong.c$6$1_0$2
 ;_divslong.c:6: r = (unsigned long)(x < 0 ? -x : x) / (unsigned long)(y < 0 ? -y : y);
-	ld	a, 7 (ix)
+	ld	a, d
 	rlca
 	and	a,#0x01
 	ld	-6 (ix), a
 	or	a, a
-	jr	Z,00106$
+	jr	Z, 00106$
+	xor	a, a
+	sub	a, c
+	ld	-10 (ix), a
+	ld	a, #0x00
+	sbc	a, b
+	ld	-9 (ix), a
+	ld	a, #0x00
+	sbc	a, e
+	ld	-8 (ix), a
+	sbc	a, a
+	sub	a, d
+	ld	-7 (ix), a
+	jr	00107$
+00106$:
+	inc	sp
+	inc	sp
+	push	bc
+	ld	-8 (ix), e
+	ld	-7 (ix), d
+00107$:
+	ld	hl, #5
+	add	hl, sp
+	ex	de, hl
+	ld	hl, #0
+	add	hl, sp
+	ld	bc, #4
+	ldir
+	ld	a, 7 (ix)
+	rlca
+	and	a,#0x01
+	ld	-1 (ix), a
+	or	a, a
+	jr	Z, 00108$
 	xor	a, a
 	sub	a, 4 (ix)
 	ld	c, a
@@ -68,56 +104,27 @@ __divslong::
 	ld	a, #0x00
 	sbc	a, 6 (ix)
 	ld	e, a
-	ld	a, #0x00
-	sbc	a, 7 (ix)
+	sbc	a, a
+	sub	a, 7 (ix)
 	ld	d, a
-	jr	00107$
-00106$:
+	jr	00109$
+00108$:
 	ld	c, 4 (ix)
 	ld	b, 5 (ix)
 	ld	e, 6 (ix)
 	ld	d, 7 (ix)
-00107$:
-	ld	a, 11 (ix)
-	rlca
-	and	a,#0x01
-	ld	-1 (ix), a
-	or	a, a
-	jr	Z,00108$
-	xor	a, a
-	sub	a, 8 (ix)
-	ld	-5 (ix), a
-	ld	a, #0x00
-	sbc	a, 9 (ix)
-	ld	-4 (ix), a
-	ld	a, #0x00
-	sbc	a, 10 (ix)
-	ld	-3 (ix), a
-	ld	a, #0x00
-	sbc	a, 11 (ix)
-	ld	-2 (ix), a
-	jr	00109$
-00108$:
-	ld	a, 8 (ix)
-	ld	-5 (ix), a
-	ld	a, 9 (ix)
-	ld	-4 (ix), a
-	ld	a, 10 (ix)
-	ld	-3 (ix), a
-	ld	a, 11 (ix)
-	ld	-2 (ix), a
 00109$:
-	ld	l, -3 (ix)
-	ld	h, -2 (ix)
-	push	hl
-	ld	l, -5 (ix)
-	ld	h, -4 (ix)
-	push	hl
 	push	de
 	push	bc
+	ld	e, -5 (ix)
+	ld	d, -4 (ix)
+	ld	l, -3 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -2 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
 	call	__divulong
-	pop	af
-	pop	af
 	pop	af
 	pop	af
 	C$_divslong.c$7$1_0$2	= .
@@ -125,22 +132,26 @@ __divslong::
 ;_divslong.c:7: if ((x < 0) ^ (y < 0))
 	ld	a, -6 (ix)
 	xor	a,-1 (ix)
-	jr	Z,00102$
+	jr	Z, 00102$
 	C$_divslong.c$8$1_0$2	= .
 	.globl	C$_divslong.c$8$1_0$2
 ;_divslong.c:8: return -r;
 	xor	a, a
-	sub	a, l
-	ld	l, a
-	ld	a, #0x00
-	sbc	a, h
-	ld	h, a
-	ld	a, #0x00
-	sbc	a, e
+	sub	a, e
 	ld	e, a
 	ld	a, #0x00
 	sbc	a, d
 	ld	d, a
+	ld	a, #0x00
+	sbc	a, l
+	ld	l, a
+;	spillPairReg hl
+;	spillPairReg hl
+	sbc	a, a
+	sub	a, h
+	ld	h, a
+;	spillPairReg hl
+;	spillPairReg hl
 	C$_divslong.c$10$1_0$2	= .
 	.globl	C$_divslong.c$10$1_0$2
 ;_divslong.c:10: return r;

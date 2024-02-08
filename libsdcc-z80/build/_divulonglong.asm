@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
-; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.8.0 #10562 (Linux)
+; File Created by SDCC : free open source ISO C Compiler 
+; Version 4.4.0 #14620 (Linux)
 ;--------------------------------------------------------
 	.module _divulonglong
 	.optsdcc -mz80
@@ -62,22 +62,17 @@ __divulonglong::
 	ld	-3 (ix), a
 	ld	-2 (ix), a
 	ld	-1 (ix), a
-	C$_divulonglong.c$10$2_0$2	= .
-	.globl	C$_divulonglong.c$10$2_0$2
-;_divulonglong.c:10: unsigned char count = 64;
-	ld	c, #0x40
 	C$_divulonglong.c$13$1_0$2	= .
 	.globl	C$_divulonglong.c$13$1_0$2
 ;_divulonglong.c:13: do
+	ld	c, #0x40
 00105$:
 	C$_divulonglong.c$16$2_0$3	= .
 	.globl	C$_divulonglong.c$16$2_0$3
 ;_divulonglong.c:16: c = MSB_SET(x);
 	ld	a, 13 (ix)
-	rlc	a
+	rlca
 	and	a, #0x01
-	ld	b, a
-	ld	e, #0x00
 	C$_divulonglong.c$17$2_0$3	= .
 	.globl	C$_divulonglong.c$17$2_0$3
 ;_divulonglong.c:17: x <<= 1;
@@ -103,29 +98,14 @@ __divulonglong::
 	C$_divulonglong.c$19$2_0$3	= .
 	.globl	C$_divulonglong.c$19$2_0$3
 ;_divulonglong.c:19: if (c)
-	ld	a, e
-	or	a, b
-	jr	Z,00102$
+	or	a, a
+	jr	Z, 00102$
 	C$_divulonglong.c$20$2_0$3	= .
 	.globl	C$_divulonglong.c$20$2_0$3
 ;_divulonglong.c:20: reste |= 1L;
 	ld	a, -8 (ix)
-	or	a, #0x01
 	ld	-8 (ix), a
-	ld	a, -7 (ix)
-	ld	-7 (ix), a
-	ld	a, -6 (ix)
-	ld	-6 (ix), a
-	ld	a, -5 (ix)
-	ld	-5 (ix), a
-	ld	a, -4 (ix)
-	ld	-4 (ix), a
-	ld	a, -3 (ix)
-	ld	-3 (ix), a
-	ld	a, -2 (ix)
-	ld	-2 (ix), a
-	ld	a, -1 (ix)
-	ld	-1 (ix), a
+	set	0, -8 (ix)
 00102$:
 	C$_divulonglong.c$22$2_0$3	= .
 	.globl	C$_divulonglong.c$22$2_0$3
@@ -146,7 +126,7 @@ __divulonglong::
 	sbc	a, 20 (ix)
 	ld	a, -1 (ix)
 	sbc	a, 21 (ix)
-	jr	C,00106$
+	jr	C, 00106$
 	C$_divulonglong.c$24$3_0$4	= .
 	.globl	C$_divulonglong.c$24$3_0$4
 ;_divulonglong.c:24: reste -= y;
@@ -178,36 +158,19 @@ __divulonglong::
 	.globl	C$_divulonglong.c$26$3_0$4
 ;_divulonglong.c:26: x |= 1L;
 	ld	a, 6 (ix)
-	or	a, #0x01
 	ld	6 (ix), a
-	ld	a, 7 (ix)
-	ld	7 (ix), a
-	ld	a, 8 (ix)
-	ld	8 (ix), a
-	ld	a, 9 (ix)
-	ld	9 (ix), a
-	ld	a, 10 (ix)
-	ld	10 (ix), a
-	ld	a, 11 (ix)
-	ld	11 (ix), a
-	ld	a, 12 (ix)
-	ld	12 (ix), a
-	ld	a, 13 (ix)
-	ld	13 (ix), a
+	set	0, 6 (ix)
 00106$:
 	C$_divulonglong.c$29$1_0$2	= .
 	.globl	C$_divulonglong.c$29$1_0$2
 ;_divulonglong.c:29: while (--count);
-	ld	a, c
-	dec	a
-	ld	c, a
-	or	a, a
+	dec	c
 	jp	NZ, 00105$
 	C$_divulonglong.c$30$1_0$2	= .
 	.globl	C$_divulonglong.c$30$1_0$2
 ;_divulonglong.c:30: return x;
-	ld	hl,#12
-	add	hl,sp
+	ld	hl, #12
+	add	hl, sp
 	ld	e, (hl)
 	inc	hl
 	ld	d, (hl)

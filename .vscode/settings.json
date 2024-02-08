@@ -1,7 +1,0 @@
-{
-	"files.associations": {
-		"*.s": "ez80-asm",
-		"sokobanprep.h": "c",
-		"console.h": "c"
-	}
-}

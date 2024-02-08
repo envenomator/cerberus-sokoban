@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include "game.h"
 #include "console.h"
-#include "binlevels.h"
 
 int main(void) {
 	uint16_t levels;

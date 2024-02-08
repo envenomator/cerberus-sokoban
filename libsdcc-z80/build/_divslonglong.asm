@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
-; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.8.0 #10562 (Linux)
+; File Created by SDCC : free open source ISO C Compiler 
+; Version 4.4.0 #14620 (Linux)
 ;--------------------------------------------------------
 	.module _divslonglong
 	.optsdcc -mz80
@@ -47,7 +47,7 @@ __divslonglong::
 	push	ix
 	ld	ix,#0
 	add	ix,sp
-	ld	hl, #-26
+	ld	hl, #-16
 	add	hl, sp
 	ld	sp, hl
 	C$_divslonglong.c$7$1_0$2	= .
@@ -57,21 +57,19 @@ __divslonglong::
 	rlca
 	and	a,#0x01
 	ld	c, a
-	ld	b, #0x00
 	C$_divslonglong.c$8$1_0$2	= .
 	.globl	C$_divslonglong.c$8$1_0$2
 ;_divslonglong.c:8: bool denominatorneg = (denominator < 0);
 	ld	a, 21 (ix)
 	rlca
 	and	a,#0x01
-	ld	-2 (ix), a
-	ld	-1 (ix), #0x00
+	ld	b, a
 	C$_divslonglong.c$11$1_0$2	= .
 	.globl	C$_divslonglong.c$11$1_0$2
 ;_divslonglong.c:11: if (numeratorneg)
-	ld	a, b
-	or	a, c
-	jr	Z,00102$
+	ld	a, c
+	or	a, a
+	jr	Z, 00102$
 	C$_divslonglong.c$12$1_0$2	= .
 	.globl	C$_divslonglong.c$12$1_0$2
 ;_divslonglong.c:12: numerator = -numerator;
@@ -96,16 +94,16 @@ __divslonglong::
 	ld	a, #0x00
 	sbc	a, 12 (ix)
 	ld	12 (ix), a
-	ld	a, #0x00
-	sbc	a, 13 (ix)
+	sbc	a, a
+	sub	a, 13 (ix)
 	ld	13 (ix), a
 00102$:
 	C$_divslonglong.c$13$1_0$2	= .
 	.globl	C$_divslonglong.c$13$1_0$2
 ;_divslonglong.c:13: if (denominatorneg)
-	ld	a, -1 (ix)
-	or	a, -2 (ix)
-	jr	Z,00104$
+	ld	a, b
+	or	a, a
+	jr	Z, 00104$
 	C$_divslonglong.c$14$1_0$2	= .
 	.globl	C$_divslonglong.c$14$1_0$2
 ;_divslonglong.c:14: denominator = -denominator;
@@ -130,94 +128,129 @@ __divslonglong::
 	ld	a, #0x00
 	sbc	a, 20 (ix)
 	ld	20 (ix), a
-	ld	a, #0x00
-	sbc	a, 21 (ix)
+	sbc	a, a
+	sub	a, 21 (ix)
 	ld	21 (ix), a
 00104$:
 	C$_divslonglong.c$16$1_0$2	= .
 	.globl	C$_divslonglong.c$16$1_0$2
 ;_divslonglong.c:16: d = (unsigned long long)numerator / (unsigned long long)denominator;
 	push	bc
-	ld	hl, #18
+	ld	hl, #2
 	add	hl, sp
 	ex	de, hl
-	ld	hl, #34
+	ld	hl, #24
 	add	hl, sp
 	ld	bc, #8
 	ldir
 	ld	hl, #10
 	add	hl, sp
 	ex	de, hl
-	ld	hl, #42
+	ld	hl, #32
 	add	hl, sp
 	ld	bc, #8
 	ldir
-	ld	e, -12 (ix)
-	ld	d, -11 (ix)
-	push	de
-	ld	e, -14 (ix)
-	ld	d, -13 (ix)
-	push	de
-	ld	e, -16 (ix)
-	ld	d, -15 (ix)
-	push	de
-	ld	e, -18 (ix)
-	ld	d, -17 (ix)
-	push	de
-	ld	e, -4 (ix)
-	ld	d, -3 (ix)
-	push	de
-	ld	e, -6 (ix)
-	ld	d, -5 (ix)
-	push	de
-	ld	e, -8 (ix)
-	ld	d, -7 (ix)
-	push	de
-	ld	e, -10 (ix)
-	ld	d, -9 (ix)
-	push	de
-	ld	hl, #0x0012
+	ld	l, -2 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -1 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
+	ld	l, -4 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -3 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
+	ld	l, -6 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -5 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
+	ld	l, -8 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -7 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
+	ld	l, -10 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -9 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
+	ld	l, -12 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -11 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
+	ld	l, -14 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -13 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
+	ld	l, -16 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, -15 (ix)
+;	spillPairReg hl
+;	spillPairReg hl
+	push	hl
+	ld	hl, #0x001a
 	add	hl, sp
 	push	hl
 	call	__divulonglong
-	ld	hl,#18
-	add	hl,sp
-	ld	sp,hl
+	ld	hl, #18
+	add	hl, sp
+	ld	sp, hl
+	ld	hl, #2
+	add	hl, sp
+	ex	de, hl
+	ld	hl, #10
+	add	hl, sp
+	ld	bc, #8
+	ldir
 	pop	bc
 	C$_divslonglong.c$18$1_0$2	= .
 	.globl	C$_divslonglong.c$18$1_0$2
 ;_divslonglong.c:18: return ((numeratorneg ^ denominatorneg) ? -d : d);
 	ld	a, c
-	xor	a, -2 (ix)
-	ld	c, a
-	ld	a, b
-	xor	a, -1 (ix)
-	or	a, c
-	jr	Z,00107$
+	xor	a,b
+	jr	Z, 00107$
 	xor	a, a
-	sub	a, -26 (ix)
-	ld	-18 (ix), a
+	sub	a, -16 (ix)
+	ld	-8 (ix), a
 	ld	a, #0x00
-	sbc	a, -25 (ix)
-	ld	-17 (ix), a
+	sbc	a, -15 (ix)
+	ld	-7 (ix), a
 	ld	a, #0x00
-	sbc	a, -24 (ix)
-	ld	-16 (ix), a
+	sbc	a, -14 (ix)
+	ld	-6 (ix), a
 	ld	a, #0x00
-	sbc	a, -23 (ix)
-	ld	-15 (ix), a
+	sbc	a, -13 (ix)
+	ld	-5 (ix), a
 	ld	a, #0x00
-	sbc	a, -22 (ix)
-	ld	-14 (ix), a
+	sbc	a, -12 (ix)
+	ld	-4 (ix), a
 	ld	a, #0x00
-	sbc	a, -21 (ix)
-	ld	-13 (ix), a
+	sbc	a, -11 (ix)
+	ld	-3 (ix), a
 	ld	a, #0x00
-	sbc	a, -20 (ix)
-	ld	-12 (ix), a
-	ld	a, #0x00
-	sbc	a, -19 (ix)
-	ld	-11 (ix), a
+	sbc	a, -10 (ix)
+	ld	-2 (ix), a
+	sbc	a, a
+	sub	a, -9 (ix)
+	ld	-1 (ix), a
 	jr	00108$
 00107$:
 	ld	hl, #8
@@ -228,8 +261,8 @@ __divslonglong::
 	ld	bc, #8
 	ldir
 00108$:
-	ld	hl,#30
-	add	hl,sp
+	ld	hl, #20
+	add	hl, sp
 	ld	e, (hl)
 	inc	hl
 	ld	d, (hl)

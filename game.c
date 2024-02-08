@@ -9,7 +9,7 @@ void displayGRIDTile(uint8_t x, uint8_t y);
 void displayTile(uint8_t tileid, uint8_t xpos, uint8_t ypos);
 
 // These files are linked separately by SDCC, so we cannot include levels.h here
-extern const uint8_t binlevels[];
+extern const char binlevels[];
 
 // Module variables
 struct sokobanlevel currentlevel;	// will contain the currentlevel;

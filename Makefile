@@ -1,44 +1,53 @@
-STARTADDRESS	:= 0x0205
-DATASTART		:= 0x8000
-SERIALPORT		:= /dev/ttyUSB0
-SEND_SCRIPT		:= ../send.py
-INCLUDEDIR		:= /usr/local/share/sdcc/include
+PROJECTNAME		= sokz80
+CODE_START		= 0x0205
+DATA_START		= 0x8000
+DEPS			= game.h console.h
+BASEOBJ			= crt0.rel main.rel console.rel game.rel
+LEVELOBJ		= binlevels-original.rel binlevels-sasquatch.rel binlevels-nabokosmos.rel
+
+SERIALPORT		= /dev/ttyUSB0
+SEND_SCRIPT		= ../send.py
+INCLUDEDIR		= /usr/local/share/sdcc/include
+RELEASEDIR		= ./release
+
+CC				= sdcc
+AS				= sdasz80
+LNK				= sdcc
+OBJCOPY			= sdobjcopy
+
+CFLAGS			= -c -mz80 --std-c23 -I $(INCLUDEDIR) --nostdinc --no-std-crt0 --nostdinc --nostdlib
+ASFLAGS			= -xlos -g
+LNKFLAGS		= -mz80 -Wl -y --code-loc $(CODE_START) --data-loc $(DATA_START) --no-std-crt0 --nostdlib -Llibsdcc-z80 -lz80.lib $(OBJ)
+OBJCOPYFLAGS	= -I ihex -O binary
+
 
 .PHONY:	all
-all:
 
-	# Compile crt0.s
-	sdasz80 -xlos -g crt0.s
+%.rel: %.c $(DEPS)
+	$(CC) -o $@ $< $(CFLAGS)
 
-	# Compile console.c
-	sdcc -o console.rel \
-		-c -mz80 --std-c23 -I $(INCLUDEDIR) \
-		--nostdinc --no-std-crt0 --nostdinc --nostdlib \
-		console.c
-	# Compile main.c
-	sdcc -o main.rel \
-		-c -mz80 --std-c23 -I $(INCLUDEDIR) \
-		--nostdinc --no-std-crt0 --nostdinc --nostdlib \
-		main.c
-	# Compile game.c
-	sdcc -o game.rel \
-		-c -mz80 --std-c23 -I $(INCLUDEDIR) \
-		--nostdinc --no-std-crt0 --nostdinc --nostdlib \
-		game.c
-		
-	# Link all files
-	sdcc -o main.ihx \
-		-mz80 -Wl -y --code-loc 0x0205 --data-loc $(DATASTART)\
-		--std-c23 \
-		--no-std-crt0 --nostdinc --nostdlib \
-		-Llibsdcc-z80 -lz80.lib \
-		crt0.rel main.rel console.rel game.rel
-	
-	# Finally, convert ihx to binary
-	sdobjcopy -I ihex -O binary main.ihx main.bin
+%.rel: %.s
+	$(AS) $(ASFLAGS) $< 
 
-upload: all
-	$(SEND_SCRIPT) main.bin $(SERIALPORT)
+all: $(BASEOBJ) $(LEVELOBJ) $(RELEASEDIR)
+	# Link all .rel files
+	$(LNK)	-o $(PROJECTNAME)-original.ihx $(LNKFLAGS) $(BASEOBJ) binlevels-original.rel
+	$(LNK)	-o $(PROJECTNAME)-sasquatch.ihx $(LNKFLAGS) $(BASEOBJ) binlevels-sasquatch.rel
+	$(LNK)	-o $(PROJECTNAME)-nabokosmos.ihx $(LNKFLAGS) $(BASEOBJ) binlevels-nabokosmos.rel
+
+	# Convert all .ihx to .bin files in release folder
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-original.ihx $(RELEASEDIR)/original/$(PROJECTNAME)bin
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-sasquatch.ihx $(RELEASEDIR)/sasquatch/$(PROJECTNAME).bin
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-nabokosmos.ihx $(RELEASEDIR)/nabokosmos/$(PROJECTNAME).bin
+
+	$(MAKE) -s clean
+	#Done
+
+$(RELEASEDIR):
+	mkdir -p $(RELEASEDIR)
+	mkdir -p $(RELEASEDIR)/original
+	mkdir -p $(RELEASEDIR)/sasquatch
+	mkdir -p $(RELEASEDIR)/nabokosmos
 
 .PHONY: clean
 clean:
