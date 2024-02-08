@@ -36,18 +36,18 @@ all: $(BASEOBJ) $(LEVELOBJ) $(RELEASEDIR)
 	$(LNK)	-o $(PROJECTNAME)-nabokosmos.ihx $(LNKFLAGS) $(BASEOBJ) binlevels-nabokosmos.rel
 
 	# Convert all .ihx to .bin files in release folder
-	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-original.ihx $(RELEASEDIR)/original/$(PROJECTNAME)bin
-	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-sasquatch.ihx $(RELEASEDIR)/sasquatch/$(PROJECTNAME).bin
-	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-nabokosmos.ihx $(RELEASEDIR)/nabokosmos/$(PROJECTNAME).bin
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-original.ihx $(RELEASEDIR)/original\ \(69\ levels\)/$(PROJECTNAME)bin
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-sasquatch.ihx $(RELEASEDIR)/sasquatch\ \(21\ levels\)/$(PROJECTNAME).bin
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(PROJECTNAME)-nabokosmos.ihx $(RELEASEDIR)/nabokosmos\ \(40\ levels\)/$(PROJECTNAME).bin
 
 	$(MAKE) -s clean
 	#Done
 
 $(RELEASEDIR):
 	mkdir -p $(RELEASEDIR)
-	mkdir -p $(RELEASEDIR)/original
-	mkdir -p $(RELEASEDIR)/sasquatch
-	mkdir -p $(RELEASEDIR)/nabokosmos
+	mkdir -p $(RELEASEDIR)/original\ \(69\ levels\)
+	mkdir -p $(RELEASEDIR)/sasquatch\ \(21\ levels\)
+	mkdir -p $(RELEASEDIR)/nabokosmos\ \(40\ levels\)
 
 .PHONY: clean
 clean:
