@@ -15,9 +15,9 @@ AS				= sdasz80
 LNK				= sdcc
 OBJCOPY			= sdobjcopy
 
-CFLAGS			= -c -mz80 --std-c23 -I $(INCLUDEDIR) --nostdinc --no-std-crt0 --nostdinc --nostdlib
+CFLAGS			= -c -mz80 --std-c23 -I $(INCLUDEDIR) --nostdinc --no-std-crt0 --nostdinc 
 ASFLAGS			= -xlos -g
-LNKFLAGS		= -mz80 -Wl -y --code-loc $(CODE_START) --data-loc $(DATA_START) --no-std-crt0 --nostdlib -Llibsdcc-z80 -lz80.lib $(OBJ)
+LNKFLAGS		= -mz80 -Wl -y --code-loc $(CODE_START) --data-loc $(DATA_START) --no-std-crt0 $(OBJ)
 OBJCOPYFLAGS	= -I ihex -O binary
 
 

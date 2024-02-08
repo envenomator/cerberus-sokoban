@@ -1,9 +1,0 @@
-M:_modslonglong
-F:G$_modslonglong$0_0$0({2}DF,SI:S),Z,0,8,0,0,0
-S:L_modslonglong._modslonglong$numerator$1_0$1({8}SI:S),B,1,4
-S:L_modslonglong._modslonglong$denominator$1_0$1({8}SI:S),B,1,12
-S:L_modslonglong._modslonglong$numeratorneg$1_0$0({2}SI:S),R,0,0,[c,b]
-S:L_modslonglong._modslonglong$denominatorneg$1_0$0({2}SI:S),R,0,0,[e,d]
-S:L_modslonglong._modslonglong$r$1_0$2({8}SI:S),B,1,-24
-S:L_modslonglong._modslonglong$sloc0$0_1$0({8}SI:U),B,1,-8
-S:L_modslonglong._modslonglong$sloc1$0_1$0({8}SI:U),B,1,-16
