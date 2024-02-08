@@ -47,7 +47,7 @@ struct undoitem
 void print_playfieldText(uint8_t x, uint8_t y);
 uint16_t game_getNumLevels(void);
 uint8_t game_readLevels(char *filename);
-void game_sendTileData();
+void game_sendTileData(void);
 void game_saveCerberusPlayerCharacter(void);
 void game_initLevel(uint8_t levels, uint8_t levelid);
 void game_displayLevel(void);

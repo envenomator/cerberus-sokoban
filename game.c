@@ -495,21 +495,16 @@ void displayGRIDTile(uint8_t x, uint8_t y) {
 
 void game_displayLevel(void) {
 	// Paint the entire screen with central oriented level
-	uint8_t width, height;
-	uint8_t levelwidth, levelheight;
 	uint8_t xstart, ystart;
 	uint8_t screenxpos, screenypos;
 
 	xstart = ((MAXWIDTH - currentlevel.width) >> 1);	// GRID coordinate
 	ystart = ((MAXHEIGHT - currentlevel.height) >> 1);	// GRID coordinate
 
-	levelwidth = currentlevel.width;
-	levelheight = currentlevel.height;
-
 	con_cls();
-	for(height = 0; height < levelheight; height++) {
+	for(uint8_t height = 0; height < currentlevel.height; height++) {
 		screenypos = (ystart + height) << 1;
-		for(width = 0; width < levelwidth; width++) {
+		for(uint8_t width = 0; width < currentlevel.width; width++) {
 			screenxpos = (xstart + width) << 1;
 			displayTile(currentlevel.data[height][width], screenxpos, screenypos);
 		}
@@ -517,22 +512,19 @@ void game_displayLevel(void) {
 }
 
 void game_displayMinimap(void) {
-	uint8_t width, height, maxwidth, maxheight;
 	char c,out;
 	
 	// clear out full area
-	for(height = 0; height < MAXHEIGHT; height++) {
+	for(uint8_t height = 0; height < MAXHEIGHT; height++) {
 		con_gotoxy(MINIMAP_XSTART, MINIMAP_YSTART + height);
-		for(width = 0; width < MAXWIDTH; width++) {
+		for(uint8_t width = 0; width < MAXWIDTH; width++) {
 			con_putc(' ');
 		}
 	}
 	// paint minimap
-	maxwidth = currentlevel.width;
-	maxheight = currentlevel.height;
-	for(height = 0; height < maxheight; height++) {
+	for(uint8_t height = 0; height < currentlevel.height; height++) {
 		con_gotoxy(MINIMAP_XSTART, MINIMAP_YSTART + height);
-		for(width = 0; width < maxwidth; width++) {
+		for(uint8_t width = 0; width < currentlevel.width; width++) {
 			c = currentlevel.data[height][width];
 			switch(c) {
 				case '#':

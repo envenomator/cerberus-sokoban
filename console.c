@@ -13,7 +13,7 @@ int putchar(int c) {
     return c;
 }
 
-void con_init()
+void con_init(void)
 {
     console = VIDEOSTART;
     return;
@@ -32,7 +32,7 @@ void con_gotoxy(unsigned char x, unsigned char y)
     return;
 }
 
-void con_cls()
+void con_cls(void)
 {
     for(console = VIDEOSTART; console < VIDEOEND; console++)
     {
@@ -83,14 +83,14 @@ char con_getc_timer(uint16_t threshold)
     return *(BIOS_OUTBOXDATA);      // return the data slot
 }
 
-char con_getc()
+char con_getc(void)
 {
     while(*(BIOS_OUTBOXFLAG) == 0); // blocked wait for the mailbox flag
     *(BIOS_OUTBOXFLAG) = 0;         // acknowlege reception
     return *(BIOS_OUTBOXDATA);      // return the data slot
 }
 
-void con_exit()
+void con_exit(void)
 {
     *(BIOS_INBOXFLAG) = 0x7F;       // request to exit();
     while(1);
@@ -168,7 +168,7 @@ char* con_itoa(int value, char* buffer, int base)
     return reverse(buffer, 0, i - 1);
 }
 
-void con_print_timer()
+void con_print_timer(void)
 {
     char msg[40];
     

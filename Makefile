@@ -2,6 +2,7 @@ STARTADDRESS	:= 0x0205
 DATASTART		:= 0x8000
 SERIALPORT		:= /dev/ttyUSB0
 SEND_SCRIPT		:= ../send.py
+INCLUDEDIR		:= /usr/local/share/sdcc/include
 
 .PHONY:	all
 all:
@@ -11,33 +12,27 @@ all:
 
 	# Compile console.c
 	sdcc -o console.rel \
-		-c --std-c11 -mz80 --debug -I /usr/share/sdcc/include \
+		-c -mz80 --std-c23 -I $(INCLUDEDIR) \
 		--nostdinc --no-std-crt0 --nostdinc --nostdlib \
 		console.c
 	# Compile main.c
 	sdcc -o main.rel \
-		-c -mz80 --debug -I /usr/share/sdcc/include \
+		-c -mz80 --std-c23 -I $(INCLUDEDIR) \
 		--nostdinc --no-std-crt0 --nostdinc --nostdlib \
 		main.c
 	# Compile game.c
 	sdcc -o game.rel \
-		-c -mz80 --debug -I /usr/share/sdcc/include \
+		-c -mz80 --std-c23 -I $(INCLUDEDIR) \
 		--nostdinc --no-std-crt0 --nostdinc --nostdlib \
 		game.c
 		
 	# Link all files
 	sdcc -o main.ihx \
 		-mz80 -Wl -y --code-loc 0x0205 --data-loc $(DATASTART)\
-		--std-c11 -mz80 --debug\
+		--std-c23 \
 		--no-std-crt0 --nostdinc --nostdlib \
 		-Llibsdcc-z80 -lz80.lib \
 		crt0.rel main.rel console.rel game.rel
-#	sdcc -o main.ihx \
-#		-mz80 -Wl -y --code-loc 0x0205 \
-#		--std-c11 -mz80 --debug\
-#		--no-std-crt0 --nostdinc --nostdlib \
-#		-Llibsdcc-z80 -lz80.lib \
-#		crt0.rel main.rel console.rel
 	
 	# Finally, convert ihx to binary
 	sdobjcopy -I ihex -O binary main.ihx main.bin

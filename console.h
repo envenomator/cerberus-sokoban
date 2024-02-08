@@ -20,17 +20,17 @@
 
 typedef volatile unsigned char chardefs[8];             // use as pointer to character definition memory area (0xf000)
                                                         // ex: chardefs *ptr = (chardefs *)0xf000;
-void con_init();                                        // needed before any console IO
+void con_init(void);                                        // needed before any console IO
 void con_init_timer(uint8_t init);
 
 void con_gotoxy(unsigned char x, unsigned char y);
-void con_cls();
+void con_cls(void);
 void con_putc(char c);
 void con_puts(const char *s);
-char con_getc();                                        // blocked wait
+char con_getc(void);                                        // blocked wait
 char con_getc_timer(uint16_t threshold);                // blocket wait with timer and threshold
 char* con_itoa(int value, char* buffer, int base);          // itoa tool. right-aligns with %3d
-void con_exit();
-void con_print_timer();
+void con_exit(void);
+void con_print_timer(void);
 
 #endif
